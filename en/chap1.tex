@@ -1,5 +1,45 @@
-\chapter{Title of the first chapter}
+\chapter{Subfitness}
 
-\section{Title of the first subchapter of the first chapter}
+\section{The $T_1$ axiom}
 
-\section{Title of the second subchapter of the first chapter}
+\begin{df}[$T_1$]
+  A topological space $(X, \tau)$ is said to be a {\sl $T_1$-space\/} (or,
+  equivalently, to satisfy the {\sl $T_1$ axiom)\/} if the following assertion
+  holds:
+
+  \begin{center}
+    For any $x \ne y$ from $X$ there exists an open set $U \in \tau$ such that $x
+    \in U \not\owns y$.
+  \end{center}
+\end{df}
+
+It is noteworthy to mention the possibility of formulating $T_1$-counterparts
+in the context of pointless topology.
+However, such efforts tend to enforce {\sl spatiality\/} --- a property not
+always desirable.
+Instead, we may introduce a weaker yet still beneficial condition: the subfit
+axiom.
+
+\section{The subfit axiom}
+
+\begin{df}[Sfit]
+  A locale $L$ is said to be {\sl subfit\/} whenever
+
+  \[
+    a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
+    \vee c.
+  \]
+\end{df}
+
+Similarly, subfitness of a topological space $(X, \Omega(X))$ amounts to
+requiring that the locale $\Omega(X)$ is subfit.
+
+Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
+
+\begin{prop}
+  Every $T_1$-space is subfit.
+\end{prop}
+
+\begin{proof}
+  done
+\end{proof}

@@ -64,7 +64,22 @@
 \addcontentsline{toc}{chapter}{#1}
 }
 
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}  % přidal Duc Trung Ha
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% přidal Karel Ha
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem*{df}{Definition}	% Definice nečíslujeme, proto "*"
+\newtheorem{exmpl}{Example}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -240,6 +255,7 @@ pointless topology, pointfree topology, separation axioms, locale, frame
 
 %%% Jednotlivé kapitoly práce jsou pro přehlednost uloženy v samostatných souborech
 \include{preface}
+\include{prelim}
 \include{chap1}
 \include{chap2}
 
