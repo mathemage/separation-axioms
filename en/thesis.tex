@@ -31,6 +31,7 @@
 %% Ostatní balíčky
 \usepackage{graphicx}
 \usepackage{amsthm}
+\usepackage{amssymb}
 
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
@@ -79,6 +80,9 @@
 
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{Remark}
+
+\renewcommand{\qedsymbol}{$\boxtimes$}
+%\renewcommand{\qedsymbol}{$\blacksquare$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -191,7 +195,7 @@ signature of the author
 \setlength\parskip{5mm}
 
 Název práce:
-Separační axiomy
+Oddělovací axiomy
 % přesně dle zadání
 
 Autor:
@@ -210,7 +214,7 @@ Abstrakt:
 
 Klíčová slova:
 % 3 až 5 klíčových slov
-bezbodová topologie, separační axiomy, locale, frame
+bezbodová topologie, oddělovací axiomy, locale, frame
 
 \vss}\nobreak\vbox to 0.49\vsize{
 \setlength\parindent{0mm}
@@ -238,7 +242,7 @@ Abstract:
 
 Keywords:
 % 3 až 5 klíčových slov v angličtině
-pointless topology, pointfree topology, separation axioms, locale, frame
+pointless topology, point-free topology, separation axioms, locale, frame
 
 \vss}
 

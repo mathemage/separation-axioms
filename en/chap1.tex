@@ -8,10 +8,24 @@
   holds:
 
   \begin{center}
-    For any $x \ne y$ from $X$ there exists an open set $U \in \tau$ such that $x
+    for any $x \ne y$ from $X$ there exists an open set $U \in \tau$ such that $x
     \in U \not\owns y$.
   \end{center}
 \end{df}
+
+The next lemma will be of great usefulness later in this chapter.
+
+\begin{lem}
+  A topological space $X$ is $T_1$ iff any of its finite subsets is closed.
+\end{lem}
+
+\begin{proof}
+  Choose an arbitrary $S \Subset X$.
+
+  $\Rightarrow$:
+
+  $\Leftarrow$:
+\end{proof}
 
 It is noteworthy to mention the possibility of formulating $T_1$-counterparts
 in the context of pointless topology.
@@ -41,5 +55,6 @@ Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
 \end{prop}
 
 \begin{proof}
-  done
+  For each $T_1$-space $X$ the locale $\Omega(X)$ is subfit.
+  Indeed: for open $A \not\subseteq B$ there exists an $x \in A \setminus B$.
 \end{proof}
