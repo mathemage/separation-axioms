@@ -85,22 +85,35 @@ which the subfitness takes in~topological spaces.
 \end{prop}
 
 \begin{proof}
-  $\Rightarrow$: Trivially, $F = \emptyset$ is closed.
-  
-  If $z\not\in F$, we obtain, granted by the $T_1$ axiom, $U_x$
-  for each $x\in F$ such that $z\in U_x\not\owns x$.
-  We denote $U := \bigcap_{x\in F}U_x$.
-  Then $U$ is, as a finite intersection of~open sets, open itself, and
-  moreover, $z\in U$ and $U \cap F = \emptyset$.
-  Thus, $z\not\in \overline{F}$, and consequently, $F = \overline{F}$ is
-  closed.
+  Let us write $U$ for $X\setminus B$ and $V$ for $X\setminus A$.
+  Obviously,
+  \[
+    A\subseteq B \; \Leftrightarrow \; U\subseteq V,
+  \]
+  which can be rewritten as a useful statement
+  \[
+    A\not\subseteq B \; \Leftrightarrow \; U\not\subseteq V.
+  \]
 
-  $\Leftarrow$: Let $E$ and $F$ denote $X\setminus U$ and $X\setminus V$,
-  respectively.
-  Provided that open $U\not\subseteq V$, we have $F\not\subseteq E$, both
-  of them closed.
-  Therefore, the difference $F \setminus E$ is non-empty and contains a closed
-  $C$.
+  $\Rightarrow$: If $A\setminus B \ne \emptyset$, then $A\not\subseteq B$.
+  Whence, $U\not\subseteq V$ and, using subfitness, we gain an~open $W$ with
+  the property $U \cup W = X \ne V \cup W$. 
+  Without loss of generality, we may assume $V\subseteq W$: for the open set $V
+  \cup W$ meets the same requirements.
 
-  Considering $W := X \setminus C$, we discover $W \cup U$ and
+  With $C := X \setminus W$ one has the desired closed set in~$A\setminus B$.
+  Firstly, $V\subseteq W$ implies $C\subseteq A$.
+  Secondly, $U\not\subseteq W$ (since otherwise $W = U \cup W = X$ and,
+  in~conclusion, $V \cup W = X$).
+  Ergo, $C\not\subseteq B$.
+
+  $\Leftarrow$: Considering $U$ and $V$ to be open, the complements $A$ and $B$
+  are closed.
+  Provided that $U\not\subseteq V$, we have $A\not\subseteq B$.
+  Therefore, $A \setminus B$ as a~non-empty difference contains a~closed
+  set~$C$.
+
+  Setting $W := X \setminus C$, we gather that $W \cup U = X$ (because $U =
+  \minus B \supseteq C$) and finally $W \cup V \ne X$ (as $C\subseteq A =
+  \minus V$ leads to $C\not\subseteq W \cup V$).
 \end{proof}
