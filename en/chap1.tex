@@ -15,24 +15,30 @@
 The next lemma will be of great usefulness later in this chapter.
 
 \begin{lem} \label{T1Char}
-  A topological space $X$ is $T_1$ iff any of its finite subsets is closed.
+  A topological space $X$ is $T_1$ iff $\overline{\{x\}} = \{x\}$ for any $x\in
+  X$.
 \end{lem}
 
 \begin{proof}
-  Let $F \Subset X$.
+  $\Rightarrow$: If $y\not\in \{x\}$, we obtain, granted by the $T_1$ axiom,
+  an open $U$ such that $y\in U\not\owns x$.
+  In other words, an open set containing $y$ though not intersecting $\{x\}$.
+  Thus, $y\not\in \overline{\{x\}}$, and consequently, $\{x\} =
+  \overline{\{x\}}$.
 
-  $\Rightarrow$: Trivially, $F = \emptyset$ is closed.
-  
-  If $z\not\in F$, we obtain, granted by the $T_1$ axiom, $U_x$
-  for each $x\in F$ such that $z\in U_x\not\owns x$.
-  We denote $U := \bigcap_{x\in F}U_x$.
-  Then $U$ is, as a finite intersection of~open sets, open itself, and
-  moreover, $z\in U$ and $U \cap F = \emptyset$.
-  Thus, $z\not\in \overline{F}$, and consequently, $F = \overline{F}$ is
-  closed.
+  $\Leftarrow$: With open $U:= X\setminus \{y\}$ we can easily verify the
+  $T_1$.
+\end{proof}
 
-  $\Leftarrow$: As the finite $\{y\}$ is closed, we have $x\in X\setminus
-  \{y\} \not\owns y$ for open $X\setminus \{y\}$.
+\begin{cor}
+  A space is $T_1$ iff every of its finite subsets is closed.
+\end{cor}
+
+\begin{proof}
+  The aforementioned subset is a finite union of its elements -- each of them closed.
+  Hence, also closed itself.
+
+  The other implication is trivial.
 \end{proof}
 
 It is noteworthy to mention the possibility of formulating $T_1$-counterparts
@@ -67,4 +73,34 @@ Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
   By Lemma~\ref{T1Char}\thinspace, we have an open $X\setminus \{x\}$.
   Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus \{x\}) =
   X \ne B \cup (X\setminus \{x\})$.
+\end{proof}
+
+Note that the reverse implication does not hold.
+In search of a convenient counterexample we need to further discuss the form
+which the subfitness takes in~topological spaces.
+
+\begin{prop}
+  A space $X$ is subfit iff any non-empty difference $A\setminus B$ of~closed
+  sets contains a non-empty closed set.
+\end{prop}
+
+\begin{proof}
+  $\Rightarrow$: Trivially, $F = \emptyset$ is closed.
+  
+  If $z\not\in F$, we obtain, granted by the $T_1$ axiom, $U_x$
+  for each $x\in F$ such that $z\in U_x\not\owns x$.
+  We denote $U := \bigcap_{x\in F}U_x$.
+  Then $U$ is, as a finite intersection of~open sets, open itself, and
+  moreover, $z\in U$ and $U \cap F = \emptyset$.
+  Thus, $z\not\in \overline{F}$, and consequently, $F = \overline{F}$ is
+  closed.
+
+  $\Leftarrow$: Let $E$ and $F$ denote $X\setminus U$ and $X\setminus V$,
+  respectively.
+  Provided that open $U\not\subseteq V$, we have $F\not\subseteq E$, both
+  of them closed.
+  Therefore, the difference $F \setminus E$ is non-empty and contains a closed
+  $C$.
+
+  Considering $W := X \setminus C$, we discover $W \cup U$ and
 \end{proof}
