@@ -6,39 +6,46 @@
   A topological space $(X, \tau)$ is said to be a {\sl $T_1$-space\/} (or,
   equivalently, to satisfy the {\sl $T_1$ axiom)\/} if the following assertion
   holds:
-
   \begin{center}
-    for any $x \ne y$ from $X$ there exists an open set $U \in \tau$ such that $x
-    \in U \not\owns y$.
+    for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
+    $x\in U \not\owns y$.
   \end{center}
 \end{df}
 
 The next lemma will be of great usefulness later in this chapter.
 
-\begin{lem}
+\begin{lem} \label{T1Char}
   A topological space $X$ is $T_1$ iff any of its finite subsets is closed.
 \end{lem}
 
 \begin{proof}
-  Choose an arbitrary $S \Subset X$.
+  Let $F \Subset X$.
 
-  $\Rightarrow$:
+  $\Rightarrow$: Trivially, $F = \emptyset$ is closed.
+  
+  If $z\not\in F$, we obtain, granted by the $T_1$ axiom, $U_x$
+  for each $x\in F$ such that $z\in U_x\not\owns x$.
+  We denote $U := \bigcap_{x\in F}U_x$.
+  Then $U$ is, as a finite intersection of~open sets, open itself, and
+  moreover, $z\in U$ and $U \cap F = \emptyset$.
+  Thus, $z\not\in \overline{F}$, and consequently, $F = \overline{F}$ is
+  closed.
 
-  $\Leftarrow$:
+  $\Leftarrow$: As the finite $\{y\}$ is closed, we have $x\in X\setminus
+  \{y\} \not\owns y$ for open $X\setminus \{y\}$.
 \end{proof}
 
 It is noteworthy to mention the possibility of formulating $T_1$-counterparts
 in the context of pointless topology.
-However, such efforts tend to enforce {\sl spatiality\/} --- a property not
-always desirable.
-Instead, we may introduce a weaker yet still beneficial condition: the subfit
-axiom.
+However, such efforts tend to enforce {\sl spatiality\/}: a property not always
+desirable.
+Instead, we may introduce a weaker yet still beneficial condition: {\sl the
+subfit axiom\/}.
 
 \section{The subfit axiom}
 
 \begin{df}[Sfit]
   A locale $L$ is said to be {\sl subfit\/} whenever
-
   \[
     a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
     \vee c.
@@ -55,6 +62,9 @@ Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
 \end{prop}
 
 \begin{proof}
-  For each $T_1$-space $X$ the locale $\Omega(X)$ is subfit.
-  Indeed: for open $A \not\subseteq B$ there exists an $x \in A \setminus B$.
+  For each $T_1$-space $X$ the corresponding locale $\Omega(X)$ is subfit.
+  Indeed: for open $A\not\subseteq B$ there exists an $x\in A \setminus B$.
+  By Lemma~\ref{T1Char}\thinspace, we have an open $X\setminus \{x\}$.
+  Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus \{x\}) =
+  X \ne B \cup (X\setminus \{x\})$.
 \end{proof}
