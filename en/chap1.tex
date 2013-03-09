@@ -81,7 +81,7 @@ which the subfitness takes in~topological spaces.
 
 \begin{prop}
   A space $X$ is subfit iff any non-empty difference $A\setminus B$ of~closed
-  sets contains a non-empty closed set.
+  sets contains a non-void closed set.
 \end{prop}
 
 \begin{proof}
@@ -96,12 +96,13 @@ which the subfitness takes in~topological spaces.
   \]
 
   $\Rightarrow$: If $A\setminus B \ne \emptyset$, then $A\not\subseteq B$.
-  Whence, $U\not\subseteq V$ and, using subfitness, we gain an~open $W$ with
-  the property $U \cup W = X \ne V \cup W$. 
+  Whence, $U\not\subseteq V$ and, using subfitness, we gain an~open $W \ne X$
+  with the property $U \cup W = X \ne V \cup W$. 
   Without loss of generality, we may assume $V\subseteq W$: for the open set $V
   \cup W$ meets the same requirements.
 
-  With $C := X \setminus W$ one has the desired closed set in~$A\setminus B$.
+  With $C := X \setminus W$ one has the desired non-void closed set
+  in~$A\setminus B$.
   Firstly, $V\subseteq W$ implies $C\subseteq A$.
   Secondly, $U\not\subseteq W$ (since otherwise $W = U \cup W = X$ and,
   in~conclusion, $V \cup W = X$).
@@ -111,9 +112,9 @@ which the subfitness takes in~topological spaces.
   are closed.
   Provided that $U\not\subseteq V$, we have $A\not\subseteq B$.
   Therefore, $A \setminus B$ as a~non-empty difference contains a~closed
-  set~$C$.
+  set~$C \ne \emptyset$.
 
   Setting $W := X \setminus C$, we gather that $W \cup U = X$ (because $U =
   \minus B \supseteq C$) and finally $W \cup V \ne X$ (as $C\subseteq A =
-  \minus V$ leads to $C\not\subseteq W \cup V$).
+  \minus V$ leads to non-empty $C\not\subseteq W \cup V$).
 \end{proof}
