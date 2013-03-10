@@ -3,8 +3,8 @@
 \section{The $T_1$ axiom}
 
 \begin{df}[$T_1$]
-  A topological space $(X, \tau)$ is said to be a {\sl $T_1$-space\/} (or,
-  equivalently, to satisfy the {\sl $T_1$ axiom)\/} if the following assertion
+  A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or,
+  equivalently, to satisfy the \emph{$T_1$ axiom)\/} if the following assertion
   holds:
   \begin{center}
     for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
@@ -15,19 +15,20 @@
 The next lemma will be of great usefulness later in this chapter.
 
 \begin{lem} \label{T1Char}
-  A topological space $X$ is $T_1$ iff $\overline{\{x\}} = \{x\}$ for any $x\in
-  X$.
+  A topological space $X$ is $T_1$ iff $\overline{\left\{x\right\}} =
+  \left\{x\right\}$ for any $x\in X$.
 \end{lem}
 
 \begin{proof}
-  $\Rightarrow$: If $y\not\in \{x\}$, we obtain, granted by the $T_1$ axiom,
-  an open $U$ such that $y\in U\not\owns x$.
-  In other words, an open set containing $y$ though not intersecting $\{x\}$.
-  Thus, $y\not\in \overline{\{x\}}$, and consequently, $\{x\} =
-  \overline{\{x\}}$.
+  $\Rightarrow$: If $y\not\in \left\{x\right\}$, we obtain, granted by the
+  $T_1$ axiom, an open $U$ such that $y\in U\not\owns x$.
+  In other words, an open set containing $y$ though not intersecting
+  $\left\{x\right\}$.
+  Thus, $y\not\in \overline{\left\{x\right\}}$, and consequently,
+  $\left\{x\right\} = \overline{\left\{x\right\}}$.
 
-  $\Leftarrow$: With open $U:= X\setminus \{y\}$ we can easily verify the
-  $T_1$.
+  $\Leftarrow$: With open $U:= X\setminus \left\{y\right\}$ we can easily
+  verify the $T_1$.
 \end{proof}
 
 \begin{cor}
@@ -35,23 +36,24 @@ The next lemma will be of great usefulness later in this chapter.
 \end{cor}
 
 \begin{proof}
-  The aforementioned subset is a finite union of its elements -- each of them closed.
+  The aforementioned subset is a finite union of its elements---each of them
+  closed.
   Hence, also closed itself.
 
   The other implication is trivial.
 \end{proof}
 
 It is noteworthy to mention the possibility of formulating $T_1$-counterparts
-in the context of pointless topology.
-However, such efforts tend to enforce {\sl spatiality\/}: a property not always
-desirable.
+in~the~context of pointless topology.
+Nonetheless, such efforts tend to enforce {\sl spatiality\/}: a property not
+always desirable.
 Instead, we may introduce a weaker yet still beneficial condition: {\sl the
 subfit axiom\/}.
 
 \section{The subfit axiom}
 
 \begin{df}[Sfit]
-  A locale $L$ is said to be {\sl subfit\/} whenever
+  A locale $L$ is said to be \emph{subfit\/} whenever
   \[
     a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
     \vee c.
@@ -63,16 +65,17 @@ requiring that the locale $\Omega(X)$ is subfit.
 
 Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
 
-\begin{prop}
+\begin{prop} \label{T1->Sfit}
   Every $T_1$-space is subfit.
 \end{prop}
 
 \begin{proof}
   For each $T_1$-space $X$ the corresponding locale $\Omega(X)$ is subfit.
   Indeed: for open $A\not\subseteq B$ there exists an $x\in A \setminus B$.
-  By Lemma~\ref{T1Char}\thinspace, we have an open $X\setminus \{x\}$.
-  Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus \{x\}) =
-  X \ne B \cup (X\setminus \{x\})$.
+  By Lemma~\ref{T1Char}\thinspace, we have an open $X\setminus
+  \left\{x\right\}$.
+  Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus
+  \left\{x\right\}) = X \ne B \cup (X\setminus \left\{x\right\})$.
 \end{proof}
 
 Note that the reverse implication does not hold.
@@ -90,16 +93,16 @@ which the subfitness takes in~topological spaces.
   \[
     A\subseteq B \; \Leftrightarrow \; U\subseteq V,
   \]
-  which can be rewritten as a useful statement
+  which can be rewritten as a useful equivalence
   \[
     A\not\subseteq B \; \Leftrightarrow \; U\not\subseteq V.
   \]
 
-  $\Rightarrow$: If $A\setminus B \ne \emptyset$, then $A\not\subseteq B$.
+  $\Rightarrow$: If $A\setminus B \ne \none$, then $A\not\subseteq B$.
   Whence, $U\not\subseteq V$ and, using subfitness, we gain an~open $W \ne X$
   with the property $U \cup W = X \ne V \cup W$. 
   Without loss of generality, we may assume $V\subseteq W$: for the open set $V
-  \cup W$ meets the same requirements.
+  \cup W$ meets the same requirements, as well.
 
   With $C := X \setminus W$ one has the desired non-void closed set
   in~$A\setminus B$.
@@ -112,9 +115,37 @@ which the subfitness takes in~topological spaces.
   are closed.
   Provided that $U\not\subseteq V$, we have $A\not\subseteq B$.
   Therefore, $A \setminus B$ as a~non-empty difference contains a~closed
-  set~$C \ne \emptyset$.
+  set~$C \ne \none$.
 
   Setting $W := X \setminus C$, we gather that $W \cup U = X$ (because $U =
   \minus B \supseteq C$) and finally $W \cup V \ne X$ (as $C\subseteq A =
   \minus V$ leads to non-empty $C\not\subseteq W \cup V$).
 \end{proof}
+
+\begin{rem}
+  The previous characterization of (Sfit) gives rise to~another proof of
+  Proposition~\ref{T1->Sfit}\thinspace:
+  any singleton in a non-empty difference is, by~\ref{T1Char}\thinspace,
+  already closed.
+\end{rem}
+
+Now we will present the promised example of a subfit non-$T_1$-space.
+
+\begin{exmpl}
+  Let us have $X = \N \cup \left\{\infty\right\}$ and $\theta = \left\{
+  F\subseteq X \st X\setminus F \Subset \N \right\} \cup \left\{ \none
+  \right\}$.
+  That is, $\mathcal{X} := (X, \theta)$ is the topological space where closed
+  sets consist of~finite sets of~natural numbers and of~the whole space $X$.
+
+  It is not $T_1$ for the one-point set $\left\{ \infty \right\}$ is not
+  closed (see Lemma~\ref{T1Char}\thinspace).
+
+  On the other hand, there always is a closed $C \subseteq A\setminus B$ for
+  arbitrary closed $A\not\subseteq B$:
+  if both are finite, so is their difference.
+  Otherwise one of them equals the whole $X$ and---since $A\setminus X$ would
+  be empty---it has to be the $A$.
+  Then, apparently, a singleton from $\N\setminus B \subseteq X\setminus B$ is
+  again closed, and thusly, the subfitness of~$\mathcal{X}$ is evident.
+\end{exmpl}
