@@ -2,15 +2,17 @@
 
 \section{The $T_1$ axiom}
 
-\begin{df}[$T_1$]
-  A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or,
-  equivalently, to satisfy the \emph{$T_1$ axiom)\/} if the following assertion
-  holds:
-  \begin{center}
-    for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
-    $x\in U \not\owns y$.
-  \end{center}
-\end{df}
+\begin{framed}
+  \begin{df}[$T_1$]
+    A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or,
+    equivalently, to satisfy the \emph{$T_1$ axiom\/}) if the following assertion
+    holds:
+    \begin{center} \it
+      for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
+      $x\in U \not\owns y$.
+    \end{center}
+  \end{df}
+\end{framed}
 
 The next lemma will be of great usefulness later in this chapter.
 
@@ -48,17 +50,19 @@ in~the~context of pointless topology.
 Nonetheless, such efforts tend to enforce {\sl spatiality\/}: a property not
 always desirable.
 Instead, we may introduce a weaker yet still beneficial condition: {\sl the
-subfit axiom\/}.
+subfitness\/}.
 
 \section{The subfit axiom}
 
-\begin{df}[Sfit]
-  A locale $L$ is said to be \emph{subfit\/} whenever
-  \[
-    a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
-    \vee c.
-  \]
-\end{df}
+\begin{framed}
+  \begin{df}[Sfit]
+    A locale $L$ is said to be \emph{subfit\/} whenever
+    \[
+      a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
+      \vee c.
+    \]
+  \end{df}
+\end{framed}
 
 Similarly, subfitness of a topological space $(X, \Omega(X))$ amounts to
 requiring that the locale $\Omega(X)$ is subfit.
@@ -129,7 +133,7 @@ which the subfitness takes in~topological spaces.
   already closed.
 \end{rem}
 
-Now we will present the promised example of a subfit non-$T_1$-space.
+Now we will demonstrate the promised example of a subfit non-$T_1$-space.
 
 \begin{exmpl}
   Let us have $X = \N \cup \left\{\infty\right\}$ and $\theta = \left\{
@@ -147,5 +151,5 @@ Now we will present the promised example of a subfit non-$T_1$-space.
   Otherwise one of them equals the whole $X$ and---since $A\setminus X$ would
   be empty---it has to be the $A$.
   Then, apparently, a singleton from $\N\setminus B \subseteq X\setminus B$ is
-  again closed, and thusly, the subfitness of~$\mathcal{X}$ is evident.
+  again closed, and thusly, the subfitness of~$\mathcal{X}$ becomes evident.
 \end{exmpl}

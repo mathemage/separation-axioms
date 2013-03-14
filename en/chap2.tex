@@ -1,5 +1,45 @@
-\chapter{Title of the second chapter}
+\chapter{Weak and strong Hausdorff}
 
-\section{Title of the first subchapter of the second chapter}
+In this chapter we will contemplate point-free analogies of the $T_2$
+axiom---a~separation not trivial to imitate in frames.
+Rather, two resembling conditions will be presented.
 
-\section{Title of the second subchapter of the second chapter}
+\section{The $T_2$ axiom}
+
+\begin{framed}
+  \begin{df}[$T_2$]
+    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (or, as well,
+    the~\emph{$T_2$-space\/}) whenever
+    \begin{center} \it
+      for any $x \ne y$ from~$X$ there are open $U\owns x$ and $V\owns y$
+      disjoint from~each other.
+    \end{center}
+  \end{df}
+\end{framed}
+
+\section{The Dowker-Strauss adaptation}
+
+\begin{framed}
+  \begin{df}[$S_2'$]
+    A locale $L$ satisfies the $S_2'$ axiom if for any $a, b \ne 1$ we have
+    \[
+      a \vee b = 1 \qquad \Rightarrow \qquad \exists u\not\leq a, v\not\leq
+      b: \quad u \wedge v = 0.
+    \]
+  \end{df}
+\end{framed}
+
+This condition---introduced by Dowker and Strauss in 1972~\cite{ds72}---
+
+\begin{framed}
+  \begin{df}[DS-Haus]
+    A locale $L$ is considered to be \emph{weakly Hausdorff\/} (also
+    \emph{DS-Hausdorff} as in \emph{Dowker-Straus-Hausdorff}) if
+    \[
+      a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
+      u\not\leq a, v\not\leq b: \quad u \wedge v = 0.
+    \]
+  \end{df}
+\end{framed}
+
+\section{Isbell's approach}
