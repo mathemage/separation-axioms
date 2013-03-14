@@ -1,7 +1,7 @@
 \chapter{Weak and strong Hausdorff}
 
 In this chapter we will contemplate point-free analogies of the $T_2$
-axiom---a~separation not trivial to imitate in frames.
+axiom---a~separation slightly intricate to imitate in frames.
 Rather, two resembling conditions will be presented.
 
 \section{The $T_2$ axiom}
@@ -17,7 +17,15 @@ Rather, two resembling conditions will be presented.
   \end{df}
 \end{framed}
 
-\section{The Dowker-Strauss adaptation}
+\begin{rem} \label{T2->T1}
+  Trivially from the definitions every $T_2$-space is, additionally, $T_1$.
+  Thus, the sets of the form $X\setminus \left\{x\right\}$ are among the
+  elements of $\Omega(X)$ (viz \ref{T1Char}).
+\end{rem}
+
+\section{The Dowker-Strauss approach}
+
+In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
 
 \begin{framed}
   \begin{df}[$S_2'$]
@@ -29,7 +37,25 @@ Rather, two resembling conditions will be presented.
   \end{df}
 \end{framed}
 
-This condition---introduced by Dowker and Strauss in 1972~\cite{ds72}---
+As we are about to comprehend, it suitably ``mimics'' the Hausdorff property.
+
+\begin{prop} \label{S2'->Haus}
+  For $S_2'$-locale $\Omega(X)$ the corresponding space $X$ is always
+  Hausdorff.
+\end{prop}
+
+\begin{proof}
+  Recall~\ref{T2->T1}.
+  Having open sets $a := X \setminus \left\{x\right\}$ and $b := X \setminus
+  \left\{y\right\}$ with evident $a \cup b = X$, we acquire the $u$, $v$ from
+  the $(S_2')$ definition.
+  Since $u\not\subseteq X\setminus \left\{x\right\}$, the element $x$ has to
+  belong to $u$.
+  By symmetry, also $y \in v$.
+\end{proof}
+
+For our purposes, nevertheless, $S_2'$ will be replaced by a~somewhat weaker
+description:
 
 \begin{framed}
   \begin{df}[DS-Haus]
@@ -42,4 +68,15 @@ This condition---introduced by Dowker and Strauss in 1972~\cite{ds72}---
   \end{df}
 \end{framed}
 
-\section{Isbell's approach}
+\begin{rem}
+  The analogous observation as in~Proposition~\ref{S2'->Haus} holds:
+  because
+  \[
+    (X \setminus \left\{x\right\}) \cup (X \setminus \left\{y\right\}) = X
+    \not\in \left\{X \setminus \left\{x\right\}, X \setminus \left\{y\right\}
+    \right\},
+  \]
+  for the rest of the proof we can easily proceed in the same way.
+\end{rem}
+
+\section{Isbell's adaptation}
