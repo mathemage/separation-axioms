@@ -81,7 +81,8 @@ description:
 
 \section{Isbell's adaptation}
 
-For the sake of future clarity, we reveal another characterization of $T_2$:
+For the sake of future clarity, we now reveal another characterization of
+$T_2$:
 
 \begin{prop}
   A topological space $X$ is Hausdorff space if and only if the~diagonal
@@ -93,10 +94,10 @@ For the sake of future clarity, we reveal another characterization of $T_2$:
 
   $\Rightarrow:$ Any element $(x, y)\not\in \Delta$, that means $x \ne y$, is
   separable from $\Delta$:
-  by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$ and $V$
-  from the $(T2)$ definition.
-  Thence, $(x, y)\not\in \overline{\Delta}$, and following that,
-  $\Delta = \overline{\Delta}$ is closed.
+  namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$
+  and $V$ from the definition of~$(T_2)$.
+  Thence, $(x, y)\not\in \overline{\Delta}$ concludes to $\Delta =
+  \overline{\Delta}$, which is closed.
 
   $\Leftarrow:$ Choose $x \ne y$.
   In such a case, we get a $W\owns (x, y)$ from $\Omega(X\times X)$ fulfilling
@@ -116,6 +117,14 @@ For the sake of future clarity, we reveal another characterization of $T_2$:
   are disjoint from each other.
 \end{proof}
 
+Most likely, the just presented equivalence was the motivation for Isbell's
+point-free approach to the $T_2$ axiom in~\cite{isbell72}:
+Hausdorff locales are exactly the ones where we have the diagonal (recall %\ref
+\[
+  \Delta: L \to L \oplus L
+\]
+as a closed localic map.
+
 \begin{framed}
   \begin{df}[I-Haus]
     A locale $L$ is considered \emph{strongly Hausdorff\/} (equally
@@ -125,3 +134,11 @@ For the sake of future clarity, we reveal another characterization of $T_2$:
     \]
   \end{df}
 \end{framed}
+
+\begin{prop}
+  The (I-Haus) implies the (DS-Haus).
+\end{prop}
+(Hence, the corresponding adjectives in the alternative names.)
+\begin{proof}
+  Trivial.
+\end{proof}
