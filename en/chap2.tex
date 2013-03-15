@@ -37,7 +37,7 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
   \end{df}
 \end{framed}
 
-As we are about to comprehend, it suitably ``mimics'' the Hausdorff property.
+As we are about to perceive, it suitably ``mimics'' the Hausdorff property.
 
 \begin{prop} \label{S2'->Haus}
   For $S_2'$-locale $\Omega(X)$ the corresponding space $X$ is always
@@ -70,13 +70,58 @@ description:
 
 \begin{rem}
   The analogous observation as in~Proposition~\ref{S2'->Haus} holds:
-  because
+  due to
   \[
     (X \setminus \left\{x\right\}) \cup (X \setminus \left\{y\right\}) = X
     \not\in \left\{X \setminus \left\{x\right\}, X \setminus \left\{y\right\}
     \right\},
   \]
-  for the rest of the proof we can easily proceed in the same way.
+  the rest of the proof can easily be finished in almost the same way.
 \end{rem}
 
 \section{Isbell's adaptation}
+
+For the sake of future clarity, we reveal another characterization of $T_2$:
+
+\begin{prop}
+  A topological space $X$ is Hausdorff space if and only if the~diagonal
+  $\left\{(x, x) \st x\in X \right\}$ is closed.
+\end{prop}
+
+\begin{proof}
+  Let $\Delta$ stand for the mentioned diagonal.
+
+  $\Rightarrow:$ Any element $(x, y)\not\in \Delta$, that means $x \ne y$, is
+  separable from $\Delta$:
+  by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$ and $V$
+  from the $(T2)$ definition.
+  Thence, $(x, y)\not\in \overline{\Delta}$, and following that,
+  $\Delta = \overline{\Delta}$ is closed.
+
+  $\Leftarrow:$ Choose $x \ne y$.
+  In such a case, we get a $W\owns (x, y)$ from $\Omega(X\times X)$ fulfilling
+  $W \cap \Delta = \none$.
+  Without loss of generality, let $W$ be from basis.
+  That is, $W$ is a~finite intersection
+  \[
+    \bigcap_{i=1}^m p_1^{-1}[U_i] \cap \bigcap_{j=1}^n p_2^{-1}[V_i] =
+    p_1^{-1}[\bigcap_{i=1}^m U_i] \cap p_2^{-1}[\bigcap_{j=1}^n V_i],
+  \]
+  further denoted only by $p_1^{-1}[U] \cap p_2^{-1}[V]$.
+
+  Moreover, it is not possible for $W$ to be of the plain form $p_i^{-1}[U]$
+  for $i = 1, 2$;
+  since otherwise $p_i^{-1}[U] \cap \Delta \ne \none$, a contradiction.
+  Following $W \cap \Delta = \none$, the open sets $U\owns x$ and $V\owns y$
+  are disjoint from each other.
+\end{proof}
+
+\begin{framed}
+  \begin{df}[I-Haus]
+    A locale $L$ is considered \emph{strongly Hausdorff\/} (equally
+    \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
+    \[
+      \Delta[L] = \uparr d_L
+    \]
+  \end{df}
+\end{framed}
