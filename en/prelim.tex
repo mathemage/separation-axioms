@@ -17,9 +17,24 @@ way.
 \subsection*{Category theory}
 
 \begin{itemize}
-\item A \emph{category} is a
-\item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a
+\item A \emph{category} is a collection of objects and morphisms \ldots
+\item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
+$\mathcal{C}$ is the category \ldots
+\item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a \ldots
+Similarly, a \emph{coproduct} is a product in the opposite category.
+\item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
+J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
 \end{itemize}
+
+\begin{exmpl} \label{diag-in-Loc}
+  The diagonal localic map $\Delta\colon L \to L \oplus L$ in {\bf Loc} is
+  given by formula
+  \[
+    \Delta(a) = \left\{ (x, y) \st x \wedge y \leq a \right\},
+  \]
+  as it is explained in Corollary IV.5.5.2 of Picado and Pultr
+  \cite{picado-pultr12}.
+\end{exmpl}
 
 \subsection*{Point-set topology}
 
@@ -36,7 +51,7 @@ Some basic notions and facts about classical topology:
   $\mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}$
   denotes its subbasis, is the product of topological spaces $\left( X_i
   \right)_{i\in J}$;
-  more precisely, the projections $\left( p_i: \left(\prod_{i\in J} X_i,
+  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
   \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
   constitute the product in~the~category~{\bf Top}.
 \end{fact}
@@ -48,8 +63,12 @@ Some basic notions and facts about classical topology:
 \item A \emph{frame homomorphism} is a
 The corresponding category will be called {\bf Frm}.
 \item A \emph{locale} is a
-\item A \emph{localic map} is a 
-The corresponding category will be called {\bf Loc}.
+\item A \emph{localic map} is a \ldots
+We will write {\bf Loc} for the category of~locales and localic maps.
+\item A \emph{sublocale} $S$ is a \ldots
+\item A \emph{closed sublocale} $S$ is a \ldots
+Besides, the \emph{closure} of $S$ is the least closed sublocale containing $S$.
+Since \ldots On the other hand, \ldots
 \item Let $\bigoplus_{i\in J} L_i$ designate a \emph{product} in {\bf Loc} (and
 \emph{coproduct} in {\bf Frm}); $L \oplus M$, $L_1 \oplus\cdots\oplus L_n$, etc.
 for finite cases.
@@ -65,8 +84,8 @@ For full details consult Chapter IV of Picado and Pultr \cite{picado-pultr12}.
 
 In the whole text we will omit the $T_0$ axiom, that is, we will assume all
 topological spaces to be $T_0$-spaces.
-Specifically, every topological space $(X, \tau)$ is considered to always
-satisfy the condition
+Accurately, every topological space $(X, \tau)$ is considered to always satisfy
+the condition
 \begin{center} \it
   for any $x \ne y$ from $X$ there is an open set $U \in \tau$ such that $x \in U
   \not\owns y$ or $y \in U \not\owns x$.
