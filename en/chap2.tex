@@ -68,7 +68,7 @@ description:
   \end{df}
 \end{framed}
 
-\begin{rem}
+\begin{rem} \label{DSHaus->Haus}
   The analogous observation as in~Proposition~\ref{S2'->Haus} holds:
   due to
   \[
@@ -76,7 +76,7 @@ description:
     \not\in \left\{X \setminus \left\{x\right\}, X \setminus \left\{y\right\}
     \right\},
   \]
-  the rest of the proof can easily be finished in almost the same way.
+  the rest of the proof can easily be finished in nearly the same way.
 \end{rem}
 
 \section{Isbell's adaptation}
@@ -120,13 +120,45 @@ $T_2$:
 Most likely, the just presented equivalence was the motivation for Isbell's
 point-free approach to the $T_2$ axiom:
 In~\cite{isbell72}, Hausdorff locales are exactly the ones where we have the
-diagonal morphism (recall Example~\ref{diag-in-Loc})
+diagonal morphism (see Example~\ref{diag-in-Loc})
 \[
   \Delta\colon L \to L \oplus L
 \]
 as a closed localic map.
 Id est, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
-From $\bigwedge \Delta[L] = \Delta(0)$
+
+\begin{lem}
+  $\bigwedge \Delta[L] = \Delta(0_L)$.
+\end{lem}
+
+\begin{proof}
+  Again, recall Example~\ref{diag-in-Loc}\thinspace.
+
+  $\subseteq$: The down-set $\Delta(0_L)$ is among elements of $\Delta[L]$; the
+  infimum lies below all of~those.
+
+  $\supseteq$: By the formula of the diagonal morphism,
+  \[
+    \Delta(0_L)
+    = \left\{(x, y) \st x \wedge y \leq 0_L \right\}
+    \subseteq \left\{(x, y) \st x \wedge y \leq a \right\}
+    = \Delta(a)
+  \]
+  for every $a\in L$.
+  From the definition of the~infimum, $\Delta(0_L) \subseteq \bigwedge
+  \Delta[L]$.
+\end{proof}
+
+Combining the above lemma with the~formula of~the sublocalic closure
+\[
+  \overline{S} = \left\uparrow \bigwedge \right. S,
+\]
+Isbell's condition reduces to
+\[
+  \Delta[L] = \left\uparrow \Delta(0_L)\right.,
+\]
+which---having denoted the henceforth crucial element $\Delta(0_L)$ by
+$d_L$---produces the final
 
 \begin{framed}
   \begin{df}[I-Haus]
@@ -138,10 +170,18 @@ From $\bigwedge \Delta[L] = \Delta(0)$
   \end{df}
 \end{framed}
 
-\begin{prop}
+\begin{prop} \label{IHaus->DSHaus}
   The (I-Haus) implies the (DS-Haus).
 \end{prop}
 (Hence, the corresponding adjectives in the alternative names.)
 \begin{proof}
   Trivial.
+\end{proof}
+
+\begin{cor}
+  Strongly Hausdorff locale $\Omega(X)$ makes the space $X$ Hausdorff.
+\end{cor}
+
+\begin{proof}
+  Following from \ref{IHaus->DSHaus} and \ref{DSHaus->Haus}.
 \end{proof}
