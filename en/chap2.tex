@@ -37,22 +37,27 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
   \end{df}
 \end{framed}
 
-As we are about to perceive, it suitably ``mimics'' the Hausdorff property.
+As we are about to discover, it extends the Hausdorff property.
 
-\begin{prop} \label{S2'->Haus}
-  For $S_2'$-locale $\Omega(X)$ the corresponding space $X$ is always
-  Hausdorff.
+\begin{prop} \label{Haus->S2'}
+  For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ is always
+  $S_2'$.
 \end{prop}
 
 \begin{proof}
-  Recall~\ref{T2->T1}.
-  Having open sets $a := X \setminus \left\{x\right\}$ and $b := X \setminus
-  \left\{y\right\}$ with evident $a \cup b = X$, we acquire the $u$, $v$ from
-  the $(S_2')$ definition.
-  Since $u\not\subseteq X\setminus \left\{x\right\}$, the element $x$ has to
-  belong to $u$.
-  By symmetry, also $y \in v$.
+  Open sets $A, B \ne X$ with $A \cup B = X$ contain $x\in X\setminus A =
+  B\setminus A$ and $y\in X\setminus B = A\setminus B$.
+  Particularly, we observe $x \ne y$ and, on top of that, receive the disjoint
+  $U$ and $V$ from the $T_2$-definition.
+  Evidently, $U\not\subseteq A$ (because of $x$) and $V\not\subseteq B$
+  (because of $y$).
 \end{proof}
+
+\begin{rem}
+  The reverse implication requires, in addition, the subfitness.
+  For the~proof seek Proposition 7 of~Dowker and Strauss
+  \cite{ds72}.
+\end{rem}
 
 For our purposes, nevertheless, $S_2'$ will be replaced by a~somewhat weaker
 description:
@@ -69,14 +74,16 @@ description:
 \end{framed}
 
 \begin{rem} \label{DSHaus->Haus}
-  The analogous observation as in~Proposition~\ref{S2'->Haus} holds:
-  due to
+  The analogous observation as in~\ref{Haus->S2'} holds:
+  the~premise
   \[
-    (X \setminus \left\{x\right\}) \cup (X \setminus \left\{y\right\}) = X
-    \not\in \left\{X \setminus \left\{x\right\}, X \setminus \left\{y\right\}
-    \right\},
+    A \cup B \not\in \left\{ A, B \right\}
   \]
-  the rest of the proof can easily be finished in nearly the same way.
+  is translated to
+  \[
+    A \not\subseteq B \textrm{ and } B \not\subseteq A;
+  \]
+  the rest of the proof can easily be finished in the same way.
 \end{rem}
 
 \section{Isbell's adaptation}
@@ -125,6 +132,7 @@ diagonal morphism (see Example~\ref{diag-in-Loc})
   \Delta\colon L \to L \oplus L
 \]
 as a closed localic map.
+
 Id est, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
 
 \begin{lem}
@@ -145,7 +153,7 @@ Id est, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
     = \Delta(a)
   \]
   for every $a\in L$.
-  From the definition of the~infimum, $\Delta(0_L) \subseteq \bigwedge
+  From the property of the~infimum, $\Delta(0_L) \subseteq \bigwedge
   \Delta[L]$.
 \end{proof}
 
@@ -155,10 +163,10 @@ Combining the above lemma with the~formula of~the sublocalic closure
 \]
 Isbell's condition reduces to
 \[
-  \Delta[L] = \left\uparrow \Delta(0_L)\right.,
+  \Delta[L] = \left\uparrow \Delta(0_L),\right.
 \]
-which---having denoted the henceforth crucial element $\Delta(0_L)$ by
-$d_L$---produces the final
+which---after denoting the crucial element $\Delta(0_L)$ by $d_L$---produces
+the final
 
 \begin{framed}
   \begin{df}[I-Haus]
@@ -173,15 +181,7 @@ $d_L$---produces the final
 \begin{prop} \label{IHaus->DSHaus}
   The (I-Haus) implies the (DS-Haus).
 \end{prop}
-(Hence, the corresponding adjectives in the alternative names.)
+(The strong version implies the weak one; hence the adjectives.)
 \begin{proof}
-  Trivial.
-\end{proof}
-
-\begin{cor}
-  Strongly Hausdorff locale $\Omega(X)$ makes the space $X$ Hausdorff.
-\end{cor}
-
-\begin{proof}
-  Following from \ref{IHaus->DSHaus} and \ref{DSHaus->Haus}.
+  To be done.
 \end{proof}
