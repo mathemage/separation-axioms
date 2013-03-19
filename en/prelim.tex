@@ -21,21 +21,29 @@ way.
 \item A \emph{category} is a collection of objects and morphisms \ldots
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
 $\mathcal{C}$ is the category \ldots
+\item An \emph{epimorphism} is a right-cancellative morphism meaning\ldots
+In the category {\bf Loc} every localic map onto is, in addition, an
+epimorphism.
 \item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a \ldots
 Similarly, a \emph{coproduct} is a product in the opposite category.
 \item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
+  \begin{exmpl} \label{(co)diag-in-Loc}
+    The diagonal localic map $\Delta\colon L \to L \oplus L$ in {\bf Loc} is
+    given by formula
+    \[
+      \Delta(a) = \left\{ (x, y) \st x \wedge y \leq a \right\},
+    \]
+    and likewise, its left adjoint (the codiagonal $\nabla\colon L \oplus L \to
+    L$) is described by
+    \[
+      \nabla(U) = \bigvee \left\{ x \st (x, x)\in U \right\},
+    \]
+    as it is more explained in Corollary~IV.5.5.2 and Section~IV.5.2 of~Picado
+    and Pultr \cite{picado-pultr12}.
+  \end{exmpl}
 \end{itemize}
 
-\begin{exmpl} \label{diag-in-Loc}
-  The diagonal localic map $\Delta\colon L \to L \oplus L$ in {\bf Loc} is
-  given by formula
-  \[
-    \Delta(a) = \left\{ (x, y) \st x \wedge y \leq a \right\},
-  \]
-  as it is explained in Corollary IV.5.5.2 of Picado and Pultr
-  \cite{picado-pultr12}.
-\end{exmpl}
 
 \subsection*{Point-set topology}
 
@@ -80,7 +88,7 @@ for finite cases.
 It may be demonstrated---though not straightaway vividly---that the product
 coincides with
 \[
-  \textstyle\mathfrak{D}\left(\prod_{i\in J}' L_{i}\right)/R.
+  \textstyle\mathfrak{D}\left(\prod_{i\in J}\nolimits' L_{i}\right)/R.
 \]
 For full details consult Chapter~IV of Picado and Pultr \cite{picado-pultr12}.
 \item Given a relation $R\subseteq L \times L$, an element $s\in L$ is

@@ -1,4 +1,4 @@
-\chapter{Weak and strong Hausdorff}
+\chapter{Weakly and strongly Hausdorff}
 
 In this chapter we will contemplate point-free analogies of the $T_2$
 axiom---a~separation perhaps intricate to imitate in frames.
@@ -127,7 +127,7 @@ $T_2$:
 Most likely, the just presented equivalence was the motivation for Isbell's
 point-free approach to the $T_2$ axiom:
 In~\cite{isbell72}, Hausdorff locales are exactly the ones where we have the
-diagonal morphism (see Example~\ref{diag-in-Loc})
+diagonal morphism (see Example~\ref{(co)diag-in-Loc})
 \[
   \Delta\colon L \to L \oplus L
 \]
@@ -140,7 +140,7 @@ Id est, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
 \end{lem}
 
 \begin{proof}
-  Again, recall Example~\ref{diag-in-Loc}\thinspace.
+  Again, recall Example~\ref{(co)diag-in-Loc}\thinspace.
 
   $\subseteq$: The down-set $\Delta(0_L)$ is among elements of $\Delta[L]$; the
   infimum lies below all of~those.
@@ -178,19 +178,20 @@ the final
   \end{df}
 \end{framed}
 
-\section{The weak from the strong}
+\section{The weak from the strong one}
 
-The current chapter is a~``treatise'' of the relationship between strongly and
+The current chapter is a~treatise of the relationship between strongly and
 weakly Hausdorff property.
-As their names suggest: we will make (hopefully joyful) effort to prove
-the~following
+As their names suggest: we will make effort%
+\footnote{hopefully joyful}
+to prove the~following
 
 \begin{thm} \label{IHaus->DSHaus}
   The (I-Haus) implies the (DS-Haus).
 \end{thm}
 (The strong version implies the weak one; hence the adjectives.)
 
-However, it may seem to be of some advantage to first introduce several
+However, at first, it may seem to be of some advantage to introduce several
 technical lemmas.
 
 \begin{lem} \label{satur-def-eq}
@@ -214,12 +215,31 @@ technical lemmas.
 \begin{lem} \label{meets-in-satur}
   In case of a strongly Hausdorff locale $L$, we have
   \[
-    \Delta \Delta^*(U) = U
+    \Delta(\nabla(U)) = U
   \]
   for any saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  To be done.
+  By (I-Haus), every saturated $U\in \left\uparrow d_L \right. = \Delta[L]$ is an image
+  $\Delta(a)$ for some $a\in L$.
+  Let us write $\delta(U)$ for the mentioned $a$.
+  In other words, $\Delta\delta(U) = U$.
+
+  Remind Example~\ref{(co)diag-in-Loc}\thinspace.
+  Notice $\Delta^*(a \oplus a) = a$;
+  thence, the codiagonal $\nabla$ is onto, and consequently, an epimorphism.
+  Furthemore, using a standard property of~Galois adjoints $\nabla \Delta
+  \nabla = \nabla$,
+  we get
+  \[
+    \nabla \Delta = id.
+  \]
+
+  Joining the two observations results in
+  \[
+    \nabla (U) = \nabla (\Delta\delta (U)) = (\nabla \Delta)\delta (U) = \delta(U),
+  \]
+  which produce the desired $U = \Delta \delta (U) = \Delta \nabla (U)$.
 \end{proof}
 
 \begin{lem} \label{meets-in-satur}
@@ -249,7 +269,7 @@ At last, it is about time to prove the promised theorem.
 All the more, a~slightly stronger version of the (DS-Haus) definition
 \[
   a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
-  u\not\leq a, v\not\leq b: \quad u \wedge v = 0, \quad \underline{\left(u,
+  u\not\leq a, v\not\leq b: \quad u \wedge v = 0, \quad \boxed{\left(u,
   v\right) \leq \left(b, a\right)}
 \]
 will even be deduced.
