@@ -1,7 +1,7 @@
 \chapter{Weak and strong Hausdorff}
 
 In this chapter we will contemplate point-free analogies of the $T_2$
-axiom---a~separation slightly intricate to imitate in frames.
+axiom---a~separation perhaps intricate to imitate in frames.
 Rather, two resembling conditions will be presented.
 
 \section{The $T_2$ axiom}
@@ -178,10 +178,82 @@ the final
   \end{df}
 \end{framed}
 
-\begin{prop} \label{IHaus->DSHaus}
+\section{The weak from the strong}
+
+The current chapter is a~``treatise'' of the relationship between strongly and
+weakly Hausdorff property.
+As their names suggest: we will make (hopefully joyful) effort to prove
+the~following
+
+\begin{thm} \label{IHaus->DSHaus}
   The (I-Haus) implies the (DS-Haus).
-\end{prop}
+\end{thm}
 (The strong version implies the weak one; hence the adjectives.)
+
+However, it may seem to be of some advantage to first introduce several
+technical lemmas.
+
+\begin{lem} \label{satur-def-eq}
+  Equivalent saturation definition
+\end{lem}
+\begin{proof}
+  To be done.
+\end{proof}
+
+\begin{lem} \label{downsets-satur}
+  The down-set
+  \[
+    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b, b)\right. \cup \n
+  \]
+  is saturated in $L \times L$ for arbitrary $a, b\in L$.
+\end{lem}
+\begin{proof}
+  To be done.
+\end{proof}
+
+\begin{lem} \label{meets-in-satur}
+  In case of a strongly Hausdorff locale $L$, we have
+  \[
+    \Delta \Delta^*(U) = U
+  \]
+  for any saturated $U \supseteq d_L$.
+\end{lem}
+\begin{proof}
+  To be done.
+\end{proof}
+
+\begin{lem} \label{meets-in-satur}
+  Let $L$ be a strongly Hausdorff locale.
+  Then, one obtains the~implication
+  \[
+    \left( a \wedge b, a \wedge b \right) \in U
+    \; \Rightarrow \;
+    \left( a, b \right) \in U
+  \]
+  for all saturated $U \supseteq d_L$.
+\end{lem}
+\begin{proof}
+  To be done.
+\end{proof}
+
+\begin{rem}
+  The last and the penultimate implication actually hold in forms
+  of~equivalences.
+  Nevertheless, the reverse implications will be spared since we will make no
+  use of them.
+  A curios reader may survey Section~2 of Chapter~V in~Picado
+  and~Pultr~\cite{picado-pultr12}.
+\end{rem}
+
+At last, it is about time to prove the promised theorem.
+All the more, a~slightly stronger version of the (DS-Haus) definition
+\[
+  a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
+  u\not\leq a, v\not\leq b: \quad u \wedge v = 0, \quad \underline{\left(u,
+  v\right) \leq \left(b, a\right)}
+\]
+will even be deduced.
+
 \begin{proof}
   To be done.
 \end{proof}
