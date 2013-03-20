@@ -10,7 +10,6 @@
 sets in $X$ together with $\subseteq$ as the ordering. 
 By an abuse of notation, we denote the related underlying set in the very same
 way.
-\item $\n$ is the notation for the smallest saturated (see below)\ldots
 \end{itemize}
 
 \section*{Definitions}
@@ -82,6 +81,14 @@ We will write {\bf Loc} for the category of~locales and localic maps.
 \item A \emph{closed sublocale} $S$ is a \ldots
 Besides, the \emph{closure} of $S$ is the least closed sublocale containing $S$.
 Since \ldots On the other hand, \ldots
+\item Given a relation $R\subseteq L \times L$, an element $s\in L$ is
+\emph{$R$-saturated} (shortly \emph{saturated} whenever the context is clear)
+  iff
+\[
+  \forall a, b, c\in L: \; aRb \quad \Rightarrow \quad \left( a \wedge c \leq s
+  \, \Leftrightarrow \, b \wedge c \leq s \right)
+\]
+\item The letter $\n$ is the notation for the smallest saturated\ldots
 \item Let $\bigoplus_{i\in J} L_i$ designate a \emph{product} in {\bf Loc} (and
 \emph{coproduct} in {\bf Frm}); $L \oplus M$, $L_1 \oplus\cdots\oplus L_n$, etc.
 for finite cases.
@@ -91,13 +98,9 @@ coincides with
   \textstyle\mathfrak{D}\left(\prod_{i\in J}\nolimits' L_{i}\right)/R.
 \]
 For full details consult Chapter~IV of Picado and Pultr \cite{picado-pultr12}.
-\item Given a relation $R\subseteq L \times L$, an element $s\in L$ is
-\emph{$R$-saturated} (shortly \emph{saturated} whenever the context is clear)
-  iff
-\[
-  \forall a, b, c\in L: \; aRb \quad \Rightarrow \quad \left( a \wedge c \leq s
-  \, \Leftrightarrow \, b \wedge c \leq s \right)
-\]
+\item Let $a \oplus b \in L \oplus L$ with $a, b\in L$ stand for
+$\left\downarrow (a, b) \right. \cup \n$---the least saturated down-set
+containing $(a, b)$.
 \end{itemize}
 
 \section*{Convention}

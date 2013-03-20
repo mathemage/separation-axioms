@@ -186,7 +186,7 @@ As their names suggest: we will make effort%
 \footnote{hopefully joyful}
 to prove the~following
 
-\begin{thm} \label{IHaus->DSHaus}
+\begin{thm}
   The (I-Haus) implies the (DS-Haus).
 \end{thm}
 (The strong version implies the weak one; hence the adjectives.)
@@ -209,7 +209,23 @@ technical lemmas.
   is saturated in $L \times L$ for arbitrary $a, b\in L$.
 \end{lem}
 \begin{proof}
-  To be done.
+  We are going to verify the saturation from~\ref{satur-def-eq}\thinspace.
+  First of all, let us have $(x_i, y)\in U$ for $i\in J$.
+
+  \underline{Case $y = 0$}:
+  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n
+  \subseteq U$.
+
+  \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
+  then $x_i \leq a$ anyway, that is, $(\bigvee_{i\in J} x_i, y) \in
+  \left\downarrow(a, a \wedge b)\right.$, which is a subset of $U$.
+
+  \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
+  in this case, inevitably, $y \leq b$ as well as $x_i \leq a \wedge b$; and
+  analogously, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
+  b)\right. \subseteq U$.
+
+  The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
 \end{proof}
 
 \begin{lem} \label{meets-in-satur}
@@ -243,7 +259,7 @@ technical lemmas.
 \end{proof}
 
 \begin{lem} \label{meets-in-satur}
-  Let $L$ be a strongly Hausdorff locale.
+  Let $L$ be an I-Hausdorff locale.
   Then, one obtains the~implication
   \[
     \left( a \wedge b, a \wedge b \right) \in U
@@ -253,7 +269,13 @@ technical lemmas.
   for all saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  To be done.
+  Whenever $(a \wedge b, a \wedge b)\in U$, we see from the formula for
+  $\nabla$ that
+  \[
+    a \wedge b \leq \bigvee \left\{ x \st (x, x) \in U \right\} = \nabla(U).
+  \]
+  Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta( \nabla(U) ) = U$
+  (the final equality by the previous lemma).
 \end{proof}
 
 \begin{rem}
@@ -261,19 +283,60 @@ technical lemmas.
   of~equivalences.
   Nevertheless, the reverse implications will be spared since we will make no
   use of them.
-  A curios reader may survey Section~2 of Chapter~V in~Picado
+  A curious reader may survey Section~2 of Chapter~V in~Picado
   and~Pultr~\cite{picado-pultr12}.
 \end{rem}
 
-At last, it is about time to prove the promised theorem.
+At last, it is high time to prove the promised theorem.
 All the more, a~slightly stronger version of the (DS-Haus) definition
 \[
   a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
-  u\not\leq a, v\not\leq b: \quad u \wedge v = 0, \quad \boxed{\left(u,
-  v\right) \leq \left(b, a\right)}
+  u\not\leq b, v\not\leq a: \quad u \wedge v = 0, \quad \boxed{\left(u,
+  v\right) \leq \left(a, b\right)}
 \]
-will even be deduced.
+will even be acquired.
+
+In order to refresh:
+
+\begin{thm} \label{IHaus->DSHaus}
+  The (I-Haus) implies the (DS-Haus).
+\end{thm}
 
 \begin{proof}
-  To be done.
+  For a contradiction: let there be an I-Hausdorff $L$, which is not weakly
+  Hausdorff.
+  That means, we have $a, b$ with $a \not\leq b, \, b \not\leq a$ and such that
+  \[
+    u \wedge v = 0 \quad \& \quad \left(u, v\right) \leq \left(a, b\right)
+    \qquad \Longrightarrow \qquad
+    u \leq b \; \textrm{ or } \; v \leq a.
+  \]
+  Especially, for the down-set $U$ taken from~\ref{downsets-satur} we have
+  \[
+    d_L \cap (a \oplus b) \subseteq U.
+  \]
+
+  Following from~\ref{meets-in-satur}\thinspace, the saturated $\left(a \wedge
+  b\right) \oplus \left(a \wedge b\right) \vee d_L \supseteq d_L$ contains $(a,
+  b)$ (since it trivially contains $\left( a \wedge b, a \wedge b \right)$).
+  Hence,
+  \begin{align*}
+    (a, b) &\in (a \oplus b) \; \cap \; ((a \wedge b) \oplus (a \wedge b) \vee d_L) \\
+           &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; ((a \oplus b) \cap d_L) \\
+           &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; U \\
+           &= U.
+  \end{align*}
+  The first inclusion using~distributivity and the fact that $(a \wedge b)
+  \oplus (a \wedge b) \subseteq a \oplus b$;
+  the latter one by the observation from the beginning of this proof.
+  The equality is seen from the~definition of~$U$:
+  to be more specific, from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
+
+  This leads to the long sought contradiction:
+  $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (by $a \not\leq b,
+  \, b \not\leq a$).
+  Thus, the only options available are either $a \leq a \wedge b$ or $b \leq a
+  \wedge b$.
+  However, those enforce $a \leq b$ and $b \leq a$ respectively,
+  a~contradiction. 
 \end{proof}
