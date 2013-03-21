@@ -1,0 +1,51 @@
+\chapter{Regularly behaving regularity}
+
+We are going to examine regularity in the pointless context;
+how it is stronger than both strongly Hausdorff property and subfitness, and
+thus, how it implies all the aforementioned axioms.
+
+\section{The $T_3$ axiom}
+
+\begin{framed}
+  \begin{df}[$T_3$]
+    We will consider a topological space $X$ to be \emph{regular\/} (or
+    satisfying the~\emph{$T_3$-axiom\/}) when
+    \begin{center} \it
+      for any $x\in X$ and any closed $A \not\owns x$ there are open $V_1\owns
+      x$ and $V_2\supseteq A$ disjoint from~one another.
+    \end{center}
+  \end{df}
+\end{framed}
+
+Even though the definition mentions points, it may be elegantly reduced so as
+not to do so.
+
+\begin{prop}
+  A space $X$ is regular iff each $U\in \Omega(X)$ can be depicted as
+  \[
+    U = \bigcup \{V\in \Omega(X) \st \overline{V} \subseteq U\}.
+  \]
+\end{prop}
+\begin{proof}
+  The inclusion~$\supseteq$ constantly holds (as $V\subseteq
+  \overline{V}\subseteq U$).
+
+  $\Rightarrow$:
+  Choose any $x\in U$.
+  Since $A := X\setminus U \not\owns x$ is closed, the existence
+  of~$V_1$~and~$V_2$ from $(T_3)$ is granted.
+  The disjointedness $V_1 \cap V_2 = \none$ leads to $V_1\subseteq X\setminus
+  V_2$, which is, incidentally, a closed set.
+  Therefore, $\overline{V_1}\subseteq X\setminus V_2$.
+
+  Furthermore, the relation $A\subseteq V_2$ is undoubtedly equivalent to the
+  relation $X\setminus V_2\subseteq X \setminus A = U$.
+  Hence, for $V_x := V_1$ one has $\overline{V_x}\subseteq X\setminus V_2\subseteq
+  U$.
+  Such a~system $\{V_x \st x\in U\}$ constitutes a~subset cover of $U$, and
+  consequently, finishes the proof of~the~inclusion $\subseteq$.
+
+  $\Leftarrow$:
+  With $U := X\setminus A$ take $V_x$ from above and set $V_1 := V_x$ and $V_2
+  := X\setminus \overline{V_x}$.
+\end{proof}
