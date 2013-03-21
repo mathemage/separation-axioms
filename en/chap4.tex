@@ -20,7 +20,7 @@ thus, how it implies all the aforementioned axioms.
 Even though the definition mentions points, it may be elegantly reduced so as
 not to do so.
 
-\begin{prop}
+\begin{prop} \label{reg-char}
   A space $X$ is regular iff each $U\in \Omega(X)$ can be depicted as
   \[
     U = \bigcup \{V\in \Omega(X) \st \overline{V} \subseteq U\}.
@@ -33,7 +33,7 @@ not to do so.
   $\Rightarrow$:
   Choose any $x\in U$.
   Since $A := X\setminus U \not\owns x$ is closed, the existence
-  of~$V_1$~and~$V_2$ from $(T_3)$ is granted.
+  of~$V_1$~and~$V_2$ from $(T_3)$ is stipulated.
   The disjointedness $V_1 \cap V_2 = \none$ leads to $V_1\subseteq X\setminus
   V_2$, which is, incidentally, a closed set.
   Therefore, $\overline{V_1}\subseteq X\setminus V_2$.
@@ -49,3 +49,54 @@ not to do so.
   With $U := X\setminus A$ take $V_x$ from above and set $V_1 := V_x$ and $V_2
   := X\setminus \overline{V_x}$.
 \end{proof}
+
+We may even ponder the possibility of eliminating the~closure in
+the~description:
+
+\begin{lem}
+  $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X)\colon W \cap V =
+  \none \;\; \& \;\; W \cup U = X$.
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  Take $W := X\setminus \overline{V}$.
+
+  $\Leftarrow$:
+  Recall closure's definition.
+  Suppose $z\in \overline{V}\setminus U$.
+  Since $W \cup U = X$, the $z$ must lie in the $W$;
+  howbeit, the $W$ does not intersect the $V$---forcing $z\not\in
+  \overline{V}$.
+\end{proof}
+
+Without loss of generality, the $W$ might be replaced by~the
+pseudocomplement~$V^*$;
+explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
+\footnote{In frames, pseudocomplements are always present: $a^* := a
+\rightarrow 0$ exist owing to frame's being Heyting algebra.}
+
+Accordingly, for the sake of brevity, we introduce:
+\begin{framed}
+  \begin{nota}[$\rb$]
+    \[
+      V \rb U \quad \equiv \quad V^* \vee U = 1,
+    \]
+    which is referred to by pronouncing \emph{``V is rather below U''\/}.
+  \end{nota}
+\end{framed}
+
+With this notation, we are able to mimic characterization in~\ref{reg-char} by
+\begin{framed}
+  \begin{df}[reg]
+    A locale is called \emph{regular\/} if and only if
+    \[
+      a = \bigvee \{x \st x \rb a\}
+    \]
+    for all its elements $a$.
+  \end{df}
+\end{framed}
+
+Following Proposition~\ref{reg-char}\thinspace, we notice
+\begin{cor}
+  A topological space $X$ is regular iff its $\Omega(X)$ is regular.
+\end{cor}
