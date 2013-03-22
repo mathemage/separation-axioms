@@ -2,7 +2,7 @@
 
 We are going to examine regularity in the pointless context;
 how it is stronger than both strongly Hausdorff property and subfitness, and
-thus, how it implies all the aforementioned axioms.
+thus, how it implies all the aforestated axioms.
 
 \section{The $T_3$ axiom}
 
@@ -85,9 +85,24 @@ Accordingly, for the sake of brevity, we introduce:
   \end{nota}
 \end{framed}
 
-With this notation, we are able to mimic characterization in~\ref{reg-char} by
+The next auxiliary lemma will be advantageous property for the rest of this
+chapter.
+\begin{lem}
+  $a \rb b \Rightarrow a \leq b$.
+\end{lem}
+\begin{proof}
+  With help of distributivity,
+  \[
+    a = a \wedge 1 = a \wedge (a^* \vee b) = (a \wedge a^*) \vee (a \wedge b) =
+    0 \vee (a \wedge b) = a \wedge b;
+  \]
+  which is required to proved.
+\end{proof}
+
+Possessing $\rb$ notation, we are able to mimic characterization
+in~\ref{reg-char} by
 \begin{framed}
-  \begin{df}[reg]
+  \begin{df}[Reg]
     A locale is called \emph{regular\/} if and only if
     \[
       a = \bigvee \{x \st x \rb a\}
@@ -96,7 +111,69 @@ With this notation, we are able to mimic characterization in~\ref{reg-char} by
   \end{df}
 \end{framed}
 
-Following Proposition~\ref{reg-char}\thinspace, we notice
+Moreover, the proposition leads us to
 \begin{cor}
   A topological space $X$ is regular iff its $\Omega(X)$ is regular.
 \end{cor}
+
+\section{Strength of regularity}
+
+Now we are going to study the stated relationships between (Reg) and other
+axioms.
+
+\begin{lem} \label{oplus-vee-distrib}
+  \[
+    \left(\bigvee_{i\in J} a_i\right) \oplus \left(\bigvee_{i\in J} b_i\right)
+    = \bigvee_{i\in J} \left(a_i \oplus b_i\right)
+  \]
+\end{lem}
+\begin{proof}
+  TBD
+\end{proof}
+
+\begin{lem}
+  For a general locale $L$ and any of its saturated $U\in \left\uparrow
+  d_L\right.$
+  \[
+    (a \wedge b, a \wedge b) \in U \qquad \Longrightarrow \qquad \forall x \rb
+    a, \, y \rb b: \; (x, y) \in U
+  \]
+\end{lem}
+\begin{proof}
+  Beginning with indisputable $(x, y)\in x \oplus y$, we modify
+  \begin{align*}
+    x \oplus y &= (x \wedge (y^* \vee b)) \oplus (y \wedge (x^* \vee a)) \\
+               &= (\; (x \wedge y^*) \; \vee \; (x \wedge b) \; ) \oplus (\; (y
+    \wedge x^*) \; \vee \; (y \wedge a) \; )
+  \end{align*}
+  (equalities using ``rather-belowness'' and distributivity, respectively).
+
+  Proceeding with Lemma~\ref{oplus-vee-distrib}\thinspace,
+  \begin{align*}
+     \ldots &= 
+  \end{align*}
+\end{proof}
+
+The proof of the oncoming theorem will depend upon the reverse implication
+of~\ref{meets-in-satur}\thinspace;
+for conciseness of this thesis, the author takes liberty to omit its proof,
+referring once more to the monography~\cite{picado-pultr12}.
+
+\begin{thm}
+  The (Reg) implies the (I-Haus).
+\end{thm}
+\begin{proof}
+  Let $(a \wedge b, a \wedge b) \in U$.
+  By the earlier lemma, $(x, y)\in U$ where $x \rb a$ and $y \rb b$.
+  As $U$ is saturated (recall the definition from~\ref{satur-def-eq}),
+  \[
+    \left(\bigvee \{x \st x \rb a\}, y\right)\in U
+  \]
+  or equally, using regularity,
+  \[
+    \left(a, y\right)\in U
+  \]
+  for all $y \rb b$.
+  Wherefore, in the same manner, $(a, b) = \left(a, \bigvee \{y \st y \rb
+  b\}\right)\in U$.
+\end{proof}
