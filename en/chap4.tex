@@ -87,7 +87,7 @@ Accordingly, for the sake of brevity, we introduce:
 
 The next auxiliary lemma will be advantageous property for the rest of this
 chapter.
-\begin{lem}
+\begin{lem} \label{rb->leq}
   $a \rb b \Rightarrow a \leq b$.
 \end{lem}
 \begin{proof}
@@ -150,8 +150,14 @@ axioms.
 
   Proceeding with Lemma~\ref{oplus-vee-distrib}\thinspace,
   \begin{align*}
-     \ldots &= 
+     \ldots = \; &(\; (x \wedge y^*) \oplus (y \wedge x^*) \; ) \vee 
+            (\; (x \wedge y^*) \oplus (y \wedge a) \; ) \; \vee \\
+            \vee \; &(\; (x \wedge b) \oplus (y \wedge x^*) \; ) \vee
+            (\; (x \wedge b) \oplus (a \wedge y) \; ) \\
+     \leq \; &(y^*\oplus y) \vee (y^*\oplus y) \vee (x\oplus x^*) \vee
+                  (\; (a \wedge b)\oplus(a \wedge b) \;)
   \end{align*}
+  where the last upper-bound is retrieved from~\ref{rb->leq}\thinspace.
 \end{proof}
 
 The proof of the oncoming theorem will depend upon the reverse implication
