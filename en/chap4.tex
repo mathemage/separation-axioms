@@ -121,14 +121,51 @@ Moreover, the proposition leads us to
 Now we are going to study the stated relationships between (Reg) and other
 axioms.
 
-\begin{lem} \label{oplus-vee-distrib}
+\begin{fact}
+  It holds that
   \[
-    \left(\bigvee_{i\in J} a_i\right) \oplus \left(\bigvee_{i\in J} b_i\right)
-    = \bigvee_{i\in J} \left(a_i \oplus b_i\right)
+    \bigoplus_{i\in J} a_i = \bigwedge_{i\in J} \iota_i(a_i)
   \]
+  where $(\iota_i\colon L \to \bigoplus_{i\in J} L_i)_{i\in J}$ form a
+  coproduct of~$(L_i)_{i\in J}$ in~{\bf Frm}.
+\end{fact}
+(In order to prove the statement, gentle reader would need deeper background
+in~frame coproducts:
+in particular, the structure of the insertions $(\iota_i)_{i\in J}$.
+That is, regrettably, beyond the limits of this material.
+Nonetheless, the proof itself may be found as Proposition~IV.5.2.(2) of the
+monography~\cite{picado-pultr12}.)
+
+\begin{lem} \label{oplus-vee-distrib}
+  ~
+  \begin{enumerate}
+  \item $\bigvee_{i\in J} \left(a_i \oplus b\right) = \left(\bigvee_{i\in J}
+    a_i \right) \oplus b$.
+  \item $\bigvee_{i\in J} \left(a \oplus b_i\right) = a \oplus
+    \left(\bigvee_{i\in J} b_i \right)$.
+  \item $\left(\bigvee_{i\in J} a_i\right) \oplus \left(\bigvee_{j\in J}
+    b_j\right) = \bigvee_{i, j\in J} \left(a_i \oplus b_j\right)$.
+  \end{enumerate}
 \end{lem}
 \begin{proof}
-  TBD
+  (i):
+  By the aforesaid fact,
+  \begin{align*}
+    \left(\bigvee_{i\in J} a_i \right) \oplus b
+    &= \iota_1\left(\bigvee_{i\in J} a_i \right) \wedge \iota_2(b) \\
+    &= \left(\bigvee_{i\in J} \iota_1(a_i) \right) \wedge \iota_2(b) \\
+    &= \bigvee_{i\in J} \left(\iota_1(a_i) \wedge \iota_2(b) \right)
+    = \bigvee_{i\in J} \left(a_i \oplus b\right)
+  \end{align*}
+  as frame homomorphisms $\iota_i$ preserve suprema (for the second equality)
+  and as the binary meet commutes with joins in frames (for the third
+  equality).
+
+  (ii):
+  Analogously by symmetry.
+
+  (iii):
+  By consecutive application of (i) and (ii).
 \end{proof}
 
 \begin{lem}
@@ -140,15 +177,15 @@ axioms.
   \]
 \end{lem}
 \begin{proof}
-  Beginning with indisputable $(x, y)\in x \oplus y$, we modify
+  Beginning with evident $(x, y)\in x \oplus y$, we modify
   \begin{align*}
     x \oplus y &= (x \wedge (y^* \vee b)) \oplus (y \wedge (x^* \vee a)) \\
                &= (\; (x \wedge y^*) \; \vee \; (x \wedge b) \; ) \oplus (\; (y
     \wedge x^*) \; \vee \; (y \wedge a) \; )
   \end{align*}
-  (equalities using ``rather-belowness'' and distributivity, respectively).
+  (by using ``rather-belowness'' and distributivity, respectively).
 
-  Proceeding with Lemma~\ref{oplus-vee-distrib}\thinspace,
+  Proceeding with (iii) of Lemma~\ref{oplus-vee-distrib}\thinspace,
   \begin{align*}
      \ldots = \; &(\; (x \wedge y^*) \oplus (y \wedge x^*) \; ) \vee 
             (\; (x \wedge y^*) \oplus (y \wedge a) \; ) \; \vee \\
@@ -158,11 +195,16 @@ axioms.
                   (\; (a \wedge b)\oplus(a \wedge b) \;)
   \end{align*}
   where the last upper-bound is retrieved from~\ref{rb->leq}\thinspace.
+
+  Besides, the ultimate expression is a subset of $U$:
+  as $(x^*\oplus x), (y^*\oplus y)\subseteq d_L$ and $(a \wedge b)\oplus(a
+  \wedge b)\subseteq U$ from the premise---all the way leading to $(x, y)\in
+  U$.
 \end{proof}
 
 The proof of the oncoming theorem will depend upon the reverse implication
-of~\ref{meets-in-satur}\thinspace;
-for conciseness of this thesis, the author takes liberty to omit its proof,
+of~\ref{meets-in-satur} on page~\pageref{meets-in-satur}\thinspace;
+for conciseness of this thesis, the author takes liberty to~omit its proof,
 referring once more to the monography~\cite{picado-pultr12}.
 
 \begin{thm}
@@ -170,16 +212,20 @@ referring once more to the monography~\cite{picado-pultr12}.
 \end{thm}
 \begin{proof}
   Let $(a \wedge b, a \wedge b) \in U$.
-  By the earlier lemma, $(x, y)\in U$ where $x \rb a$ and $y \rb b$.
-  As $U$ is saturated (recall the definition from~\ref{satur-def-eq}),
+  By the earlier lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
+  Recall the saturatedness from Remark~\ref{satur-def-eq} on
+  page~\pageref{satur-def-eq}\thinspace:
+  as $U$ is saturated, one gets
   \[
-    \left(\bigvee \{x \st x \rb a\}, y\right)\in U
+    \left\{ (x, y) \st x \rb a \right\} \subseteq U
+    \Longrightarrow
+    \left(\bigvee \{x \st x \rb a\}, y\right)\in U,
   \]
   or equally, using regularity,
   \[
     \left(a, y\right)\in U
   \]
   for all $y \rb b$.
-  Wherefore, in the same manner, $(a, b) = \left(a, \bigvee \{y \st y \rb
+  Wherefore, in the same manner: $(a, b) = \left(a, \bigvee \{y \st y \rb
   b\}\right)\in U$.
 \end{proof}
