@@ -229,3 +229,59 @@ referring once more to the monography~\cite{picado-pultr12}.
   Wherefore, in the same manner: $(a, b) = \left(a, \bigvee \{y \st y \rb
   b\}\right)\in U$.
 \end{proof}
+
+\begin{cor}
+  Regular locales are weakly Hausdorff.
+\end{cor}
+\begin{proof}
+  Recall Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace.
+\end{proof}
+
+It appears to be of great advantage to characterize (Reg) by a formula
+that rather resembles subfitness:
+\begin{lem} \label{reg-char}
+  A locale is regular iff
+  \[
+    a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \quad
+    \& \quad c^* \not\leq b
+  \]
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  Suppose $a \not\le b$;
+  that is, using the regularity, there is $x \rb a$ with $x \not\le b$ (otherwise
+  $\bigvee \{x \st x \rb a\} \le b$).
+  Let $c := x^*$.
+  In other words, by $x \rb a$, one concludes $a \vee c = a \vee x^* = 1$.
+  Additionally, $c^* \not\le b$: since otherwise from pseudocomplement property
+  $x \le x^{**} = c^* \le b$, a contradiction.
+
+  $\Leftarrow$:
+  By~\ref{rb->leq} we always have the inequality $\bigvee \{x \st x \rb a\} \le
+  a$.
+  Hence, for contradiction assume $a \not\le \bigvee \{x \st x \rb a\}$.
+  Then, there exists $c$ from the~premise.
+  Specifically, $1 = a \vee c \le a \vee c^{**}$, which gives us $c^* \rb a$.
+  Yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
+\end{proof}
+
+The new definition of regularity is more suitable to prove
+\begin{thm}
+  The (Reg) implies the (Sfit).
+\end{thm}
+\begin{proof}
+  Given $a \not\le b$, we acquire---from Lemma~\ref{reg-char}\thinspace---an
+  element $c$ such that $a \vee c = 1$ and $c^* \not\le b$.
+  What is more, it satisfies $b \vee c \ne 1$.
+  If not so then
+  \[
+    b = b \vee 0 = b \vee (c \wedge c^*) = (b \vee c) \wedge (b \vee c^*) = 1
+    \wedge (b \vee c^*) = b \vee c^*,
+  \]
+  the third identity from distributivity; subsequently, this contradicts $c^*
+  \le b$.
+\end{proof}
+
+\begin{cor}
+  The regularity also implies all the above-mentioned axioms of Hausdorff type.
+\end{cor}
