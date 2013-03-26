@@ -8,19 +8,17 @@ Rather, two resembling conditions will be presented.
 
 \begin{framed}
   \begin{df}[$T_2$]
-    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (or, as well,
-    the~\emph{$T_2$-space\/}) whenever
+    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (or
+    a~\emph{$T_2$-space\/}) if
     \begin{center} \it
-      for any $x \ne y$ from~$X$ there are open $U\owns x$ and $V\owns y$
-      disjoint from~each other.
+      for any $x \ne y$ from~$X$ there are disjoint $U$ and $V$ with $U\owns x$
+      and $V\owns y$.
     \end{center}
   \end{df}
 \end{framed}
 
 \begin{rem} \label{T2->T1}
-  Trivially from the definitions every $T_2$-space is, additionally, $T_1$.
-  Thus, the sets of the form $X\setminus \left\{x\right\}$ are among the
-  elements of $\Omega(X)$ (viz \ref{T1Char}).
+  Trivially, every $T_2$-space is $T_1$.
 \end{rem}
 
 \section{The Dowker-Strauss approach}
@@ -28,19 +26,20 @@ Rather, two resembling conditions will be presented.
 In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
 
 \begin{framed}
-  \begin{df}[$S_2'$]
-    A locale $L$ satisfies the $S_2'$ axiom if for any $a, b \ne 1$ we have
+  \begin{df}
+    A locale $L$ satisfies the $S_2'$ axiom if
     \[
-      a \vee b = 1 \qquad \Rightarrow \qquad \exists u\not\leq a, v\not\leq
-      b: \quad u \wedge v = 0.
+      (S_2') \qquad
+      \forall a, b \quad a, b \ne 1 \text{ and } a \vee b = 1 \quad
+      \Rightarrow \quad \exists u\not\leq a, v\not\leq b, \quad u \wedge v = 0.
     \]
   \end{df}
 \end{framed}
 
-As we are about to discover, it extends the Hausdorff property.
+In spaces, this extends the Hausdorff property.\eqref{S_2}
 
 \begin{prop} \label{Haus->S2'}
-  For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ is always
+  For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ satisfies
   $S_2'$.
 \end{prop}
 

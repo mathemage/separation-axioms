@@ -70,10 +70,28 @@ Another characterization of the subfitness:
   \]
 \end{prop}
 \begin{proof}
-  TBD
+  $\Rightarrow$:
+  Choose $x \in U$.
+  Thus, we have $U\not\subseteq X\setminus \overline{\{x\}}$, and by
+  subfitness, an~open $V$ with both $U \cup V = X$ and $(X\setminus
+  \overline{\{x\}}) \cup V \ne X$.
+  Then there exists an~element $y\not\in V$ with $y\not\in X\setminus
+  \overline{\{x\}}$, in other words, $y\in \overline{\{x\}}$.
+  Furthermore, $V \cap \overline{\{y\}} = \none$ (for $z \in V \not\owns y$
+  means $z\not\in \overline{\{y\}}$), and as $U \cup V = X$, we finish with
+  $\overline{\{y\}} \subseteq U$.
+
+  $\Leftarrow$:
+  Suppose $U\not\subseteq V$ and take $x\in U\setminus V$.
+  For similar reason as above, $V \cap \overline{\{x\}} = \none$.
+  Let us have $y$ from the premise:
+  $y \in \overline{\{x\}}$ implies  $y\not\in V$, thus, leading to $(X\setminus
+  \overline{\{y\}}) \cup V \ne X$;
+  and since $\overline{\{y\}} \subseteq U$, also $(X\setminus \overline{\{y\}})
+  \cup U = X$.
 \end{proof}
 
-There is an example of a subfit non-$T_1$-space.
+There is an example of a subfit non-$T_1$-space:
 
 \begin{exmpl}
   Let us have $X = \N \cup \left\{\infty\right\}$ and $\theta = \left\{
@@ -85,11 +103,13 @@ There is an example of a subfit non-$T_1$-space.
   It is not $T_1$ for the one-point set $\left\{ \infty \right\}$ is not
   closed (viz \ref{T1Char}).
 
-  On the other hand, there always is a closed $C \subseteq A\setminus B$ for
-  arbitrary closed $A\not\subseteq B$:
-  if both are finite, so is their difference.
-  Otherwise one of them equals the whole $X$ and---since $A\setminus X$ would
-  be empty---it has to be the $A$.
-  Then, apparently, a singleton from $\N\setminus B \subseteq X\setminus B$ is
-  again closed, and thusly, the subfitness of~$\mathcal{X}$ becomes evident.
+  On the other hand, any open set satisfy the condition
+  from~\ref{Sfit-char}\thinspace.
+  The empty set trivially;
+  and since a finite $\{x\}$ for $x\in \N$ is closed itself, we are allowed to
+  put $y := x$.
 \end{exmpl}
+
+\begin{note}
+  $(T_D)$ axiom.
+\end{note}
