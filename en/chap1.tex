@@ -4,9 +4,8 @@
 
 \begin{framed}
   \begin{df}[$T_1$]
-    A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or,
-    equivalently, to satisfy the \emph{$T_1$ axiom\/}) if the following assertion
-    holds:
+    A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or to
+    satisfy the \emph{$T_1$ axiom\/}) if the following assertion holds:
     \begin{center} \it
       for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
       $x\in U \not\owns y$.
@@ -14,42 +13,27 @@
   \end{df}
 \end{framed}
 
-The next lemma will be of great usefulness later in this chapter.
+The following is a standard and useful characterization of this property.
 
-\begin{lem} \label{T1Char}
+\begin{fact-num} \label{T1Char}
   A topological space $X$ is $T_1$ iff $\overline{\left\{x\right\}} =
   \left\{x\right\}$ for any $x\in X$.
-\end{lem}
+\end{fact-num}
 
-\begin{proof}
-  $\Rightarrow$: If $y\not\in \left\{x\right\}$, we obtain, guaranteed by the
-  $T_1$ axiom, an open $U$ such that $y\in U\not\owns x$.
-  In other words, an open set containing $y$ albeit not intersecting
-  the $\left\{x\right\}$.
-  Thus, $y\not\in \overline{\left\{x\right\}}$, and consequently,
-  $\left\{x\right\} = \overline{\left\{x\right\}}$.
-
-  $\Leftarrow$: With open $U:= X\setminus \left\{y\right\}$ we can easily
-  check the $T_1$.
-\end{proof}
+(Of course:
+if $y\not\in \left\{x\right\}$, we obtain an open $U$ such that $y\in
+U\not\owns x$, and thus, $y\not\in \overline{\left\{x\right\}}$.
+Conversely, with open $U:= X\setminus \left\{y\right\}$ we can easily check the
+$T_1$.)
 
 \begin{cor}
   A space is $T_1$ iff every of its finite subsets is closed.
 \end{cor}
 
-\begin{proof}
-  The aforementioned subset is a finite union of its elements---each of them
-  closed.
-  Hence, also closed itself.
-
-  The other implication is trivial.
-\end{proof}
-
-It is noteworthy to mention the possibility of formulating $T_1$-counterparts
-in~the~context of pointless topology.
-Nonetheless, such efforts tend to enforce {\sl spatiality\/}: a property not
-all the time desirable.
-Instead, we may introduce a weaker yet still beneficial condition: {\sl the
+There are exact counterparts of this axiom in the point-free context (see,
+e.~g.,~\cite{ds72}).
+They have not found much use so far, though.
+Instead, one introduces a weaker and very useful condition: {\sl the
 subfitness\/}.
 
 \section{The subfit axiom}
@@ -64,76 +48,32 @@ subfitness\/}.
   \end{df}
 \end{framed}
 
-Similarly, subfitness of a topological space $(X, \Omega(X))$ amounts to
-requiring that the locale $\Omega(X)$ is subfit.
-
-Such a condition is, as shown below, truly weaker than the $T_1$ axiom.
-
-\begin{prop} \label{T1->Sfit}
+\begin{thm} \label{T1->Sfit}
   Every $T_1$-space is subfit.
-\end{prop}
+\end{thm}
 
 \begin{proof}
   For each $T_1$-space $X$ the corresponding locale $\Omega(X)$ is subfit.
   Indeed: for open $A\not\subseteq B$ there exists an $x\in A \setminus B$.
-  By Lemma~\ref{T1Char}\thinspace, we have an open $X\setminus
-  \left\{x\right\}$.
+  By~\ref{T1Char}\thinspace, we have an open $X\setminus \left\{x\right\}$.
   Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus
   \left\{x\right\}) = X \ne B \cup (X\setminus \left\{x\right\})$.
 \end{proof}
 
-Note that the reverse implication does not hold.
-In search of a convenient counterexample we need to further discuss the form
-which the subfitness takes in~topological spaces.
+Another characterization of the subfitness:
 
-\begin{prop}
-  A space $X$ is subfit iff any non-empty difference $A\setminus B$ of~closed
-  sets contains a non-void closed set.
+\begin{prop}[Isbell, Simmons] \label{Sfit-char}
+  For a topological space $X$ the locale $\Omega(X)$ is subfit iff
+  \[
+    \forall U\in\Omega(X) \forall x\in U \exists y\in \overline{\{x\}}: \quad
+    \overline{\{y\}} \subseteq U
+  \]
 \end{prop}
-
 \begin{proof}
-  Let us write $U$ for $X\setminus B$ and $V$ for $X\setminus A$.
-  Obviously,
-  \[
-    A\subseteq B \; \Leftrightarrow \; U\subseteq V,
-  \]
-  which can be rewritten as a useful equivalence
-  \[
-    A\not\subseteq B \; \Leftrightarrow \; U\not\subseteq V.
-  \]
-
-  $\Rightarrow$: If $A\setminus B \ne \none$, then $A\not\subseteq B$.
-  Whence, $U\not\subseteq V$ and, using subfitness, we gain an~open $W \ne X$
-  with the property $U \cup W = X \ne V \cup W$. 
-  Without loss of generality, we may assume $V\subseteq W$: for the open set $V
-  \cup W$ meets the same requirements, as well.
-
-  With $C := X \setminus W$ one has the desired non-void closed set
-  in~$A\setminus B$.
-  Firstly, $V\subseteq W$ implies $C\subseteq A$.
-  Secondly, $U\not\subseteq W$ (since otherwise $W = U \cup W = X$ and,
-  in~conclusion, $V \cup W = X$).
-  Ergo, $C\not\subseteq B$.
-
-  $\Leftarrow$: Considering $U$ and $V$ to be open, the complements $A$ and $B$
-  are closed.
-  Provided that $U\not\subseteq V$, we have $A\not\subseteq B$.
-  Therefore, $A \setminus B$ as a~non-empty difference contains a~closed
-  set~$C \ne \none$.
-
-  Setting $W := X \setminus C$, we gather that $W \cup U = X$ (because $U =
-  \minus B \supseteq C$) and finally $W \cup V \ne X$ (as $C\subseteq A =
-  \minus V$ leads to non-empty $C\not\subseteq W \cup V$).
+  TBD
 \end{proof}
 
-\begin{rem}
-  The previous characterization of (Sfit) gives rise to~another proof of
-  Proposition~\ref{T1->Sfit}\thinspace:
-  any singleton in a non-empty difference is, by~\ref{T1Char}\thinspace,
-  already closed.
-\end{rem}
-
-Now we will demonstrate the promised example of a subfit non-$T_1$-space.
+There is an example of a subfit non-$T_1$-space.
 
 \begin{exmpl}
   Let us have $X = \N \cup \left\{\infty\right\}$ and $\theta = \left\{
@@ -143,7 +83,7 @@ Now we will demonstrate the promised example of a subfit non-$T_1$-space.
   sets consist of~finite sets of~natural numbers and of~the whole space $X$.
 
   It is not $T_1$ for the one-point set $\left\{ \infty \right\}$ is not
-  closed (see Lemma~\ref{T1Char}).
+  closed (viz \ref{T1Char}).
 
   On the other hand, there always is a closed $C \subseteq A\setminus B$ for
   arbitrary closed $A\not\subseteq B$:
