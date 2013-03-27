@@ -30,8 +30,8 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
     A locale $L$ satisfies the $S_2'$ axiom if
     \[
       (S_2') \qquad
-      \forall a, b \quad a, b \ne 1 \text{ and } a \vee b = 1 \quad
-      \Rightarrow \quad \exists u\not\leq a, v\not\leq b, \quad u \wedge v = 0.
+      a, b \ne 1 \text{ and } a \vee b = 1 \quad \Rightarrow \quad \exists
+      u\not\leq a, v\not\leq b, \quad u \wedge v = 0.
     \]
   \end{df}
 \end{framed}
@@ -58,8 +58,7 @@ In spaces, this extends the Hausdorff property.\eqref{S_2}
   \cite{ds72}.
 \end{rem}
 
-For our purposes, nevertheless, $S_2'$ will be replaced by a~somewhat weaker
-description:
+The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
 
 \begin{framed}
   \begin{df}[DS-Haus]
@@ -72,32 +71,17 @@ description:
   \end{df}
 \end{framed}
 
-\begin{rem} \label{DSHaus->Haus}
-  The analogous observation as in~\ref{Haus->S2'} holds:
-  the~premise
-  \[
-    A \cup B \not\in \left\{ A, B \right\}
-  \]
-  is translated to
-  \[
-    A \not\subseteq B \textrm{ and } B \not\subseteq A;
-  \]
-  the rest of the proof can easily be finished in the same way.
-\end{rem}
+\section{Isbell's approach}
 
-\section{Isbell's adaptation}
-
-For the sake of future clarity, we now reveal another characterization of
-$T_2$:
+Here comes another characterization of the classical $T_2$:
 
 \begin{prop}
   A topological space $X$ is Hausdorff space if and only if the~diagonal
-  $\left\{(x, x) \st x\in X \right\}$ is closed.
+  $\Delta = \left\{(x, x) \st x\in X \right\}$ is closed in the product
+  $X\times X$.
 \end{prop}
 
 \begin{proof}
-  Let $\Delta$ stand for the mentioned diagonal.
-
   $\Rightarrow:$ Any element $(x, y)\not\in \Delta$, that means $x \ne y$, is
   separable from $\Delta$:
   namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$
@@ -123,15 +107,13 @@ $T_2$:
   are disjoint from each other.
 \end{proof}
 
-Most likely, the just presented equivalence was the motivation for Isbell's
-point-free approach to the $T_2$ axiom:
-In~\cite{isbell72}, Hausdorff locales are exactly the ones where we have the
-diagonal morphism (see Example~\ref{(co)diag-in-Loc})
+This was used by Isbell for point-free counterpart of the $T_2$ axiom:
+In~\cite{isbell72}, Hausdorff locales are defined as those in which the
+diagonal (see Example~\ref{(co)diag-in-Loc})
 \[
   \Delta\colon L \to L \oplus L
 \]
 as a closed localic map.
-
 Namely, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
 
 \begin{lem}
@@ -169,7 +151,7 @@ the final
 
 \begin{framed}
   \begin{df}[I-Haus]
-    A locale $L$ is considered \emph{strongly Hausdorff\/} (equally
+    A locale $L$ is called \emph{strongly Hausdorff\/} (equally
     \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
     \[
       \Delta[L] = \uparr d_L
@@ -177,21 +159,9 @@ the final
   \end{df}
 \end{framed}
 
-\section{The weak from the strong one}
-
-The current chapter is a~treatise of the relationship between strongly and
-weakly Hausdorff property.
-As their names suggest: we will make effort%
-\footnote{hopefully joyful}
-to prove the~following
-
 \begin{thm} \label{IHaus->DSHaus}
-  The (I-Haus) implies the (DS-Haus).
+  (I-Haus) implies (DS-Haus).
 \end{thm}
-(The strong version implies the weak one; hence the adjectives.)
-
-However, at first, it may seem to be of some advantage to introduce several
-technical lemmas.
 
 \begin{lem}
   Suppose a join-basis $\mathcal{B}$ of a locale $L$ and a relation $R
