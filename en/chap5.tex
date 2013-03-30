@@ -38,16 +38,45 @@ Again, we introduce
 \end{rem}
 
 \begin{lem} \label{cb->continuous}
-  Let $X$ be a~topological space and let $\{a_r\in \Omega(X) \st r\in \langle
-  0, 1 \rangle \cap \Q\}$ be set witnessing $a \cb b$.
+  Let $X$ be a~topological space and let $\{A_r\in \Omega(X) \st r\in \langle
+  0, 1 \rangle \cap \Q\}$ be a~set witnessing $A \cb B$.
   Then function $f\colon X \to \I$ defined by
   \[
-    f(x) := \inf \{r \st a_r \owns x\}
+    f(x) := \inf \{r \st A_r \owns x\}
   \]
   is continuous.
 \end{lem}
 \begin{proof}
-  TBD
+  Firstly,
+  \[
+    x\in f^{-1}[\langle 0, s \langle] \; \equiv \;
+    f(x) < s \; \equiv \;
+    \exists r < s, \, A_r \owns x \; \equiv \;
+    x\in \bigcup \{ A_r \st r < s \},
+  \]
+  the second equivalence from infimum property in~linearly ordered sets.
+  Secondly,
+  \begin{align*}
+    x\in f^{-1}[\rangle s, 1 \rangle] \; &\equiv \;
+    f(x) > s \\
+    &\equiv \; \exists r, r' \in \,\rangle s, f(x) \langle\,, \quad  r' > r
+    \;\text{ and }\; x\not\in A_{r'} \;\text{ and }\; x\not\in \overline{A_r}
+    \; \\
+    &\equiv \; x\not\in \bigcap \left\{ \overline{A_r} \st r > s \right\} \\
+    &\equiv \; x\in \I\setminus \bigcap \left\{ \overline{A_r} \st r > s
+    \right\},
+  \end{align*}
+  the latter equivalence by density of~rational numbers;
+  $A_r \rb A_{r'}$, or equivalently, $\overline{A_r}\subseteq A_{r'}$;
+  and once more, the infimum property.
+
+  To sum up: preimages
+  \begin{align*}
+    f^{-1}[\langle 0, s \langle] &= \bigcup \{ A_r \st r < s \}, \\
+    f^{-1}[\rangle s, 1 \rangle] &= \I\setminus \bigcap \left\{ \overline{A_r} \st r > s \right\}
+  \end{align*}
+  of~$\I$'s subbasis are open;
+  hence, $f$ is continuous.
 \end{proof}
 
 \begin{prop} \label{T3,5-char}
