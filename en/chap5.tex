@@ -14,7 +14,53 @@
   \end{df}
 \end{framed}
 
-Analogously as in regular case:
+Again, we introduce
+
+\begin{framed}
+  \begin{nota}[$\cb$]
+    For elements $a, b$ of a locale $L$ let us write
+    \[
+      a \cb b
+    \]
+    and say \emph{``a is completely below b''\/} if for every $r\in \langle 0,
+    1 \rangle \cap \Q$ there exist $a_r\in L$ satisfying
+    \begin{align*}
+      a_0 &= a, \\
+      a_1 &= b, \\
+      \qquad a_p &\rb a_q \quad \text{ for } p < q
+    \end{align*}
+  \end{nota}
+\end{framed}
+
+\begin{rem}
+  Evidently, by~\ref{rb->leq} from page~\pageref{rb->leq}\thinspace, $a \cb b$
+  implies $a \le b$.
+\end{rem}
+
+\begin{lem} \label{cb->continuous}
+  Let $X$ be a~topological space and let $\{a_r\in \Omega(X) \st r\in \langle
+  0, 1 \rangle \cap \Q\}$ be set witnessing $a \cb b$.
+  Then function $f\colon X \to \I$ defined by
+  \[
+    f(x) := \inf \{r \st a_r \owns x\}
+  \]
+  is continuous.
+\end{lem}
+\begin{proof}
+  TBD
+\end{proof}
+
+\begin{prop} \label{T3,5-char}
+  A topological space $X$ is completely regular iff
+  \[
+    \forall U\in \Omega(X) \qquad U = \bigcup\{V\in \Omega(X) \st V \cb U\}
+  \]
+\end{prop}
+\begin{proof}
+  TBD
+\end{proof}
+
+In the analogous manner as in regular case:
 
 \begin{framed}
   \begin{df}[CReg]

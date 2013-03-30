@@ -35,6 +35,18 @@ In the category {\bf Loc} every localic map onto is, in addition, an
 epimorphism.
 \item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a \ldots
 Similarly, a \emph{coproduct} is a product in the opposite category.
+\begin{fact}
+  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$, where
+  \[
+    \mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}
+  \]
+  denotes its subbasis, is the product of topological spaces $\left( X_i
+  \right)_{i\in J}$;
+  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
+  \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
+  constitute the product in~the~category~{\bf Top}.
+\end{fact}
+
 \item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
   \begin{exmpl} \label{(co)diag-in-Loc}
@@ -60,6 +72,8 @@ Some basic notions and facts about classical topology:
 
 \begin{itemize}
 \item A \emph{topological space} is a
+\item A \emph{continuous function} $f\colon X \to Y$ between topological space
+$X$ and $Y$ is \ldots
 \item A \emph{basis} of a topological space is a
 \item Likewise, a \emph{subbasis} of a topological space is a
 \begin{exmpl}
@@ -68,16 +82,6 @@ Some basic notions and facts about classical topology:
   \st a\in \langle 0, 1 \rangle \}$.
 \end{exmpl}
 \end{itemize}
-
-\begin{fact}
-  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$, where
-  $\mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}$
-  denotes its subbasis, is the product of topological spaces $\left( X_i
-  \right)_{i\in J}$;
-  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
-  \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
-  constitute the product in~the~category~{\bf Top}.
-\end{fact}
 
 \subsection*{Point-free topology}
 
