@@ -33,7 +33,7 @@ Again, we introduce
 \end{framed}
 
 \begin{rem}
-  Evidently, by~\ref{rb->leq} from page~\pageref{rb->leq}\thinspace, $a \cb b$
+  Likewise \ref{rb->leq} from page~\pageref{rb->leq}\thinspace, $a \cb b$
   implies $a \le b$.
 \end{rem}
 
@@ -67,7 +67,7 @@ Again, we introduce
     \right\},
   \end{align*}
   the latter equivalence by density of~rational numbers;
-  $A_r \rb A_{r'}$, or equivalently, $\overline{A_r}\subseteq A_{r'}$;
+  $A_r \rb A_{r'}$ (or equivalently $\overline{A_r}\subseteq A_{r'}$);
   and once more, the infimum property.
 
   To sum up: preimages
@@ -82,11 +82,42 @@ Again, we introduce
 \begin{prop} \label{T3,5-char}
   A topological space $X$ is completely regular iff
   \[
-    \forall U\in \Omega(X) \qquad U = \bigcup\{V\in \Omega(X) \st V \cb U\}
+    \forall U\in \Omega(X): \quad U = \bigcup\{V\in \Omega(X) \st V \cb U\}
   \]
 \end{prop}
 \begin{proof}
-  TBD
+  $\Rightarrow$:
+  We will show the inclusion $\subseteq$. 
+  Choose arbitrary $x\in U$.
+  Take continuous $\phi$ separating $x$ from closed $A := X\setminus U$ and set
+  \[
+  V_r =
+  \begin{cases}
+    \phi^{-1}[\langle 0, \frac{a+1}{2} \langle] &\mbox{iff } r\in \langle 0, 1
+    \langle \, \cap \, \Q  \\
+    U                                   &\mbox{iff } r = 1.
+  \end{cases}
+  \]
+  These open sets affirm $V_0 \cb U$.
+  Indeed: 
+  whenever $p < q$, we get
+  \[
+    \overline{V_p}
+    = \overline{\phi^{-1}\left[ \left\langle 0, \frac{p+1}{2} \right\langle \right]}
+    \subseteq \phi^{-1}\left[ \left\langle 0, \frac{p+1}{2} \right\rangle \right]
+    \subseteq \phi^{-1}\left[ \left\langle 0, \frac{q+1}{2} \right\langle \right]
+    = V_q,
+  \]
+  (the second inclusion since $\left\langle 0, r \right\rangle$ are closed in $\I$).
+
+  Such sets $V_0$ (for every $x\in U$) cover all of the $U$; whence, the
+  inclusion $\subseteq$.
+
+  $\Leftarrow$:
+  For an open $U := X\setminus A$ and $x\in U$ there is a $V$ with $x\in V \cb U$.
+  Thus, the $f$ from~\ref{cb->continuous} is the desired continuous function:
+  first of all, $x\in V = V_0$ means $f(x) = 0$;
+  furthermore, if $y\in A$ then $f(y) = \inf \none = 1$.
 \end{proof}
 
 In the analogous manner as in regular case:
@@ -100,3 +131,7 @@ In the analogous manner as in regular case:
     for all its elements $a$.
   \end{df}
 \end{framed}
+
+\begin{rem}
+  Since $\{x \st x \cb a\}\subseteq \{x \st x \rb a\}$, (CReg) implies (Reg).
+\end{rem}
