@@ -34,6 +34,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{framed}
+\usepackage[titles]{tocloft}
 
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
@@ -91,8 +92,12 @@
 %\renewcommand{\qedsymbol}{$\blacksquare$}
 
 \def\labelitemi{$\spadesuit$}
-\renewcommand{\thechapter}{\Roman{chapter}} 
+\renewcommand*\thechapter{\Roman{chapter}} 
 \renewcommand{\labelenumi}{{\rm(\roman{enumi})}}
+
+% mezera v Table of Contents před číslem kapitoly
+\renewcommand*\cftchapnumwidth{2em}
+\renewcommand*\cftsecnumwidth{3em}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -301,6 +306,7 @@ pointless topology, point-free topology, separation axioms, locale, frame
 \include{chap4}
 \include{chap5}
 \include{chap6}
+\include{chap7}
 
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 % \include{example}
