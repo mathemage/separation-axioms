@@ -1,0 +1,75 @@
+\chapter{Normality}
+
+\section{The $T_4$ axiom}
+
+\begin{framed}
+  \begin{df}[$T_4$]
+    A topological space $X$ is \emph{normal\/} (or \emph{$T_4$-space\/}) if
+    \begin{center} \it
+      for every disjoint closed $A, B$ there exist disjoint open $U, V$ with
+      $U\supseteq A, \, V\supseteq B$.
+    \end{center}
+  \end{df}
+\end{framed}
+
+The point-free counterpart is straightforward:
+
+\begin{framed}
+  \begin{df}[Norm]
+    A locale $L$ is \emph{normal\/} if
+    \[
+      a \vee b = 1 \qquad \Rightarrow \qquad \exists u, v, \quad u \wedge v =
+      0 \text{ and } a \vee u = 1 = b \vee v.
+    \]
+  \end{df}
+\end{framed}
+
+\begin{rem}
+  As $u \wedge v = 0 \; \equiv \; v \le u^*$, we may define (Norm) equally by
+  \[
+    a \vee b = 1 \qquad \Rightarrow \qquad \exists u, \quad a \vee u = 1 = b
+    \vee u^*.
+  \]
+\end{rem}
+
+\medskip
+
+Because the definition of $(T_4)$ is virtually point-free, we obtain following
+
+\begin{cor}
+  A topology $X$ is normal iff the locale $\Omega(X)$ is normal.
+\end{cor}
+
+\begin{lem}
+  The relation $\rb$ interpolates in~normal locales.
+\end{lem}
+\begin{proof}
+  Suppose $a$ is rather below $b$.
+  That is, $a^* \vee b = 1$, and using the normality,\thinspace%
+  \footnote{more precisely, the remark}
+  we get $u\in L$ such that
+  $a^* \vee u = 1 = b \vee u^*$.
+  In other words, $a \rb u \rb b$.
+\end{proof}
+
+Combined with Remark~\ref{cb-largest-interpol} on
+page~\pageref{cb-largest-interpol}\thinspace, we form
+
+\begin{cor}
+  (Norm) implies $\rb \, = \, \cb$;
+  thence, in case of normal locales, regularity coincides with complete
+  regularity.
+\end{cor}
+
+\begin{thm}
+  (Norm) $\&$ (Sfit) $\Rightarrow$ (Reg).
+\end{thm}
+\begin{proof}
+  Take $a\in L$ and put $b := \bigvee \{x \st x \rb a\}$.
+  For contradiction, suppose that $a\not\le b$.
+  Using the subfitness, there is $c\in L$ fulfilling $a \vee c = 1 \ne b \vee
+  c$.
+  Applying the normality, we find $u\in L$ with $a \vee u^* = 1 = c \vee u$.
+  Particularly, $u \rb a$, which leads to~$u \le b$.
+  Finally, $b \vee c \ge u \vee c = 1$; contradicting the subfitness.
+\end{proof}
