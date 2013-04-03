@@ -1,8 +1,7 @@
 \chapter{Weakly and strongly Hausdorff}
 
-In this chapter we will contemplate point-free analogies of the $T_2$
-axiom---a~separation perhaps intricate to imitate in frames.
-Rather, two resembling conditions will be presented.
+In this chapter we will consider point-free analogies of the $T_2$
+axiom---a~separation not quite easy to imitate in frames.
 
 \section{The $T_2$ axiom}
 
@@ -23,7 +22,7 @@ Rather, two resembling conditions will be presented.
 
 \section{The Dowker-Strauss approach}
 
-In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
+In 1972 Dowker and Strauss \cite{ds72} introduced the following condition:
 
 \begin{framed}
   \begin{df}
@@ -35,8 +34,6 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the condition:
     \]
   \end{df}
 \end{framed}
-
-In spaces, this extends the Hausdorff property.\eqref{S_2}
 
 \begin{prop} \label{Haus->S2'}
   For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ satisfies
@@ -54,7 +51,7 @@ In spaces, this extends the Hausdorff property.\eqref{S_2}
 
 \begin{rem}
   The reverse implication requires, in addition, the subfitness.
-  For the~proof seek Proposition 7 of~Dowker and Strauss
+  For the~proof see Proposition 7 of~Dowker and Strauss
   \cite{ds72}.
 \end{rem}
 
@@ -73,7 +70,7 @@ The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
 
 \section{Isbell's approach}
 
-Here comes another characterization of the classical $T_2$:
+Here is a~characterization of~the classical~$T_2$:
 
 \begin{prop}
   A topological space $X$ is Hausdorff space if and only if the~diagonal
@@ -86,25 +83,13 @@ Here comes another characterization of the classical $T_2$:
   separable from $\Delta$:
   namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$
   and $V$ from the definition of~$(T_2)$.
-  Thence, $(x, y)\not\in \overline{\Delta}$ concludes to $\Delta =
+  Hence, $(x, y)\not\in \overline{\Delta}$ concludes to $\Delta =
   \overline{\Delta}$, which is closed.
 
-  $\Leftarrow:$ Choose $x \ne y$.
-  In such a case, we get a $W\owns (x, y)$ from $\Omega(X\times X)$ fulfilling
-  $W \cap \Delta = \none$.
-  Without loss of generality, let $W$ be from basis.
-  That is, $W$ is a~finite intersection
-  \[
-    \bigcap_{i=1}^m p_1^{-1}[U_i] \cap \bigcap_{j=1}^n p_2^{-1}[V_i] =
-    p_1^{-1}[\bigcap_{i=1}^m U_i] \cap p_2^{-1}[\bigcap_{j=1}^n V_i],
-  \]
-  henceforth denoted only by $p_1^{-1}[U] \cap p_2^{-1}[V]$.
-
-  Moreover, it is not possible for $W$ to be of the plain form $p_i^{-1}[U]$
-  for $i = 1, 2$;
-  since otherwise $p_i^{-1}[U] \cap \Delta \ne \none$, a contradiction.
-  Following $W \cap \Delta = \none$, the open sets $U\owns x$ and $V\owns y$
-  are disjoint from each other.
+  $\Leftarrow:$ Choose $x \ne y$, in other words, $(x, y)\not\in \Delta$.
+  Then $(x, y)$ has an open basic neighbourhood $U_1\times U_2$ disjoint from
+  $\Delta$.
+  That is, $U_1 \cap U_2 = \none$.
 \end{proof}
 
 This was used by Isbell \cite{isbell72} for point-free counterpart of the $T_2$
@@ -210,7 +195,7 @@ the final
   Recall the products in {\bf Loc} (viz Preliminaries).
   The relation $R$ used in its definition satisfy both aforementioned
   conditions;
-  whence, in case of binary products, $R$-saturated sets are precisely the
+  hence, in case of binary products, $R$-saturated sets are precisely the
   down-sets $U \subseteq L_1 \times L_2$ fulfilling 
   \[
     \textstyle
@@ -269,7 +254,7 @@ the final
 
   Remind yourselves of~Example~\ref{(co)diag-in-Loc}\thinspace.
   Notice $\Delta^*(a \oplus a) = a$;
-  thence, the codiagonal~$\nabla$ is onto, and consequently, an epimorphism.
+  hence, the codiagonal~$\nabla$ is onto, and consequently, an epimorphism.
   Furthemore, using a standard property of~Galois adjoints $\nabla \Delta
   \nabla = \nabla$,
   we get

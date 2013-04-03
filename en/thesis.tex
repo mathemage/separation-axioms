@@ -92,12 +92,18 @@
 %\renewcommand{\qedsymbol}{$\blacksquare$}
 
 \def\labelitemi{$\spadesuit$}
-\renewcommand*\thechapter{\Roman{chapter}} 
+\renewcommand\thechapter{\Roman{chapter}} 
+%\renewcommand\thesection{\arabic{section}}
+%\renewcommand\thesubsection{(\alph{subsection})}
+
 \renewcommand{\labelenumi}{{\rm(\roman{enumi})}}
 
 % mezera v Table of Contents před číslem kapitoly
 \renewcommand*\cftchapnumwidth{2em}
 \renewcommand*\cftsecnumwidth{3em}
+% samotna cisla "section" misto "chapter.section"
+%\renewcommand\cftchapaftersnum{}
+%\renewcommand\cftsecaftersnum{.}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
