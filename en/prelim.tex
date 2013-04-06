@@ -104,13 +104,22 @@ Some basic notions and facts about classical topology:
 \item A \emph{topological space} is a~structure of
   \begin{itemize}
   \item the set of \emph{points\/} $X$
-  \item the set of \emph{open sets\/} $\tau\subseteq 2^X$ holding axioms
+  \item \emph{open sets\/} $\tau\subseteq 2^X$ holding axioms
+    \begin{description}
+    \item[(ot1)] $\none, X \in \tau$
+    \item[(ot2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow
+    \; \bigcup_{i\in J} U_i \in \tau$
+    \item[(ot3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
+    \end{description}
   \end{itemize}
 
-\item A \emph{continuous function} $f\colon X \to Y$ between topological space
-$X$ and $Y$ is \ldots
-\item A \emph{basis} of a topological space is a
-\item Likewise, a \emph{subbasis} of a topological space is a
+\item The \emph{basis} of a topological space $(X, \tau)$ is the
+$\mathcal{B}\subseteq \tau$ such that for every open $U$ we can write $U =
+\bigcup \{V\in \mathcal{B} \st V\subseteq U \}$.
+
+\item Likewise, $\mathcal{S}\subseteq \tau$ is a~\emph{subbasis} of a
+topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
+\Subset \mathcal{S} \right\}$ is basis of~$\tau$.
 \end{itemize}
 
 \begin{exmpl}
@@ -128,6 +137,16 @@ $X$ and $Y$ is \ldots
   \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
   constitute the product in~the~category~{\bf Top}.
 \end{fact}
+
+\begin{itemize}
+\item A function $f\colon X \to Y$ between topological space $X$ and $Y$ is
+\emph{continuous} if 
+\[
+  U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
+\]
+Since preimage preserves unions and finite intersections, this amounts to
+requiring that $f^{-1}[U]$ is open for {\bf subbasic} $U$.
+\end{itemize}
 
 \subsection*{Point-free topology}
 
