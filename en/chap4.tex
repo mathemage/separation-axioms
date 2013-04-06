@@ -17,8 +17,8 @@ thus, how it implies all the aforestated axioms.
   \end{df}
 \end{framed}
 
-Even though the definition mentions points, it may be elegantly reduced so as
-not to do so.
+Even though the definition concerns points, it may be reformulated without
+them.
 
 \begin{prop} \label{reg-char}
   A space $X$ is regular iff each $U\in \Omega(X)$ can be depicted as
@@ -27,19 +27,18 @@ not to do so.
   \]
 \end{prop}
 \begin{proof}
-  The inclusion~$\supseteq$ constantly holds (as $V\subseteq
-  \overline{V}\subseteq U$).
+  The inclusion~$\supseteq$ is obvious.
 
   $\Rightarrow$:
-  Choose any $x\in U$.
+  Choose a $x\in U$.
   Since $A := X\setminus U \not\owns x$ is closed, the existence
   of~$V_1$~and~$V_2$ from $(T_3)$ is stipulated.
   The disjointedness $V_1 \cap V_2 = \none$ leads to $V_1\subseteq X\setminus
-  V_2$, which is, incidentally, a closed set.
+  V_2$, which is a closed set.
   Therefore, $\overline{V_1}\subseteq X\setminus V_2$.
 
-  Furthermore, the relation $A\subseteq V_2$ is undoubtedly equivalent to the
-  relation $X\setminus V_2\subseteq X \setminus A = U$.
+  Furthermore, the relation $A\subseteq V_2$ is equivalent to the relation
+  $X\setminus V_2\subseteq X \setminus A = U$.
   Hence, for $V_x := V_1$ one has $\overline{V_x}\subseteq X\setminus V_2\subseteq
   U$.
   Such a~system $\{V_x \st x\in U\}$ constitutes a~subset cover of $U$, and
@@ -50,8 +49,7 @@ not to do so.
   := X\setminus \overline{V_x}$.
 \end{proof}
 
-We may even ponder the possibility of eliminating the~closure in
-the~description:
+Now we will eliminate the~closure in the~formula:
 
 \begin{lem}
   $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X)\colon W \cap V =
@@ -70,10 +68,27 @@ the~description:
 \end{proof}
 
 Without loss of generality, the $W$ might be replaced by~the
-pseudocomplement~$V^*$;
-explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
-\footnote{In frames, pseudocomplements are always present: $a^* := a
-\rightarrow 0$ exist owing to frame's being Heyting algebra.}
+pseudocomplement~$V^*$.
+Explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
+
+\begin{note}
+Pseudocomplements always exist in frames:
+setting
+\[
+  a^* := \bigvee \{x \st x \wedge a = 0\},
+\]
+we have
+\[
+  a^* \wedge a = \bigvee \{x \st x \wedge a = 0\} \wedge a = \bigvee \{x \wedge
+  a \st x \wedge a = 0\} = 0
+\]
+(the second equality from frame distributivity).
+Clearly, the implication
+\[
+  x \wedge a = 0 \Rightarrow x \le a^*
+\]
+also holds.
+\end{note}
 
 \section{Regular locales}
 
@@ -86,22 +101,20 @@ explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
   \end{nota}
 \end{framed}
 
-The next auxiliary lemma will be advantageous property for the rest of this
-chapter.
+The next lemma will be advantageous property for the rest of this chapter.
 \begin{lem} \label{rb->leq}
   $a \rb b \Rightarrow a \leq b$.
 \end{lem}
 \begin{proof}
-  With help of distributivity,
+  By~distributivity,
   \[
     a = a \wedge 1 = a \wedge (a^* \vee b) = (a \wedge a^*) \vee (a \wedge b) =
-    0 \vee (a \wedge b) = a \wedge b;
+    0 \vee (a \wedge b) = a \wedge b. \qedhere
   \]
-  which is required to proved.
 \end{proof}
 
-Possessing $\rb$ notation, we are able to mimic characterization
-in~\ref{reg-char} by
+Possessing $\rb$ notation, we are able to adopt the characterization
+\ref{reg-char} by~defining regularity as~following
 \begin{framed}
   \begin{df}[Reg]
     A locale is called \emph{regular\/} if and only if
@@ -112,10 +125,12 @@ in~\ref{reg-char} by
   \end{df}
 \end{framed}
 
-Moreover, the proposition leads us to
-\begin{cor}
-  A topological space $X$ is regular iff its $\Omega(X)$ is regular.
-\end{cor}
+Thus we have that
+\begin{center} 
+  \emph{a topological space $X$ is regular iff its $\Omega(X)$ is regular.\/}
+\end{center}
+
+\section{Strength of regularity}
 
 Now we are going to study the stated relationships between (Reg) and other
 axioms.
@@ -128,8 +143,8 @@ axioms.
   where $(\iota_i\colon L \to \bigoplus_{i\in J} L_i)_{i\in J}$ form a
   coproduct of~$(L_i)_{i\in J}$ in~{\bf Frm}.
 \end{fact}
-(In order to prove the statement, gentle reader would need deeper background
-in~frame coproducts:
+(In order to prove the statement, we would need deeper background in~frame
+coproducts:
 in particular, the structure of the insertions $(\iota_i)_{i\in J}$.
 That is, regrettably, beyond the limits of this material.
 Nonetheless, the proof itself may be found as Proposition~IV.5.2.(2) of the
@@ -207,7 +222,7 @@ for conciseness of this thesis, the author takes liberty to~omit its proof,
 referring once more to the monography~\cite{picado-pultr12}.
 
 \begin{thm}
-  The (Reg) implies the (I-Haus).
+  (Reg) implies (I-Haus).
 \end{thm}
 \begin{proof}
   Let $(a \wedge b, a \wedge b) \in U$.
@@ -266,7 +281,7 @@ that rather resembles the subfit definition:
 
 The new definition of regularity is more suitable to prove
 \begin{thm}
-  The (Reg) implies the (Sfit).
+  (Reg) implies (Sfit).
 \end{thm}
 \begin{proof}
   Given $a \not\le b$, we acquire---from Lemma~\ref{reg-char}\thinspace---an
@@ -280,7 +295,3 @@ The new definition of regularity is more suitable to prove
   the third identity from distributivity; subsequently, this contradicts $c^*
   \le b$.
 \end{proof}
-
-\begin{cor}
-  The regularity also implies all the above-mentioned axioms of Hausdorff type.
-\end{cor}
