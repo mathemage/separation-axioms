@@ -4,12 +4,29 @@
 \section*{Notations}
 
 \begin{itemize}
+\item $2^X$ is the set of~all subsets, explicitly, $2^X = \{ S \st S\subseteq X
+\}$.
+
 \item $A \Subset B$ means {\sl set $A$ is a finite subset of set $B$\/}.
-\item $\overline{S}$ 
+
 \item $\Omega(X)$ denotes the lattice (or more specifically, the frame) of open
 sets in $X$ together with $\subseteq$ as the ordering. 
-By an abuse of notation, we denote the related underlying set in the very same
+By abuse of notation, we denote the related underlying set in the very same
 way.
+
+\item $\overline{S}$ is the~closure of $S$ in topology $(X, \Omega(X))$ defined
+by
+\[
+  \overline{S} = \bigcap_{ \substack{
+    A: A\subseteq S, \\
+   \text{A is closed}}}
+   A \, ,
+\]
+or equivalently,
+\[
+  \overline{S} = \{ x \in X \st U\in\Omega(X) \text{ and } U\owns x \Rightarrow
+  U \cap S \ne \none \}.
+\]
 \end{itemize}
 
 \section*{Definitions}
@@ -17,53 +34,65 @@ way.
 \subsection*{Order theory}
 
 \begin{itemize}
-\item A \emph{pseudocomplement} is \ldots
+\item A \emph{pseudocomplement} of an element $x$ is $x^*$ such that $y \le x^*
+\equiv x \wedge y = 0$.
   \begin{fact}
     $x \le x^{**}$.
     (As the $x$, among others, meets with $x^*$ in $x^* \wedge x = 0$.)
   \end{fact}
+
 \item A relation $R$ \emph{interpolates} if $R \subseteq R \circ R$.
 \end{itemize}
 
 \subsection*{Category theory}
 
 \begin{itemize}
-\item A \emph{category} is a collection of objects and morphisms \ldots
+\item A \emph{category} $\Ccal$ is a structure consisting of
+  \begin{itemize}
+  \item class~$\Ccal^O$ of \emph{objects\/}
+  \item class~$||\Ccal||$ of \emph{morphisms\/} between objects 
+  (a~concrete morphism $f$ between objects $A$ and $B$ is denoted by $f\colon A
+   \to B$)
+  \end{itemize}
+further satisfying axioms of
+  \begin{itemize}
+  \item \emph{(identity)\/}
+  For every $X\in \Ccal^O$ there is a~morphism $1_X$ such that for any $f\colon A \to B$
+  we have $1_A \circ f = f = f \circ 1_B$.
+  \item \emph{(asociativity)\/}
+  Whenever $f\colon A \to B$, $g\colon B \to C$ and $h\colon C \to D$ then $h
+  \circ (g \circ f) = (h \circ g) \circ f$.
+  \end{itemize}
+
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
-$\mathcal{C}$ is the category \ldots
-\item An \emph{epimorphism} is a right-cancellative morphism meaning\ldots
-In the category {\bf Loc} every localic map onto is, in addition, an
-epimorphism.
-\item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a \ldots
+$\mathcal{C}$ comprises the same objects $\Ccal^O$ and ``reverse'' morphisms
+$f^{op}\colon A \leftarrow B$ for each morphisms $f\in ||\Ccal||$.
+
+\item An \emph{epimorphism} is a right-cancellative morphism $e$, that is,
+\[
+  f_1 \circ e = f_2 \circ e \; \Longrightarrow \; f_1 = f_2.
+\]
+\end{itemize}
+
+\begin{exmpl}
+  In the category {\bf Loc} (see ``Point-free topology'') every localic map
+  onto is epimorphic.
+\end{exmpl}
+
+\begin{itemize}
+\item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a~system
+\[
+  \left(p_i\colon \prod_{j\in J} A_j \to A_i \right)_{i\in J}
+\]
+with property that for arbitrary system $\left(f_i\colon X \to A_i\right)_{i\in
+J}$ there is a~unique solution~$f\colon X \to \prod_{j\in J} A_j$ to equations
+\[
+  p_i \circ f = f_i \text{ for } i\in J.
+\]
 Similarly, a \emph{coproduct} is a product in the opposite category.
-\begin{fact}
-  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$, where
-  \[
-    \mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}
-  \]
-  denotes its subbasis, is the product of topological spaces $\left( X_i
-  \right)_{i\in J}$;
-  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
-  \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
-  constitute the product in~the~category~{\bf Top}.
-\end{fact}
 
 \item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
-  \begin{exmpl} \label{(co)diag-in-Loc}
-    The diagonal localic map $\Delta\colon L \to L \oplus L$ in {\bf Loc} is
-    given by formula
-    \[
-      \Delta(a) = \left\{ (x, y) \st x \wedge y \leq a \right\},
-    \]
-    and likewise, its left adjoint (the codiagonal $\nabla\colon L \oplus L \to
-    L$) is described by
-    \[
-      \nabla(U) = \bigvee \left\{ x \st (x, x)\in U \right\},
-    \]
-    as it is more explained in Corollary~IV.5.5.2 and Section~IV.5.2 of~Picado
-    and Pultr \cite{picado-pultr12}.
-  \end{exmpl}
 \end{itemize}
 
 
@@ -72,17 +101,33 @@ J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
 Some basic notions and facts about classical topology:
 
 \begin{itemize}
-\item A \emph{topological space} is a
+\item A \emph{topological space} is a~structure of
+  \begin{itemize}
+  \item the set of \emph{points\/} $X$
+  \item the set of \emph{open sets\/} $\tau\subseteq 2^X$ holding axioms
+  \end{itemize}
+
 \item A \emph{continuous function} $f\colon X \to Y$ between topological space
 $X$ and $Y$ is \ldots
 \item A \emph{basis} of a topological space is a
 \item Likewise, a \emph{subbasis} of a topological space is a
+\end{itemize}
+
 \begin{exmpl}
   The topology $\I$ consists of underlying set $\langle 0, 1 \rangle$ and open
   sets generated by subbasis $\{ \langle 0, a \langle, \; \rangle a, 1 \rangle
   \st a\in \langle 0, 1 \rangle \}$.
 \end{exmpl}
-\end{itemize}
+
+\begin{fact}
+  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$, where
+  $\mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}$
+  denotes its subbasis, is the product of topological spaces $\left( X_i
+  \right)_{i\in J}$;
+  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
+  \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
+  constitute the product in~the~category~{\bf Top}.
+\end{fact}
 
 \subsection*{Point-free topology}
 
@@ -122,6 +167,21 @@ For full details consult Chapter~IV of Picado and Pultr \cite{picado-pultr12}.
 $\left\downarrow (a, b) \right. \cup \n$---the least saturated down-set
 containing $(a, b)$.
 \end{itemize}
+
+\begin{exmpl} \label{(co)diag-in-Loc}
+  The diagonal localic map $\Delta\colon L \to L \oplus L$ in {\bf Loc} is
+  given by formula
+  \[
+    \Delta(a) = \left\{ (x, y) \st x \wedge y \leq a \right\},
+  \]
+  and likewise, its left adjoint (the codiagonal $\nabla\colon L \oplus L \to
+  L$) is described by
+  \[
+    \nabla(U) = \bigvee \left\{ x \st (x, x)\in U \right\},
+  \]
+  as it is more explained in Corollary~IV.5.5.2 and Section~IV.5.2 of~Picado
+  and Pultr \cite{picado-pultr12}.
+\end{exmpl}
 
 \section*{Convention}
 
