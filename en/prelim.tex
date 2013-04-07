@@ -14,19 +14,20 @@ sets in $X$ together with $\subseteq$ as the ordering.
 By abuse of notation, we denote the related underlying set in the very same
 way.
 
-\item $\overline{S}$ is the~closure of $S$ in topology $(X, \Omega(X))$ defined
-by
+\item $\overline{S}$ is the~closure of $S$ in topology $(X, \Omega(X))$.
+It is defined by
 \[
-  \overline{S} = \bigcap_{ \substack{
-    A: A\subseteq S, \\
-   \text{A is closed}}}
-   A \, ,
+  \overline{S} = \bigcap_{ \text{closed } A\colon \, A\supseteq S} A
+  \, ,
 \]
 or equivalently,
 \[
   \overline{S} = \{ x \in X \st U\in\Omega(X) \text{ and } U\owns x \Rightarrow
   U \cap S \ne \none \}.
 \]
+\item $f^*$ (resp. $f_*$) is the~left (resp. right) adjoint of $f$ (viz ``Order
+theory'').
+
 \end{itemize}
 
 \section*{Definitions}
@@ -42,6 +43,13 @@ or equivalently,
   \end{fact}
 
 \item A relation $R$ \emph{interpolates} if $R \subseteq R \circ R$.
+
+\item Monotone maps $l\colon A \to B$ and $r\colon B \to A$ are \emph{Galois
+  adjoints\/} ($l$ is a~\emph{left adjoint\/} of $r$; $r$ is a~\emph{right
+  adjoint\/} of $l$) if for every $a\in A, \, b\in B$
+  \[
+    l(a) \le b \; \equiv a \le r(b).
+  \]
 \end{itemize}
 
 \subsection*{Category theory}
@@ -66,7 +74,8 @@ further satisfying axioms of
 
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
 $\mathcal{C}$ comprises the same objects $\Ccal^O$ and ``reverse'' morphisms
-$f^{op}\colon A \leftarrow B$ for each morphisms $f\in ||\Ccal||$.
+$f^{op}\colon A \leftarrow B$ (for each morphism $f\colon A \to B$
+in~$||\Ccal||$).
 
 \item An \emph{epimorphism} is a right-cancellative morphism $e$, that is,
 \[
@@ -76,7 +85,7 @@ $f^{op}\colon A \leftarrow B$ for each morphisms $f\in ||\Ccal||$.
 
 \begin{exmpl}
   In the category {\bf Loc} (see ``Point-free topology'') every localic map
-  onto is epimorphic.
+  onto is epic.
 \end{exmpl}
 
 \begin{itemize}
@@ -106,10 +115,10 @@ Some basic notions and facts about classical topology:
   \item the set of \emph{points\/} $X$
   \item \emph{open sets\/} $\tau\subseteq 2^X$ holding axioms
     \begin{description}
-    \item[(ot1)] $\none, X \in \tau$
-    \item[(ot2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow
+    \item[(o1)] $\none, X \in \tau$
+    \item[(o2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow
     \; \bigcup_{i\in J} U_i \in \tau$
-    \item[(ot3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
+    \item[(o3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
     \end{description}
   \end{itemize}
 
@@ -151,17 +160,80 @@ requiring that $f^{-1}[U]$ is open for {\bf subbasic} $U$.
 \subsection*{Point-free topology}
 
 \begin{itemize}
-\item A \emph{frame} is a
-\item A \emph{frame homomorphism} is a
-The corresponding category will be called {\bf Frm}.
-\item A \emph{locale} is a
-\item A \emph{localic map} is a \ldots
-We will write {\bf Loc} for the category of~locales and localic maps.
-\item A \emph{sublocale} $S$ is a \ldots
-  \begin{fact}
-    The set-theoretic image $f[L]$ under a localic map $f\colon L\to M$
-    is a~sublocale of~$M$.
-  \end{fact}
+\item A \emph{frame} is a~complete lattice $L$ satisfying ``infinite'' version
+of distributivity
+\[
+  \bigvee A \wedge b = \bigvee \{ a \wedge b \st a\in A \}
+\]
+for every $A\subseteq L$ and $b\in L$.
+
+\item A \emph{frame homomorphism} (between frames $M$ and $L$) is a~map
+$h\colon M \to L$ preserving all joins (in particular, $h(0) = 0$) and~all
+finite meets (especially, $h(1) = 1$).
+
+\item The category of~frames and frame homomorphisms will be denoted by {\bf
+Frm}.
+
+\item A \emph{locale} is a~frame (it has different name because of~different
+subsequent morphisms).
+
+\item A \emph{localic map} (between locales $L$ and $M$) is a mapping $f\colon
+L \to M$ having left (Galois) adjoints $f^*\colon M \to L$, which is also a
+frame homomorphism.
+Hence, localic maps are infima-preserving $f$ and their left adjoints $f^*$
+preserves finite meets.
+
+\item We will write {\bf Loc} for the category of~locales and localic maps.
+Thus, $\mathbf{Loc} = \mathbf{Frm}^{op}$
+
+\item A \emph{sublocale} of locale $L$ is a $S\subseteq L$ satisfying
+  \begin{description}
+  \item[(S1)] $M\subseteq S \Longrightarrow \bigwedge M\in S$
+  \item[(S2)] $x\in L \text{ and } s\in S \Longrightarrow x \rightarrow s \in S$ 
+  \end{description}
+\end{itemize}
+
+\begin{fact}
+  The set-theoretic image $f[L]$ under a localic map $f\colon L\to M$
+  is a~sublocale of~$M$.
+\end{fact}
+
+\subsection*{On coproducts in Frm}
+
+In the category of~frames we have a~coproduct
+\[
+  \iota_i: L_i \to L_1 \oplus L_2, \, i = 1, 2
+\]
+(there is a general coproduct but we will need a coproduct of two objects
+ only).
+It can be constructed as follows.
+
+\begin{itemize}
+\item A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all
+systems $(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$
+we have
+  \begin{align*}
+    \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i, y)\in U,
+    \text{ and} \\
+    \{ (y, x_i) \st i\in J \} \subseteq U \, &\Rightarrow \, (y, \bigvee x_i)\in U.
+  \end{align*}
+
+\item $L_1 \oplus L_2$ will be the set of~all saturated downsets in $L_1
+\times L_2$.
+
+\item The definition above concerns also the void $J$ and hence for each
+saturated $U$ we get
+\[
+  U\supseteq \n := \{ (x, y) \st x = 0 \text{ or } y = 0 \}.
+\]
+Since $\n$ itself is obviously saturated, it is \emph{the least saturated
+down-set\/}.
+
+\end{itemize}
+
+\clearpage
+
+\begin{itemize}
 \item A \emph{closed sublocale} $S$ is a \ldots
 Besides, the \emph{closure} of $S$ is the least closed sublocale containing $S$.
 Since \ldots On the other hand, \ldots
