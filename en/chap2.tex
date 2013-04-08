@@ -140,7 +140,7 @@ the final
     A locale $L$ is called \emph{strongly Hausdorff\/} (equally
     \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
     \[
-      \Delta[L] = \uparr d_L
+      \Delta[L] = \left\uparrow d_L \right.
     \]
   \end{df}
 \end{framed}
@@ -148,69 +148,6 @@ the final
 \begin{thm} \label{IHaus->DSHaus}
   (I-Haus) implies (DS-Haus).
 \end{thm}
-
-\begin{lem}
-  Suppose a join-basis $\mathcal{B}$ of a locale $L$ and a relation $R
-  \subseteq L \times L$ possessing property
-  \[
-    \forall a, b\in L \; \forall c \in \mathcal{B}: \quad aRb \Rightarrow (a
-    \wedge c)R(b \wedge c).
-  \]
-  Such a premise cause an element $s\in L$ to be $R$-saturated if and only if
-  \[
-    aRb \qquad \Rightarrow \qquad (a \leq s \; \Leftrightarrow \; b \leq s).
-  \]
-\end{lem}
-\begin{proof}
-  $\Rightarrow$: Trivial (put $c := 1$ in the definition of saturatedness).
-
-  $\Leftarrow$: For a general $c\in L$ there are $c_i\in \mathcal{B}$ holding
-  $c = \bigvee_{i\in J} c_i$.
-  Following from frame distributivity, the~definition of~$\bigvee$ and the
-  special property of~$R$, we get
-  \begin{align*}
-    a \wedge c \leq s \quad
-    &\equiv a \wedge \bigvee_{i\in J} c_i \leq s \\
-    &\equiv \bigvee_{i\in J} (a \wedge c_i) \leq s \\
-    &\equiv \forall i\in J: a \wedge c_i \leq s \\
-    &\equiv \forall i\in J: b \wedge c_i \leq s \\
-    &\equiv \bigvee_{i\in J} (b \wedge c_i) \leq s \\
-    &\equiv b \wedge \bigvee_{i\in J} c_i \leq s
-    \equiv \quad b \wedge c \leq s;
-  \end{align*}
-  quite easily done.
-\end{proof}
-
-\begin{rem} \label{satur-def-eq}
-  If additionally $aRb \Rightarrow a \leq b$, the previous alternative can be
-  rewritten to
-  \[
-    aRb \quad \Rightarrow \quad (a \leq s \quad \Rightarrow \quad b \leq s)
-  \]
-  or even simpler
-  \[
-    aRb \; \& \; a \leq s \quad \Longrightarrow \quad b \leq s.
-  \]
-
-  Recall the products in {\bf Loc} (viz Preliminaries).
-  The relation $R$ used in its definition satisfy both aforementioned
-  conditions;
-  hence, in case of binary products, $R$-saturated sets are precisely the
-  down-sets $U \subseteq L_1 \times L_2$ fulfilling 
-  \[
-    \textstyle
-    \{ (x_i, y) \st i \in J \} \subseteq U \quad \Longrightarrow \quad
-    \left(\bigvee_{i\in J} x_i, y\right)\in U
-  \]
-  and
-  \[
-    \textstyle
-    \{ (x, y_i) \st i \in J \} \subseteq U \quad \Longrightarrow \quad \left(x,
-    \bigvee_{i\in J} y_i\right)\in U.
-  \]
-  Again, for further specification have a look at Picado and Pultr
-  \cite{picado-pultr12}.
-\end{rem}
 
 \begin{lem} \label{downsets-satur}
   The down-set
@@ -220,7 +157,7 @@ the final
   is saturated in $L \times L$ for arbitrary $a, b\in L$.
 \end{lem}
 \begin{proof}
-  We are going to verify the saturation from~\ref{satur-def-eq}\thinspace.
+  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
   First of all, let us have $(x_i, y)\in U$ for $i\in J$.
 
   \underline{Case $y = 0$}:

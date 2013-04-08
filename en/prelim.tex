@@ -25,8 +25,10 @@ or equivalently,
   \overline{S} = \{ x \in X \st U\in\Omega(X) \text{ and } U\owns x \Rightarrow
   U \cap S \ne \none \}.
 \]
-\item $f^*$ (resp. $f_*$) is the~left (resp. right) adjoint of $f$ (viz ``Order
+\item $f^*$ resp. $f_*$ is the~left resp. right adjoint of $f$ (viz ``Order
 theory'').
+\item $\left\downarrow U \right. = \bigcup_{u\in U} \{x \st x \le u\}$ and
+$\left\uparrow U \right. = \bigcup_{u\in U} \{x \st x \ge u\}$.
 
 \end{itemize}
 
@@ -37,11 +39,14 @@ theory'').
 \begin{itemize}
 \item A \emph{pseudocomplement} of an element $x$ is $x^*$ such that $y \le x^*
 \equiv x \wedge y = 0$.
-  \begin{fact}
-    $x \le x^{**}$.
-    (As the $x$, among others, meets with $x^*$ in $x^* \wedge x = 0$.)
-  \end{fact}
+\end{itemize}
 
+\begin{fact}
+  $x \le x^{**}$.
+  (As the $x$, among others, meets with $x^*$ in $x^* \wedge x = 0$.)
+\end{fact}
+
+\begin{itemize}
 \item A relation $R$ \emph{interpolates} if $R \subseteq R \circ R$.
 
 \item Monotone maps $l\colon A \to B$ and $r\colon B \to A$ are \emph{Galois
@@ -50,6 +55,9 @@ theory'').
   \[
     l(a) \le b \; \equiv a \le r(b).
   \]
+
+\item A~set $U$ is a~\emph{down-set\/} resp. an~\emph{up-set\/} if
+$\left\downarrow U \right. = U$ resp. $\left\uparrow U \right. = U$.
 \end{itemize}
 
 \subsection*{Category theory}
@@ -66,10 +74,10 @@ further satisfying axioms of
   \begin{itemize}
   \item \emph{(identity)\/}
   For every $X\in \Ccal^O$ there is a~morphism $1_X$ such that for any $f\colon A \to B$
-  we have $1_A \circ f = f = f \circ 1_B$.
+  we have $1_A \cdot f = f = f \cdot 1_B$.
   \item \emph{(asociativity)\/}
   Whenever $f\colon A \to B$, $g\colon B \to C$ and $h\colon C \to D$ then $h
-  \circ (g \circ f) = (h \circ g) \circ f$.
+  \cdot (g \cdot f) = (h \cdot g) \cdot f$.
   \end{itemize}
 
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
@@ -79,7 +87,7 @@ in~$||\Ccal||$).
 
 \item An \emph{epimorphism} is a right-cancellative morphism $e$, that is,
 \[
-  f_1 \circ e = f_2 \circ e \; \Longrightarrow \; f_1 = f_2.
+  f_1 \cdot e = f_2 \cdot e \; \Longrightarrow \; f_1 = f_2.
 \]
 \end{itemize}
 
@@ -90,24 +98,36 @@ in~$||\Ccal||$).
 
 \begin{itemize}
 \item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a~system
+of~\emph{projections\/}
 \[
   \left(p_i\colon \prod_{j\in J} A_j \to A_i \right)_{i\in J}
 \]
-with property that for arbitrary system $\left(f_i\colon X \to A_i\right)_{i\in
-J}$ there is a~unique solution~$f\colon X \to \prod_{j\in J} A_j$ to equations
+with the property that for arbitrary system $\left(f_i\colon X \to
+A_i\right)_{i\in J}$ there is a~unique solution~$f\colon X \to \prod_{j\in
+J} A_j$ to equations
 \[
-  p_i \circ f = f_i \text{ for } i\in J.
+  p_i \cdot f = f_i \text{ for } i\in J.
 \]
-Similarly, a \emph{coproduct} is a product in the opposite category.
+
+\item Similarly, a \emph{coproduct} is a product in the opposite category.
+Namely, it is a~system of~\emph{injections\/}
+\[
+  \left(\iota_i\colon A_i \to \coprod_{j\in J} A_j \right)_{i\in J}
+\]
+such that every $\left(g_i\colon A_i \to X \right)_{i\in J}$ has a~single
+solution~$g\colon \coprod_{j\in J} A_j \to X$ to~equations
+\[
+  g \cdot \iota_i = g_i \text{ for } i\in J.
+\]
 
 \item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
-J} A$ solving the system $p_i\cdot \Delta = id$ for $i \in J$.
+J} A$ solving the system $p_i\cdot \Delta = 1_A$ for $i \in J$.
+Dually, a \emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
+\to A$ to the system $\nabla\cdot \iota_i = 1_A, \, i \in J$.
 \end{itemize}
 
 
 \subsection*{Point-set topology}
-
-Some basic notions and facts about classical topology:
 
 \begin{itemize}
 \item A \emph{topological space} is a~structure of
@@ -184,7 +204,7 @@ Hence, localic maps are infima-preserving $f$ and their left adjoints $f^*$
 preserves finite meets.
 
 \item We will write {\bf Loc} for the category of~locales and localic maps.
-Thus, $\mathbf{Loc} = \mathbf{Frm}^{op}$
+Thus, $\mathbf{Loc} = \mathbf{Frm}^{op}$.
 
 \item A \emph{sublocale} of locale $L$ is a $S\subseteq L$ satisfying
   \begin{description}
@@ -198,7 +218,7 @@ Thus, $\mathbf{Loc} = \mathbf{Frm}^{op}$
   is a~sublocale of~$M$.
 \end{fact}
 
-\subsection*{On coproducts in Frm}
+\subsubsection*{On coproducts in Frm}
 
 In the category of~frames we have a~coproduct
 \[
@@ -211,7 +231,7 @@ It can be constructed as follows.
 \begin{itemize}
 \item A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all
 systems $(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$
-we have
+we have \label{df:satur}
   \begin{align*}
     \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i, y)\in U,
     \text{ and} \\
@@ -221,15 +241,55 @@ we have
 \item $L_1 \oplus L_2$ will be the set of~all saturated downsets in $L_1
 \times L_2$.
 
-\item The definition above concerns also the void $J$ and hence for each
-saturated $U$ we get
+\item The definition above concerns also the void $J$, and hence, for each
+saturated down-set~$U$ we get
 \[
   U\supseteq \n := \{ (x, y) \st x = 0 \text{ or } y = 0 \}.
 \]
 Since $\n$ itself is obviously saturated, it is \emph{the least saturated
 down-set\/}.
 
+\item For $(a, b)\in L_1 \times L_2$ the down-set
+\[
+  \darr (a, b) \cup \n
+\]
+is saturated.
+This element of $L_1 \oplus L_2$ is denoted by
+\[
+  a \oplus b
+\]
+and we have the coproduct injections $\iota_i: L_i \to L_1 \oplus L_2$ defined
+by
+\[
+  \iota_1(a) := a \oplus 1, \; \iota_2(b) := 1 \oplus b.
+\]
+
+\begin{cor*}
+  Due to the coordinatewise meet, we have
+  \[
+    a \oplus b = \iota_1(a) \wedge \iota_2(b).
+  \]
+\end{cor*}
+
+\item Note that for all saturated $U$ we have
+\[
+  U
+  = \bigcup \{ (a, b) \st (a, b)\in U \}
+  = \bigcup \{ a \oplus b \st (a, b)\in U \}
+\]
+(the second equality because $U$ is a~down-set).
+As the set-theoretic union of down-sets is also a~down-set, it coincides with
+their join.
+Therefore, we may write 
+\[
+  U = \bigvee \{ a \oplus b \st (a, b)\in U \},
+\]
+and thus, \emph{the elements $a \oplus b$ generate $L_1 \oplus L_2$\/}.
 \end{itemize}
+
+For full details consult Chapter~IV of Picado and Pultr \cite{picado-pultr12}.
+
+We have the following facts \ldots
 
 \clearpage
 
@@ -237,26 +297,6 @@ down-set\/}.
 \item A \emph{closed sublocale} $S$ is a \ldots
 Besides, the \emph{closure} of $S$ is the least closed sublocale containing $S$.
 Since \ldots On the other hand, \ldots
-\item Given a relation $R\subseteq L \times L$, an element $s\in L$ is
-\emph{$R$-saturated} (shortly \emph{saturated} whenever the context is clear)
-  iff
-\[
-  \forall a, b, c\in L: \; aRb \quad \Rightarrow \quad \left( a \wedge c \leq s
-  \, \Leftrightarrow \, b \wedge c \leq s \right)
-\]
-\item The letter $\n$ is the notation for the smallest saturated\ldots
-\item Let $\bigoplus_{i\in J} L_i$ designate a \emph{product} in {\bf Loc} (and
-\emph{coproduct} in {\bf Frm}); $L \oplus M$, $L_1 \oplus\cdots\oplus L_n$, etc.
-for finite cases.
-It may be demonstrated---though not straightaway vividly---that the product
-coincides with
-\[
-  \textstyle\mathfrak{D}\left(\prod_{i\in J}\nolimits' L_{i}\right)/R.
-\]
-For full details consult Chapter~IV of Picado and Pultr \cite{picado-pultr12}.
-\item Let $a \oplus b \in L \oplus L$ with $a, b\in L$ stand for
-$\left\downarrow (a, b) \right. \cup \n$---the least saturated down-set
-containing $(a, b)$.
 \end{itemize}
 
 \begin{exmpl} \label{(co)diag-in-Loc}
