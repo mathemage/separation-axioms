@@ -95,7 +95,7 @@ Here is a~characterization of~the classical~$T_2$:
 This was used by Isbell \cite{isbell72} for point-free counterpart of the $T_2$
 axiom:
 Hausdorff locales are defined as those in which the diagonal (see
-Example~\ref{codiag-in-Frm})
+page~\pageref{codiag-in-Frm})
 \[
   \Delta\colon L \to L \oplus L
 \]
@@ -107,8 +107,6 @@ Namely, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
 \end{lem}
 
 \begin{proof}
-  Again, recall Example~\ref{codiag-in-Frm}\thinspace.
-
   $\subseteq$: The down-set $\Delta(0_L)$ is among elements of $\Delta[L]$; the
   infimum lies below all of~those.
 
@@ -190,7 +188,7 @@ the final
   In other words, $\Delta\delta(U) = U$.
 
   Recall the frame codiagonal on~page~\pageref{codiag-in-Frm}\thinspace.
-  Notice $\Delta^*(a \oplus a) = a$;
+  Notice $\nabla(a \oplus a) = a \wedge a = a$;
   hence, the codiagonal~$\nabla$ is onto, and consequently, an epimorphism.
   Furthemore, using a standard property of~Galois adjoints $\nabla \Delta
   \nabla = \nabla$,
@@ -207,8 +205,7 @@ the final
 \end{proof}
 
 \begin{lem} \label{meets-in-satur}
-  Let $L$ be an I-Hausdorff locale.
-  Then, one obtains the~implication
+  A~locale~$L$ is I-Hausdorff iff one has the~implication
   \[
     \left( a \wedge b, a \wedge b \right) \in U
     \; \Rightarrow \;
@@ -217,6 +214,7 @@ the final
   for all saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
+  $\Rightarrow$:
   Whenever $(a \wedge b, a \wedge b)\in U$, we see from the formula for
   $\nabla$ that
   \[
@@ -224,16 +222,9 @@ the final
   \]
   Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta( \nabla(U) ) = U$
   (the final equality by the previous lemma).
-\end{proof}
 
-\begin{rem}
-  The last and the penultimate implication actually hold in forms
-  of~equivalences.
-  Nevertheless, the reverse implications will be spared since we will make no
-  use of them.
-  A curious reader may survey Section~2 of Chapter~V in~Picado
-  and~Pultr~\cite{picado-pultr12}.
-\end{rem}
+  $\Leftarrow$:
+\end{proof}
 
 Now we can prove the theorem.
 In fact, we are going to imply a~stronger version of the (DS-Haus):
@@ -273,7 +264,7 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
   The equality is seen from the~definition of~$U$:
   to be more specific, from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
 
-  This leads to the long sought contradiction:
+  This leads to the contradiction:
   $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (by $a \not\leq b,
   \, b \not\leq a$).
   Thus, the only options available are either $a \leq a \wedge b$ or $b \leq a
