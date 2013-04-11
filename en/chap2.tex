@@ -184,7 +184,7 @@ the final
 \begin{proof}
   By (I-Haus), every saturated $U\in \left\uparrow d_L \right. = \Delta[L]$ is
   an image $\Delta(a)$ for some $a\in L$.
-  Let us write $\delta(U)$ for the mentioned $a$.
+  Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
   Recall the frame codiagonal on~page~\pageref{codiag-in-Frm}\thinspace.
@@ -238,9 +238,17 @@ the final
   (the final equality by the previous lemma).
 
   $\Leftarrow$:
+  Let the condition hold and~let $a_i\in L$ for $i\in J$. 
+  As for a~saturated down-set~$U \supseteq d_L$ we have $(a_i, a_i) \in U
+  \Rightarrow (a_i \wedge a_j, a_i \wedge a_j) \in U$, we also obtain
+  the~implication
+  \begin{equation} \label{eq:IHaus-impl}
+    (a_i, a_i) \in U \Longrightarrow \{ (a_i, a_j) \st j\in J \} \subseteq U
+    %\tag{\arabic{chapter}.\thesection}
+  \end{equation}
+
   We will prove the condition from~\ref{lem:mapping->IHaus}\, for
   $\alpha := (a \mapsto (a \oplus a) \vee d_L)$.
-
   The $\alpha$ preserves finite meets:
   \begin{align*}
     \alpha(a \wedge b)
@@ -249,7 +257,6 @@ the final
     &= ( (a\oplus a) \vee d_L ) \wedge ( (b\oplus b) \vee d_L)
     = \alpha(a) \wedge \alpha(b)
   \end{align*}
-
   It also preserves suprema:
   since
   \begin{align*}
@@ -259,14 +266,16 @@ the final
     = \bigvee_{i, j\in J} \left( \iota_1(a_i) \wedge \iota_2(a_j) \right) \\
     &= \bigvee_{i, j\in J} \left( a_i \oplus a_j \right)
   \end{align*}
-  (the latter equality by double application of frame distributivity); we get
+  (the latter equality by double application of frame distributivity), we get
   \begin{align*}
     \alpha \left( \bigvee_{i\in J} a_i \right)
     &= \left(\bigvee_{i, j\in J} \left( a_i \oplus a_j \right)\right) \vee d_L
     = \bigvee_{i\in J} \left(\left( a_i \oplus a_i \right) \vee d_L \right)
     = \bigvee_{i\in J} \alpha \left( a_i \right)
   \end{align*}
-  (by TBD the second and the third expressions have identical upper bounds).
+  (by~\eqref{eq:IHaus-impl} the second and the third expressions have identical
+  upper bounds).
+  Hence, $\alpha$ is a~frame homomorphism.
 \end{proof}
 
 Now we can prove the theorem.
