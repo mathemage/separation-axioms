@@ -211,10 +211,21 @@ the final
 \begin{proof}
   Let $\gamma$ stand for $(U \mapsto U \vee d_L)$.
   Because $\gamma$ is onto, so is $\alpha$.
-  Furthermore, $\nabla$ and $\gamma$ are frame homomorphism (using asociativity
+  Furthermore, $\nabla$~and~$\gamma$ are frame homomorphism (using asociativity
   for joins and~distributivity for finite meets).
-  Since $\nabla$ is onto .
-  TBD
+  Since $\nabla$ is onto, $\alpha$ is a~frame homomorphism, as well.
+  % by \ref{TBD}
+  Finally,
+  \[
+    \nabla \alpha \nabla(U)
+    = \nabla \gamma(U)
+    = \nabla (U \vee d_L)
+    = \nabla (U) \vee \nabla \Delta(0)
+    = \nabla (U)
+  \]
+  (by a~standard property of Galois adjoints $\nabla \Delta (0) \le 0$), that
+  is, $\nabla \alpha = id$.
+  Hence, $\alpha$ and $\nabla$ are mutually inverse isomorphisms, and TBD
 \end{proof}
 
 \begin{prop} \label{meets-in-satur}
@@ -239,7 +250,7 @@ the final
 
   $\Leftarrow$:
   Let the condition hold and~let $a_i\in L$ for $i\in J$. 
-  As for a~saturated down-set~$U \supseteq d_L$ we have $(a_i, a_i) \in U
+  Since for any~saturated down-set~$U \supseteq d_L$ we have $(a_i, a_i) \in U
   \Rightarrow (a_i \wedge a_j, a_i \wedge a_j) \in U$, we also obtain
   the~implication
   \begin{equation} \label{eq:IHaus-impl}
@@ -249,24 +260,16 @@ the final
 
   We will prove the condition from~\ref{lem:mapping->IHaus}\, for
   $\alpha := (a \mapsto (a \oplus a) \vee d_L)$.
-  The $\alpha$ preserves finite meets:
-  \begin{align*}
-    \alpha(a \wedge b)
-    &= ( \iota_1(a\wedge b) \wedge \iota_2(a\wedge b) ) \vee d_L
-    = (\iota_1(a)\wedge\iota_2(a)\wedge\iota_1(b)\wedge\iota_2(b)) \vee d_L \\
-    &= ( (a\oplus a) \vee d_L ) \wedge ( (b\oplus b) \vee d_L)
-    = \alpha(a) \wedge \alpha(b)
-  \end{align*}
-  It also preserves suprema:
-  since
-  \begin{align*}
+  Using
+  \[
     \bigvee_{i\in J} a_i \oplus \bigvee_{j\in J} a_j
-    &= \iota_1 \left( \bigvee_{i\in J} a_i \right) \wedge \iota_2
-    \left( \bigvee_{j\in J} a_j \right)
-    = \bigvee_{i, j\in J} \left( \iota_1(a_i) \wedge \iota_2(a_j) \right) \\
-    &= \bigvee_{i, j\in J} \left( a_i \oplus a_j \right)
-  \end{align*}
-  (the latter equality by double application of frame distributivity), we get
+    = \iota_1 \left( \bigvee_{i\in J} a_i \right) \wedge \iota_2 \left(
+    \bigvee_{j\in J} a_j \right)
+    = \bigvee_{i, j\in J} \left( \iota_1(a_i) \wedge \iota_2(a_j) \right)
+    = \bigvee_{i, j\in J} \left( a_i \oplus a_j \right)
+  \]
+  (the latter equality by double application of frame distributivity), we see
+  that $\alpha$~preserves suprema:
   \begin{align*}
     \alpha \left( \bigvee_{i\in J} a_i \right)
     &= \left(\bigvee_{i, j\in J} \left( a_i \oplus a_j \right)\right) \vee d_L
@@ -275,7 +278,25 @@ the final
   \end{align*}
   (by~\eqref{eq:IHaus-impl} the second and the third expressions have identical
   upper bounds).
-  Hence, $\alpha$ is a~frame homomorphism.
+  Thus, both $\alpha$ and $\nabla$ preserve joins and~so does $\alpha \nabla$. 
+  Furthermore, we have
+  \[
+    \alpha \nabla (a \oplus b)
+    = \alpha (a \wedge b)
+    = ((a \wedge b) \oplus (a \wedge b)) \vee d_L
+    = (a \oplus b) \vee d_L,
+  \]
+  the last equality stipulated by the assumed implication.
+  In~conclusion,
+  \begin{flalign*}
+    \alpha \nabla (U)
+    &= \alpha \nabla \left(\bigvee \{a \oplus b \st (a, b)\in U\}\right)
+    = \bigvee \{\alpha \nabla \left(a \oplus b \right) \st (a, b)\in U\} \\
+    &= \bigvee \{a \oplus b \st (a, b)\in U\} \vee d_L
+    = U \vee d_L,
+  \end{flalign*}
+  as the elements $a \oplus b$ generate $L \oplus L$ (see
+  page~\pageref{a+b-gen}\thinspace).
 \end{proof}
 
 Now we can prove the theorem.
