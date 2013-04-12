@@ -1,364 +1,116 @@
-\chapter{Weakly and strongly Hausdorff}
+\chapter{Subfitness}
 
-In this chapter we will consider point-free analogies of the $T_2$
-axiom---a~separation not quite easy to imitate in frames.
-
-\section{The $T_2$ axiom}
+\section{The $T_1$ axiom}
 
 \begin{framed}
-  \begin{df}[$T_2$]
-    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (or
-    a~\emph{$T_2$-space\/}) if
+  \begin{df}[$T_1$]
+    A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or to
+    satisfy the \emph{$T_1$ axiom\/}) if the following holds:
     \begin{center} \it
-      for any $x \ne y$ from~$X$ there are disjoint $U$ and $V$ with $U\owns x$
-      and $V\owns y$.
+      for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
+      $x\in U \not\owns y$.
     \end{center}
   \end{df}
 \end{framed}
 
-\begin{rem} \label{T2->T1}
-  Trivially, every $T_2$-space is $T_1$.
-\end{rem}
+The following is a standard and useful characterization of this property.
 
-\section{The Dowker-Strauss approach}
+\begin{fact} \label{T1Char}
+  A topological space $X$ is $T_1$ iff $\overline{\left\{x\right\}} =
+  \left\{x\right\}$ for any $x\in X$.
+\end{fact}
 
-In 1972 Dowker and Strauss \cite{ds72} introduced the following condition:
+(Of course:
+if $y\not\in \left\{x\right\}$, we obtain an open $U$ such that $y\in
+U\not\owns x$ and thus $y\not\in \overline{\left\{x\right\}}$.
+Conversely, with open $U:= X\setminus \left\{y\right\}$ we can easily check the
+$T_1$.)
+
+\begin{cor}
+  A space is $T_1$ iff every of its finite subsets is closed.
+\end{cor}
+
+There are exact counterparts of this axiom in the point-free context (see,
+e.~g.,~\cite{ds72}).
+They have not found much use so far, though.
+Instead, one introduces a weaker and very useful condition: {\sl the
+subfitness\/}.
+
+\section{Subfit locales}
 
 \begin{framed}
-  \begin{df}
-    A locale $L$ satisfies the $S_2'$ axiom if
+  \begin{df}[Sfit]
+    A locale $L$ is said to be \emph{subfit\/} if
     \[
-      (S_2') \qquad
-      a, b \ne 1 \text{ and } a \vee b = 1 \quad \Rightarrow \quad \exists
-      u\not\leq a, v\not\leq b, \quad u \wedge v = 0.
+      a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
+      \vee c.
     \]
   \end{df}
 \end{framed}
 
-\begin{prop} \label{Haus->S2'}
-  For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ satisfies
-  $S_2'$.
-\end{prop}
-
-\begin{proof}
-  Open sets $A, B \ne X$ with $A \cup B = X$ contain $x\in X\setminus A =
-  B\setminus A$ and $y\in X\setminus B = A\setminus B$.
-  Particularly, we observe $x \ne y$ and, on top of that, receive the disjoint
-  $U$ and $V$ from the $T_2$-definition.
-  Evidently, $U\not\subseteq A$ (because of $x$) and $V\not\subseteq B$
-  (because of $y$).
-\end{proof}
-
-\begin{rem}
-  The reverse implication requires, in addition, the subfitness.
-  For the~proof see Proposition 7 of~Dowker and Strauss
-  \cite{ds72}.
-\end{rem}
-
-The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
-
-\begin{framed}
-  \begin{df}[DS-Haus]
-    A locale $L$ is considered to be \emph{weakly Hausdorff\/} (also
-    \emph{DS-Hausdorff} as in \emph{Dowker-Straus-Hausdorff}) if
-    \[
-      a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
-      u\not\leq a, v\not\leq b, \quad u \wedge v = 0.
-    \]
-  \end{df}
-\end{framed}
-
-\section{Isbell's approach}
-
-Here is a~characterization of~the classical~$T_2$:
-
-\begin{prop}
-  A topological space $X$ is Hausdorff space if and only if the~diagonal
-  $\Delta = \left\{(x, x) \st x\in X \right\}$ is closed in the product
-  $X\times X$.
-\end{prop}
-
-\begin{proof}
-  $\Rightarrow:$ Any element $(x, y)\not\in \Delta$, that means $x \ne y$, is
-  separable from $\Delta$:
-  namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$
-  and $V$ from the definition of~$(T_2)$.
-  Hence, $(x, y)\not\in \overline{\Delta}$ concludes to $\Delta =
-  \overline{\Delta}$, which is closed.
-
-  $\Leftarrow:$ Choose $x \ne y$, in other words, $(x, y)\not\in \Delta$.
-  Then $(x, y)$ has an open basic neighbourhood $U_1\times U_2$ disjoint from
-  $\Delta$.
-  That is, $U_1 \cap U_2 = \none$.
-\end{proof}
-
-This was used by Isbell \cite{isbell72} for point-free counterpart of the $T_2$
-axiom:
-Hausdorff locales are defined as those in which the diagonal (see
-page~\pageref{codiag-in-Frm})
-\[
-  \Delta\colon L \to L \oplus L
-\]
-is a closed localic map.
-Namely, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
-
-\begin{lem}
-  $\bigwedge \Delta[L] = \Delta(0_L)$.
-\end{lem}
-
-\begin{proof}
-  $\subseteq$: The down-set $\Delta(0_L)$ is among elements of $\Delta[L]$; the
-  infimum lies below all of~those.
-
-  $\supseteq$: By the formula of the diagonal morphism,
-  \[
-    \Delta(0_L)
-    = \left\{(x, y) \st x \wedge y \leq 0_L \right\}
-    \subseteq \left\{(x, y) \st x \wedge y \leq a \right\}
-    = \Delta(a)
-  \]
-  for every $a\in L$.
-  From the property of the~infimum, $\Delta(0_L) \subseteq \bigwedge
-  \Delta[L]$.
-\end{proof}
-
-Combining the above lemma with the~formula of~the sublocalic closure
-\[
-  \overline{S} = \left\uparrow \bigwedge \right. S,
-\]
-Isbell's condition reduces to
-\[
-  \Delta[L] = \left\uparrow \Delta(0_L),\right.
-\]
-which---after denoting the crucial element $\Delta(0_L)$ by $d_L$---produces
-the final
-
-\begin{framed}
-  \begin{df}[I-Haus]
-    A locale $L$ is called \emph{strongly Hausdorff\/} (equally
-    \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
-    \[
-      \Delta[L] = \dL.
-    \]
-  \end{df}
-\end{framed}
-
-\begin{rem} \label{rem:delta-restriction}
-  For the monotone $\Delta$ it holds that $\Delta(0) \le \Delta(a)$ for $a\in
-  L$.
-  Thus, we always have $\Delta[L] \subseteq \dL$ and may correctly define
-  \[
-    \overline{\Delta}
-  \]
-  as the restriction of~$\Delta$ to~$L \to \dL$.
-\end{rem}
-
-\begin{thm} \label{IHaus->DSHaus}
-  (I-Haus) implies (DS-Haus).
+\begin{thm} \label{T1->Sfit}
+  Every $T_1$-space is subfit.
 \end{thm}
 
-\begin{lem} \label{lem:delta-nabla=id}
-  In case of a strongly Hausdorff locale $L$, we have
-  \[
-    \Delta(\nabla(U)) = U
-  \]
-  for any saturated $U \supseteq d_L$.
-\end{lem}
 \begin{proof}
-  By (I-Haus), every saturated $U\in \dL = \Delta[L]$ is an image $\Delta(a)$
-  for some $a\in L$.
-  Let us write $\delta(U)$ for this $a$.
-  In other words, $\Delta\delta(U) = U$.
-
-  Recall the frame codiagonal on~page~\pageref{codiag-in-Frm}\thinspace.
-  It is an epimorphism, and hence, using a standard property of~Galois adjoints
-  $\nabla \Delta \nabla = \nabla$, we get
-  \[
-    \nabla \Delta = id.
-  \]
-
-  Joining the two observations results in
-  \[
-    \nabla (U) = \nabla (\Delta\delta (U)) = (\nabla \Delta)\delta (U) = \delta(U),
-  \]
-  which produce the desired $U = \Delta \delta (U) = \Delta \nabla (U)$.
+  For each $T_1$-space $X$ the corresponding locale $\Omega(X)$ is subfit.
+  Indeed: for open $A\not\subseteq B$ there exists an $x\in A \setminus B$.
+  By Fact~\ref{T1Char}\thinspace, we have an open $X\setminus
+  \left\{x\right\}$.
+  Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus
+  \left\{x\right\}) = X \ne B \cup (X\setminus \left\{x\right\})$.
 \end{proof}
 
-\begin{lem} \label{lem:mapping->IHaus}
-  Let there be a~mapping $\alpha\colon L \to \dL$ such that
-  \[
-    \alpha \nabla = (U \mapsto U \vee d_L).
-  \]
-  Then $L$ is strongly Hausdorff.
-\end{lem}
-\begin{proof}
-  Let $\gamma\colon L \oplus L \to \dL$ stand for $(U \mapsto U \vee d_L)$.
-  Because $\gamma$ is onto, so is~$\alpha$.
-  It is, therefore, an epimorphism.
+The subfit topological spaces are characterized by
 
-  Furthermore, $\nabla$~and~$\gamma$ are frame homomorphism (using asociativity
-  for joins and~distributivity for finite meets);
-  and since $\nabla$ is onto, $\alpha$ is also a~frame homomorphism.
-  %(recall the proposition on page~\pageref{TBD}).
-
-  From a~property of Galois adjoints $\nabla \Delta (0) \le 0$, we have
+\begin{prop}[Isbell, Simmons] \label{Sfit-char}
+  For a topological space $X$ the locale $\Omega(X)$ is subfit iff
   \[
-    \nabla \alpha \nabla(U)
-    = \nabla \gamma(U)
-    = \nabla (U \vee d_L)
-    = \nabla (U) \vee \nabla \Delta(0)
-    = \nabla (U),
+    \forall U\in\Omega(X) \forall x\in U \exists y\in \overline{\{x\}}: \quad
+    \overline{\{y\}} \subseteq U
   \]
-  that is, $\nabla \alpha = id$.
-  Hence, $\alpha$ is one-one, and thus, an isomorphism inverse to the~$\nabla$
-  restricted~to $\dL \to L$.
-  Consequently, by the uniqueness of~adjoints, $\alpha$ has to be
-  the~restriction~$\overline{\Delta}$
-  from~\ref{rem:delta-restriction}\thinspace.
-  Finally, $\Delta[L] = \overline{\Delta}[L] = \alpha[L] = \dL$.
-\end{proof}
-
-\begin{prop} \label{meets-in-satur}
-  A~locale~$L$ is I-Hausdorff iff one has the~implication
-  \[
-    \left( a \wedge b, a \wedge b \right) \in U
-    \; \Rightarrow \;
-    \left( a, b \right) \in U
-  \]
-  for all saturated $U \supseteq d_L$.
 \end{prop}
 \begin{proof}
   $\Rightarrow$:
-  Whenever $(a \wedge b, a \wedge b)\in U$, we see from the formula for
-  $\nabla$ that
-  \[
-    a \wedge b \leq \bigvee \left\{ x \st (x, x) \in U \right\} = \nabla(U).
-  \]
-  Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta(
-  \nabla(U) ) = U$
-  (the final equality by Lemma~\ref{lem:delta-nabla=id}).
+  Choose $x \in U$.
+  Thus, we have $U\not\subseteq X\setminus \overline{\{x\}}$, and by
+  subfitness, an~open $V$ with both $U \cup V = X$ and $(X\setminus
+  \overline{\{x\}}) \cup V \ne X$.
+  Then there exists an~element $y\not\in V$ with $y\not\in X\setminus
+  \overline{\{x\}}$, in other words, $y\in \overline{\{x\}}$.
+  Furthermore, $V \cap \overline{\{y\}} = \none$ (for $z \in V \not\owns y$
+  means $z\not\in \overline{\{y\}}$), and as $U \cup V = X$, we finish with
+  $\overline{\{y\}} \subseteq U$.
 
   $\Leftarrow$:
-  Let the condition hold and~let $a_i\in L$ for $i\in J$. 
-  Since for any~saturated down-set~$U \supseteq d_L$ we have $(a_i, a_i) \in U
-  \Rightarrow (a_i \wedge a_j, a_i \wedge a_j) \in U$, we also obtain
-  the~implication
-  \begin{equation} \label{eq:IHaus-impl}
-    (a_i, a_i) \in U \Longrightarrow \{ (a_i, a_j) \st j\in J \} \subseteq U
-    %\tag{\arabic{chapter}.\thesection}
-  \end{equation}
-
-  We will prove the condition from~\ref{lem:mapping->IHaus}\, for
-  $\alpha := (a \mapsto (a \oplus a) \vee d_L)$.
-  Using
-  \[
-    \bigvee_{i\in J} a_i \oplus \bigvee_{j\in J} a_j
-    = \iota_1 \left( \bigvee_{i\in J} a_i \right) \wedge \iota_2 \left(
-    \bigvee_{j\in J} a_j \right)
-    = \bigvee_{i, j\in J} \left( \iota_1(a_i) \wedge \iota_2(a_j) \right)
-    = \bigvee_{i, j\in J} \left( a_i \oplus a_j \right)
-  \]
-  (the latter equality by double application of frame distributivity), we see
-  that $\alpha$~preserves suprema:
-  \begin{align*}
-    \alpha \left( \bigvee_{i\in J} a_i \right)
-    &= \left(\bigvee_{i, j\in J} \left( a_i \oplus a_j \right)\right) \vee d_L
-    = \bigvee_{i\in J} \left(\left( a_i \oplus a_i \right) \vee d_L \right)
-    = \bigvee_{i\in J} \alpha \left( a_i \right)
-  \end{align*}
-  (by~\eqref{eq:IHaus-impl} the second and the third expressions have identical
-  upper bounds).
-  Thus, both $\alpha$ and $\nabla$ preserve joins and~so does $\alpha \nabla$. 
-  Furthermore, we have
-  \[
-    \alpha \nabla (a \oplus b)
-    = \alpha (a \wedge b)
-    = ((a \wedge b) \oplus (a \wedge b)) \vee d_L
-    = (a \oplus b) \vee d_L,
-  \]
-  the last equality stipulated by the assumed implication.
-  In~conclusion,
-  \begin{flalign*}
-    \alpha \nabla (U)
-    &= \alpha \nabla \left(\bigvee \{a \oplus b \st (a, b)\in U\}\right)
-    = \bigvee \{\alpha \nabla \left(a \oplus b \right) \st (a, b)\in U\} \\
-    &= \bigvee \{a \oplus b \st (a, b)\in U\} \vee d_L
-    = U \vee d_L,
-  \end{flalign*}
-  as the elements $a \oplus b$ generate $L \oplus L$ (see
-  page~\pageref{a+b-gen}\thinspace).
+  Suppose $U\not\subseteq V$ and take $x\in U\setminus V$.
+  For similar reason as above, $V \cap \overline{\{x\}} = \none$.
+  Let us have $y$ from the premise:
+  $y \in \overline{\{x\}}$ implies  $y\not\in V$, thus, leading to $(X\setminus
+  \overline{\{y\}}) \cup V \ne X$;
+  and since $\overline{\{y\}} \subseteq U$, also $(X\setminus \overline{\{y\}})
+  \cup U = X$.
 \end{proof}
 
-\begin{lem} \label{downsets-satur}
-  The down-set
-  \[
-    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b, b)\right. \cup \n
-  \]
-  is saturated in $L \times L$ for arbitrary $a, b\in L$.
-\end{lem}
-\begin{proof}
-  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
-  First of all, let us have $(x_i, y)\in U$ for $i\in J$.
+There is an example of a subfit non-$T_1$-space:
 
-  \underline{Case $y = 0$}:
-  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n
-  \subseteq U$.
+\begin{exmpl}
+  Let us have $X = \N \cup \left\{\infty\right\}$ and $\theta = \left\{
+  F\subseteq X \st X\setminus F \Subset \N \right\} \cup \left\{ \none
+  \right\}$.
+  That is, $\mathcal{X} := (X, \theta)$ is the topological space where closed
+  sets consist of~finite sets of~natural numbers and of~the whole space $X$.
 
-  \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
-  then $x_i \leq a$ anyway, that is, $(\bigvee_{i\in J} x_i, y) \in
-  \left\downarrow(a, a \wedge b)\right.$, which is a subset of $U$.
+  It is not $T_1$ for the one-point set $\left\{ \infty \right\}$ is not
+  closed (viz \ref{T1Char}).
 
-  \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
-  in this case, inevitably, $y \leq b$ as well as $x_i \leq a \wedge b$; and
-  analogously, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
-  b)\right. \subseteq U$.
+  On the other hand, any open set satisfy the condition
+  from~\ref{Sfit-char}\thinspace.
+  The empty set trivially;
+  and since a finite $\{x\}$ for $x\in \N$ is closed itself, we are allowed to
+  put $y := x$.
+\end{exmpl}
 
-  The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
-\end{proof}
-
-Now we can prove the theorem.
-In fact, we are going to imply a~stronger version of the (DS-Haus):
-\[
-  a \vee b \not\in \left\{a, b\right\} \qquad \Rightarrow \qquad \exists
-  u\not\leq b, v\not\leq a: \quad u \wedge v = 0, \quad \boxed{\left(u,
-  v\right) \leq \left(a, b\right)}
-\]
-
-\begin{proof}[Proof of~{\bf \ref{IHaus->DSHaus}}\thinspace]
-  For a contradiction: let there be an I-Hausdorff $L$, which is not weakly
-  Hausdorff.
-  That means, we have $a, b$ with $a \not\leq b, \, b \not\leq a$ and such that
-  \[
-    u \wedge v = 0 \quad \& \quad \left(u, v\right) \leq \left(a, b\right)
-    \qquad \Longrightarrow \qquad
-    u \leq b \; \textrm{ or } \; v \leq a.
-  \]
-  Especially, for the down-set $U$ taken from~\ref{downsets-satur} we have
-  \[
-    d_L \cap (a \oplus b) \subseteq U.
-  \]
-
-  Following from~\ref{meets-in-satur}\thinspace, the saturated $\left(a \wedge
-  b\right) \oplus \left(a \wedge b\right) \vee d_L \supseteq d_L$ contains $(a,
-  b)$ (since it trivially contains $\left( a \wedge b, a \wedge b \right)$).
-  Hence,
-  \begin{align*}
-    (a, b) &\in (a \oplus b) \; \cap \; ((a \wedge b) \oplus (a \wedge b) \vee d_L) \\
-           &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; ((a \oplus b) \cap d_L) \\
-           &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; U \\
-           &= U.
-  \end{align*}
-  The first inclusion using~distributivity and the fact that $(a \wedge b)
-  \oplus (a \wedge b) \subseteq a \oplus b$;
-  the latter one by the observation from the beginning of this proof.
-  The equality is seen from the~definition of~$U$:
-  to be more specific, from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
-
-  This leads to the contradiction:
-  $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (by $a \not\leq b,
-  \, b \not\leq a$).
-  Thus, the only options available are either $a \leq a \wedge b$ or $b \leq a
-  \wedge b$.
-  However, those stipulate $a \leq b$ or $b \leq a$ respectively,
-  a~contradiction. 
-\end{proof}
+%\section{The $T_D$ axiom}
+%
+%To be done.

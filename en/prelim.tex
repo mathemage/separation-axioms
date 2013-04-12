@@ -1,5 +1,4 @@
-\chapter*{Preliminaries}
-\addcontentsline{toc}{chapter}{Preliminaries}
+\chapter{Preliminaries}
 
 \section*{Notations}
 
@@ -53,9 +52,31 @@ $\left\uparrow U \right. = \bigcup_{u\in U} \{x \st x \ge u\}$.
   adjoints\/} ($l$ is a~\emph{left adjoint\/} of $r$; $r$ is a~\emph{right
   adjoint\/} of $l$) if for every $a\in A, \, b\in B$
   \[
-    l(a) \le b \; \equiv a \le r(b).
+    l(a) \le b \; \equiv \; a \le r(b).
   \]
+  Note that they are unique: $l_1(a) \le b \; \equiv a \le r(b) \; \equiv \;
+  l_2(a) \le b$ leads to
+  \begin{align*}
+    l_1(a) \le l_2(a) \; &\equiv \; l_2(a) \le l_2(a), \\
+    l_1(a) \le l_1(a) \; &\equiv \; l_2(a) \le l_1(a)
+  \end{align*}
+  and hence $l_1(a) = l_2(a)$ for $a\in A$.
+  Symmetrically for right adjoints.
+\end{itemize}
 
+\begin{fact} \label{lr-id-rl}
+  $lr \le id$ resp. $id \le rl$.
+  (Set $a := r(b)$ resp. $b := l(a)$.)
+\end{fact}
+
+\begin{fact} \label{lrl=l}
+  $lrl = l$.
+  (Following from Fact~\ref{lr-id-rl} and the monotonicity of $l$, we get $l
+   \le lrl$.
+  On~the~other hand, $lr(b) \le b$ with $b := l(a)$ gives us $lrl \le l$.)
+\end{fact}
+
+\begin{itemize}
 \item A~set $U$ is a~\emph{down-set\/} resp. an~\emph{up-set\/} if
 $\left\downarrow U \right. = U$ resp. $\left\uparrow U \right. = U$.
 
@@ -96,12 +117,12 @@ where $a_i\in A$ for $i\in \delta$.
 $\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
 \end{itemize}
 
-\begin{prop*}
+\begin{lem} \label{lem:onto->homo}
   Let $\Acal, \Bcal, \Ccal$ be algebras of the same type and $f\colon \Acal \to
   \Bcal, g\colon \Bcal \to \Ccal$ mappings such that $gf$ and $f$ are
   homomorphisms.
   If $f$ is onto then $g$ is also a~homomorphism.
-\end{prop*}
+\end{lem}
 \begin{proof}
   Choose an arbitrary operation $\rho$ of an arity $\delta$.
   For brevity, let us write $\rho(x_i)$ instead of $\rho((x_i)_{i\in \delta})$.
@@ -147,12 +168,34 @@ in~$||\Ccal||$).
 \[
   f_1 \cdot e = f_2 \cdot e \; \Longrightarrow \; f_1 = f_2.
 \]
+We also refer to this by saying that \emph{$e$ is epic\/}.
 \end{itemize}
 
 \begin{exmpl}
   In the category {\bf Loc} (see ``Point-free topology'') every localic map
   onto is epic.
 \end{exmpl}
+
+\begin{itemize}
+\item An \emph{isomorphism} is a~morphism $f\colon A \to B$ having an~\emph{inverse
+morphism\/} $\overline{f}\colon B \to A$ holding both
+\[
+  \overline{f} \cdot f = 1_A \text{ and } f \cdot \overline{f} = 1_B.
+\]
+\end{itemize}
+
+\begin{lem} \label{lem:epi->iso}
+  Let an~epimorphism $e$ satisfy $f \cdot e = 1$.
+  Then $e$ is an~isomorphism.
+\end{lem}
+\begin{proof}
+  The $f$ is the inverse of~$e$:
+  \[
+    f \cdot e = 1 \; \Rightarrow \; e \cdot f \cdot e = e \; \Rightarrow \; e
+    \cdot f = 1
+  \]
+  (the second implication because $e$ is epic).
+\end{proof}
 
 \begin{itemize}
 \item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a~system
@@ -293,16 +336,17 @@ In the category of~frames we have a~coproduct
 It can be constructed as follows.
 
 \begin{itemize}
-\item A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all
-systems $(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$
-we have \label{df:satur}
+\item
+\phantomsection \label{df:satur}
+A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all systems
+$(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$ we have
   \begin{align*}
     \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i, y)\in U,
     \text{ and} \\
     \{ (y, x_i) \st i\in J \} \subseteq U \, &\Rightarrow \, (y, \bigvee x_i)\in U.
   \end{align*}
 
-\item The definition above concerns also the void $J$, and hence, for each
+\item The definition above concerns also the void $J$ and hence for each
 saturated down-set~$U$ we get
 \[
   U\supseteq \n := \{ (x, y) \st x = 0 \text{ or } y = 0 \}.
@@ -315,13 +359,13 @@ down-set\/}.
 In other words, they are the saturated down-sets of $L_1 \times L_2$.
 \end{itemize}
 
-\begin{prop*}
+\begin{prop}
 For $(a, b)\in L_1 \times L_2$ the down-set
 \[
   \darr (a, b) \cup \n
 \]
 is saturated.
-\end{prop*}
+\end{prop}
 \begin{proof}
   Let $(x_i, y)\in \darr (a, b) \cup \n$ for $i\in J$.
 
@@ -356,13 +400,13 @@ We will not prove that frame~$L_1 \oplus L_2$ constitutes a~coproduct.
 For full details consult Chapter~IV of Picado and Pultr
 \cite{picado-pultr12}.
 
+\begin{cor}
 \phantomsection \label{oplus-iota}
-\begin{cor*}
 Due to the coordinatewise meet, we have
 \[
   a \oplus b = \iota_1(a) \wedge \iota_2(b).
 \]
-\end{cor*}
+\end{cor}
 
 \begin{itemize}
 \item
@@ -378,9 +422,9 @@ their join.
 Therefore, we may write
 \[
   U
-  = \bigvee \{ a \oplus b \st (a, b)\in U \},
+  = \bigvee \{ a \oplus b \st (a, b)\in U \}
 \]
-and thus,
+and thus
 \phantomsection \label{a+b-gen}
 \emph{the elements $a \oplus b$ generate $L_1 \oplus L_2$\/}.
 \end{itemize}

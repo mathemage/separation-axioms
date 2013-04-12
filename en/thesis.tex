@@ -75,15 +75,12 @@
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
-\newtheorem*{prop*}{Proposition}
 \newtheorem{cor}[thm]{Corollary}
-\newtheorem*{cor*}{Corollary}
-\newtheorem{fact-num}[thm]{Fact}
 
 \theoremstyle{definition}
 \newtheorem*{df}{Definition}	% Definice nečíslujeme, proto "*"
 \newtheorem{exmpl}{Example}
-\newtheorem*{fact}{Fact}
+\newtheorem{fact}{Fact}
 \newtheorem*{nota}{Notation}
 
 \theoremstyle{remark}
@@ -104,7 +101,7 @@
 \renewcommand{\labelenumi}{{\rm(\roman{enumi})}}
 
 % mezera v Table of Contents před číslem kapitoly
-\renewcommand*\cftchapnumwidth{2em}
+\renewcommand*\cftchapnumwidth{2.4em}
 \renewcommand*\cftsecnumwidth{3em}
 % samotna cisla "section" misto "chapter.section"
 %\renewcommand\cftchapaftersnum{}
@@ -318,13 +315,13 @@ pointless topology, point-free topology, separation axioms, locale, frame
 %%% Jednotlivé kapitoly práce jsou pro přehlednost uloženy v samostatných souborech
 \include{preface}
 \include{prelim}
-\include{chap1}
 \include{chap2}
 \include{chap3}
 \include{chap4}
 \include{chap5}
 \include{chap6}
 \include{chap7}
+\include{chap8}
 
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 % \include{example}

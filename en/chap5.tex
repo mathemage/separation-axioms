@@ -1,163 +1,270 @@
-\chapter{Complete regularity}
+\chapter{Regularity}
 
-\section{The $T_{3\frac{1}{2}}$ axiom}
+\section{The $T_3$ axiom}
 
 \begin{framed}
-  \begin{df}[$T_{3\frac{1}{2}}$]
-    A topological space $X$ is said to be \emph{completely regular\/} (or
-    equally \emph{$T_{3\frac{1}{2}}$-space\/}) if
+  \begin{df}[$T_3$]
+    We will consider a topological space $X$ to be \emph{regular\/} (or
+    satisfying the~\emph{$T_3$-axiom\/}) when
     \begin{center} \it
-      for any $x\in X$ and any closed $A$ such that $x\not\in A$ there is a
-      continuous function $\phi\colon X \to \I$ with $\phi(x) = 0$ and $\phi[A]
-      = \{1\}$.
+      for any $x\in X$ and any closed $A \not\owns x$ there are open $V_1\owns
+      x$ and $V_2\supseteq A$ disjoint from~one another.
     \end{center}
   \end{df}
 \end{framed}
 
-\begin{rem}
-  The complete regularity implies regularity.
-  (Take the continuous function~$\phi$ from the definition and set $V_1 :=
-  \phi^{-1}[\langle 0, \frac{1}{2} \langle]$ and $V_2 := \phi^{-1}[\rangle
-  \frac{1}{2}, 1 \rangle]$.)
-\end{rem}
+Even though the definition concerns points, it may be reformulated without
+them.
 
-\section{Completely regular locales}
-
-Again, we introduce
-
-\begin{framed}
-  \begin{nota}[$\cb$]
-    For elements $a, b$ of a locale $L$ let us write
-    \[
-      a \cb b
-    \]
-    and say \emph{``a is completely below b''\/} if for every $r\in \langle 0,
-    1 \rangle \cap \Q$ there exist $a_r\in L$ satisfying
-    \begin{align*}
-      a_0 &= a, \\
-      a_1 &= b, \\
-      \qquad a_p &\rb a_q \quad \text{ for } p < q
-    \end{align*}
-  \end{nota}
-\end{framed}
-
-\begin{rem} \label{cb-largest-interpol}
-  Clearly, the relation \emph{interpolates\/}.
-  On the other hand, for each interpolating subrelation $R\subseteq \, \rb \, $
-  and any $a R b$ there are countably many elements lying (densily) between
-  them.\thinspace%
-  \footnote{for instance, by~induction on~dyadic fractions}
-  Expressly, $R\subseteq \cb$, and therefore,
-  \begin{center}
-    $\cb$ is \emph{the largest interpolative subrelation of $\rb$\/}.
-  \end{center}
-\end{rem}
-
-\begin{rem}
-  By~\ref{rb->leq} on page~\pageref{rb->leq}\thinspace, $a \cb b$
-  implies $a \le b$.
-\end{rem}
-
-\begin{lem} \label{cb->continuous}
-  Let $X$ be a~topological space and let $\{A_r\in \Omega(X) \st r\in \langle
-  0, 1 \rangle \cap \Q\}$ be a~set witnessing $A \cb B$.
-  Then function $f\colon X \to \I$ defined by
+\begin{prop} \label{reg-char}
+  A space $X$ is regular iff each $U\in \Omega(X)$ can be depicted as
   \[
-    f(x) := \inf \{r \st A_r \owns x\}
-  \]
-  is continuous.
-\end{lem}
-\begin{proof}
-  Firstly,
-  \[
-    x\in f^{-1}[\langle 0, s \langle] \; \equiv \;
-    f(x) < s \; \equiv \;
-    \exists r < s, \, A_r \owns x \; \equiv \;
-    x\in \bigcup \{ A_r \st r < s \},
-  \]
-  the second equivalence from infimum property in~linearly ordered sets.
-  Secondly,
-  \begin{align*}
-    x\in f^{-1}[\rangle s, 1 \rangle] \; &\equiv \;
-    f(x) > s \\
-    &\equiv \; \exists r, r' \in \,\rangle s, f(x) \langle\,, \quad  r' > r
-    \;\text{ and }\; x\not\in A_{r'} \;\text{ and }\; x\not\in \overline{A_r}
-    \; \\
-    &\equiv \; x\not\in \bigcap \left\{ \overline{A_r} \st r > s \right\} \\
-    &\equiv \; x\in \I\setminus \bigcap \left\{ \overline{A_r} \st r > s
-    \right\},
-  \end{align*}
-  the latter equivalence by density of~rational numbers;
-  $A_r \rb A_{r'}$ (or equivalently $\overline{A_r}\subseteq A_{r'}$);
-  and once more, the infimum property.
-
-  To sum up: preimages
-  \begin{align*}
-    f^{-1}[\langle 0, s \langle] &= \bigcup \{ A_r \st r < s \}, \\
-    f^{-1}[\rangle s, 1 \rangle] &= \I\setminus \bigcap \left\{ \overline{A_r} \st r > s \right\}
-  \end{align*}
-  of~$\I$'s subbasis are open;
-  hence, $f$ is continuous.
-\end{proof}
-
-\begin{prop} \label{T3,5-char}
-  A topological space $X$ is completely regular iff
-  \[
-    \forall U\in \Omega(X): \quad U = \bigcup\{V\in \Omega(X) \st V \cb U\}
+    U = \bigcup \{V\in \Omega(X) \st \overline{V} \subseteq U\}.
   \]
 \end{prop}
 \begin{proof}
-  $\Rightarrow$:
-  We will show the inclusion $\subseteq$. 
-  Choose arbitrary $x\in U$.
-  Take continuous $\phi$ separating $x$ from closed $A := X\setminus U$ and set
-  \[
-  V_r =
-  \begin{cases}
-    \phi^{-1}[\langle 0, \frac{a+1}{2} \langle] &\mbox{iff } r\in \langle 0, 1
-    \langle \, \cap \, \Q  \\
-    U                                   &\mbox{iff } r = 1.
-  \end{cases}
-  \]
-  These open sets affirm $V_0 \cb U$.
-  Indeed: 
-  whenever $p < q$, we get
-  \[
-    \overline{V_p}
-    = \overline{\phi^{-1}\left[ \left\langle 0, \frac{p+1}{2} \right\langle \right]}
-    \subseteq \phi^{-1}\left[ \left\langle 0, \frac{p+1}{2} \right\rangle \right]
-    \subseteq \phi^{-1}\left[ \left\langle 0, \frac{q+1}{2} \right\langle \right]
-    = V_q,
-  \]
-  (the second inclusion since $\left\langle 0, r \right\rangle$ are closed in $\I$).
+  The inclusion~$\supseteq$ is obvious.
 
-  Such sets $V_0$ (for every $x\in U$) cover all of the $U$; hence, the
-  inclusion $\subseteq$.
+  $\Rightarrow$:
+  Choose a $x\in U$.
+  Since $A := X\setminus U \not\owns x$ is closed, the existence
+  of~$V_1$~and~$V_2$ from $(T_3)$ is stipulated.
+  The disjointedness $V_1 \cap V_2 = \none$ leads to $V_1\subseteq X\setminus
+  V_2$, which is a closed set.
+  Therefore, $\overline{V_1}\subseteq X\setminus V_2$.
+
+  Furthermore, the relation $A\subseteq V_2$ is equivalent to the relation
+  $X\setminus V_2\subseteq X \setminus A = U$.
+  Hence, for $V_x := V_1$ one has $\overline{V_x}\subseteq X\setminus V_2\subseteq
+  U$.
+  Such a~system $\{V_x \st x\in U\}$ constitutes a~subset cover of $U$, and
+  consequently, finishes the proof of~the~inclusion $\subseteq$.
 
   $\Leftarrow$:
-  For an open $U := X\setminus A$ and $x\in U$ there is a $V$ with $x\in V \cb U$.
-  Thus, the $f$ from~\ref{cb->continuous} is the desired continuous function:
-  first of all, $x\in V = V_0$ means $f(x) = 0$;
-  furthermore, if $y\in A$ then $f(y) = \inf \none = 1$.
+  With $U := X\setminus A$ take $V_x$ from above and set $V_1 := V_x$ and $V_2
+  := X\setminus \overline{V_x}$.
 \end{proof}
 
-In the analogous manner as in regular case:
+Now we will eliminate the~closure in the~formula:
+
+\begin{lem}
+  $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X)\colon W \cap V =
+  \none \;\; \& \;\; W \cup U = X$.
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  Take $W := X\setminus \overline{V}$.
+
+  $\Leftarrow$:
+  Recall closure's definition.
+  Suppose $z\in \overline{V}\setminus U$.
+  Since $W \cup U = X$, the $z$ must lie in the $W$;
+  howbeit, the $W$ does not intersect the $V$---forcing $z\not\in
+  \overline{V}$.
+\end{proof}
+
+Without loss of generality, the $W$ might be replaced by~the
+pseudocomplement~$V^*$.
+Explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
+
+\begin{note}
+Pseudocomplements always exist in frames:
+setting
+\[
+  a^* := \bigvee \{x \st x \wedge a = 0\},
+\]
+we have
+\[
+  a^* \wedge a = \bigvee \{x \st x \wedge a = 0\} \wedge a = \bigvee \{x \wedge
+  a \st x \wedge a = 0\} = 0
+\]
+(the second equality from frame distributivity).
+Evidently, the implication
+\[
+  x \wedge a = 0 \Rightarrow x \le a^*
+\]
+also holds.
+\end{note}
+
+\section{Regular locales}
 
 \begin{framed}
-  \begin{df}[CReg]
-    A locale is called \emph{completely regular\/} if
+  \begin{nota}[$\rb$]
     \[
-      a = \bigvee \{x \st x \cb a\}
+      V \rb U \quad \equiv \quad V^* \vee U = 1,
+    \]
+    which is referred to by pronouncing \emph{``V is rather below U''\/}.
+  \end{nota}
+\end{framed}
+
+The next lemma will be advantageous property for the rest of this chapter.
+\begin{lem} \label{rb->leq}
+  $a \rb b \Rightarrow a \leq b$.
+\end{lem}
+\begin{proof}
+  By~distributivity,
+  \[
+    a = a \wedge 1 = a \wedge (a^* \vee b) = (a \wedge a^*) \vee (a \wedge b) =
+    0 \vee (a \wedge b) = a \wedge b. \qedhere
+  \]
+\end{proof}
+
+Possessing $\rb$ notation, we are able to adopt the characterization
+\ref{reg-char} by~defining regularity as~following
+\begin{framed}
+  \begin{df}[Reg]
+    A locale is called \emph{regular\/} if and only if
+    \[
+      a = \bigvee \{x \st x \rb a\}
     \]
     for all its elements $a$.
   \end{df}
 \end{framed}
 
-\begin{rem}
-  Because $\{x \st x \cb a\}\subseteq \{x \st x \rb a\}$, (CReg) implies (Reg).
-\end{rem}
+Thus we have that
+\begin{center} 
+  \emph{a topological space $X$ is regular iff its $\Omega(X)$ is regular.\/}
+\end{center}
 
-Besides, from Proposition~\ref{T3,5-char} we acquire
+\section{Strength of regularity}
+
+\begin{lem} \label{oplus-vee-distrib}
+  ~
+  \begin{enumerate}
+  \item $\bigvee_{i\in J} \left(a_i \oplus b\right) = \left(\bigvee_{i\in J}
+    a_i \right) \oplus b$.
+  \item $\bigvee_{i\in J} \left(a \oplus b_i\right) = a \oplus
+    \left(\bigvee_{i\in J} b_i \right)$.
+  \item $\left(\bigvee_{i\in J} a_i\right) \oplus \left(\bigvee_{j\in J}
+    b_j\right) = \bigvee_{i, j\in J} \left(a_i \oplus b_j\right)$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  (i):
+  Recall \ref{oplus-iota} on page~\pageref{oplus-iota}\thinspace.
+  We have
+  \begin{align*}
+    \left(\bigvee_{i\in J} a_i \right) \oplus b
+    &= \iota_1\left(\bigvee_{i\in J} a_i \right) \wedge \iota_2(b)
+    = \left(\bigvee_{i\in J} \iota_1(a_i) \right) \wedge \iota_2(b) \\
+    &= \bigvee_{i\in J} \left(\iota_1(a_i) \wedge \iota_2(b) \right)
+    = \bigvee_{i\in J} \left(a_i \oplus b\right)
+  \end{align*}
+  as frame homomorphisms $\iota_i$ preserve suprema (for the second equality)
+  and as the binary meet commutes with joins in frames (for the third
+  equality).
+
+  (ii):
+  Analogously by symmetry.
+
+  (iii):
+  By consecutive application of (i) and (ii).
+\end{proof}
+
+\begin{lem}
+  For a general locale $L$ and any of its saturated $U\in \left\uparrow
+  d_L\right.$
+  \[
+    (a \wedge b, a \wedge b) \in U \qquad \Longrightarrow \qquad \forall x \rb
+    a, \, y \rb b: \; (x, y) \in U
+  \]
+\end{lem}
+\begin{proof}
+  Beginning with evident $(x, y)\in x \oplus y$, we modify
+  \begin{align*}
+    x \oplus y &= (x \wedge (y^* \vee b)) \oplus (y \wedge (x^* \vee a)) \\
+               &= (\; (x \wedge y^*) \; \vee \; (x \wedge b) \; ) \oplus (\; (y
+    \wedge x^*) \; \vee \; (y \wedge a) \; )
+  \end{align*}
+  (by using ``rather-belowness'' and distributivity, respectively).
+
+  Proceeding with (iii) of Lemma~\ref{oplus-vee-distrib}\thinspace,
+  \begin{align*}
+     \ldots = \; &(\; (x \wedge y^*) \oplus (y \wedge x^*) \; ) \vee 
+            (\; (x \wedge y^*) \oplus (y \wedge a) \; ) \; \vee \\
+            \vee \; &(\; (x \wedge b) \oplus (y \wedge x^*) \; ) \vee
+            (\; (x \wedge b) \oplus (a \wedge y) \; ) \\
+     \leq \; &(y^*\oplus y) \vee (y^*\oplus y) \vee (x\oplus x^*) \vee
+                  (\; (a \wedge b)\oplus(a \wedge b) \;)
+  \end{align*}
+  where the last upper-bound is retrieved from~\ref{rb->leq}\thinspace.
+
+  Besides, the ultimate expression is a subset of $U$:
+  as $(x^*\oplus x), (y^*\oplus y)\subseteq d_L$ and $(a \wedge b)\oplus(a
+  \wedge b)\subseteq U$ from the premise---all the way leading to $(x, y)\in
+  U$.
+\end{proof}
+
+\begin{thm}
+  (Reg) implies (I-Haus).
+\end{thm}
+\begin{proof}
+  We will show that regular locales meet the condition
+  from~\ref{meets-in-satur} on page~\pageref{meets-in-satur}\thinspace.
+  Let $(a \wedge b, a \wedge b) \in U$.
+  By the earlier lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
+  Recall the saturatedness on~page~\pageref{df:satur}\thinspace:
+  as $U$ is saturated, we get
+  \[
+    \left\{ (x, y) \st x \rb a \right\} \subseteq U
+    \Longrightarrow
+    \left(\bigvee \{x \st x \rb a\}, y\right)\in U,
+  \]
+  or equally, using regularity,
+  \[
+    \left(a, y\right)\in U
+  \]
+  for all $y \rb b$.
+  Wherefore, in the same manner: $(a, b) = \left(a, \bigvee \{y \st y \rb
+  b\}\right)\in U$.
+\end{proof}
+
+By Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace, we
+get
 \begin{cor}
-  A space $X$ is completely regular iff $\Omega(X)$ is completely regular.
+  (Reg) implies (DS-Haus).
 \end{cor}
+
+It will be useful to characterize (Reg) by a formula that resembles the subfit
+definition:
+\begin{lem} \label{reg-char}
+  A locale is regular iff
+  \[
+    a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \quad
+    \& \quad c^* \not\leq b
+  \]
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  Suppose $a \not\le b$;
+  that is, using the regularity, there is $x \rb a$ with $x \not\le b$ (otherwise
+  $\bigvee \{x \st x \rb a\} \le b$).
+  Let $c := x^*$.
+  In other words, by $x \rb a$, one concludes $a \vee c = a \vee x^* = 1$.
+  Additionally, $c^* \not\le b$: since otherwise from pseudocomplement property
+  $x \le x^{**} = c^* \le b$, a contradiction.
+
+  $\Leftarrow$:
+  By~\ref{rb->leq} we always have the inequality $\bigvee \{x \st x \rb a\} \le
+  a$.
+  Hence, for contradiction assume $a \not\le \bigvee \{x \st x \rb a\}$.
+  Then, there exists $c$ from the~premise.
+  Specifically, $1 = a \vee c \le a \vee c^{**}$, which gives us $c^* \rb a$.
+  Yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
+\end{proof}
+
+\begin{thm}
+  (Reg) implies (Sfit).
+\end{thm}
+\begin{proof}
+  Given $a \not\le b$, we acquire---from Lemma~\ref{reg-char}\thinspace---an
+  element $c$ such that $a \vee c = 1$ and $c^* \not\le b$.
+  What is more, it satisfies $b \vee c \ne 1$.
+  If not so then
+  \[
+    b = b \vee 0 = b \vee (c \wedge c^*) = (b \vee c) \wedge (b \vee c^*) = 1
+    \wedge (b \vee c^*) = b \vee c^*,
+  \]
+  the third identity from distributivity; subsequently, this contradicts $c^*
+  \le b$.
+\end{proof}
