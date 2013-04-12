@@ -68,14 +68,55 @@ inclusion.
 \subsection*{Algebra}
 
 \begin{itemize}
-\item A~map~$h\colon A \to B$ between algebras $A$ and $B$ \emph{preserves
-operation $\rho$\/} (or \emph{commutes with $\rho$\/}) if $h( \rho(\,
-(a_i)_{i\in J}\, ) ) = \rho(\, (h(a_i))_{i\in J}\, )$ for any system
-$(a_i)_{i\in J}$ TBD
+\item An \emph{operation\/} $\alpha$ with the \emph{arity\/} $\delta$ (not
+necessarily finite) defined on a~set $A$ is a~function of~the~form
+$\alpha\colon A^{\delta} \to A$.
 
-%\item A~map~$h\colon A \to B$ between algebras $A$ and $B$ is
-%a~\emph{homomorphism\/}
+\item An \emph{algebra\/} of~the~\emph{type\/} $\delta = (\delta_t)_{t\in T}$
+is a~structure $\Acal$ consisting of
+  \begin{itemize}
+  \item the carrier set $A$
+  \item operations $(\alpha_t\colon A^{\delta_t} \to A)_{t\in T}$
+  \end{itemize}
+
+\item By abuse of notation, for two algebras of the same type we will denote
+the~corresponding operations by the same name.
+For instance, $\alpha_t$ and $\beta_t$ of~the same arity $\delta_t$ will be
+$\rho_t$.
+
+\item A~map~$h\colon A \to B$ between algebras $\Acal$ and $\Bcal$
+\emph{preserves\/} operation $\rho\colon A^\delta \to A$ (or~\emph{commutes
+with\/}~$\rho$) if
+\[
+  h( \rho(\, (a_i)_{i\in \delta}\,)) = \rho(\, (h(a_i))_{i\in \delta}\, )
+\]
+where $a_i\in A$ for $i\in \delta$.
+
+\item A~\emph{homomorphism\/}~$h\colon A \to B$ between algebras $\Acal$ and
+$\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
 \end{itemize}
+
+\begin{prop*}
+  Let $\Acal, \Bcal, \Ccal$ be algebras of the same type and $f\colon \Acal \to
+  \Bcal, g\colon \Bcal \to \Ccal$ mappings such that $gf$ and $f$ are
+  homomorphisms.
+  If $f$ is onto then $g$ is also a~homomorphism.
+\end{prop*}
+\begin{proof}
+  Choose an arbitrary operation $\rho$ of an arity $\delta$.
+  For brevity, let us write $\rho(x_i)$ instead of $\rho((x_i)_{i\in \delta})$.
+  Then we have
+  \[
+    g( \rho(b_i) )
+    = g( \rho(f(a_i)) )
+    = gf( \rho(a_i) )
+    = \rho( gf(a_i) )
+    = \rho( g(b_i) );
+  \]
+  the first equality because $f$ is onto;
+  the second equality because $f$ is a~homomorphism and the third one because
+  $gf$ is a~homomorphism.
+\end{proof}
 
 \subsection*{Category theory}
 
