@@ -128,24 +128,6 @@ Thus we have that
 
 \section{Strength of regularity}
 
-Now we are going to study the stated relationships between (Reg) and other
-axioms.
-
-\begin{fact}
-  It holds that
-  \[
-    \bigoplus_{i\in J} a_i = \bigwedge_{i\in J} \iota_i(a_i)
-  \]
-  where $(\iota_i\colon L \to \bigoplus_{i\in J} L_i)_{i\in J}$ form a
-  coproduct of~$(L_i)_{i\in J}$ in~{\bf Frm}.
-\end{fact}
-(In order to prove the statement, we would need deeper background in~frame
-coproducts:
-in particular, the structure of the insertions $(\iota_i)_{i\in J}$.
-That is, regrettably, beyond the limits of this material.
-Nonetheless, the proof itself may be found as Proposition~IV.5.2.(2) of the
-monography~\cite{picado-pultr12}.)
-
 \begin{lem} \label{oplus-vee-distrib}
   ~
   \begin{enumerate}
@@ -159,11 +141,12 @@ monography~\cite{picado-pultr12}.)
 \end{lem}
 \begin{proof}
   (i):
-  By the aforesaid fact,
+  Recall the corollary on page~\pageref{oplus-iota}\thinspace.
+  We have
   \begin{align*}
     \left(\bigvee_{i\in J} a_i \right) \oplus b
-    &= \iota_1\left(\bigvee_{i\in J} a_i \right) \wedge \iota_2(b) \\
-    &= \left(\bigvee_{i\in J} \iota_1(a_i) \right) \wedge \iota_2(b) \\
+    &= \iota_1\left(\bigvee_{i\in J} a_i \right) \wedge \iota_2(b)
+    = \left(\bigvee_{i\in J} \iota_1(a_i) \right) \wedge \iota_2(b) \\
     &= \bigvee_{i\in J} \left(\iota_1(a_i) \wedge \iota_2(b) \right)
     = \bigvee_{i\in J} \left(a_i \oplus b\right)
   \end{align*}
@@ -212,15 +195,12 @@ monography~\cite{picado-pultr12}.)
   U$.
 \end{proof}
 
-The proof of the oncoming theorem will depend upon the reverse implication
-of~\ref{meets-in-satur} on page~\pageref{meets-in-satur}\thinspace;
-for conciseness of this thesis, the author takes liberty to~omit its proof,
-referring once more to the monography~\cite{picado-pultr12}.
-
 \begin{thm}
   (Reg) implies (I-Haus).
 \end{thm}
 \begin{proof}
+  We will show that regular locales meet the condition
+  from~\ref{meets-in-satur} on page~\pageref{meets-in-satur}\thinspace.
   Let $(a \wedge b, a \wedge b) \in U$.
   By the earlier lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
   Recall the saturatedness on~page~\pageref{df:satur}\thinspace:
@@ -239,15 +219,14 @@ referring once more to the monography~\cite{picado-pultr12}.
   b\}\right)\in U$.
 \end{proof}
 
+By Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace, we
+get
 \begin{cor}
   Regular locales are weakly Hausdorff.
 \end{cor}
-\begin{proof}
-  Recall Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace.
-\end{proof}
 
-It appears to be of great advantage to characterize (Reg) by a formula
-that rather resembles the subfit definition:
+It will be useful to characterize (Reg) by a formula that resembles the subfit
+definition:
 \begin{lem} \label{reg-char}
   A locale is regular iff
   \[
@@ -274,7 +253,6 @@ that rather resembles the subfit definition:
   Yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
 \end{proof}
 
-The new definition of regularity is more suitable to prove
 \begin{thm}
   (Reg) implies (Sfit).
 \end{thm}
