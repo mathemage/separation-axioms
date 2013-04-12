@@ -138,43 +138,26 @@ the final
     A locale $L$ is called \emph{strongly Hausdorff\/} (equally
     \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
     \[
-      \Delta[L] = \left\uparrow d_L \right.
+      \Delta[L] = \dL.
     \]
   \end{df}
 \end{framed}
+
+\begin{rem} \label{rem:delta-restriction}
+  For the monotone $\Delta$ it holds that $\Delta(0) \le \Delta(a)$ for $a\in
+  L$.
+  Thus, we always have $\Delta[L] \subseteq \dL$, and we may correctly define
+  \[
+    \overline{\Delta}
+  \]
+  as the restriction of~$\Delta$ to~$L \to \dL$.
+\end{rem}
 
 \begin{thm} \label{IHaus->DSHaus}
   (I-Haus) implies (DS-Haus).
 \end{thm}
 
-\begin{lem} \label{downsets-satur}
-  The down-set
-  \[
-    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b, b)\right. \cup \n
-  \]
-  is saturated in $L \times L$ for arbitrary $a, b\in L$.
-\end{lem}
-\begin{proof}
-  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
-  First of all, let us have $(x_i, y)\in U$ for $i\in J$.
-
-  \underline{Case $y = 0$}:
-  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n
-  \subseteq U$.
-
-  \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
-  then $x_i \leq a$ anyway, that is, $(\bigvee_{i\in J} x_i, y) \in
-  \left\downarrow(a, a \wedge b)\right.$, which is a subset of $U$.
-
-  \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
-  in this case, inevitably, $y \leq b$ as well as $x_i \leq a \wedge b$; and
-  analogously, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
-  b)\right. \subseteq U$.
-
-  The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
-\end{proof}
-
-\begin{lem} \label{meets-in-satur}
+\begin{lem} \label{lem:delta-nabla=id}
   In case of a strongly Hausdorff locale $L$, we have
   \[
     \Delta(\nabla(U)) = U
@@ -182,8 +165,8 @@ the final
   for any saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  By (I-Haus), every saturated $U\in \left\uparrow d_L \right. = \Delta[L]$ is
-  an image $\Delta(a)$ for some $a\in L$.
+  By (I-Haus), every saturated $U\in \dL = \Delta[L]$ is an image $\Delta(a)$
+  for some $a\in L$.
   Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
@@ -202,30 +185,37 @@ the final
 \end{proof}
 
 \begin{lem} \label{lem:mapping->IHaus}
-  Let there be a~mapping $\alpha\colon L \to \left\uparrow d_L \right.$ such that
+  Let there be a~mapping $\alpha\colon L \to \dL$ such that
   \[
     \alpha \nabla = (U \mapsto U \vee d_L).
   \]
   Then $L$ is strongly Hausdorff.
 \end{lem}
 \begin{proof}
-  Let $\gamma$ stand for $(U \mapsto U \vee d_L)$.
-  Because $\gamma$ is onto, so is $\alpha$.
+  Let $\gamma\colon L \oplus L \to \dL$ stand for $(U \mapsto U \vee d_L)$.
+  Because $\gamma$ is onto, so is~$\alpha$.
+  It is, therefore, an epimorphism.
+
   Furthermore, $\nabla$~and~$\gamma$ are frame homomorphism (using asociativity
-  for joins and~distributivity for finite meets).
-  Since $\nabla$ is onto, $\alpha$ is a~frame homomorphism, as well.
+  for joins and~distributivity for finite meets);
+  and since $\nabla$ is onto, $\alpha$ is also a~frame homomorphism.
   % by \ref{TBD}
-  Finally,
+
+  From a~property of Galois adjoints $\nabla \Delta (0) \le 0$, we have
   \[
     \nabla \alpha \nabla(U)
     = \nabla \gamma(U)
     = \nabla (U \vee d_L)
     = \nabla (U) \vee \nabla \Delta(0)
-    = \nabla (U)
+    = \nabla (U),
   \]
-  (by a~standard property of Galois adjoints $\nabla \Delta (0) \le 0$), that
-  is, $\nabla \alpha = id$.
-  Hence, $\alpha$ and $\nabla$ are mutually inverse isomorphisms, and TBD
+  that is, $\nabla \alpha = id$.
+  Hence, $\alpha$ is one-one, and thus, an isomorphism inverse to the~$\nabla$
+  restricted~to $\dL \to L$.
+  Consequently, by the uniqueness of~adjoints, $\alpha$ has to be
+  the~restriction~$\overline{\Delta}$
+  from~\ref{rem:delta-restriction}\thinspace.
+  Finally, $\Delta[L] = \overline{\Delta}[L] = \alpha[L] = \dL$.
 \end{proof}
 
 \begin{prop} \label{meets-in-satur}
@@ -246,7 +236,7 @@ the final
   \]
   Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta(
   \nabla(U) ) = U$
-  (the final equality by the previous lemma).
+  (the final equality by Lemma~\ref{lem:delta-nabla=id}).
 
   $\Leftarrow$:
   Let the condition hold and~let $a_i\in L$ for $i\in J$. 
@@ -299,6 +289,33 @@ the final
   page~\pageref{a+b-gen}\thinspace).
 \end{proof}
 
+\begin{lem} \label{downsets-satur}
+  The down-set
+  \[
+    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b, b)\right. \cup \n
+  \]
+  is saturated in $L \times L$ for arbitrary $a, b\in L$.
+\end{lem}
+\begin{proof}
+  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
+  First of all, let us have $(x_i, y)\in U$ for $i\in J$.
+
+  \underline{Case $y = 0$}:
+  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n
+  \subseteq U$.
+
+  \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
+  then $x_i \leq a$ anyway, that is, $(\bigvee_{i\in J} x_i, y) \in
+  \left\downarrow(a, a \wedge b)\right.$, which is a subset of $U$.
+
+  \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
+  in this case, inevitably, $y \leq b$ as well as $x_i \leq a \wedge b$; and
+  analogously, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
+  b)\right. \subseteq U$.
+
+  The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
+\end{proof}
+
 Now we can prove the theorem.
 In fact, we are going to imply a~stronger version of the (DS-Haus):
 \[
@@ -342,6 +359,6 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
   \, b \not\leq a$).
   Thus, the only options available are either $a \leq a \wedge b$ or $b \leq a
   \wedge b$.
-  However, those enforce $a \leq b$ and $b \leq a$ respectively,
+  However, those stipulate $a \leq b$ or $b \leq a$ respectively,
   a~contradiction. 
 \end{proof}
