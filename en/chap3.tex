@@ -100,6 +100,29 @@ page~\pageref{codiag-in-Frm})
   \Delta\colon L \to L \oplus L
 \]
 is a closed localic map.
+
+\begin{lem}
+  $\Delta$ is closed iff $\Delta[L] = \left\uparrow \Delta(0)\right.$.
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  By~\ref{prop:closed-map-char} on
+  page~\pageref{prop:closed-map-char}\thinspace, $\Delta[L] =
+  \Delta[\left\uparrow 0 \right.] = \left\uparrow \Delta(0)\right.$.
+
+  $\Leftarrow$:
+  We will prove the condition from~\ref{prop:closed-map-char}\thinspace, namely
+  \[
+    \Delta[ \left\uparrow a\right. ] = \left\uparrow \Delta(a).\right.
+  \]
+  The inclusion $\subseteq$ holds by~\ref{cor:delta-of-upsets} (viz
+  page~\pageref{cor:delta-of-upsets}\thinspace).
+  On the other hand, let $U\in \left\uparrow \Delta(a).\right.$
+  Using the monotonicity of~$\Delta$, we see that $\left\uparrow
+  \Delta(a)\right. \subseteq \left\uparrow \Delta(0).\right.$
+  Thus, TBD
+\end{proof}
+
 Namely, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
 
 \begin{lem}

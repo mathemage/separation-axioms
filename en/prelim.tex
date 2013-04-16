@@ -355,6 +355,25 @@ every sublocale $T\supseteq S$ we have $\bigwedge S \in T$.
 of~every closed sublocale is also closed.
 \end{itemize}
 
+\begin{prop} \label{prop:closed-map-char}
+  A~localic map $f\colon L \to M$ is closed iff
+  \[
+    f[ \left\uparrow a\right. ] = \left\uparrow f(a)\right.
+  \]
+  for each $a\in L$.
+\end{prop}
+\begin{proof}
+  $\Rightarrow$:
+  There exists $b$ such that $f[ \left\uparrow a\right. ] = \left\uparrow
+  b\right.$.
+  As the $f$ is monotone, the~$f(a)$ is the smallest in $f[ \left\uparrow
+  a\right. ]$ and hence $f(a) \le b$.
+  Conversely, $f(a) \ge b$ is obvious.
+
+  $\Leftarrow$:
+  Trivial.
+\end{proof}
+
 \subsubsection*{On coproducts in Frm}
 
 In the category of~frames we have a~coproduct
@@ -386,7 +405,8 @@ down-set\/}.
 
 \item $L_1 \oplus L_2$ will be the set of~all saturated elements in $\D(L_1
 \times L_2)$.
-In other words, they are the saturated down-sets of $L_1 \times L_2$.
+In other words, $L_1 \oplus L_2$ is the frame of~all saturated down-sets of
+$L_1 \times L_2$ ordered by~the~inclusion.
 \end{itemize}
 
 \begin{prop}
@@ -496,7 +516,7 @@ an~epimorphism.
 
 \item The diagonal $\Delta\colon L \to L \oplus L$ in the opposite category
 {\bf Loc} is the right adjoint of~$\nabla$.
-Thus, we would desire
+Thus, we would wish that
 \begin{align*}
   U\subseteq \Delta(a)
   \; &\equiv \; \nabla(U) \le a
@@ -512,6 +532,24 @@ diagonal
   }
 \]
 \end{itemize}
+
+\begin{lem}
+  $\Delta(a) \subseteq \Delta(b) \text{ iff } a \le b$.
+\end{lem}
+\begin{proof}
+  $\Rightarrow$:
+  Since $a \wedge a \le a$, it follows that $(a, a)\in \Delta(a) \subseteq
+  \Delta(b)$.
+  Hence, $a \wedge a \le b$.
+
+  $\Leftarrow$:
+  The infima-preserving $\Delta$ is monotone.
+\end{proof}
+
+\begin{cor} \label{cor:delta-of-upsets}
+  For any $a\in L$ it holds that $\Delta[ \left\uparrow a\right. ] \subseteq
+  \left\uparrow \Delta(a)\right.$.
+\end{cor}
 
 \section*{Convention}
 
