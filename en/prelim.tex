@@ -1,6 +1,6 @@
 \chapter{Preliminaries}
 
-\section*{Notations}
+\section{Notations}
 
 \begin{itemize}
 \item $2^X$ is the set of~all subsets, explicitly, $2^X = \{ S \st S\subseteq X
@@ -8,10 +8,9 @@
 
 \item $A \Subset B$ means {\sl set $A$ is a finite subset of set $B$\/}.
 
-\item $\Omega(X)$ denotes the lattice (or more specifically, the frame) of open
-sets in $X$ together with $\subseteq$ as the ordering. 
-By abuse of notation, we denote the related underlying set in the very same
-way.
+\item $\Omega(X)$ denotes the lattice (more specifically, the frame) of open
+sets in~$X$ together with $\subseteq$ as the ordering. 
+By abuse of notation, we denote the related underlying set in the same way.
 
 \item $\overline{S}$ is the~closure of $S$ in topology $(X, \Omega(X))$.
 It is defined by
@@ -36,7 +35,7 @@ Especially,
 
 \end{itemize}
 
-\section*{Definitions}
+\section{Definitions}
 
 \subsection*{Order theory}
 
@@ -59,15 +58,18 @@ Especially,
   \[
     l(a) \le b \; \equiv \; a \le r(b).
   \]
-  Note that they are unique: $l_1(a) \le b \; \equiv a \le r(b) \; \equiv \;
-  l_2(a) \le b$ leads to
+\end{itemize}
+
+\begin{note}
+  Adjoints are unique: $l_1(a) \le b \; \equiv a \le r(b) \; \equiv \; l_2(a)
+  \le b$ leads to
   \begin{align*}
-    l_1(a) \le l_2(a) \; &\equiv \; l_2(a) \le l_2(a), \\
-    l_1(a) \le l_1(a) \; &\equiv \; l_2(a) \le l_1(a)
+    l_1(a) \le l_2(a) \; &\equiv \; l_2(a) \le l_2(a) \\
+    \text{and } l_1(a) \le l_1(a) \; &\equiv \; l_2(a) \le l_1(a)
   \end{align*}
   and hence $l_1(a) = l_2(a)$ for $a\in A$.
   Symmetrically for right adjoints.
-\end{itemize}
+\end{note}
 
 \begin{fact} \label{lr-id-rl}
   $lr \le id$ resp. $id \le rl$.
@@ -94,9 +96,9 @@ inclusion.
 \subsection*{Algebra}
 
 \begin{itemize}
-\item An \emph{operation\/} $\alpha$ with the \emph{arity\/} $\delta$ (not
-necessarily finite) defined on a~set $A$ is a~function of~the~form
-$\alpha\colon A^{\delta} \to A$.
+\item An \emph{operation\/} $\alpha$ with the (not necessarily finite)
+  \emph{arity\/} $\delta$ over a~set $A$ is a~function of~the~form
+  $\alpha\colon A^{\delta} \to A$.
 
 \item An \emph{algebra\/} of~the~\emph{type\/} $\delta = (\delta_t)_{t\in T}$
 is a~structure $\Acal$ consisting of
@@ -116,7 +118,7 @@ with\/}~$\rho$) if
 \[
   h( \rho(\, (a_i)_{i\in \delta}\,)) = \rho(\, (h(a_i))_{i\in \delta}\, )
 \]
-where $a_i\in A$ for $i\in \delta$.
+where $(a_i)_{i\in \delta} \in A^\delta$.
 
 \item A~\emph{homomorphism\/}~$h\colon A \to B$ between algebras $\Acal$ and
 $\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
@@ -147,35 +149,35 @@ $\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
 \subsection*{Category theory}
 
 \begin{itemize}
-\item A \emph{category} $\Ccal$ is a structure consisting of
+\item A \emph{category} $\Ccal$ is a collection consisting of
   \begin{itemize}
   \item class~$\Ccal^O$ of \emph{objects\/}
-  \item class~$||\Ccal||$ of \emph{morphisms\/} between objects 
-  (a~concrete morphism $f$ between objects $A$ and $B$ is denoted by $f\colon A
-   \to B$)
+  \item class~$||\Ccal||$ of \emph{morphisms\/} between objects\thinspace%
+  \footnote{a~concrete morphism $f$ between objects $A$ and $B$ is denoted by
+    $f\colon A \to B$}
   \end{itemize}
-further satisfying axioms of
+further satisfying the axioms of
   \begin{itemize}
   \item \emph{(identity)\/}
-  For every $X\in \Ccal^O$ there is a~morphism $1_X$ such that for any $f\colon A \to B$
-  we have $1_A \cdot f = f = f \cdot 1_B$.
+  For every $X\in \Ccal^O$ there is a~morphism $1_X$ such that for any $f\colon
+  A \to B$ we have $1_B \cdot f = f = f \cdot 1_A$.
   \item \emph{(asociativity)\/}
-  Whenever $f\colon A \to B$, $g\colon B \to C$ and $h\colon C \to D$ then $h
+  Whenever $f\colon A \to B$, $g\colon B \to C$ and $h\colon C \to D$ then also $h
   \cdot (g \cdot f) = (h \cdot g) \cdot f$.
   \end{itemize}
 
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
 $\mathcal{C}$ comprises the same objects $\Ccal^O$ and ``reverse'' morphisms
-$f^{op}\colon A \leftarrow B$ (for each morphism $f\colon A \to B$
-in~$||\Ccal||$).
+$f^{op}\colon A \leftarrow B$ for each morphism $f\colon A \to B$
+in~$||\Ccal||$.
 
-\item For $A' \subseteq A$, the \emph{restriction} of a~morphism $f\colon A \to
+\item For $A' \subseteq A$, the \emph{(domain) restriction} of a~morphism $f\colon A \to
 B$ to $A' \to B$ is a~morphism $g \colon A' \to B$ such that $g(x) = f(x)$ for
-any $x\in A'$.
+all $x\in A'$.
 
-\item For $B' \subseteq B$, the \emph{restriction} of a~surjective morphism
-$f\colon A \to B$ to $A \to B'$ is a~morphism $g \colon A \to B'$ such that
-$g(x) = f(x)$ for all $x\in A$.
+\item The \emph{(codomain) restriction} of a~morphism $f\colon A \to B$ to $A
+\to B'$ (such that $B' \supseteq f[A]$) is a~morphism $g \colon A \to B'$ such
+that $g(x) = f(x)$ for all $x\in A$.
 
 \item An \emph{epimorphism} is a right-cancellative morphism $e$, that is,
 \[
@@ -193,8 +195,8 @@ We also refer to this by saying that \emph{$e$ is epic\/}.
  e$.)
 
 \begin{itemize}
-\item An \emph{isomorphism} is a~morphism $f\colon A \to B$ having an~\emph{inverse
-morphism\/} $\overline{f}\colon B \to A$ holding both
+\item An \emph{isomorphism} is a~morphism $f\colon A \to B$ that has
+an~\emph{inverse morphism\/} $\overline{f}\colon B \to A$ holding both
 \[
   \overline{f} \cdot f = 1_A \text{ and } f \cdot \overline{f} = 1_B.
 \]
@@ -219,7 +221,7 @@ of~\emph{projections\/}
 \[
   \left(p_i\colon \prod_{j\in J} A_j \to A_i \right)_{i\in J}
 \]
-with the property that for arbitrary system $\left(f_i\colon X \to
+with the property that for an~arbitrary system $\left(f_i\colon X \to
 A_i\right)_{i\in J}$ there is a~unique solution~$f\colon X \to \prod_{j\in
 J} A_j$ to equations
 \[
@@ -237,7 +239,7 @@ solution~$g\colon \coprod_{j\in J} A_j \to X$ to~equations
   g \cdot \iota_i = g_i \text{ for } i\in J.
 \]
 
-\item A \emph{diagonal} is (the only) morphism $\Delta\colon A \to \prod_{i\in
+\item A \emph{diagonal} is the (only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = 1_A$ for $i \in J$.
 Dually, a \emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
 \to A$ to the system $\nabla\cdot \iota_i = 1_A, \, i \in J$.
@@ -250,7 +252,7 @@ Dually, a \emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
 \item A \emph{topological space} is a~structure of
   \begin{itemize}
   \item the set of \emph{points\/} $X$
-  \item \emph{open sets\/} $\tau\subseteq 2^X$ holding axioms
+  \item \emph{open sets\/} $\tau\subseteq 2^X$ satisfying axioms
     \begin{description}
     \item[(o1)] $\none, X \in \tau$
     \item[(o2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow
@@ -269,18 +271,23 @@ topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
 \end{itemize}
 
 \begin{exmpl}
-  The topology $\I$ consists of underlying set $\langle 0, 1 \rangle$ and open
+  The topology $\I$ consists of the carrier set $\langle 0, 1 \rangle$ and open
   sets generated by subbasis $\{ \langle 0, a \langle, \; \rangle a, 1 \rangle
   \st a\in \langle 0, 1 \rangle \}$.
 \end{exmpl}
 
 \begin{fact}
-  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$, where
-  $\mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}$
-  denotes its subbasis, is the product of topological spaces $\left( X_i
-  \right)_{i\in J}$;
-  more precisely, the projections $\left( p_i\colon \left(\prod_{i\in J} X_i,
-  \mathcal{S}\right) \to \left(X_i, \tau_i\right) \right)_{i\in J}$
+  The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$ with
+  the subbasis
+  \[
+    \mathcal{S} = \left\{ p_{i}^{-1}[U] \st i\in J, \; U\in \tau_i \right\}
+  \]
+  is the product of topological spaces $\left( X_i \right)_{i\in J}$;
+  more precisely, the projections
+  \[
+    \left( p_i\colon \left(\prod_{i\in J} X_i, \mathcal{S}\right) \to
+    \left(X_i, \tau_i\right) \right)_{i\in J}
+  \]
   constitute the product in~the~category~{\bf Top}.
 \end{fact}
 
@@ -290,8 +297,8 @@ topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
 \[
   U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
 \]
-Since preimage function preserves unions and finite intersections, this amounts
-to requiring that $f^{-1}[U]$ is open for all {\bf subbasic} $U$.
+Since the preimage function preserves unions and finite intersections, this
+amounts to requiring that $f^{-1}[U]$ is open for all \emph{subbasic\/} $U$.
 \end{itemize}
 
 \subsection*{Point-free topology}
@@ -315,7 +322,7 @@ Frm}.
 morphisms).
 
 \item A \emph{localic map} between locales $L$ and $M$ is a mapping $f\colon L
-\to M$ with left Galois adjoints $f^*\colon M \to L$, which is a frame
+\to M$ with left Galois adjoints $f^*\colon M \to L$ such that $f^*$ is a frame
 homomorphism.
 Thus, localic maps are infima-preserving maps such that their left adjoints
 preserve finite meets.
@@ -339,17 +346,14 @@ Hence, $\mathbf{Loc} = \mathbf{Frm}^{op}$.
 \item A~sublocale $S \subseteq L$ is \emph{closed\/} if there exist $a\in L$
 such that $S = \left\uparrow a\right.$.
 
-%\item Besides, the \emph{closure} of $S$ is the least closed sublocale containing $S$.
-%Since \ldots On the other hand, \ldots
-
-\item The \emph{closure\/} of $S$, the least closed sublocale containing $S$,
-is given by~the formula
-\[
-  \overline{S} = \textstyle \left\uparrow (\bigwedge S) \right..
-\]
-Indeed:
-evidently, $S\subseteq \left\uparrow (\bigwedge S) \right.$ and by (S1) for
-every sublocale $T\supseteq S$ we have $\bigwedge S \in T$.
+%\item The \emph{closure\/} of $S$, the least closed sublocale containing $S$,
+%is given by~the formula
+%\[
+%  \overline{S} = \textstyle \left\uparrow (\bigwedge S) \right..
+%\]
+%Indeed:
+%evidently, $S\subseteq \left\uparrow (\bigwedge S) \right.$ and by (S1) for
+%every sublocale $T\supseteq S$ we have $\bigwedge S \in T$.
 
 \item A~localic map $f\colon L \to M$ is called \emph{closed\/} if the image
 of~every closed sublocale is also closed.
@@ -390,9 +394,10 @@ It can be constructed as follows.
 A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all systems
 $(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$ we have
 \begin{align*}
-    \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i, y)\in U,
-    \text{ and} \\
-    \{ (y, x_i) \st i\in J \} \subseteq U \, &\Rightarrow \, (y, \bigvee x_i)\in U.
+    \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i,
+        y)\in U \\
+    \text{and } \{ (y, x_i) \st i\in J \} \subseteq U \, &\Rightarrow \, (y,
+        \bigvee x_i)\in U.
   \end{align*}
 
 \item The definition above concerns also the void $J$ and hence for each
@@ -533,7 +538,7 @@ diagonal
 \]
 \end{itemize}
 
-\begin{lem}
+\begin{lem} \label{lem:delta-monotone}
   $\Delta(a) \subseteq \Delta(b) \text{ iff } a \le b$.
 \end{lem}
 \begin{proof}

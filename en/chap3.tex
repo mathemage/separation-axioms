@@ -115,51 +115,27 @@ is a closed localic map.
   \[
     \Delta[ \left\uparrow a\right. ] = \left\uparrow \Delta(a).\right.
   \]
+
   The inclusion $\subseteq$ holds by~\ref{cor:delta-of-upsets} (viz
   page~\pageref{cor:delta-of-upsets}\thinspace).
+
   On the other hand, let $U\in \left\uparrow \Delta(a).\right.$
   Using the monotonicity of~$\Delta$, we see that $\left\uparrow
   \Delta(a)\right. \subseteq \left\uparrow \Delta(0).\right.$
-  Thus, TBD
+  Therefore, we have $U\in \left\uparrow \Delta(0)\right. = \Delta[L]$ and
+  hence $U = \Delta(b)$ for~some $b\in L$.
+  Using Lemma~\ref{lem:delta-monotone} on page~\pageref{lem:delta-monotone} we
+  get $a \le b$, and finally, $U = \Delta(b) \in \Delta[ \left\uparrow a\right.
+  ]$.
 \end{proof}
 
-Namely, the image~$\Delta[L]$ is a closed sublocale in~$L \oplus L$.
-
-\begin{lem}
-  $\bigwedge \Delta[L] = \Delta(0_L)$.
-\end{lem}
-
-\begin{proof}
-  $\subseteq$: The down-set $\Delta(0_L)$ is among elements of $\Delta[L]$; the
-  infimum lies below all of~those.
-
-  $\supseteq$: By the formula of the diagonal morphism,
-  \[
-    \Delta(0_L)
-    = \left\{(x, y) \st x \wedge y \leq 0_L \right\}
-    \subseteq \left\{(x, y) \st x \wedge y \leq a \right\}
-    = \Delta(a)
-  \]
-  for every $a\in L$.
-  From the property of the~infimum, $\Delta(0_L) \subseteq \bigwedge
-  \Delta[L]$.
-\end{proof}
-
-Combining the above lemma with the~formula of~the sublocalic closure
-\[
-  \overline{S} = \left\uparrow \bigwedge \right. S,
-\]
-Isbell's condition reduces to
-\[
-  \Delta[L] = \left\uparrow \Delta(0_L),\right.
-\]
-which---after denoting the crucial element $\Delta(0_L)$ by $d_L$---produces
-the final
+Thus---having denoted the crucial element $\Delta(0)$ by $d_L$---the condition
+proposed by Isbell reduces~to
 
 \begin{framed}
   \begin{df}[I-Haus]
-    A locale $L$ is called \emph{strongly Hausdorff\/} (equally
-    \emph{I-Hausdorff}: short for \emph{Isbell-Hausdorff}) iff
+    A locale $L$ is \emph{strongly Hausdorff\/} (or \emph{I-Hausdorff}: short
+    for \emph{Isbell-Hausdorff}) iff
     \[
       \Delta[L] = \dL.
     \]
@@ -167,13 +143,12 @@ the final
 \end{framed}
 
 \begin{rem} \label{rem:delta-restriction}
-  For the monotone $\Delta$ it holds that $\Delta(0) \le \Delta(a)$ for $a\in
-  L$.
-  Thus, we always have $\Delta[L] \subseteq \dL$ and may correctly define
+  By~\ref{cor:delta-of-upsets} it always holds that $\Delta[L] \subseteq \dL$
+  and hence we are allowed to (correctly) define
   \[
     \overline{\Delta}
   \]
-  as the restriction of~$\Delta$ to~$L \to \dL$.
+  as the codomain restriction of~$\Delta$ to~$L \to \dL$.
 \end{rem}
 
 \begin{thm} \label{IHaus->DSHaus}
