@@ -267,6 +267,7 @@ proposed by Isbell reduces~to
   (by~\eqref{eq:IHaus-impl} the second and the third expressions have identical
   upper bounds).
   Thus, both $\alpha$ and $\nabla$ preserve joins and~so does $\alpha \nabla$. 
+
   Furthermore, we have
   \[
     \alpha \nabla (a \oplus b)
@@ -275,6 +276,7 @@ proposed by Isbell reduces~to
     = (a \oplus b) \vee d_L,
   \]
   the last equality stipulated by the assumed implication.
+
   In~conclusion,
   \begin{flalign*}
     \alpha \nabla (U)
@@ -290,7 +292,8 @@ proposed by Isbell reduces~to
 \begin{lem} \label{downsets-satur}
   The down-set
   \[
-    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b, b)\right. \cup \n
+    U = \left\downarrow(a, a \wedge b)\right. \cup \left\downarrow(a \wedge b,
+        b)\right. \cup \n
   \]
   is saturated in $L \times L$ for arbitrary $a, b\in L$.
 \end{lem}
@@ -299,16 +302,15 @@ proposed by Isbell reduces~to
   First of all, let us have $(x_i, y)\in U$ for $i\in J$.
 
   \underline{Case $y = 0$}:
-  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n
-  \subseteq U$.
+  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n$.
 
   \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
-  then $x_i \leq a$ anyway, that is, $(\bigvee_{i\in J} x_i, y) \in
-  \left\downarrow(a, a \wedge b)\right.$, which is a subset of $U$.
+  then it must be that $x_i \leq a$ in~any case.
+  Thus, $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a, a \wedge b).\right.$
 
   \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
-  in this case, inevitably, $y \leq b$ as well as $x_i \leq a \wedge b$; and
-  analogously, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
+  we have both $y \leq b$ and $x_i \leq a \wedge b$.
+  Hence, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
   b)\right. \subseteq U$.
 
   The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
@@ -332,25 +334,27 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
     u \leq b \; \textrm{ or } \; v \leq a.
   \]
   Especially, for the down-set $U$ taken from~\ref{downsets-satur} we have
-  \[
+  \begin{equation} \label{eq:dl-aoplusb}
     d_L \cap (a \oplus b) \subseteq U.
-  \]
+  \end{equation}
 
-  Following from~\ref{meets-in-satur}\thinspace, the saturated $\left(a \wedge
-  b\right) \oplus \left(a \wedge b\right) \vee d_L \supseteq d_L$ contains $(a,
-  b)$ (since it trivially contains $\left( a \wedge b, a \wedge b \right)$).
+  Following from~\ref{meets-in-satur}\thinspace, the saturated $(\left(a \wedge
+  b\right) \oplus \left(a \wedge b\right)) \vee d_L \supseteq d_L$
+  contains $(a, b)$ as it trivially contains $\left( a \wedge b, a \wedge b
+  \right)$.
   Hence,
   \begin{align*}
-    (a, b) &\in (a \oplus b) \; \cap \; ((a \wedge b) \oplus (a \wedge b) \vee d_L) \\
-           &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; ((a \oplus b) \cap d_L) \\
+    (a, b) &\in (a \oplus b) \; \cap \; (((a \wedge b) \oplus (a \wedge b))
+            \vee d_L) \\
+           &= ((a \wedge b) \oplus (a \wedge b)) \; \vee \; ((a \oplus b) \cap
+               d_L) \\
            &\subseteq ((a \wedge b) \oplus (a \wedge b)) \; \vee \; U \\
            &= U.
   \end{align*}
-  The first inclusion using~distributivity and the fact that $(a \wedge b)
+  The first equality using~distributivity and the fact that $(a \wedge b)
   \oplus (a \wedge b) \subseteq a \oplus b$;
-  the latter one by the observation from the beginning of this proof.
-  The equality is seen from the~definition of~$U$:
-  to be more specific, from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
+  the inclusion by~\ref{eq:dl-aoplusb}\thinspace;
+  the final equality from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
 
   This leads to the contradiction:
   $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (by $a \not\leq b,

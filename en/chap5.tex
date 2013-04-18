@@ -5,10 +5,10 @@
 \begin{framed}
   \begin{df}[$T_3$]
     We will consider a topological space $X$ to be \emph{regular\/} (or
-    satisfying the~\emph{$T_3$-axiom\/}) when
+    satisfying the~$T_3$ \emph{axiom\/}) when
     \begin{center} \it
-      for any $x\in X$ and any closed $A \not\owns x$ there are open $V_1\owns
-      x$ and $V_2\supseteq A$ disjoint from~one another.
+      for any $x\in X$ and any closed $A \not\owns x$ there are disjoint open
+      $V_1, V_2$ such that $V_1\owns x$ and $V_2\supseteq A$.
     \end{center}
   \end{df}
 \end{framed}
@@ -16,8 +16,8 @@
 Even though the definition concerns points, it may be reformulated without
 them.
 
-\begin{prop} \label{reg-char}
-  A space $X$ is regular iff each $U\in \Omega(X)$ can be written as
+\begin{prop} \label{topreg-char}
+  A space $X$ is regular iff each $U\in \Omega(X)$ can be described as
   \[
     U = \bigcup \{V\in \Omega(X) \st \overline{V} \subseteq U\}.
   \]
@@ -58,33 +58,32 @@ Now we will eliminate the~closure in the~formula:
   $\Leftarrow$:
   Recall closure's definition.
   Suppose $z\in \overline{V}\setminus U$.
-  Since $W \cup U = X$, the $z$ must lie in the $W$;
-  howbeit, the $W$ does not intersect the $V$---forcing $z\not\in
-  \overline{V}$.
+  Since $W \cup U = X$, the $z$ must lie in the $W$.
+  Howbeit, the $W$ does not intersect the $V$---making $z\not\in \overline{V}$.
 \end{proof}
 
-Without loss of generality, the $W$ might be replaced by~the
+Without loss of generality, the $W$ may be replaced by~the
 pseudocomplement~$V^*$.
 Explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
 
-\begin{note}
+\begin{rem}
 Pseudocomplements always exist in frames:
 setting
 \[
   a^* := \bigvee \{x \st x \wedge a = 0\},
 \]
 we have
-\[
+$
   a^* \wedge a = \bigvee \{x \st x \wedge a = 0\} \wedge a = \bigvee \{x \wedge
   a \st x \wedge a = 0\} = 0
-\]
+  $
 (the second equality from frame distributivity).
-Evidently, the implication
+Conversely, the implication
 \[
   x \wedge a = 0 \Rightarrow x \le a^*
 \]
 also holds.
-\end{note}
+\end{rem}
 
 \section{Regular locales}
 
@@ -97,23 +96,22 @@ also holds.
   \end{nota}
 \end{framed}
 
-The next lemma will be advantageous property for the rest of this chapter.
 \begin{lem} \label{rb->leq}
   $a \rb b \Rightarrow a \leq b$.
 \end{lem}
 \begin{proof}
-  By~distributivity,
+  Using~distributivity, we have
   \[
     a = a \wedge 1 = a \wedge (a^* \vee b) = (a \wedge a^*) \vee (a \wedge b) =
     0 \vee (a \wedge b) = a \wedge b. \qedhere
   \]
 \end{proof}
 
-Possessing $\rb$ notation, we are able to adopt the characterization
-\ref{reg-char} by~defining regularity as~following
+With $\rb$ notation we are able to adopt the characterization~\ref{topreg-char}
+by~defining regularity as~follows:
 \begin{framed}
   \begin{df}[Reg]
-    A locale is called \emph{regular\/} if and only if
+    A locale is called \emph{regular\/} if
     \[
       a = \bigvee \{x \st x \rb a\}
     \]
@@ -121,7 +119,7 @@ Possessing $\rb$ notation, we are able to adopt the characterization
   \end{df}
 \end{framed}
 
-Thus we have that
+Thus, we observe that
 \begin{center} 
   \emph{a topological space $X$ is regular iff its $\Omega(X)$ is regular.\/}
 \end{center}
@@ -170,13 +168,13 @@ Thus we have that
   \]
 \end{lem}
 \begin{proof}
-  Beginning with evident $(x, y)\in x \oplus y$, we modify
+  Beginning with $(x, y)\in x \oplus y$, we rewrite
   \begin{align*}
     x \oplus y &= (x \wedge (y^* \vee b)) \oplus (y \wedge (x^* \vee a)) \\
                &= (\; (x \wedge y^*) \; \vee \; (x \wedge b) \; ) \oplus (\; (y
     \wedge x^*) \; \vee \; (y \wedge a) \; )
   \end{align*}
-  (by using ``rather-belowness'' and distributivity, respectively).
+  (using ``rather-belowness'' and distributivity, respectively).
 
   Proceeding with (iii) of Lemma~\ref{oplus-vee-distrib}\thinspace,
   \begin{align*}
@@ -184,15 +182,16 @@ Thus we have that
             (\; (x \wedge y^*) \oplus (y \wedge a) \; ) \; \vee \\
             \vee \; &(\; (x \wedge b) \oplus (y \wedge x^*) \; ) \vee
             (\; (x \wedge b) \oplus (a \wedge y) \; ) \\
-     \leq \; &(y^*\oplus y) \vee (y^*\oplus y) \vee (x\oplus x^*) \vee
-                  (\; (a \wedge b)\oplus(a \wedge b) \;)
+     \subseteq \; &(y^*\oplus y) \vee (y^*\oplus y) \vee (x\oplus x^*) \vee (\;
+            (a \wedge b)\oplus(a \wedge b) \;)
   \end{align*}
-  where the last upper-bound is retrieved from~\ref{rb->leq}\thinspace.
+  where the upper-bound of the last member follows
+  from~\ref{rb->leq}\thinspace.
 
   Besides, the ultimate expression is a subset of $U$:
   as $(x^*\oplus x), (y^*\oplus y)\subseteq d_L$ and $(a \wedge b)\oplus(a
-  \wedge b)\subseteq U$ from the premise---all the way leading to $(x, y)\in
-  U$.
+  \wedge b)\subseteq U$ from the premise.
+  In conclusion, $(x, y)\in x \oplus y \subseteq U$.
 \end{proof}
 
 \begin{thm}
@@ -200,11 +199,11 @@ Thus we have that
 \end{thm}
 \begin{proof}
   We will show that regular locales meet the condition
-  from~\ref{meets-in-satur} on page~\pageref{meets-in-satur}\thinspace.
+  from~\ref{meets-in-satur} (see page~\pageref{meets-in-satur}\thinspace).
   Let $(a \wedge b, a \wedge b) \in U$.
-  By the earlier lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
-  Recall the saturatedness on~page~\pageref{df:satur}\thinspace:
-  as $U$ is saturated, we get
+  By the previous lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
+  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
+  Since $U$ is saturated,
   \[
     \left\{ (x, y) \st x \rb a \right\} \subseteq U
     \Longrightarrow
@@ -215,12 +214,12 @@ Thus we have that
     \left(a, y\right)\in U
   \]
   for all $y \rb b$.
-  Wherefore, in the same manner: $(a, b) = \left(a, \bigvee \{y \st y \rb
-  b\}\right)\in U$.
+  Therefore, in the same way:
+  $(a, b) = \left(a, \bigvee \{y \st y \rb b\}\right)\in U$.
 \end{proof}
 
 By Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace, we
-get
+acquire
 \begin{cor}
   (Reg) implies (DS-Haus).
 \end{cor}
@@ -237,34 +236,36 @@ definition:
 \begin{proof}
   $\Rightarrow$:
   Suppose $a \not\le b$;
-  that is, using the regularity, there is $x \rb a$ with $x \not\le b$ (otherwise
-  $\bigvee \{x \st x \rb a\} \le b$).
+  using regularity, there is $x \rb a$ with $x \not\le b$ (otherwise $\bigvee
+  \{x \st x \rb a\} \le b$).
   Let $c := x^*$.
-  In other words, by $x \rb a$, one concludes $a \vee c = a \vee x^* = 1$.
-  Additionally, $c^* \not\le b$: since otherwise from pseudocomplement property
-  $x \le x^{**} = c^* \le b$, a contradiction.
+  In other words, $x \rb a$ leads to $a \vee c = a \vee x^* = 1$.
+  Additionally, $c^* \not\le b$:
+  or~otherwise (from a~standard pseudocomplement property) $x \le x^{**} = c^*
+  \le b$.
 
   $\Leftarrow$:
   By~\ref{rb->leq} we always have the inequality $\bigvee \{x \st x \rb a\} \le
   a$.
-  Hence, for contradiction assume $a \not\le \bigvee \{x \st x \rb a\}$.
-  Then, there exists $c$ from the~premise.
-  Specifically, $1 = a \vee c \le a \vee c^{**}$, which gives us $c^* \rb a$.
-  Yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
+  Hence, for contradiction let us assume $a \not\le \bigvee \{x \st x \rb a\}$.
+  Then there exists $c$ from the~premise.
+  Specifically, $1 = a \vee c \le a \vee c^{**}$, which gives us $c^* \rb a$;
+  and yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
 \end{proof}
 
 \begin{thm}
   (Reg) implies (Sfit).
 \end{thm}
 \begin{proof}
-  Given $a \not\le b$, we acquire---from Lemma~\ref{reg-char}\thinspace---an
-  element $c$ such that $a \vee c = 1$ and $c^* \not\le b$.
+  Let $a \not\le b$.
+  From Lemma~\ref{reg-char}\thinspace, we get an~element $c$ such that $a \vee
+  c = 1$ and $c^* \not\le b$.
   What is more, it satisfies $b \vee c \ne 1$.
-  If not so then
+  If not so then by~distributivity
   \[
     b = b \vee 0 = b \vee (c \wedge c^*) = (b \vee c) \wedge (b \vee c^*) = 1
     \wedge (b \vee c^*) = b \vee c^*,
   \]
-  the third identity from distributivity; subsequently, this contradicts $c^*
+  which contradicts $c^*
   \le b$.
 \end{proof}
