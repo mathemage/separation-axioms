@@ -1,6 +1,6 @@
 \chapter{Preliminaries}
 
-\section{Notations}
+\section{Notation}
 
 \begin{itemize}
 \item $2^X$ is the set of~all subsets, explicitly, $2^X = \{ S \st S\subseteq X
@@ -10,9 +10,8 @@
 
 \item $\Omega(X)$ denotes the lattice (more specifically, the frame) of open
 sets in~$X$ together with $\subseteq$ as the ordering. 
-By abuse of notation, we denote the related underlying set in the same way.
 
-\item $\overline{S}$ is the~closure of $S$ in topology $(X, \Omega(X))$.
+\item $\overline{S}$ is the~closure of $S$ in a~given topology.
 It is defined by
 \[
   \overline{S} = \bigcap_{ \text{closed } A\colon \, A\supseteq S} A
@@ -20,17 +19,8 @@ It is defined by
 \]
 or equivalently,
 \[
-  \overline{S} = \{ x \in X \st U\in\Omega(X) \text{ and } U\owns x \Rightarrow
-  U \cap S \ne \none \}.
-\]
-\item $f^*$ resp. $f_*$ is the~left resp. right adjoint of $f$ (viz ``Order
-theory'').
-\item $\left\downarrow U \right. = \bigcup_{u\in U} \{x \st x \le u\}$ and
-$\left\uparrow U \right. = \bigcup_{u\in U} \{x \st x \ge u\}$.
-Especially,
-\[
-  \left\downarrow a \right. = \{x \st x \le a\} \text{ and } \left\uparrow a
-  \right. = \{x \st x \ge a\}.
+  \overline{S} = \{ x \in X \st U \text{ is open and } U\owns x \Rightarrow U
+  \cap S \ne \none \}.
 \]
 
 \end{itemize}
@@ -84,67 +74,23 @@ Especially,
 \end{fact}
 
 \begin{itemize}
+\item $f^*$ resp. $f_*$ is the~left resp. right adjoint of $f$.
+
+\item $\left\downarrow U \right. = \bigcup_{u\in U} \{x \st x \le u\}$ and
+$\left\uparrow U \right. = \bigcup_{u\in U} \{x \st x \ge u\}$.
+Especially,
+\[
+  \left\downarrow a \right. = \{x \st x \le a\} \text{ and } \left\uparrow a
+  \right. = \{x \st x \ge a\}.
+\]
+
 \item A~set $U$ is a~\emph{down-set\/} resp. an~\emph{up-set\/} if
 $\left\downarrow U \right. = U$ resp. $\left\uparrow U \right. = U$.
 
 \item Let $X$ be a~partially ordered set.
-Then $\D(X)$ is the partially ordered set of~all down-sets in $X$ ordered by
-inclusion.
+Then $\D(X)$ is the set of~all down-sets in $X$ ordered by inclusion.
 
 \end{itemize}
-
-\subsection*{Algebra}
-
-\begin{itemize}
-\item An \emph{operation\/} $\alpha$ with the (not necessarily finite)
-  \emph{arity\/} $\delta$ over a~set $A$ is a~function of~the~form
-  $\alpha\colon A^{\delta} \to A$.
-
-\item An \emph{algebra\/} of~the~\emph{type\/} $\delta = (\delta_t)_{t\in T}$
-is a~structure $\Acal$ consisting of
-  \begin{itemize}
-  \item the carrier set $A$
-  \item operations $(\alpha_t\colon A^{\delta_t} \to A)_{t\in T}$
-  \end{itemize}
-
-\item By abuse of notation, for two algebras of the same type we will denote
-the~corresponding operations by the same name.
-For instance, $\alpha_t$ and $\beta_t$ of~the same arity $\delta_t$ will be
-$\rho_t$.
-
-\item A~map~$h\colon A \to B$ between algebras $\Acal$ and $\Bcal$
-\emph{preserves\/} operation $\rho\colon A^\delta \to A$ (or~\emph{commutes
-with\/}~$\rho$) if
-\[
-  h( \rho(\, (a_i)_{i\in \delta}\,)) = \rho(\, (h(a_i))_{i\in \delta}\, )
-\]
-where $(a_i)_{i\in \delta} \in A^\delta$.
-
-\item A~\emph{homomorphism\/}~$h\colon A \to B$ between algebras $\Acal$ and
-$\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
-\end{itemize}
-
-\begin{lem} \label{lem:onto->homo}
-  Let $\Acal, \Bcal, \Ccal$ be algebras of the same type and $f\colon \Acal \to
-  \Bcal, g\colon \Bcal \to \Ccal$ mappings such that $gf$ and $f$ are
-  homomorphisms.
-  If $f$ is onto then $g$ is also a~homomorphism.
-\end{lem}
-\begin{proof}
-  Choose an arbitrary operation $\rho$ of an arity $\delta$.
-  For brevity, let us write $\rho(x_i)$ instead of $\rho((x_i)_{i\in \delta})$.
-  Then we have
-  \[
-    g( \rho(b_i) )
-    = g( \rho(f(a_i)) )
-    = gf( \rho(a_i) )
-    = \rho( gf(a_i) )
-    = \rho( g(b_i) );
-  \]
-  the first equality because $f$ is onto;
-  the second equality because $f$ is a~homomorphism and the third one because
-  $gf$ is a~homomorphism.
-\end{proof}
 
 \subsection*{Category theory}
 
@@ -152,9 +98,9 @@ $\Bcal$ (of the same type) is a~mapping preserving every operation of $\Acal$.
 \item A \emph{category} $\Ccal$ is a collection consisting of
   \begin{itemize}
   \item class~$\Ccal^O$ of \emph{objects\/}
-  \item class~$||\Ccal||$ of \emph{morphisms\/} between objects\thinspace%
-  \footnote{a~concrete morphism $f$ between objects $A$ and $B$ is denoted by
-    $f\colon A \to B$}
+  \item class~$|\Ccal|$ of \emph{morphisms\/} between objects\thinspace%
+  \footnote{a~morphism $f$ between objects $A$ and $B$ is indicated by $f\colon
+    A \to B$}
   \end{itemize}
 further satisfying the axioms of
   \begin{itemize}
@@ -167,23 +113,21 @@ further satisfying the axioms of
   \end{itemize}
 
 \item The \emph{opposite category}~$\mathcal{C}^{op}$ of a category
-$\mathcal{C}$ comprises the same objects $\Ccal^O$ and ``reverse'' morphisms
-$f^{op}\colon A \leftarrow B$ for each morphism $f\colon A \to B$
-in~$||\Ccal||$.
+$\mathcal{C}$ has the same objects $\Ccal^O$ and reverses the composition.
+Thus a~morphism $A \to B$ goes now from $B$ to $A$.
 
-\item For $A' \subseteq A$, the \emph{(domain) restriction} of a~morphism $f\colon A \to
-B$ to $A' \to B$ is a~morphism $g \colon A' \to B$ such that $g(x) = f(x)$ for
-all $x\in A'$.
-
-\item The \emph{(codomain) restriction} of a~morphism $f\colon A \to B$ to $A
-\to B'$ (such that $B' \supseteq f[A]$) is a~morphism $g \colon A \to B'$ such
-that $g(x) = f(x)$ for all $x\in A$.
-
-\item An \emph{epimorphism} is a right-cancellative morphism $e$, that is,
+\item An~\emph{epimorphism} is a~right-cancellative morphism $e$, that is,
 \[
   f_1 \cdot e = f_2 \cdot e \; \Longrightarrow \; f_1 = f_2.
 \]
-We also refer to this by saying that \emph{$e$ is epic\/}.
+
+\item A~\emph{monomorphism} is a~left-cancellative morphism $m$:
+\[
+  m \cdot f_1 = m \cdot f_2 \; \Longrightarrow \; f_1 = f_2.
+\]
+
+We also refer to these by saying that \emph{$e$ is epic\/} and \emph{$m$ is
+monic\/}.
 \end{itemize}
 
 \begin{fact} \label{fct:onto->epic}
@@ -228,8 +172,7 @@ J} A_j$ to equations
   p_i \cdot f = f_i \text{ for } i\in J.
 \]
 
-\item Similarly, a \emph{coproduct} is a product in the opposite category.
-Namely, it is a~system of~\emph{injections\/}
+\item Similarly, a \emph{coproduct} is a~system of~\emph{injections\/}
 \[
   \left(\iota_i\colon A_i \to \coprod_{j\in J} A_j \right)_{i\in J}
 \]
@@ -238,6 +181,7 @@ solution~$g\colon \coprod_{j\in J} A_j \to X$ to~equations
 \[
   g \cdot \iota_i = g_i \text{ for } i\in J.
 \]
+Note that this is a~product in the~opposite category.
 
 \item The~\emph{diagonal} is the (only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = 1_A$ for $i \in J$.
@@ -297,19 +241,25 @@ topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
 \[
   U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
 \]
-Since the preimage function preserves unions and finite intersections, this
-amounts to requiring that $f^{-1}[U]$ is open for all \emph{subbasic\/} $U$.
+Since the preimage function preserves unions and finite intersections, it
+suffices to require that $f^{-1}[U]$ is open for all \emph{subbasic\/} $U$.
 \end{itemize}
 
 \subsection*{Point-free topology}
 
 \begin{itemize}
-\item A \emph{frame} is a~complete lattice $L$ satisfying ``infinite'' version
-of distributivity
+\item A~\emph{frame} is a~complete lattice $L$ satisfying the distributivity
+law
 \[
   b \wedge \bigvee A = \bigvee \{ b \wedge a \st a\in A \}
 \]
 for every $A\subseteq L$ and $b\in L$.
+
+\item For a~topological space $X$ we will write $\Omega(X)$ for the~set of~its
+open sets ordered by~inclusion.
+Note that $\Omega(X)$ is a~frame:
+by~axioms {\bf (o2)} and {\bf (o3)} (viz ``Point-set topology'') operations
+$\wedge$ resp. $\bigvee$ coincide with $\cap$ resp. $\bigcup$.
 
 \item A \emph{frame homomorphism} between frames $M$ and $L$ is a~map $h\colon
 M \to L$ preserving all joins (in particular, $h(0) = 0$) and~all finite meets
@@ -329,7 +279,7 @@ preserve finite meets.
 
 \item We will write {\bf Loc} for the resulting category of~locales and localic
 maps.
-Hence, $\mathbf{Loc} = \mathbf{Frm}^{op}$.
+Note that $\mathbf{Loc} \simeq \mathbf{Frm}^{op}$.
 
 \item A \emph{sublocale} of locale $L$ is a $S\subseteq L$ satisfying
   \begin{description}
@@ -344,40 +294,9 @@ Hence, $\mathbf{Loc} = \mathbf{Frm}^{op}$.
 \end{fact}
 
 \begin{itemize}
-\item A~sublocale $S \subseteq L$ is \emph{closed\/} if there exist $a\in L$
-such that $S = \left\uparrow a\right.$.
-
-%\item The \emph{closure\/} of $S$, the least closed sublocale containing $S$,
-%is given by~the formula
-%\[
-%  \overline{S} = \textstyle \left\uparrow (\bigwedge S) \right..
-%\]
-%Indeed:
-%evidently, $S\subseteq \left\uparrow (\bigwedge S) \right.$ and by (S1) for
-%every sublocale $T\supseteq S$ we have $\bigwedge S \in T$.
-
-\item A~localic map $f\colon L \to M$ is called \emph{closed\/} if the image
-of~every closed sublocale is also closed.
+\item Each $\left\uparrow a\right.$ is a~sublocale.
+These sublocales are referred to as \emph{closed sublocales\/}.
 \end{itemize}
-
-\begin{prop} \label{prop:closed-map-char}
-  A~localic map $f\colon L \to M$ is closed iff
-  \[
-    f[ \left\uparrow a\right. ] = \left\uparrow f(a)\right.
-  \]
-  for each $a\in L$.
-\end{prop}
-\begin{proof}
-  $\Rightarrow$:
-  There exists $b$ such that $f[ \left\uparrow a\right. ] = \left\uparrow
-  b\right.$.
-  As the $f$ is monotone, the~$f(a)$ is the smallest in $f[ \left\uparrow
-  a\right. ]$ and hence $f(a) \le b$.
-  Conversely, $f(a) \ge b$ is obvious.
-
-  $\Leftarrow$:
-  Trivial.
-\end{proof}
 
 \subsubsection*{On coproducts in Frm}
 
@@ -489,7 +408,7 @@ and thus
 \item
 \phantomsection
 \label{codiag-in-Frm}
-For the codiagonal $\nabla\colon L \oplus L \to L$ in {\bf Frm} we can write
+For the codiagonal $\nabla\colon L \oplus L \to L$ in {\bf Frm} we have
 \[
   \nabla(U)
   = \nabla \left( \bigvee \left\{ a \oplus b \st (a, b)\in U \right\} \right)
@@ -516,13 +435,19 @@ In conclusion,
 because $(a, b)\in U \Rightarrow (a \wedge b, a \wedge b)\in U$ for any
 down-set $U$.
 
-\item Note that we have $\nabla(a \oplus a) = a \wedge a = a$; hence, the
-codiagonal~$\nabla$ is onto, and from~Fact~\ref{fct:onto->epic}\thinspace,
-an~epimorphism.
+\item Note that the~codiagonal is epic.
+As $\nabla \cdot \iota_1 = id$, we have
+\[
+  f_1 \cdot \nabla = f_2 \cdot \nabla
+  \; \Longrightarrow \;
+  f_1 \cdot \nabla \cdot \iota_1 = f_2 \cdot \nabla \cdot \iota_1
+  \; \Longrightarrow \;
+  f_1 = f_2
+\]
 
 \item The diagonal $\Delta\colon L \to L \oplus L$ in the opposite category
 {\bf Loc} is the right adjoint of~$\nabla$.
-Thus, we would wish that
+Thus, we require that
 \begin{align*}
   U\subseteq \Delta(a)
   \; &\equiv \; \nabla(U) \le a
@@ -559,8 +484,7 @@ diagonal
 
 \section*{Convention}
 
-In the whole text we will neglect the $T_0$ axiom, that is, we will assume all
-topological spaces to be $T_0$-spaces.
+In the whole text we we will assume all topological spaces to be $T_0$-spaces.
 Thus, every topological space $(X, \tau)$ satisfies the condition
 \begin{center} \it
   for any $x \ne y$ from $X$ there is an open set $U \in \tau$ such that $x \in

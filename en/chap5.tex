@@ -63,8 +63,8 @@ Now we will eliminate the~closure in the~formula:
 \end{proof}
 
 Without loss of generality, the $W$ may be replaced by~the
-pseudocomplement~$V^*$.
-Explicitly, the $X\setminus \overline{V}$ in $\Omega(X)$.%
+pseudocomplement~$V^*$ in~$\Omega(X)$.
+Explicitly, by open set $X\setminus \overline{V}$.
 
 \begin{rem}
 Pseudocomplements always exist in frames:
@@ -73,16 +73,12 @@ setting
   a^* := \bigvee \{x \st x \wedge a = 0\},
 \]
 we have
-$
+\[
   a^* \wedge a = \bigvee \{x \st x \wedge a = 0\} \wedge a = \bigvee \{x \wedge
   a \st x \wedge a = 0\} = 0
-  $
-(the second equality from frame distributivity).
-Conversely, the implication
-\[
-  x \wedge a = 0 \Rightarrow x \le a^*
 \]
-also holds.
+(the second equality from frame distributivity), and hence thus defined defined
+$a^*$ is the~largest $b$ such that $a \wedge b = 0$.
 \end{rem}
 
 \section{Regular locales}
