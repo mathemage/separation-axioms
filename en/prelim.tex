@@ -144,6 +144,8 @@ an~\emph{inverse morphism\/} $\overline{f}\colon B \to A$ holding both
 \[
   \overline{f} \cdot f = 1_A \text{ and } f \cdot \overline{f} = 1_B.
 \]
+Note that mutually inverse isomorphisms between partially ordered sets are
+Galois adjoints.
 \end{itemize}
 
 \begin{lem} \label{lem:epi->iso}
@@ -311,86 +313,109 @@ These sublocales are referred to as \emph{closed sublocales\/}.
     h' = h$.
     Thus, $h, h'$ represent the same sublocale iff $\alpha$ is also
     an~isomorphism.
-    \item In this representation \emph{closed sublocales\/} are frame
-    homomorphisms
+
+    \item
+    \phantomsection
+    \label{df:closed-sloc}
+    In this representation \emph{closed sublocales\/} are the~frame
+    homomorphisms of~the form
     \[
       \check{a} = (x \to a \vee x) \colon L \to \left\uparrow a \right.
     \]
     for $a\in L$.
-    \item The \emph{closure\/} of~a~sublocale $h\colon L \to M$ is the
-    $\sqsubseteq$-least closed sublocale~$f$ such that $f \sqsupseteq h$.
   \end{itemize}
-
-  \begin{prop}
-    For a~locale $L$ and one of~its sublocales $h\colon L \to M$ let
-    \[
-      c := \bigvee \{ x \st h(x) = 0 \}.
-    \]
-    Then $\check{c}$ is the closure of~$h$.
-  \end{prop}
-  \begin{proof}
-    Firstly, $h \sqsubseteq \check{c}$:
-    we will find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
-    \check{c} = h$.
-    For every $y\in \left\uparrow c \right.$ take $x\in L$ such that $y =
-    x \vee c$ and set $\gamma(y) = h(x)$.
-    It is a~correct definition:
-    since $h(c) = \bigvee \{ h(x) \st h(x) = 0 \} = 0$,
-    if $x_1 \vee c = x_2 \vee c$ then
-    \[
-      h(x_1)
-      = h(x_1) \vee 0
-      = h(x_1 \vee c)
-      = h(x_2 \vee c)
-      = h(x_2) \vee 0
-      = h(x_2).
-    \]
-    Furthermore, $\gamma$ is a~frame homomorphism as $\check{c}$ and $\gamma
-    \check{c} = h$ are homomorphisms and $\check{c}$ is onto.
-    
-    Now suppose $\check{a} \sqsupseteq h$ for some $a\in L$.
-    That is, there exists a~frame homomorphism $\alpha\colon \left\uparrow
-    a\right. \to M$ with $\alpha\check{a} = h$.
-    We have
-    \[
-      0
-      = h(0)
-      = \alpha\check{a}(0)
-      = \alpha(a \vee 0)
-      = \alpha(a \vee a)
-      = \alpha\check{a}(a)
-      = h(a).
-    \]
-    From the~definition of~$c$ we see that $a \le c$.
-    Set $\beta := (x \to c \vee x)\colon \left\uparrow a\right. \to
-    \left\uparrow c\right.$.
-    We have $\beta\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x)$,
-    and consequently, $\check{a} \sqsupseteq \check{c}$.
-  \end{proof}
-
-  \begin{cor} \label{cor:closed-sloc}
-    With the same notation as above, sublocale~$h$ is closed iff there exists
-    a~map $\phi\colon M \to \left\uparrow c \right.$ with $\phi h = \check{c}$.
-  \end{cor}
-  \begin{proof}
-    Since $h$ and $\phi h = \check{c}$ are frame homomorphisms and $h$ is onto,
-    $\phi$ is also a~homomorphism.
-    Moreover, both $h$ and $\check{c}$ are onto and hence epic, and thus,
-    \begin{align*}
-      h
-      = \gamma \check{c}
-      = \gamma \phi h
-      &\Longrightarrow
-      \gamma \phi = id, \\
-      \check{c}
-      = \phi h
-      = \phi \gamma \check{c}
-      &\Longrightarrow
-      \phi \gamma = id.
-    \end{align*}
-    Therefore, $\phi$ and $\gamma$ are mutually inverse isomorphisms.
-  \end{proof}
 \end{rem}
+
+\begin{lem} \label{lem:embed-adjoint}
+  The embedding $j\colon \left\uparrow a \right. \embed L$ is the right adjoint
+  to~$\check{a}$.
+\end{lem}
+\begin{proof}
+  For $x\in L$ and $y\in \left\uparrow a \right.$ we will show that $x \vee a
+  \le y$ iff $x \le y$.
+
+  $\Rightarrow$:
+  Immediately from $x \le x \vee a$.
+
+  $\Leftarrow$:
+  Following from $y \ge x$ and $y \ge a$.
+\end{proof}
+
+\begin{itemize}
+  \item The \emph{closure\/} of~a~sublocale $h\colon L \to M$ is the
+  $\sqsubseteq$-least closed sublocale~$f$ such that $f \sqsupseteq h$.
+\end{itemize}
+
+\begin{prop}
+  For a~locale $L$ and one of~its sublocales $h\colon L \to M$ let
+  \[
+    c := \bigvee \{ x \st h(x) = 0 \}.
+  \]
+  Then $\check{c}$ is the closure of~$h$.
+\end{prop}
+\begin{proof}
+  Firstly, $h \sqsubseteq \check{c}$:
+  we will find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
+  \check{c} = h$.
+  For every $y\in \left\uparrow c \right.$ take $x\in L$ such that $y =
+  x \vee c$ and set $\gamma(y) = h(x)$.
+  It is a~correct definition:
+  since $h(c) = \bigvee \{ h(x) \st h(x) = 0 \} = 0$,
+  if $x_1 \vee c = x_2 \vee c$ then
+  \[
+    h(x_1)
+    = h(x_1) \vee 0
+    = h(x_1 \vee c)
+    = h(x_2 \vee c)
+    = h(x_2) \vee 0
+    = h(x_2).
+  \]
+  Furthermore, $\gamma$ is a~frame homomorphism as $\check{c}$ and $\gamma
+  \check{c} = h$ are homomorphisms and $\check{c}$ is onto.
+  
+  Now suppose $\check{a} \sqsupseteq h$ for some $a\in L$.
+  That is, there exists a~frame homomorphism $\alpha\colon \left\uparrow
+  a\right. \to M$ with $\alpha\check{a} = h$.
+  We have
+  \[
+    0
+    = h(0)
+    = \alpha\check{a}(0)
+    = \alpha(a \vee 0)
+    = \alpha(a \vee a)
+    = \alpha\check{a}(a)
+    = h(a).
+  \]
+  From the~definition of~$c$ we see that $a \le c$.
+  Set $\beta := (x \to c \vee x)\colon \left\uparrow a\right. \to
+  \left\uparrow c\right.$.
+  We have $\beta\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x)$,
+  and consequently, $\check{a} \sqsupseteq \check{c}$.
+\end{proof}
+
+With the same notation as above, we get
+\begin{cor} \label{cor:closed-sloc}
+  A sublocale~$h$ is closed iff there exists a~map $\phi\colon M \to
+  \left\uparrow c \right.$ with $\phi h = \check{c}$.
+\end{cor}
+\begin{proof}
+  Since $h$ and $\phi h = \check{c}$ are frame homomorphisms and $h$ is onto,
+  $\phi$ is also a~homomorphism.
+  Moreover, both $h$ and $\check{c}$ are onto and hence epic, and thus,
+  \begin{align*}
+    h
+    = \gamma \check{c}
+    = \gamma \phi h
+    &\Longrightarrow
+    \gamma \phi = id, \\
+    \check{c}
+    = \phi h
+    = \phi \gamma \check{c}
+    &\Longrightarrow
+    \phi \gamma = id.
+  \end{align*}
+  Therefore, $\phi$ and $\gamma$ are mutually inverse isomorphisms.
+\end{proof}
 
 \subsubsection*{On coproducts in Frm}
 

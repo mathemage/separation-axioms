@@ -99,58 +99,49 @@ page~\pageref{codiag-in-Frm}\thinspace)
 \[
   \nabla\colon L \oplus L \to L
 \]
-is a closed sublocale (recall \ref{cor:closed-sloc} on
-page~\pageref{cor:closed-sloc}\thinspace).
-
-\begin{lem}
-  $\Delta$ is closed iff $\Delta[L] = \left\uparrow \Delta(0)\right.$.
-\end{lem}
-\begin{proof}
-  $\Rightarrow$:
-  By~\ref{prop:closed-map-char} on
-  page~\pageref{prop:closed-map-char}\thinspace, $\Delta[L] =
-  \Delta[\left\uparrow 0 \right.] = \left\uparrow \Delta(0)\right.$.
-
-  $\Leftarrow$:
-  We will prove the condition from~\ref{prop:closed-map-char}\thinspace, namely
-  \[
-    \Delta[ \left\uparrow a\right. ] = \left\uparrow \Delta(a).\right.
-  \]
-
-  The inclusion $\subseteq$ holds by~\ref{cor:delta-of-upsets} (viz
-  page~\pageref{cor:delta-of-upsets}\thinspace).
-
-  On the other hand, let $U\in \left\uparrow \Delta(a).\right.$
-  Using the monotonicity of~$\Delta$, we see that $\left\uparrow
-  \Delta(a)\right. \subseteq \left\uparrow \Delta(0).\right.$
-  Therefore, we have $U\in \left\uparrow \Delta(0)\right. = \Delta[L]$ and
-  hence $U = \Delta(b)$ for~some $b\in L$.
-  Using Lemma~\ref{lem:delta-monotone} on page~\pageref{lem:delta-monotone} we
-  get $a \le b$, and finally, $U = \Delta(b) \in \Delta[ \left\uparrow a\right.
-  ]$.
-\end{proof}
-
-Thus---having denoted the crucial element $\Delta(0)$ by $d_L$---the condition
+is a closed sublocale (viz page~\pageref{df:closed-sloc}\thinspace).
+Since $\nabla(U) \le 0 \, \equiv \, U \subseteq \Delta(0)$, the codiagonal's
+closure is $\check{d_L} = (U \mapsto U \vee d_L)$ where
+\[
+  d_L
+  = \bigvee \{ U \st \nabla(U) = 0 \}
+  = \bigvee \{ U \st U \subseteq \Delta(0) \}
+  = \Delta(0).
+\]
+Following from Corollary~\ref{cor:closed-sloc}\thinspace, the condition
 proposed by Isbell reduces~to
 
 \begin{framed}
   \begin{df}[I-Haus]
     A locale $L$ is \emph{strongly Hausdorff\/} (or \emph{I-Hausdorff}: short
-    for \emph{Isbell-Hausdorff}) iff
+    for \emph{Isbell-Hausdorff}) if there is a~mapping $\alpha\colon L \to
+    \dL$ such that
     \[
-      \Delta[L] = \dL.
+      \alpha \nabla = (U \mapsto U \vee d_L).
     \]
   \end{df}
 \end{framed}
 
-\begin{rem} \label{rem:delta-restriction}
-  By~\ref{cor:delta-of-upsets} it always holds that $\Delta[L] \subseteq \dL$
-  and hence we are allowed to (correctly) define
-  \[
-    \overline{\Delta}
-  \]
-  as the codomain restriction of~$\Delta$ to~$L \to \dL$.
-\end{rem}
+Note that the isomorphism~$\alpha$ has to be the restriction of~$\Delta$ to $L
+\to \dL$.
+We~have $\alpha^{-1} \check{d_L} = \nabla$, and hence,
+\[
+\Delta
+= \nabla_*
+= (\alpha^{-1} \check{d_L})_*
+= (\check{d_L})_* \alpha
+= j \alpha
+\]
+because the embedding $j\colon \dL \embed L \oplus L$ is the right adjoint
+to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
+
+\begin{lem} \label{lem:IHaus->dL}
+  In an~I-Hausdorff locale~$L$ it holds that $\Delta[L] = \dL$.
+\end{lem}
+\begin{proof}
+  As $\alpha$ is the restriction of~$\Delta$ and also an~isomorphism, we get
+  $\Delta[L] = \alpha[L] = \dL$.
+\end{proof}
 
 \begin{thm} \label{IHaus->DSHaus}
   (I-Haus) implies (DS-Haus).
@@ -159,13 +150,13 @@ proposed by Isbell reduces~to
 \begin{lem} \label{lem:delta-nabla=id}
   In case of a strongly Hausdorff locale $L$, we have
   \[
-    \Delta(\nabla(U)) = U
+    \Delta\nabla(U) = U
   \]
   for any saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  By (I-Haus), every saturated $U\in \dL = \Delta[L]$ is an image $\Delta(a)$
-  for some $a\in L$.
+  By Lemma~\ref{lem:IHaus->dL}\thinspace, every saturated $U\in \dL =
+  \Delta[L]$ is an image $\Delta(a)$ for some $a\in L$.
   Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
@@ -180,41 +171,6 @@ proposed by Isbell reduces~to
     \delta(U),
   \]
   which produce the desired $U = \Delta \delta (U) = \Delta \nabla (U)$.
-\end{proof}
-
-\begin{lem} \label{lem:mapping->IHaus}
-  Let there be a~mapping $\alpha\colon L \to \dL$ such that
-  \[
-    \alpha \nabla = (U \mapsto U \vee d_L).
-  \]
-  Then $L$ is strongly Hausdorff.
-\end{lem}
-\begin{proof}
-  Let $\gamma\colon L \oplus L \to \dL$ stand for $(U \mapsto U \vee d_L)$.
-  Because $\gamma$ is onto, so is~$\alpha$.
-
-  Furthermore, $\nabla$~and~$\gamma$ are frame homomorphism (using asociativity
-  for joins and~distributivity for finite meets);
-  and since $\nabla$ is onto, $\alpha$ is also a~frame homomorphism.
-  Thus it is an~epimorphism by~Fact~\ref{fct:onto->epic} on
-  page~\pageref{fct:onto->epic}\thinspace.
-
-  Since $\nabla \Delta (0) \le 0$ (from Fact~\ref{lr-id-rl} on
-  page~\pageref{lr-id-rl}\thinspace), we have
-  \[
-    \nabla \alpha \nabla(U)
-    = \nabla \gamma(U)
-    = \nabla (U \vee d_L)
-    = \nabla (U) \vee \nabla \Delta(0)
-    = \nabla (U),
-  \]
-  that is, $\nabla \alpha = id$.
-  By~\ref{lem:epi->iso} on page~\pageref{lem:epi->iso}\thinspace, $\alpha$ is
-  an isomorphism and it is inverse to~the~$\nabla$ restricted~to $\dL \to L$.
-  Consequently, by the uniqueness of~adjoints, $\alpha$ has to be
-  the~restriction~$\overline{\Delta}$
-  from~\ref{rem:delta-restriction}\thinspace.
-  Finally, $\Delta[L] = \overline{\Delta}[L] = \alpha[L] = \dL$.
 \end{proof}
 
 \begin{prop} \label{meets-in-satur}
