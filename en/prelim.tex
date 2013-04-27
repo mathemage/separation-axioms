@@ -329,27 +329,66 @@ These sublocales are referred to as \emph{closed sublocales\/}.
     Then $\check{c}$ is the closure of~$h$.
   \end{prop}
   \begin{proof}
-    Suppose $\check{a} \sqsupseteq h$ for some $a\in L$.
-    That is, there exists a~frame homomorphism $\beta\colon \left\uparrow
-    a\right. \to M$ with $\beta\check{a} = h$.
+    Firstly, $h \sqsubseteq \check{c}$:
+    we will find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
+    \check{c} = h$.
+    For every $y\in \left\uparrow c \right.$ take $x\in L$ such that $y =
+    x \vee c$ and set $\gamma(y) = h(x)$.
+    It is a~correct definition:
+    since $h(c) = \bigvee \{ h(x) \st h(x) = 0 \} = 0$,
+    if $x_1 \vee c = x_2 \vee c$ then
+    \[
+      h(x_1)
+      = h(x_1) \vee 0
+      = h(x_1 \vee c)
+      = h(x_2 \vee c)
+      = h(x_2) \vee 0
+      = h(x_2).
+    \]
+    Furthermore, $\gamma$ is a~frame homomorphism as $\check{c}$ and $\gamma
+    \check{c} = h$ are homomorphisms and $\check{c}$ is onto.
+    
+    Now suppose $\check{a} \sqsupseteq h$ for some $a\in L$.
+    That is, there exists a~frame homomorphism $\alpha\colon \left\uparrow
+    a\right. \to M$ with $\alpha\check{a} = h$.
     We have
     \[
       0
       = h(0)
-      = \beta\check{a}(0)
-      = \beta(a \vee 0)
-      = \beta(a \vee a)
-      = \beta\check{a}(a)
+      = \alpha\check{a}(0)
+      = \alpha(a \vee 0)
+      = \alpha(a \vee a)
+      = \alpha\check{a}(a)
       = h(a).
     \]
     From the~definition of~$c$ we see that $a \le c$.
-    Set $\alpha := (x \to c \vee x)\colon \left\uparrow a\right. \to
+    Set $\beta := (x \to c \vee x)\colon \left\uparrow a\right. \to
     \left\uparrow c\right.$.
-    We have
-    \[
-      \alpha\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x),
-    \]
+    We have $\beta\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x)$,
     and consequently, $\check{a} \sqsupseteq \check{c}$.
+  \end{proof}
+
+  \begin{cor} \label{cor:closed-sloc}
+    With the same notation as above, sublocale~$h$ is closed iff there exists
+    a~map $\phi\colon M \to \left\uparrow c \right.$ with $\phi h = \check{c}$.
+  \end{cor}
+  \begin{proof}
+    Since $h$ and $\phi h = \check{c}$ are frame homomorphisms and $h$ is onto,
+    $\phi$ is also a~homomorphism.
+    Moreover, both $h$ and $\check{c}$ are onto and hence epic, and thus,
+    \begin{align*}
+      h
+      = \gamma \check{c}
+      = \gamma \phi h
+      &\Longrightarrow
+      \gamma \phi = id, \\
+      \check{c}
+      = \phi h
+      = \phi \gamma \check{c}
+      &\Longrightarrow
+      \phi \gamma = id.
+    \end{align*}
+    Therefore, $\phi$ and $\gamma$ are mutually inverse isomorphisms.
   \end{proof}
 \end{rem}
 
