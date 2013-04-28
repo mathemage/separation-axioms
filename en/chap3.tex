@@ -95,13 +95,14 @@ Here is a~characterization of~the classical~$T_2$:
 This was used by Isbell \cite{isbell72} for the point-free counterpart of the
 $T_2$ axiom:
 Hausdorff locales are defined as those in which the~codiagonal (viz
-page~\pageref{codiag-in-Frm}\thinspace)
+page~\pageref{codiag-in-Frm})
 \[
   \nabla\colon L \oplus L \to L
 \]
-is a closed sublocale (viz page~\pageref{df:closed-sloc}\thinspace).
-Since $\nabla(U) \le 0 \, \equiv \, U \subseteq \Delta(0)$, the codiagonal's
-closure is $\check{d_L} = (U \mapsto U \vee d_L)$ where
+is a closed sublocale (viz page~\pageref{df:closed-sloc}).
+Since $\nabla(U) \le 0 \, \equiv \, U \subseteq \Delta(0)$, the closure of~the
+codiagonal (recall \ref{prop:sloc-closure}) is $\check{d_L} = (U
+\mapsto U \vee d_L)$ where
 \[
   d_L
   = \bigvee \{ U \st \nabla(U) = 0 \}
@@ -133,7 +134,7 @@ We~have $\alpha^{-1} \check{d_L} = \nabla$, and hence,
 = j \alpha
 \]
 because the embedding $j\colon \dL \embed L \oplus L$ is the right adjoint
-to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
+to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
 
 \begin{lem} \label{lem:IHaus->dL}
   In an~I-Hausdorff locale~$L$ it holds that $\Delta[L] = \dL$.
@@ -160,26 +161,25 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
   Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
-  Recall the frame codiagonal on~page~\pageref{codiag-in-Frm}\thinspace.
-  It is an epimorphism and hence---as~we have $\nabla \Delta \nabla = \nabla$
-  by Fact~\ref{lrl=l} on page~\pageref{lrl=l}\thinspace---we also get $\nabla
-  \Delta = id$.
+  The frame codiagonal is an epimorphism and hence---as~we have $\nabla \Delta
+  \nabla = \nabla$ by Fact~\ref{lrl=l} on page~\pageref{lrl=l}\thinspace---we
+  also get $\nabla \Delta = id$.
 
-  Joining these two observations results in
+  Joining these two observations:
   \[
     \nabla (U) = \nabla (\Delta\delta (U)) = (\nabla \Delta)\delta (U) =
     \delta(U),
   \]
-  which produce the desired $U = \Delta \delta (U) = \Delta \nabla (U)$.
+  which produces the desired $U = \Delta \delta (U) = \Delta \nabla (U)$.
 \end{proof}
 
 \begin{prop} \label{meets-in-satur}
   A~locale~$L$ is I-Hausdorff iff one has the~implication
-  \[
+  \begin{equation} \label{eq:meets-in-satur}
     \left( a \wedge b, a \wedge b \right) \in U
     \; \Rightarrow \;
     \left( a, b \right) \in U
-  \]
+  \end{equation}
   for all saturated $U \supseteq d_L$.
 \end{prop}
 \begin{proof}
@@ -191,7 +191,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
   \]
   Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta(
   \nabla(U) ) = U$
-  (the final equality by Lemma~\ref{lem:delta-nabla=id}\thinspace).
+  (the final equality by Lemma~\ref{lem:delta-nabla=id}).
 
   $\Leftarrow$:
   Let the condition hold and~let $a_i\in L$ for $i\in J$. 
@@ -203,8 +203,8 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
     %\tag{\arabic{chapter}.\thesection}
   \end{equation}
 
-  We will prove the condition from~\ref{lem:mapping->IHaus}\, for
-  $\alpha := (a \mapsto (a \oplus a) \vee d_L)$.
+  We will prove that $\alpha := (a \mapsto (a \oplus a) \vee d_L)$ satisfies
+  the definition.
   Using
   \[
     \bigvee_{i\in J} a_i \oplus \bigvee_{j\in J} a_j
@@ -232,18 +232,20 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}\thinspace).
     = ((a \wedge b) \oplus (a \wedge b)) \vee d_L
     = (a \oplus b) \vee d_L,
   \]
-  the last equality stipulated by the assumed implication.
+  the last equality stipulated by assumed implication
+  \eqref{eq:meets-in-satur}\thinspace.
 
   In~conclusion,
   \begin{flalign*}
     \alpha \nabla (U)
     &= \alpha \nabla \left(\bigvee \{a \oplus b \st (a, b)\in U\}\right)
     = \bigvee \{\alpha \nabla \left(a \oplus b \right) \st (a, b)\in U\} \\
-    &= \bigvee \{a \oplus b \st (a, b)\in U\} \vee d_L
+    &= \bigvee \{a \oplus b \vee d_L \st (a, b)\in U\}
+    = \bigvee \{a \oplus b \st (a, b)\in U\} \vee d_L
     = U \vee d_L,
   \end{flalign*}
   as the elements $a \oplus b$ generate $L \oplus L$ (see
-  page~\pageref{a+b-gen}\thinspace).
+  page~\pageref{a+b-gen}).
 \end{proof}
 
 \begin{lem} \label{downsets-satur}
@@ -310,7 +312,7 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
   \end{align*}
   The first equality using~distributivity and the fact that $(a \wedge b)
   \oplus (a \wedge b) \subseteq a \oplus b$;
-  the inclusion by~\ref{eq:dl-aoplusb}\thinspace;
+  the inclusion by~(\ref{eq:dl-aoplusb});
   the final equality from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
 
   This leads to the contradiction:

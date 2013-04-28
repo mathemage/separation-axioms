@@ -8,9 +8,6 @@
 
 \item $A \Subset B$ means {\sl set $A$ is a finite subset of set $B$\/}.
 
-\item $\Omega(X)$ denotes the lattice (more specifically, the frame) of open
-sets in~$X$ together with $\subseteq$ as the ordering. 
-
 \item $\overline{S}$ is the~closure of $S$ in a~given topology.
 It is defined by
 \[
@@ -51,13 +48,13 @@ or equivalently,
 \end{itemize}
 
 \begin{rem}
-  Adjoints are unique: $l_1(a) \le b \; \equiv a \le r(b) \; \equiv \; l_2(a)
-  \le b$ leads to
+  Adjoints are unique: $l(a) \le b \; \equiv a \le r(b) \; \equiv \; l'(a) \le
+  b$ leads to
   \begin{align*}
-    l_1(a) \le l_2(a) \; &\equiv \; l_2(a) \le l_2(a) \\
-    \text{and } l_1(a) \le l_1(a) \; &\equiv \; l_2(a) \le l_1(a)
+    l(a) \le l'(a) \; &\equiv \; l'(a) \le l'(a) \\
+    \text{and } l(a) \le l(a) \; &\equiv \; l'(a) \le l(a)
   \end{align*}
-  and hence $l_1(a) = l_2(a)$ for $a\in A$.
+  and hence $l(a) = l'(a)$ for $a\in A$.
   Symmetrically for right adjoints.
 \end{rem}
 
@@ -88,7 +85,7 @@ Especially,
 $\left\downarrow U \right. = U$ resp. $\left\uparrow U \right. = U$.
 
 \item Let $X$ be a~partially ordered set.
-Then $\D(X)$ is the set of~all down-sets in $X$ ordered by inclusion.
+Then $\D(X)$ is the set of~all down-sets in~$X$ ordered by inclusion.
 
 \end{itemize}
 
@@ -148,19 +145,6 @@ Note that mutually inverse isomorphisms between partially ordered sets are
 Galois adjoints.
 \end{itemize}
 
-\begin{lem} \label{lem:epi->iso}
-  Let an~epimorphism $e$ satisfy $f \cdot e = 1$.
-  Then $e$ is an~isomorphism.
-\end{lem}
-\begin{proof}
-  The $f$ is the inverse of~$e$:
-  \[
-    f \cdot e = 1 \; \Rightarrow \; e \cdot f \cdot e = e \; \Rightarrow \; e
-    \cdot f = 1
-  \]
-  (the second implication because $e$ is epic).
-\end{proof}
-
 \begin{itemize}
 \item A \emph{product} of a system $\left(A_i\right)_{i\in J}$ is a~system
 of~\emph{projections\/}
@@ -188,7 +172,7 @@ Note that this is a~product in the~opposite category.
 \item The~\emph{diagonal} is the (only) morphism $\Delta\colon A \to \prod_{i\in
 J} A$ solving the system $p_i\cdot \Delta = 1_A$ for $i \in J$.
 Dually, the~\emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
-\to A$ to the system $\nabla\cdot \iota_i = 1_A, \, i \in J$.
+\to A$ to the system $\nabla\cdot \iota_i = 1_A$ for $i \in J$.
 \end{itemize}
 
 
@@ -311,28 +295,29 @@ These sublocales are referred to as \emph{closed sublocales\/}.
     \]
     if there is a~frame homomorphism $\alpha\colon M' \to M$ such that $\alpha
     h' = h$.
-    Thus, $h, h'$ represent the same sublocale iff $\alpha$ is also
-    an~isomorphism.
+
+    \item Thus, using Fact~\ref{fct:onto->epic}\thinspace, $h$~and~$h'$
+    represent the same sublocale iff $\alpha$ is also an~isomorphism.
 
     \item
     \phantomsection
     \label{df:closed-sloc}
-    In this representation \emph{closed sublocales\/} are the~frame
-    homomorphisms of~the form
+    In this representation \emph{closed sublocales\/} are frame homomorphisms
+    which are of~the form
     \[
-      \check{a} = (x \to a \vee x) \colon L \to \left\uparrow a \right.
+      \check{a} = (x \mapsto a \vee x) \colon L \to \left\uparrow a \right.
     \]
     for $a\in L$.
   \end{itemize}
 \end{rem}
 
 \begin{lem} \label{lem:embed-adjoint}
-  The embedding $j\colon \left\uparrow a \right. \embed L$ is the right adjoint
-  to~$\check{a}$.
+  The embedding $j = (x \mapsto x)\colon \left\uparrow a \right. \embed L$ is
+  the right adjoint to~$\check{a}$.
 \end{lem}
 \begin{proof}
-  For $x\in L$ and $y\in \left\uparrow a \right.$ we will show that $x \vee a
-  \le y$ iff $x \le y$.
+  For $x\in L$ and $y\in \left\uparrow a \right.$ we will show that $x \vee a =
+  \check{a}(x) \le y$ iff $x \le j(y) = y$.
 
   $\Rightarrow$:
   Immediately from $x \le x \vee a$.
@@ -346,19 +331,19 @@ These sublocales are referred to as \emph{closed sublocales\/}.
   $\sqsubseteq$-least closed sublocale~$f$ such that $f \sqsupseteq h$.
 \end{itemize}
 
-\begin{prop}
-  For a~locale $L$ and one of~its sublocales $h\colon L \to M$ let
+\begin{prop} \label{prop:sloc-closure}
+  For a~locale $L$ and any of~its sublocales $h\colon L \to M$ let
   \[
     c := \bigvee \{ x \st h(x) = 0 \}.
   \]
-  Then $\check{c}$ is the closure of~$h$.
+  Then $\check{c}\colon L \to \left\uparrow c \right.$ is the closure of~$h$.
 \end{prop}
 \begin{proof}
-  Firstly, $h \sqsubseteq \check{c}$:
+  Firstly, $\check{c} \sqsupseteq h$:
   we will find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
   \check{c} = h$.
   For every $y\in \left\uparrow c \right.$ take $x\in L$ such that $y =
-  x \vee c$ and set $\gamma(y) = h(x)$.
+  x \vee c$ and set $\gamma(y) := h(x)$.
   It is a~correct definition:
   since $h(c) = \bigvee \{ h(x) \st h(x) = 0 \} = 0$,
   if $x_1 \vee c = x_2 \vee c$ then
@@ -387,10 +372,10 @@ These sublocales are referred to as \emph{closed sublocales\/}.
     = h(a).
   \]
   From the~definition of~$c$ we see that $a \le c$.
-  Set $\beta := (x \to c \vee x)\colon \left\uparrow a\right. \to
+  Set $\psi := (x \mapsto c \vee x)\colon \left\uparrow a\right. \to
   \left\uparrow c\right.$.
-  We have $\beta\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x)$,
-  and consequently, $\check{a} \sqsupseteq \check{c}$.
+  We have $\psi\check{a}(x) = c \vee a \vee x = c \vee x = \check{c}(x)$, and
+  consequently, $\check{a} \sqsupseteq \check{c}$.
 \end{proof}
 
 With the same notation as above, we get
@@ -564,7 +549,7 @@ As $\nabla \cdot \iota_1 = id$, we have
   f_1 = f_2
 \]
 
-\item The diagonal $\Delta\colon L \to L \oplus L$ in the opposite category
+\item The diagonal $\Delta\colon L \to L \oplus L$ in the (opposite) category
 {\bf Loc} is the right adjoint of~$\nabla$.
 Thus, we require that
 \begin{align*}
@@ -582,24 +567,6 @@ diagonal
   }
 \]
 \end{itemize}
-
-\begin{lem} \label{lem:delta-monotone}
-  $\Delta(a) \subseteq \Delta(b) \text{ iff } a \le b$.
-\end{lem}
-\begin{proof}
-  $\Rightarrow$:
-  Since $a \wedge a \le a$, it follows that $(a, a)\in \Delta(a) \subseteq
-  \Delta(b)$.
-  Hence, $a \wedge a \le b$.
-
-  $\Leftarrow$:
-  The infima-preserving $\Delta$ is monotone.
-\end{proof}
-
-\begin{cor} \label{cor:delta-of-upsets}
-  For any $a\in L$ it holds that $\Delta[ \left\uparrow a\right. ] \subseteq
-  \left\uparrow \Delta(a)\right.$.
-\end{cor}
 
 \section*{Convention}
 
