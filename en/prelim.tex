@@ -3,8 +3,8 @@
 \section{Notation}
 
 \begin{itemize}
-\item $2^X$ is the set of~all subsets, explicitly, $2^X = \{ S \st S\subseteq X
-\}$.
+\item $2^X$ is the set of~all subsets of a~set~$X$, that is $\{ S \st
+S\subseteq X \}$.
 
 \item $A \Subset B$ means {\sl set $A$ is a finite subset of set $B$\/}.
 
@@ -48,8 +48,9 @@ or equivalently,
 \end{itemize}
 
 \begin{rem}
-  Adjoints are unique: $l(a) \le b \; \equiv a \le r(b) \; \equiv \; l'(a) \le
-  b$ leads to
+  Adjoints are unique:\thinspace%
+  \footnote{if they exist}
+  $l(a) \le b \; \equiv a \le r(b) \; \equiv \; l'(a) \le b$ leads to
   \begin{align*}
     l(a) \le l'(a) \; &\equiv \; l'(a) \le l'(a) \\
     \text{and } l(a) \le l(a) \; &\equiv \; l'(a) \le l(a)
@@ -113,6 +114,10 @@ further satisfying the axioms of
 $\mathcal{C}$ has the same objects $\Ccal^O$ and reverses the composition.
 Thus a~morphism $A \to B$ goes now from $B$ to $A$.
 
+\item If objects of a~category $\Ccal$ are structured sets and their morphisms
+are maps (``somehow'' preserving the structures of~the objects) then the
+category $\Ccal$ is called \emph{concrete\/}.
+
 \item An~\emph{epimorphism} is a~right-cancellative morphism $e$, that is,
 \[
   f_1 \cdot e = f_2 \cdot e \; \Longrightarrow \; f_1 = f_2.
@@ -128,21 +133,24 @@ monic\/}.
 \end{itemize}
 
 \begin{fact} \label{fct:onto->epic}
-  Every morphism onto is epic.
+  In a~concrete category, every morphism onto resp. one-one is epic resp.
+  monic.
 \end{fact}
 (Or else there would be $y$ with $f_1(y) \ne f_2(y)$.
  From surjectivity, the existence of~$x$ such that $e(x) = y$ would lead to
  $f_1 \cdot e(x) \ne f_2 \cdot e(x)$; contradicting $f_1 \cdot e = f_2 \cdot
- e$.)
+ e$.
+
+ And if $f_1(x) \ne f_2(x)$ and $m$ is one-one then $m \cdot f_1(x) \ne m \cdot
+ f_2(x)$.
+ )
 
 \begin{itemize}
 \item An \emph{isomorphism} is a~morphism $f\colon A \to B$ that has
-an~\emph{inverse morphism\/} $\overline{f}\colon B \to A$ holding both
+an~\emph{inverse morphism\/} $\overline{f}\colon B \to A$ such that
 \[
   \overline{f} \cdot f = 1_A \text{ and } f \cdot \overline{f} = 1_B.
 \]
-Note that mutually inverse isomorphisms between partially ordered sets are
-Galois adjoints.
 \end{itemize}
 
 \begin{itemize}
@@ -179,25 +187,24 @@ Dually, the~\emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
 \subsection*{Point-set topology}
 
 \begin{itemize}
-\item A \emph{topological space} is a~structure of
-  \begin{itemize}
-  \item the set of \emph{points\/} $X$
-  \item \emph{open sets\/} $\tau\subseteq 2^X$ satisfying axioms
-    \begin{description}
-    \item[(o1)] $\none, X \in \tau$
-    \item[(o2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow
-    \; \bigcup_{i\in J} U_i \in \tau$
-    \item[(o3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
-    \end{description}
-  \end{itemize}
+\item A \emph{topology} on a~set~X is a~system~$\tau$ satisfying axioms
+  \begin{description}
+  \item[(o1)] $\none, X \in \tau$
+  \item[(o2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow \;
+  \bigcup_{i\in J} U_i \in \tau$
+  \item[(o3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
+  \end{description}
 
-\item A~\emph{basis} of a topological space $(X, \tau)$ is the
-$\mathcal{B}\subseteq \tau$ such that for every open $U$ we can write $U =
-\bigcup \{V\in \mathcal{B} \st V\subseteq U \}$.
+\item The $U\in \tau$ are referred to as \emph{open sets\/}, and $(X, \tau)$ as
+a~\emph{topological space\/}.
 
-\item $\mathcal{S}\subseteq \tau$ is a~\emph{subbasis} of a
-topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
-\Subset \mathcal{S} \right\}$ is a~basis of~$\tau$.
+\item A~\emph{basis} of a~topology~$\tau$ is the $\mathcal{B}\subseteq \tau$
+such that for every open $U$ we can write $U = \bigcup \{V\in \mathcal{B} \st
+V\subseteq U \}$.
+
+\item $\mathcal{S}\subseteq \tau$ is a~\emph{subbasis} of a~topology~$\tau$ if
+$\left\{ \bigcap \mathcal{F} \st \mathcal{F} \Subset \mathcal{S} \right\}$ is
+a~basis of~$\tau$.
 \end{itemize}
 
 \begin{exmpl}
@@ -222,7 +229,10 @@ topological space $(X, \tau)$ if $\left\{ \bigcap \mathcal{F} \st \mathcal{F}
 \end{exmpl}
 
 \begin{itemize}
-\item A function $f\colon X \to Y$ between topological space $X$ and $Y$ is
+\item We often abbreviate $(X, \tau)$ to $X$;
+then $\tau$ is usually indicated by~$\Omega(X)$.
+
+\item A~function~$f\colon X \to Y$ between topological spaces $X$ and $Y$ is
 \emph{continuous} if 
 \[
   U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
@@ -241,9 +251,8 @@ law
 \]
 for every $A\subseteq L$ and $b\in L$.
 
-\item For a~topological space $X$ we will write $\Omega(X)$ for the~set of~its
-open sets ordered by~inclusion.
-Note that $\Omega(X)$ is a~frame:
+\item For a~topological space $X$ the set~$\Omega(X)$ ordered by~inclusion is
+a~frame:
 by~axioms {\bf (o2)} and {\bf (o3)} (viz ``Point-set topology'') operations
 $\wedge$ resp. $\bigvee$ coincide with $\cap$ resp. $\bigcup$.
 
@@ -254,18 +263,23 @@ M \to L$ preserving all joins (in particular, $h(0) = 0$) and~all finite meets
 \item The category of~frames and frame homomorphisms will be denoted by {\bf
 Frm}.
 
-\item A \emph{locale} is a~frame (the different name because of~different
-morphisms).
+\item Its opposite category {\bf Loc} consists of locales and localic maps.
+It can be constructed as follows:
 
-\item A \emph{localic map} between locales $L$ and $M$ is a mapping $f\colon L
-\to M$ with left Galois adjoints $f^*\colon M \to L$ such that $f^*$ is a frame
-homomorphism.
-Thus, localic maps are infima-preserving maps such that their left adjoints
-preserve finite meets.
+  \begin{itemize}
+  \item A~\emph{locale} is a~complete lattice $L$ satisfying the distributivity
+  law
+  \[
+    b \wedge \bigvee A = \bigvee \{ b \wedge a \st a\in A \}
+  \]
+  for every $A\subseteq L$ and $b\in L$.
 
-\item We will write {\bf Loc} for the resulting category of~locales and localic
-maps.
-Note that $\mathbf{Loc} \simeq \mathbf{Frm}^{op}$.
+  \item A \emph{localic map} between locales $L$ and $M$ is a mapping $f\colon L
+  \to M$ with left Galois adjoints $f^*\colon M \to L$ such that $f^*$ is a frame
+  homomorphism.
+  Thus, localic maps are infima-preserving maps such that their left adjoints
+  preserve finite meets.
+  \end{itemize}
 
 \item A \emph{sublocale} of locale $L$ is a $S\subseteq L$ satisfying
   \begin{description}
@@ -296,8 +310,8 @@ These sublocales are referred to as \emph{closed sublocales\/}.
     if there is a~frame homomorphism $\alpha\colon M' \to M$ such that $\alpha
     h' = h$.
 
-    \item Thus, using Fact~\ref{fct:onto->epic}\thinspace, $h$~and~$h'$
-    represent the same sublocale iff $\alpha$ is also an~isomorphism.
+    \item Thus, $h$~and~$h'$ represent the same sublocale iff $\alpha$ is also
+    an~isomorphism.
 
     \item
     \phantomsection
@@ -415,8 +429,9 @@ It can be constructed as follows.
 \begin{itemize}
 \item
 \phantomsection \label{df:satur}
-A down-set $U\subseteq L_1 \times L_2$ is \emph{saturated\/} if for all systems
-$(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp. $L_1$ we have
+A down-set $U\subseteq L_1 \times L_2$ is said to be \emph{saturated\/} if for
+all systems $(x_i)_{i\in J}$ in $L_1$ resp. $L_2$ and all $y$ in $L_2$ resp.
+$L_1$ we have
 \begin{align*}
     \{ (x_i, y) \st i\in J \} \subseteq U \, &\Rightarrow \, (\bigvee x_i,
         y)\in U \\
@@ -479,29 +494,29 @@ We will not prove that frame~$L_1 \oplus L_2$ constitutes a~coproduct.
 For full details consult Chapter~IV of Picado and Pultr
 \cite{picado-pultr12}.
 
-\begin{cor}
+\begin{obs}
 \phantomsection \label{oplus-iota}
-Due to the coordinatewise meet, we have
+We have
 \[
   a \oplus b = \iota_1(a) \wedge \iota_2(b).
 \]
-\end{cor}
+\end{obs}
 
 \begin{itemize}
 \item
 Note that for all saturated $U$ we have
 \[
   U
-  = \bigcup \{ (a, b) \st (a, b)\in U \} = \bigcup \{ a \oplus b \st (a, b)\in
-  U \}
+  = \bigcup \{ \left\downarrow (a, b) \right. \st (a, b)\in U \}
+  = \bigcup \{ a \oplus b \st (a, b)\in U \}.
 \]
-(the second equality because $U$ is a~down-set).
 As the set-theoretic union of down-sets is also a~down-set, it coincides with
 their join.
 Therefore, we may write
 \[
   U
   = \bigvee \{ a \oplus b \st (a, b)\in U \}
+  = \bigvee \{ a \oplus b \st a \oplus b\subseteq U \}
 \]
 and thus
 \phantomsection \label{a+b-gen}
@@ -516,18 +531,16 @@ For the codiagonal $\nabla\colon L \oplus L \to L$ in {\bf Frm} we have
 \[
   \nabla(U)
   = \nabla \left( \bigvee \left\{ a \oplus b \st (a, b)\in U \right\} \right)
-  = \bigvee \left\{ \nabla(a \oplus b) \st (a, b)\in U \right\},
+  = \bigvee \left\{ \nabla(a \oplus b) \st (a, b)\in U \right\}.
 \]
-(using the commutativity of frame homomorphism~$\nabla$ with joins).
-Moreover, by the previous corollary,
+Further,
 \[
   \nabla(a \oplus b)
   = \nabla( \iota_1(a) \wedge \iota_2(b) )
   = \nabla(\iota_1(a)) \wedge \nabla(\iota_2(b))
   = a \wedge b
 \]
-since frame homomorphism~$\nabla$ preserves finite meets and solves
-$\nabla\cdot \iota_i = id$ for~$i = 1, 2$.
+since $\nabla\cdot \iota_i = id$ for~$i = 1, 2$.
 In conclusion,
 \[
   \boxed{

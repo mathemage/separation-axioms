@@ -4,8 +4,8 @@
 
 \begin{framed}
   \begin{df}[$T_3$]
-    We will consider a topological space $X$ to be \emph{regular\/} (or
-    satisfying the~$T_3$ \emph{axiom\/}) when
+    A~topological space~$X$ is \emph{regular\/} (or satisfies the~$T_3$
+    \emph{axiom\/}) when
     \begin{center} \it
       for any $x\in X$ and any closed $A \not\owns x$ there are disjoint open
       $V_1, V_2$ such that $V_1\owns x$ and $V_2\supseteq A$.
@@ -45,7 +45,7 @@ them.
   := X\setminus \overline{V_x}$.
 \end{proof}
 
-Now we will eliminate the~closure in the~formula:
+Now we will deal with the~closure in the~formula:
 
 \begin{lem}
   $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X)\colon W \cap V =
@@ -63,8 +63,8 @@ Now we will eliminate the~closure in the~formula:
 \end{proof}
 
 Without loss of generality, the $W$ may be replaced by~the
-pseudocomplement~$V^*$ in~$\Omega(X)$.
-Explicitly, by open set $X\setminus \overline{V}$.
+pseudocomplement~$V^*$ in~$\Omega(X)$, that is, by the open set $X\setminus
+\overline{V}$.
 
 \begin{rem}
 Pseudocomplements always exist in frames:
@@ -194,9 +194,8 @@ Thus, we observe that
   (Reg) implies (I-Haus).
 \end{thm}
 \begin{proof}
-  We will show that regular locales meet condition
-  \eqref{eq:meets-in-satur}\thinspace from~\ref{meets-in-satur} (see
-  page~\pageref{meets-in-satur}).
+  We will show that regular locales satisfy \eqref{eq:meets-in-satur}\thinspace
+  from~\ref{meets-in-satur} (see page~\pageref{meets-in-satur}).
   Let $(a \wedge b, a \wedge b) \in U$.
   By the previous lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
   Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
@@ -216,7 +215,7 @@ Thus, we observe that
 \end{proof}
 
 By Theorem~\ref{IHaus->DSHaus} on page~\pageref{IHaus->DSHaus}\thinspace, we
-acquire
+obtain
 \begin{cor}
   (Reg) implies (DS-Haus).
 \end{cor}
@@ -250,7 +249,7 @@ definition:
   and yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{thm:reg->sfit}
   (Reg) implies (Sfit).
 \end{thm}
 \begin{proof}
@@ -263,6 +262,16 @@ definition:
     b = b \vee 0 = b \vee (c \wedge c^*) = (b \vee c) \wedge (b \vee c^*) = 1
     \wedge (b \vee c^*) = b \vee c^*,
   \]
-  which contradicts $c^*
-  \le b$.
+  which contradicts $c^* \le b$.
 \end{proof}
+
+\begin{rem}[Fitness]
+  Unlike the regularity, the subfitness is not hereditary:
+  in~general, not every sublocale of a~subfit locale is subfit.
+  The hereditary subfitness is called \emph{fitness\/}, and by
+  Theorem~\ref{thm:reg->sfit} and the heredity of regularity, we have
+  observation that
+  \begin{center} \it
+    (Reg) implies the fitness.
+  \end{center}
+\end{rem}
