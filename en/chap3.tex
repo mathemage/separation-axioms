@@ -35,11 +35,17 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the following condition:
   \end{df}
 \end{framed}
 
-\begin{prop} \label{Haus->S2'}
-  For every Hausdorff space $X$ the corresponding locale $\Omega(X)$ satisfies
-  $S_2'$.
-\end{prop}
+Its relationship to the Hausdorff property is seen from following
+\begin{thm} \label{thm:T2=S2'+Sfit}
+  For the $\Omega(X)$ of any topological space $X$ we have
+  \[
+    (T_2) \; \equiv \; (S_2') \& (\text{Sfit}).
+  \]
+\end{thm}
 
+\begin{lem} \label{Haus->S2'}
+  The $\Omega(X)$ of a~Hausdorff $X$ satisfies $S_2'$.
+\end{lem}
 \begin{proof}
   Open sets $A, B \ne X$ with $A \cup B = X$ contain $x\in X\setminus A =
   B\setminus A$ and $y\in X\setminus B = A\setminus B$.
@@ -47,6 +53,34 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the following condition:
   $U$ and $V$ from the $T_2$-definition.
   Evidently, $U\not\subseteq A$ (because of $x$) and $V\not\subseteq B$
   (because of $y$).
+\end{proof}
+
+\begin{lem} \label{lem:S2'+Sfit->T1}
+  $(S_2') \& (\text{Sfit}) \, \Rightarrow \, (T_1)$.
+\end{lem}
+\begin{proof}
+  TBD
+\end{proof}
+
+\begin{lem} \label{lem:S2'+T1->T2}
+  $(S_2') \& (T_1) \, \Rightarrow \, (T_2)$.
+\end{lem}
+\begin{proof}
+  For open $A := X\setminus \{ x \}$ and $B := X\setminus \{ y \}$ take the
+  disjoint $U, V\in \Omega(X)$ from $(S_2')$.
+  Also, $U\not\subseteq A$ resp. $V\not\subseteq B$ translates to $U\owns
+  x$ resp. $V\owns y$.
+\end{proof}
+
+\begin{proof}[Proof of~{\bf \ref{thm:T2=S2'+Sfit}}]
+  ~
+
+  $\Rightarrow$:
+  By~\ref{T2->T1} and \ref{T1->Sfit} (on page~\pageref{T1->Sfit}), we get the
+  subfitness, and using~\ref{Haus->S2'}, also the axiom $(S_2')$.
+
+  $\Leftarrow$:
+  Apply lemmata \ref{lem:S2'+Sfit->T1} and \ref{lem:S2'+T1->T2}.
 \end{proof}
 
 \begin{rem}
@@ -109,8 +143,8 @@ codiagonal (recall \ref{prop:sloc-closure}) is $\check{d_L} = (U
   = \bigvee \{ U \st U \subseteq \Delta(0) \}
   = \Delta(0).
 \]
-Following from Corollary~\ref{cor:closed-sloc}\thinspace, the condition
-proposed by Isbell reduces~to
+Following from Corollary~\ref{cor:closed-sloc}, the condition proposed by
+Isbell reduces~to
 
 \begin{framed}
   \begin{df}[I-Haus]
@@ -156,14 +190,14 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   for any saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  By Lemma~\ref{lem:IHaus->dL}\thinspace, every saturated $U\in \dL =
-  \Delta[L]$ is an image $\Delta(a)$ for some $a\in L$.
+  By Lemma~\ref{lem:IHaus->dL}, every saturated $U\in \dL = \Delta[L]$ is an
+  image $\Delta(a)$ for some $a\in L$.
   Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
   The frame codiagonal is an epimorphism and hence---as~we have $\nabla \Delta
-  \nabla = \nabla$ by Fact~\ref{lrl=l} on page~\pageref{lrl=l}\thinspace---we
-  also get $\nabla \Delta = id$.
+  \nabla = \nabla$ by Fact~\ref{lrl=l} on page~\pageref{lrl=l}---we also get
+  $\nabla \Delta = id$.
 
   Joining these two observations:
   \[
@@ -233,7 +267,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
     = (a \oplus b) \vee d_L,
   \]
   the last equality stipulated by assumed implication
-  \eqref{eq:meets-in-satur}\thinspace.
+  \eqref{eq:meets-in-satur}.
 
   In~conclusion,
   \begin{flalign*}
@@ -257,7 +291,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   is saturated in $L \times L$ for arbitrary $a, b\in L$.
 \end{lem}
 \begin{proof}
-  Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
+  Recall the saturatedness on~page~\pageref{df:satur}.
   First of all, let us have $(x_i, y)\in U$ for $i\in J$.
 
   \underline{Case $y = 0$}:
@@ -283,7 +317,7 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
   v\right) \leq \left(a, b\right)}
 \]
 
-\begin{proof}[Proof of~{\bf \ref{IHaus->DSHaus}}\thinspace]
+\begin{proof}[Proof of~{\bf \ref{IHaus->DSHaus}}]
   For a contradiction: let there be an I-Hausdorff $L$, which is not weakly
   Hausdorff.
   That means, we have $a, b$ with $a \not\leq b, \, b \not\leq a$ and such that
@@ -297,10 +331,9 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
     d_L \cap (a \oplus b) \subseteq U.
   \end{equation}
 
-  Following from~\ref{meets-in-satur}\thinspace, the saturated $(\left(a \wedge
-  b\right) \oplus \left(a \wedge b\right)) \vee d_L \supseteq d_L$
-  contains $(a, b)$ as it trivially contains $\left( a \wedge b, a \wedge b
-  \right)$.
+  Following from~\ref{meets-in-satur}, the saturated $(\left(a \wedge b\right)
+  \oplus \left(a \wedge b\right)) \vee d_L \supseteq d_L$ contains $(a, b)$
+  as it trivially contains $\left( a \wedge b, a \wedge b \right)$.
   Hence,
   \begin{align*}
     (a, b) &\in (a \oplus b) \; \cap \; (((a \wedge b) \oplus (a \wedge b))
