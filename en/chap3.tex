@@ -50,7 +50,7 @@ Its relationship to the Hausdorff property is seen from following
   Open sets $A, B \ne X$ with $A \cup B = X$ contain $x\in X\setminus A =
   B\setminus A$ and $y\in X\setminus B = A\setminus B$.
   Particularly, we observe $x \ne y$ and, on top of that, receive the disjoint
-  $U$ and $V$ from the $T_2$-definition.
+  $U$ and $V$ from $(T_2)$.
   Evidently, $U\not\subseteq A$ (because of $x$) and $V\not\subseteq B$
   (because of $y$).
 \end{proof}
@@ -59,7 +59,27 @@ Its relationship to the Hausdorff property is seen from following
   $(S_2') \& (\text{Sfit}) \, \Rightarrow \, (T_1)$.
 \end{lem}
 \begin{proof}
-  TBD
+  Using Fact~\ref{T1Char} on page~\pageref{T1Char}, we will show that $\{ x \}
+  = \overline{\{ x \}}$.
+
+  Assume, for the sake of contradiction, that there is $z\in \overline{\{ x \}}
+  \setminus \{ x \}$.
+  Since we still suppose $(T_0)$, we have $x\not\in \overline{\{ z \}}$.
+  Recall Proposition~\ref{Sfit-char} on~page~\pageref{Sfit-char} and consider
+  $y\in \overline{\{x\}}$ with $\overline{\{y\}} \subseteq X\setminus
+  \overline{\{ z \}}$, i. e., $\overline{\{ y \}} \cap \overline{\{ z \}} =
+  \none$.
+
+  For open $A := X \setminus \overline{\{ y \}}$ and $B := X \setminus
+  \overline{\{ z \}}$ we have $A \cup B = X$, and hence, also the $U, V$
+  from~$(S_2')$.
+  Thus, there must be $y'\in \overline{\{ y \}} \cap U$, and consequently,
+  $y\in U$ (or else $y'\in U\not\owns y$ would lead to $y'\not\in \overline{\{
+  y \}}$).
+  Likewise, $z\in V$.
+  However, $U$ and $V$ cannot be disjoint:
+  as $y\in \overline{\{ x \}}$ resp. $z\in \overline{\{ x \}}$ implies $x\in U$
+  resp. $x\in V$.
 \end{proof}
 
 \begin{lem} \label{lem:S2'+T1->T2}
@@ -68,11 +88,11 @@ Its relationship to the Hausdorff property is seen from following
 \begin{proof}
   For open $A := X\setminus \{ x \}$ and $B := X\setminus \{ y \}$ take the
   disjoint $U, V\in \Omega(X)$ from $(S_2')$.
-  Also, $U\not\subseteq A$ resp. $V\not\subseteq B$ translates to $U\owns
-  x$ resp. $V\owns y$.
+  Thus, $U\not\subseteq A$ resp. $V\not\subseteq B$ translates to $U\owns x$
+  resp. $V\owns y$.
 \end{proof}
 
-\begin{proof}[Proof of~{\bf \ref{thm:T2=S2'+Sfit}}]
+\begin{proof}[Proof of~{\bf\ref{thm:T2=S2'+Sfit}}]
   ~
 
   $\Rightarrow$:
@@ -82,12 +102,6 @@ Its relationship to the Hausdorff property is seen from following
   $\Leftarrow$:
   Apply lemmata \ref{lem:S2'+Sfit->T1} and \ref{lem:S2'+T1->T2}.
 \end{proof}
-
-\begin{rem}
-  The reverse implication requires, in addition, the subfitness.
-  For the~proof see Proposition 7 of~Dowker and Strauss
-  \cite{ds72}.
-\end{rem}
 
 The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
 
