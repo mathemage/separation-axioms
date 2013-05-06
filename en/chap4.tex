@@ -8,13 +8,13 @@ definition with axioms proposed by other pointless topologists.
 
 \subsection{The axiom of Johnstone and Sun Shu-Hao}
 
-They suggest the axiom
+In~\cite{johnstone-shu-hao}, they suggest the axiom
 \[
   (T_2') \qquad
   1 \ne a\not\le b \quad \Rightarrow \quad \exists u\not\leq a, v\not\leq b,
   \quad u \wedge v = 0.
 \]
-Let us also introduce its weaker version
+Let us introduce its weaker version
 \[
   (S_<) \qquad
   1 \ne a > b \quad \Rightarrow \quad \exists u\not\leq a, v\not\leq b,
@@ -36,7 +36,7 @@ The axiom $(T_2')$ is stronger than the axiom of Dowker and Papert-Strauss:
 \end{proof}
 
 \subsection{The axiom of Paseka and Šmarda}
-They propose a~stronger version of $(T_2')$:
+In~\cite{paseka-smarda92}, they propose a~stronger version of $(T_2')$:
 \[
   (T_2) \qquad
   1 \ne a\not\le b \quad \Rightarrow \quad \exists u\not\leq a, v\not\leq b,
@@ -58,15 +58,14 @@ Proposition~\ref{prop:T2'=DS-Haus+S<}:
   Because $a > b \Rightarrow a \not\le b$.
 
   $\Leftarrow$:
-  If both $a\not\le b$ and $a\not > b$ then $a\not\ge b$, and thus, $a \wedge b
-  < a$.
+  If $a\not\le b$ then $a \wedge b < a$.
   Applying $(T_<)$ to $1 \ne a > a \wedge b$, we get $u\not\le a, v\not\le a
   \wedge b, v\le a$ and $u \wedge v = 0$.
   Furthermore, $v\not\le b$ or else $v\le a \wedge b$.
 \end{proof}
 
 \subsection{Another (stronger) variant}
-Let us introduce a~stronger version of (DS-Haus) as well:
+Let us introduce one more version of (DS-Haus) that is stronger:
 \[
   (\overline{S}_2) \qquad
   a \vee b \not\in \left\{a, b\right\} \quad \Rightarrow \quad \exists
@@ -75,19 +74,8 @@ Let us introduce a~stronger version of (DS-Haus) as well:
 
 \section{Variants based on meet irreducibility}
 
-We say that $p$ is \emph{prime\/} when
-\[
-  x_1 \wedge x_2 \le p \Rightarrow x_1
-  \le p \text{ or } x_2 \le p,
-\]
-and \emph{semiprime\/} when
-\[
-  x_1 \wedge x_2 = 0 \Rightarrow
-  x_1 \le p \text{ or } x_2 \le p.
-\]
-
 \subsection{The axiom of Rosický}
-He has
+In~\cite{rosicky-smarda85}, we can find the following axiom:
 \[
   (S) \qquad
   \text{Every semiprime element is a~coatom.}

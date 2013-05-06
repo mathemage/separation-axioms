@@ -6,7 +6,7 @@
 \item $2^X$ is the set of~all subsets of a~set~$X$, that is $\{ S \st
 S\subseteq X \}$.
 
-\item $A \Subset B$ means {\sl set $A$ is a finite subset of set $B$\/}.
+\item $A \Subset B$ means that {\sl set $A$ is a finite subset of set $B$\/}.
 
 \item $\overline{S}$ is the~closure of $S$ in a~given topology.
 It is defined by
@@ -88,6 +88,24 @@ $\left\downarrow U \right. = U$ resp. $\left\uparrow U \right. = U$.
 \item Let $X$ be a~partially ordered set.
 Then $\D(X)$ is the set of~all down-sets in~$X$ ordered by inclusion.
 
+\item We say that $p$ is \emph{prime\/} when
+\[
+  x_1 \wedge x_2 \le p \Rightarrow x_1
+  \le p \text{ or } x_2 \le p,
+\]
+and \emph{semiprime\/} when
+\[
+  x_1 \wedge x_2 = 0 \Rightarrow
+  x_1 \le p \text{ or } x_2 \le p.
+\]
+
+\item An~\emph{atom\/} resp. a~\emph{coatom\/} is an~element $a > 0$ resp. $a < 1$
+such that
+\begin{align*}
+  0 < x \le a &\Rightarrow x = a ~~~~~~\\
+  \text{resp. } a \le x < 1 &\Rightarrow x = a
+\end{align*}
+
 \end{itemize}
 
 \subsection*{Category theory}
@@ -136,13 +154,10 @@ monic\/}.
   In a~concrete category, every morphism onto resp. one-one is epic resp.
   monic.
 \end{fact}
-(Or else there would be $y$ with $f_1(y) \ne f_2(y)$.
- From surjectivity, the existence of~$x$ such that $e(x) = y$ would lead to
- $f_1 \cdot e(x) \ne f_2 \cdot e(x)$; contradicting $f_1 \cdot e = f_2 \cdot
- e$.
-
- And if $f_1(x) \ne f_2(x)$ and $m$ is one-one then $m \cdot f_1(x) \ne m \cdot
- f_2(x)$.
+(Or else there would be $x$ with $f_1(x) \ne f_2(x)$.
+ From surjectivity, the existence of~$z$ such that $e(z) = x$ would lead to
+ $f_1 \cdot e(z) \ne f_2 \cdot e(z)$;
+ and if $m$ is one-one then $m \cdot f_1(x) \ne m \cdot f_2(x)$.
  )
 
 \begin{itemize}
@@ -187,7 +202,8 @@ Dually, the~\emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
 \subsection*{Point-set topology}
 
 \begin{itemize}
-\item A \emph{topology} on a~set~X is a~system~$\tau$ satisfying axioms
+\item A \emph{topology} on a~set~$X$ is a~system~$\tau\subseteq 2^X$ satisfying
+axioms
   \begin{description}
   \item[(o1)] $\none, X \in \tau$
   \item[(o2)] $\left\{ U_i \st i\in J \right\} \subseteq \tau \; \Rightarrow \;
@@ -195,8 +211,8 @@ Dually, the~\emph{codiagonal} is the solution $\nabla\colon \coprod_{i\in J} A
   \item[(o3)] $U_1, U_2 \in \tau \; \Rightarrow \; U_1 \cap U_2 \in \tau$
   \end{description}
 
-\item The $U\in \tau$ are referred to as \emph{open sets\/}, and $(X, \tau)$ as
-a~\emph{topological space\/}.
+\item The $U\in \tau$ are referred to as \emph{open sets\/}, their complements
+as \emph{closed sets\/} and $(X, \tau)$ as a~\emph{topological space\/}.
 
 \item A~\emph{basis} of a~topology~$\tau$ is the $\mathcal{B}\subseteq \tau$
 such that for every open $U$ we can write $U = \bigcup \{V\in \mathcal{B} \st
@@ -264,11 +280,11 @@ M \to L$ preserving all joins (in particular, $h(0) = 0$) and~all finite meets
 Frm}.
 
 \item Its opposite category {\bf Loc} consists of locales and localic maps.
-It can be constructed as follows:
+It can be represented as follows:
 
   \begin{itemize}
-  \item A~\emph{locale} is a~complete lattice $L$ satisfying the distributivity
-  law
+  \item A~\emph{locale} is again a~complete lattice $L$ satisfying the
+  distributivity law
   \[
     b \wedge \bigvee A = \bigvee \{ b \wedge a \st a\in A \}
   \]
