@@ -158,11 +158,11 @@ and
 Subfitness cause $(\overline{S}_2), (S_2'), (\overline{T}_2), (T_2')$ and
 (DS-Haus) to coincide as it is seen from
 
-\begin{thm}
+\begin{thm} \label{thm:what-does-sfit-do}
   $(S_2')\&\text{(Sfit)}$ implies $(\overline{S}_2)\&(T_<)$.
 \end{thm}
 
-\begin{lem}
+\begin{lem} \label{lem:S2'+Sfit->DSHaus}
   $(S_2')\&\text{(Sfit)}$ implies (DS-Haus).
 \end{lem}
 \begin{proof}
@@ -176,4 +176,42 @@ Subfitness cause $(\overline{S}_2), (S_2'), (\overline{T}_2), (T_2')$ and
 
   As also $a \vee (b \vee c) = 1$, by $(S_2')$ we get $u\not\le a$ and
   $v\not\le b \vee c$ (leading to $v\not\le b$) such that $u \wedge v = 0$.
+\end{proof}
+
+\begin{lem} \label{lem:DSHaus+Sfit->overline S}
+  (DS-Haus)$\&$(Sfit) implies $(\overline{S}_2)$.
+\end{lem}
+\begin{proof}
+  Let $a\not\le b$ and $a\not\ge b$.
+  By (Sfit) we have $c_1, c_2$ such that $a \vee c_1 = 1 \ne b \vee c_1$ and $a
+  \vee c_2 \ne 1 = b \vee c_2$.
+  Furthermore, if $b \vee c_1 \le a \vee c_2$ then $b \le a \vee c_2$, and
+  consequently, $1 = b \vee c_2 \le a \vee c_2$;
+  thus $b \vee c_1 \not\le a \vee c_2$ and symmetrically $b \vee c_1 \not\ge a
+  \vee c_2$.
+
+  By (DS-Haus) we get $u'\not\le a \vee c_2$ and $v'\not\le b \vee c_1$ such
+  that $u' \wedge v' = 0$.
+
+  Finally, set $u := u' \wedge b$ and $v := v' \wedge a$.
+  We see that $u\not\le a$ since otherwise $u' = u' \wedge 1 = u' \wedge (b
+  \vee c_2) = (u' \wedge b) \vee (u' \wedge c_2) \le a \vee c_2$.
+  Likewise, $v\not\le b$.
+\end{proof}
+
+\begin{lem} \label{lem:overline S2+Sfit->T<}
+  $(\overline{S}_2)\&\text{(Sfit)}$ implies $(T_<)$.
+\end{lem}
+\begin{proof}
+  Let $1 \ne a > b$.
+  Once more, by (Sfit) we have $c$ with $a \vee c = 1 \ne b \vee c$.
+  Because $a \vee (b \vee c) = 1 \not\in \{ a, b \vee c \}$, we can apply
+  $(\overline{S}_2)$ to $a, b \vee c$, thus obtaining $u, v$ such that
+  $u\not\le a, v\not\le b \vee c$ (implying $v\not\le b$), $v \le a$ and $u
+  \wedge v = 0$.
+\end{proof}
+
+\begin{proof}[Proof of~{\bf \ref{thm:what-does-sfit-do}}]
+  Use lemmata \ref{lem:S2'+Sfit->DSHaus}, \ref{lem:DSHaus+Sfit->overline S} and
+  \ref{lem:overline S2+Sfit->T<}.
 \end{proof}
