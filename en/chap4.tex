@@ -1,6 +1,6 @@
 \chapter{More Hausdorff type axioms}
 
-There are other $T_2$-type axioms for frames.
+There are other $(T_2)$-type axioms for frames.
 The aim of this chapter is to give a confrontation of the Dowker-Strauss
 definition with axioms proposed by other pointless topologists.
 
@@ -39,20 +39,20 @@ The axiom $(T_2')$ is stronger than the axiom of Dowker and Papert-Strauss:
 Paseka and Šmarda \cite{paseka-smarda92} propose a~stronger version of
 $(T_2')$:
 \[
-  (T_2) \qquad
+  (\overline{T}_2) \qquad
   1 \ne a\not\le b \quad \Rightarrow \quad \exists u\not\leq a, v\not\leq b,
   \boxed{v \le a}, \quad u \wedge v = 0.
 \]
 Once more, we have its weaker version
 \[
-  (T_<) \qquad
+  (\overline{T}_<) \qquad
   1 \ne a > b \quad \Rightarrow \quad \exists u\not\leq a, v\not\leq b, v \le
   a, \quad u \wedge v = 0.
 \]
 However, the situation is (or appears to be) different from
 Proposition~\ref{prop:T2'=DS-Haus+S<}:
 \begin{prop}
-  $(T_2) \; \equiv \; (T_<)$.
+  $(\overline{T}_2) \; \equiv \; (\overline{T}_<)$.
 \end{prop}
 \begin{proof}
   $\Rightarrow$:
@@ -60,20 +60,22 @@ Proposition~\ref{prop:T2'=DS-Haus+S<}:
 
   $\Leftarrow$:
   If $a\not\le b$ then $a \wedge b < a$.
-  Applying $(T_<)$ to $1 \ne a > a \wedge b$, we get $u\not\le a, v\not\le a
-  \wedge b, v\le a$ and $u \wedge v = 0$.
+  Applying $(\overline{T}_<)$ to $1 \ne a > a \wedge b$, we get $u\not\le a,
+  v\not\le a \wedge b, v\le a$ and $u \wedge v = 0$.
   Furthermore, $v\not\le b$ (since otherwise $v\le a \wedge b$).
 \end{proof}
 
 \subsection{Another (stronger) variant}
-Let us introduce one more version of (DS-Haus) that is stronger:
+Here is another version of (DS-Haus) that is stronger:
 \[
   (\overline{S}_2) \qquad
   a \vee b \not\in \left\{a, b\right\} \quad \Rightarrow \quad \exists
   u\not\leq a, v\not\leq b, \boxed{u \le b, v \le a}, \quad u \wedge v = 0.
 \]
+It was used in the proof of~\ref{IHaus->DSHaus} (see
+page~\pageref{sec:overline S2}).
 
-\section{Variants based on meet irreducibility}
+\section{Variants based on (semi)primeness}
 
 \subsection{The axiom of Rosický}
 Rosický~\cite{rosicky-smarda85} has the following axiom:
@@ -81,3 +83,97 @@ Rosický~\cite{rosicky-smarda85} has the following axiom:
   (S) \qquad
   \text{Every semiprime element is a~coatom.}
 \]
+Two of its weaker variants are
+\[
+  (S_w) \qquad
+  \text{Every semiprime element is covered.}
+\]
+and
+\[
+  (S_{ww}) \qquad
+  \text{Every semiprime element is prime.}
+\]
+
+\begin{prop} \label{prop:S->Sw->Sww}
+  In a~frame we have $(S) \Rightarrow (S_w) \Rightarrow (S_{ww})$.
+\end{prop}
+\begin{proof}
+  $(S) \Rightarrow (S_w)$:
+  Coatoms are covered by~$1$.
+
+  $(S_w) \Rightarrow (S_{ww})$:
+  We will show the equivalent condition from Lemma~\ref{lem:primeness-equiv}
+  on~page~\pageref{lem:primeness-equiv}.
+  For a~semiprime $p = x_1 \wedge x_2$ take $b := \bigwedge \{ x \st x > p \}$.
+  Since $p$ is covered, we have $p \ne b$ and thus $p \cov b$.
+  If $p < x_1, p < x_2$ then $b \le x_1, b \le x_2$ and hence $b \le x_1 \wedge
+  x_2 = p$, a~contradiction.
+  Therefore, $p$ must be $x_1$ or $x_2$.
+\end{proof}
+
+\section{Comparison}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=65mm]{../img/Hausdorff_diagram.eps}
+  \caption{Hausdorff type axioms}
+  \label{fig:haus-diagram}
+\end{figure}
+
+\begin{prop}
+  The implications $[a]-[k]$ in figure~\ref{fig:haus-diagram} hold.
+\end{prop}
+\begin{proof}
+
+  [a], [b], [c], [d]:
+  trivial.
+
+  [e], [f]:
+  from \ref{prop:T2'=DS-Haus+S<}.
+
+  [g]:
+  For the sake of contradiction, let $p$ be semiprime yet not prime.
+  Thus, there are $x_1, x_2 \ne p$ with $x_1 \wedge x_2 = p$, which means
+  $x_1\not\le x_2$ and $x_1\not\ge x_2$.
+  Therefore, $x_1 \vee x_2 \not\in \{ x_1, x_2 \}$, and using weakly Hausdorff
+  property, there exist $u\not\le x_1, v\not\le x_2$ with $u \wedge v = 0$.
+  Hence, $u, v\not\le x_1 \wedge x_2 = p$, contradicting the semiprimeness
+  of~$p$.
+
+  [h]:
+  from \ref{prop:DS-Haus->S2'}.
+
+  [i]:
+  For the sake of contradiction, consider a~semiprime~$p$ that is not a~coatom,
+  that is, $p < a < 1$ for some $a$.
+  By~$(S_<)$ we obtain $u\not\le a, v\not\le p$ such that $u \wedge v = 0$.
+  Hence, using semiprimeness, $u \le p$ and thus $u < a$, a~contradiction.
+
+  [j], [k]:
+  from \ref{prop:S->Sw->Sww}.
+\end{proof}
+
+\section{Adding the subfitness}
+
+Subfitness cause $(\overline{S}_2), (S_2'), (\overline{T}_2), (T_2')$ and
+(DS-Haus) to coincide as it is seen from
+
+\begin{thm}
+  $(S_2')\&\text{(Sfit)}$ implies $(\overline{S}_2)\&(T_<)$.
+\end{thm}
+
+\begin{lem}
+  $(S_2')\&\text{(Sfit)}$ implies (DS-Haus).
+\end{lem}
+\begin{proof}
+  Let $a \vee b\not\in \{ a, b \}$.
+  Firstly, $a\not\ge b$ means $a \ne 1$.
+
+  Secondly, since $a\not\le b$, by subfitness we have some $c$ with $a \vee c =
+  1 \ne b \vee c$.
+  Thus, $a\not\le b \vee c$ (otherwise $b \vee c \ge a \vee c = 1$) and again
+  $b \vee c \ne 1$.
+
+  As also $a \vee (b \vee c) = 1$, by $(S_2')$ we get $u\not\le a$ and
+  $v\not\le b \vee c$ (leading to $v\not\le b$) such that $u \wedge v = 0$.
+\end{proof}

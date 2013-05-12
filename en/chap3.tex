@@ -1,13 +1,13 @@
 \chapter{Weakly and strongly Hausdorff}
 
-In this chapter we will consider two point-free analogies of the $T_2$
-axiom---a~separation not quite easy to imitate in frames.
+In this chapter we will consider two point-free analogies of the $T_2$ axiom:
+a~separation not quite easy to imitate in frames.
 
 \section{The $T_2$ axiom}
 
 \begin{framed}
   \begin{df}[$T_2$]
-    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (or
+    A topological space $(X, \tau)$ is called \emph{Hausdorff\/} (also equally
     a~\emph{$T_2$-space\/}) if
     \begin{center} \it
       for any $x \ne y$ from~$X$ there are disjoint $U$ and $V$ with $U\owns x$
@@ -103,7 +103,7 @@ Its relationship to the Hausdorff property is seen from following
   Apply lemmata \ref{lem:S2'+Sfit->T1} and \ref{lem:S2'+T1->T2}.
 \end{proof}
 
-The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
+The $(S_2')$ axiom is often replaced by a~somewhat stronger condition:
 
 \begin{framed}
   \begin{df}[DS-Haus]
@@ -115,6 +115,13 @@ The $S_2'$ axiom is often replaced by a~somewhat stronger condition:
     \]
   \end{df}
 \end{framed}
+
+\begin{prop} \label{prop:DS-Haus->S2'}
+  (DS-Haus) implies $(S_2')$.
+\end{prop}
+\begin{proof}
+  If $a \vee b = 1$ and $a, b \ne 1$ then $a \vee b\not\in \{ a, b \}$.
+\end{proof}
 
 \section{Isbell's approach}
 
@@ -323,6 +330,8 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
 \end{proof}
 
+\phantomsection
+\label{sec:overline S2}
 Now we can prove the theorem.
 In fact, we are going to imply a~stronger version of the (DS-Haus):
 \[

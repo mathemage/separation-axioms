@@ -35,6 +35,7 @@
 \usepackage{amsmath}
 \usepackage{framed}
 \usepackage[titles]{tocloft}
+\usepackage[font=small,labelfont=bf]{caption}
 
 %% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
@@ -90,13 +91,14 @@
 \numberwithin{equation}{section}
 \renewcommand{\theequation}{\arabic{chapter}.\alph{equation}}
 
-\renewcommand{\qedsymbol}{$\boxtimes$}
-%\renewcommand{\qedsymbol}{$\blacksquare$}
+%\renewcommand{\qedsymbol}{$\boxtimes$}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 \def\labelitemi{$\spadesuit$}
 \renewcommand\thechapter{\Roman{chapter}} 
 %\renewcommand\thesection{\arabic{section}}
 %\renewcommand\thesubsection{(\alph{subsection})}
+\renewcommand\thefigure{\Alph{figure}} 
 
 \renewcommand{\labelenumi}{{\rm(\roman{enumi})}}
 
@@ -123,6 +125,7 @@
 \newcommand{\n}{\mathfrak{n}}
 \newcommand{\rb}{\prec}
 \newcommand{\cb}{\prec\mkern-8mu\prec}
+\newcommand{\cov}{<\mkern-12mu\cdot\mkern8mu}
 \newcommand{\embed}{\buildrel\subseteq\over\longrightarrow}
 \renewcommand{\phi}{\varphi}
 
@@ -216,7 +219,16 @@ Prague 2013
 \openright
 
 \noindent
-Dedication.
+I wish to express my deepest gratitude to my advisor, professor Aleš Pultr, for
+his helpful comments, constructive criticism, excellent tutoring, and above
+all, for showing me how ``pointless'' topology can be.
+
+I would also like to thank my loving and caring family, whose support in (not
+only) the most desperate times of my studies will always be appreciated.
+
+Last but not least, I want to pay honour to my patient mentors at~Charles
+University in~Prague, who guided me through the thorny path of~academic life
+and enabled me to truly mature.
 
 \newpage
 
@@ -296,6 +308,16 @@ prof. RNDr. Aleš Pultr, DrSc., Department of Applied Mathematics
 Abstract:
 % abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
 % zadání bakalářské práce
+The classical (point-set) topology concerns points and their neighborhoods.
+If we neglect points and consider only the structure of open sets, we obtain
+a~complete lattice satisfying the distributive law $b \wedge \bigvee A =
+\bigvee \{ b \wedge a \st a\in A \}$.
+Such lattices are called ``frames'' or ``locales'' and they are cornerstones
+of~point-free topology.
+This pointless approach---while losing hardly any information---provides us
+with deeper insights on topology.
+
+%Separation axioms are
 
 Keywords:
 % 3 až 5 klíčových slov v angličtině
@@ -343,6 +365,12 @@ pointless topology, point-free topology, separation axioms, locale, frame
 %%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
 %%% textu práce. Přílohy se číslují.
 %\chapwithtoc{Attachments}
+
+%%% Seznam obrázků
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
 
 \openright
 \end{document}
