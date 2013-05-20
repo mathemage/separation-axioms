@@ -16,8 +16,8 @@ It is defined by
 \]
 or equivalently,
 \[
-  \overline{S} = \{ x \in X \st U \text{ is open and } U\owns x \Rightarrow U
-  \cap S \ne \none \}.
+  \overline{S} = \{ x \st U \text{ is open and } U\owns x \Rightarrow U \cap S
+  \ne \none \}.
 \]
 
 \end{itemize}
@@ -73,8 +73,8 @@ or equivalently,
 
 \begin{fact} \label{lrl=l}
   $lrl = l$.
-  (Following from Fact~\ref{lr-id-rl} and the monotonicity of $l$, we get $l
-   \le lrl$.
+  (Following from Fact~\ref{lr-id-rl} and the monotonicity of $l$ we get $l \le
+   lrl$.
   On~the~other hand, $lr(b) \le b$ with $b := l(a)$ gives us $lrl \le l$.)
 \end{fact}
 
@@ -97,12 +97,12 @@ Then $\D(X)$ is the set of~all down-sets in~$X$ ordered by inclusion.
 
 \item We say that $p \ne 1$ is \emph{prime\/} when
 \[
-  x_1 \wedge x_2 \le p \Rightarrow x_1
+  x_1 \wedge x_2 \le p \; \Longrightarrow x_1 \;
   \le p \text{ or } x_2 \le p,
 \]
 and \emph{semiprime\/} when
 \[
-  x_1 \wedge x_2 = 0 \Rightarrow
+  x_1 \wedge x_2 = 0 \; \Longrightarrow \;
   x_1 \le p \text{ or } x_2 \le p.
 \]
 \end{itemize}
@@ -110,17 +110,18 @@ and \emph{semiprime\/} when
 \begin{lem} \label{lem:primeness-equiv}
   In a~distributive lattice an~element~$p \ne 1$ is prime iff 
   \[
-    x_1 \wedge x_2 = p \Rightarrow p\in \{ x_1, x_2 \}.
+    x_1 \wedge x_2 = p \; \Longrightarrow \; x_1 = p \text{ or } x_2 = p.
   \]
 \end{lem}
 \begin{proof}
   $\Rightarrow$:
   If $x_1 \wedge x_2 = p$ then there is $x_i \le p$ by primeness and since $x_j
-  \ge x_1 \wedge x_2$ for $j\in \{ 1, 2 \}$ then $x_i \ge p$.
+  \ge x_1 \wedge x_2$ for $j\in \{ 1, 2 \}$ then also $x_i \ge p$.
 
   $\Leftarrow$:
   We have $(x_1 \vee p) \wedge (x_2 \vee p) = (x_1 \wedge x_2) \vee p = p$.
-  Hence, for some $i\in \{ 1, 2 \}$ we $x_i \vee p = p$, that is, $x_i \le p$.
+  Hence, for some $i\in \{ 1, 2 \}$ we get $x_i \vee p = p$, that is, $x_i \le
+  p$.
 \end{proof}
 
 \begin{itemize}
@@ -186,8 +187,7 @@ monic\/}.
 \end{itemize}
 
 \begin{fact} \label{fct:onto->epic}
-  In a~concrete category, every morphism onto resp. one-one is epic resp.
-  monic.
+  In a~concrete category every morphism onto resp. one-one is epic resp. monic.
 \end{fact}
 (Else there would be $x$ with $f_1(x) \ne f_2(x)$.
  From surjectivity, the existence of~$z$ such that $e(z) = x$ would lead to
@@ -220,7 +220,7 @@ J} A_j$ to equations
 \[
   \left(\iota_i\colon A_i \to \coprod_{j\in J} A_j \right)_{i\in J}
 \]
-such that every $\left(g_i\colon A_i \to X \right)_{i\in J}$ has a~single
+such that any $\left(g_i\colon A_i \to X \right)_{i\in J}$ has a~single
 solution~$g\colon \coprod_{j\in J} A_j \to X$ to~equations
 \[
   g \cdot \iota_i = g_i \text{ for } i\in J.
@@ -249,10 +249,13 @@ the axioms
 \item The $U\in \tau$ are referred to as \emph{open sets\/} and $(X, \tau)$ as
 a~\emph{topological space\/}.
 
+\item We often abbreviate $(X, \tau)$ to $X$;
+then $\tau$ is usually indicated by~$\Omega(X)$.
+
 \item The complements of open sets are referred to as \emph{closed sets\/}.
 
-\item A~\emph{basis} of a~topology~$\tau$ is the $\mathcal{B}\subseteq \tau$
-such that for every open $U$ we can write $U = \bigcup \{V\in \mathcal{B} \st
+\item A~\emph{basis} of a~topology~$\tau$ is $\mathcal{B}\subseteq \tau$ such
+that for every open $U$ we can write $U = \bigcup \{V\in \mathcal{B} \st
 V\subseteq U \}$.
 
 \item $\mathcal{S}\subseteq \tau$ is a~\emph{subbasis} of a~topology~$\tau$ if
@@ -266,6 +269,16 @@ a~basis of~$\tau$.
   0, 1\rangle$.
 \end{exmpl}
 
+\begin{itemize}
+\item A~function~$f\colon X \to Y$ between topological spaces $X$ and $Y$ is
+\emph{continuous} if 
+\[
+  U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
+\]
+Since the preimage function preserves unions and finite intersections, it
+suffices to require that $f^{-1}[U]$ be open for all \emph{subbasic\/} $U$.
+\end{itemize}
+
 \begin{exmpl}
   The topological space $\left( \prod_{i\in J} X_i, \mathcal{S} \right)$ with
   the subbasis
@@ -278,21 +291,9 @@ a~basis of~$\tau$.
     \left( p_i\colon \left(\prod_{i\in J} X_i, \mathcal{S}\right) \to
     \left(X_i, \tau_i\right) \right)_{i\in J}
   \]
-  constitute the product in~the~category~{\bf Top}.
+  constitute the product in~the~category~{\bf Top} (of~topological spaces and
+  continuous functions).
 \end{exmpl}
-
-\begin{itemize}
-\item We often abbreviate $(X, \tau)$ to $X$;
-then $\tau$ is usually indicated by~$\Omega(X)$.
-
-\item A~function~$f\colon X \to Y$ between topological spaces $X$ and $Y$ is
-\emph{continuous} if 
-\[
-  U\in \Omega(Y) \; \Longrightarrow \; f^{-1}[U]\in \Omega(X).
-\]
-Since the preimage function preserves unions and finite intersections, it
-suffices to require that $f^{-1}[U]$ be open for all \emph{subbasic\/} $U$.
-\end{itemize}
 
 \subsection*{Point-free topology}
 
