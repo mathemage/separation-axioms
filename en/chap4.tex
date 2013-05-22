@@ -26,7 +26,7 @@ The axiom $(T_2')$ is stronger than the axiom of Dowker and Papert-Strauss:
 \end{prop}
 \begin{proof}
   $\Rightarrow$:
-  From $a\not\le b \, \& \,  b\not\le a \Rightarrow a \ne 1$ we infer
+  From $a\not\le b \; \& \;  b\not\le a \Rightarrow a \ne 1$ we infer
   (DS-Haus).
   From $a > b \Rightarrow a \not\le b$ we get $(S_<)$.
 
@@ -105,7 +105,7 @@ and
   We will show the equivalent condition from Lemma~\ref{lem:primeness-equiv}
   on~page~\pageref{lem:primeness-equiv}.
   For a~semiprime $p = x_1 \wedge x_2$ take $b := \bigwedge \{ x \st x > p \}$.
-  Since $p$ is covered, we have $p \ne b$ and thus $p \cov b$.
+  Since $p$ is covered, we have $b \ne p$ and thus $p \cov b$.
   If $p < x_1, p < x_2$ then $b \le x_1, b \le x_2$ and hence $b \le x_1 \wedge
   x_2 = p$, a~contradiction.
   Therefore, $p$ must be $x_1$ or $x_2$.
@@ -136,7 +136,7 @@ and
   Thus, there are $x_1, x_2 \ne p$ with $x_1 \wedge x_2 = p$, which means
   $x_1\not\le x_2$ and $x_1\not\ge x_2$.
   Therefore, $x_1 \vee x_2 \not\in \{ x_1, x_2 \}$, and using weakly Hausdorff
-  property, there exist $u\not\le x_1, v\not\le x_2$ with $u \wedge v = 0$.
+  property there exist $u\not\le x_1, v\not\le x_2$ with $u \wedge v = 0$.
   Hence, $u, v\not\le x_1 \wedge x_2 = p$, contradicting the semiprimeness
   of~$p$.
 
@@ -206,7 +206,7 @@ Subfitness cause $(\overline{S}_2), (S_2'), (\overline{T}_2), (T_2')$ and
   Let $1 \ne a > b$.
   Once more, by (Sfit) we have $c$ with $a \vee c = 1 \ne b \vee c$.
   Because $a \vee (b \vee c) = 1 \not\in \{ a, b \vee c \}$, we can apply
-  $(\overline{S}_2)$ to $a, b \vee c$, thus obtaining $u, v$ such that
+  $(\overline{S}_2)$ to $a$ and $b \vee c$, thus obtaining $u, v$ such that
   $u\not\le a, v\not\le b \vee c$ (implying $v\not\le b$), $v \le a$ and $u
   \wedge v = 0$.
 \end{proof}

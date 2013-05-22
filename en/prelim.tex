@@ -3,6 +3,8 @@
 \section{Notation}
 
 \begin{itemize}
+\item $\N$ resp. $\Q$ is the set of~all natural resp. rational numbers.
+
 \item $2^X$ is the set of~all subsets of a~set~$X$, that is $\{ S \st
 S\subseteq X \}$.
 
@@ -267,6 +269,7 @@ a~basis of~$\tau$.
   $\{ \langle 0, a \langle, \; \rangle a, 1 \rangle \st 0
   < a < 1 \}$ is a~subbasis of~the standard topology of~the interval $\langle
   0, 1\rangle$.
+  This topological space is denoted by~$\I$.
 \end{exmpl}
 
 \begin{itemize}
@@ -329,7 +332,7 @@ The morphisms of {\bf Loc} can be represented as follows:
   preserve finite meets.
   \end{itemize}
 
-\item A \emph{sublocale} of locale $L$ is a $S\subseteq L$ satisfying
+\item A \emph{sublocale} of a~locale $L$ is $S\subseteq L$ satisfying
   \begin{description}
   \item[(S1)] $M\subseteq S \Longrightarrow \bigwedge M\in S$
   \item[(S2)] $x\in L \text{ and } s\in S \Longrightarrow x \rightarrow s \in S$.
@@ -402,7 +405,7 @@ These sublocales are referred to as \emph{closed sublocales\/}.
 \end{prop}
 \begin{proof}
   Firstly, $\check{c} \sqsupseteq h$:
-  we will find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
+  let us find $\gamma\colon \left\uparrow c \right. \to M$ with $\gamma
   \check{c} = h$.
   For every $y\in \left\uparrow c \right.$ take $x\in L$ such that $y =
   x \vee c$ and set $\gamma(y) := h(x)$.
@@ -442,7 +445,7 @@ These sublocales are referred to as \emph{closed sublocales\/}.
 
 With the same notation as above, we get
 \begin{cor} \label{cor:closed-sloc}
-  A sublocale~$h$ is closed iff there exists a~map $\phi\colon M \to
+  A~sublocale~$h$ is closed iff there exists a~map $\phi\colon M \to
   \left\uparrow c \right.$ with $\phi h = \check{c}$.
 \end{cor}
 \begin{proof}

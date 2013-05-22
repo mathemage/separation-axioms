@@ -1,9 +1,9 @@
 \chapter{Weakly and strongly Hausdorff}
 
-In this chapter we will consider two point-free analogies of the $T_2$ axiom:
+In this chapter we will consider two point-free analogies of the $T_2$-axiom:
 a~separation not quite easy to imitate in frames.
 
-\section{The $T_2$ axiom}
+\section{The $T_2$-axiom}
 
 \begin{framed}
   \begin{df}[$T_2$]
@@ -32,7 +32,7 @@ In 1972 Dowker and Strauss \cite{ds72} introduced the following condition:
 
 \begin{framed}
   \begin{df}
-    A locale $L$ satisfies the $S_2'$ axiom if
+    A locale $L$ satisfies the $S_2'$-axiom if
     \[
       (S_2') \qquad
       a, b \ne 1 \text{ and } a \vee b = 1 \quad \Rightarrow \quad \exists
@@ -65,15 +65,15 @@ Its relationship to the Hausdorff property is seen from following
   $(S_2') \& (\text{Sfit}) \, \Rightarrow \, (T_1)$.
 \end{lem}
 \begin{proof}
-  Using Fact~\ref{T1Char} on page~\pageref{T1Char}, we will show that $\{ x \}
-  = \overline{\{ x \}}$.
+  Using Fact~\ref{T1Char} on page~\pageref{T1Char} we will show that $\{ x \} =
+  \overline{\{ x \}}$.
 
   Assume, for the sake of contradiction, that there is $z\in \overline{\{ x \}}
   \setminus \{ x \}$.
   Since we still suppose $(T_0)$, we have $x\not\in \overline{\{ z \}}$.
   Recall Proposition~\ref{Sfit-char} on~page~\pageref{Sfit-char} and consider
   $y\in \overline{\{x\}}$ with $\overline{\{y\}} \subseteq X\setminus
-  \overline{\{ z \}}$, i. e., $\overline{\{ y \}} \cap \overline{\{ z \}} =
+  \overline{\{ z \}}$, that is, $\overline{\{ y \}} \cap \overline{\{ z \}} =
   \none$.
 
   For open $A := X \setminus \overline{\{ y \}}$ and $B := X \setminus
@@ -102,8 +102,8 @@ Its relationship to the Hausdorff property is seen from following
   ~
 
   $\Rightarrow$:
-  By~\ref{T2->T1} and \ref{T1->Sfit} (on page~\pageref{T1->Sfit}), we get the
-  subfitness, and using~\ref{Haus->S2'}, also the axiom $(S_2')$.
+  By~\ref{T2->T1} and \ref{T1->Sfit} (on page~\pageref{T1->Sfit}) we get the
+  subfitness and using~\ref{Haus->S2'} also the axiom $(S_2')$.
 
   $\Leftarrow$:
   Apply lemmata \ref{lem:S2'+Sfit->T1} and \ref{lem:S2'+T1->T2}.
@@ -124,7 +124,7 @@ The $(S_2')$ axiom is often replaced by a~somewhat stronger condition:
 
 \section{Isbell's approach}
 
-Here is a~characterization of~the classical~$T_2$:
+Here is a~characterization of~the classical~$(T_2)$:
 
 \begin{prop}
   A topological space $X$ is Hausdorff space if and only if the~diagonal
@@ -135,19 +135,20 @@ Here is a~characterization of~the classical~$T_2$:
 \begin{proof}
   $\Rightarrow:$ Any element $(x, y)\not\in \Delta$, that means $x \ne y$, is
   separable from $\Delta$:
-  namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with non-intersecting $U$
-  and $V$ from the definition of~$(T_2)$.
+  namely, by~the~open $p_1^{-1}[U] \cap p_2^{-1}[V]$ with disjoint $U$ and $V$
+  from the definition of~$(T_2)$.
   Hence, $(x, y)\not\in \overline{\Delta}$ concludes to $\Delta =
   \overline{\Delta}$, which is closed.
 
-  $\Leftarrow:$ Choose $x \ne y$, in other words, $(x, y)\not\in \Delta$.
-  Then $(x, y)$ has an open basic neighbourhood $U_1\times U_2$ disjoint from
+  $\Leftarrow:$ Choose $x \ne y$.
+  In other words, $(x, y)\not\in \Delta$.
+  Then $(x, y)$ has an open basic neighborhood $U_1\times U_2$ disjoint from
   $\Delta$.
   That is, $U_1 \cap U_2 = \none$.
 \end{proof}
 
-This was used by Isbell \cite{isbell72} for the point-free counterpart of the
-$T_2$ axiom:
+This was used by Isbell \cite{isbell72} for his point-free counterpart of the
+$T_2$-axiom:
 Hausdorff locales are defined as those in which the~codiagonal (see
 page~\pageref{codiag-in-Frm})
 \[
@@ -163,8 +164,8 @@ codiagonal (recall \ref{prop:sloc-closure}) is $\check{d_L} = (U
   = \bigvee \{ U \st U \subseteq \Delta(0) \}
   = \Delta(0).
 \]
-Following from Corollary~\ref{cor:closed-sloc}, the condition proposed by
-Isbell reduces~to
+Following from Corollary~\ref{cor:closed-sloc} the condition proposed by Isbell
+reduces~to
 
 \begin{framed}
   \begin{df}[I-Haus]
@@ -210,13 +211,13 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   for any saturated $U \supseteq d_L$.
 \end{lem}
 \begin{proof}
-  By Lemma~\ref{lem:IHaus->dL}, every saturated $U\in \dL = \Delta[L]$ is an
+  By Lemma~\ref{lem:IHaus->dL} every saturated $U\in \dL = \Delta[L]$ is an
   image $\Delta(a)$ for some $a\in L$.
   Let us write $\delta(U)$ for this $a$.
   In other words, $\Delta\delta(U) = U$.
 
-  The frame codiagonal is an epimorphism and hence---as~we have $\nabla \Delta
-  \nabla = \nabla$ by Fact~\ref{lrl=l} on page~\pageref{lrl=l}---we also get
+  The frame codiagonal is an epimorphism and hence (as~we have $\nabla \Delta
+  \nabla = \nabla$ by Fact~\ref{lrl=l} on page~\pageref{lrl=l}) we also get
   $\nabla \Delta = id$.
 
   Joining these two observations:
@@ -231,7 +232,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   A~locale~$L$ is I-Hausdorff iff one has the~implication
   \begin{equation} \label{eq:meets-in-satur}
     \left( a \wedge b, a \wedge b \right) \in U
-    \; \Rightarrow \;
+    \; \Longrightarrow \;
     \left( a, b \right) \in U
   \end{equation}
   for all saturated $U \supseteq d_L$.
@@ -244,8 +245,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
     a \wedge b \leq \bigvee \left\{ x \st (x, x) \in U \right\} = \nabla(U).
   \]
   Having in mind the formula for $\Delta$, immediately $(a, b) \in \Delta(
-  \nabla(U) ) = U$
-  (the final equality by Lemma~\ref{lem:delta-nabla=id}).
+  \nabla(U) ) = U$ (the equality by Lemma~\ref{lem:delta-nabla=id}).
 
   $\Leftarrow$:
   Let the condition hold and~let $a_i\in L$ for $i\in J$. 
@@ -275,8 +275,8 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
     = \bigvee_{i\in J} \left(\left( a_i \oplus a_i \right) \vee d_L \right)
     = \bigvee_{i\in J} \alpha \left( a_i \right)
   \end{align*}
-  (by~\eqref{eq:IHaus-impl} the second and the third expressions have identical
-  upper bounds).
+  (by~\eqref{eq:IHaus-impl} the second and the third expression have the
+   identical upper bounds in~$L \oplus L$).
   Thus, both $\alpha$ and $\nabla$ preserve joins and~so does $\alpha \nabla$. 
 
   Furthermore, we have
@@ -286,7 +286,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
     = ((a \wedge b) \oplus (a \wedge b)) \vee d_L
     = (a \oplus b) \vee d_L,
   \]
-  the last equality stipulated by assumed implication
+  the last equality stipulated by the assumed implication
   \eqref{eq:meets-in-satur}.
 
   In~conclusion,
@@ -294,7 +294,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
     \alpha \nabla (U)
     &= \alpha \nabla \left(\bigvee \{a \oplus b \st (a, b)\in U\}\right)
     = \bigvee \{\alpha \nabla \left(a \oplus b \right) \st (a, b)\in U\} \\
-    &= \bigvee \{a \oplus b \vee d_L \st (a, b)\in U\}
+    &= \bigvee \{ (a \oplus b) \vee d_L \st (a, b)\in U\}
     = \bigvee \{a \oplus b \st (a, b)\in U\} \vee d_L
     = U \vee d_L,
   \end{flalign*}
@@ -315,7 +315,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   First of all, let us have $(x_i, y)\in U$ for $i\in J$.
 
   \underline{Case $y = 0$}:
-  obviously, $(\bigvee_{i\in J} x_i, y) = (\bigvee_{i\in J} x_i, 0)\in \n$.
+  obviously, $(\bigvee_{i\in J} x_i, y) \in \n$.
 
   \underline{Case $y \ne 0$ and $y \leq a \wedge b$}:
   then it must be that $x_i \leq a$ in~any case.
@@ -324,7 +324,7 @@ to~$\check{d_L}$ (see \ref{lem:embed-adjoint}).
   \underline{Case $y \ne 0$ and $y \not\leq a \wedge b$}:
   we have both $y \leq b$ and $x_i \leq a \wedge b$.
   Hence, again $(\bigvee_{i\in J} x_i, y) \in \left\downarrow(a \wedge b,
-  b)\right. \subseteq U$.
+  b)\right.$.
 
   The $(x, \bigvee_{i\in J} y_i)$ by symmetry.
 \end{proof}
@@ -353,7 +353,7 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
     d_L \cap (a \oplus b) \subseteq U.
   \end{equation}
 
-  Following from~\ref{meets-in-satur}, the saturated $(\left(a \wedge b\right)
+  Following from~\ref{meets-in-satur} the saturated $(\left(a \wedge b\right)
   \oplus \left(a \wedge b\right)) \vee d_L \supseteq d_L$ contains $(a, b)$
   as it trivially contains $\left( a \wedge b, a \wedge b \right)$.
   Hence,
@@ -371,7 +371,7 @@ In fact, we are going to imply a~stronger version of the (DS-Haus):
   the final equality from $(a \wedge b) \oplus (a \wedge b) \subseteq U$.
 
   This leads to the contradiction:
-  $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (by $a \not\leq b,
+  $(a, b)\not\in \n$ since neither $a$ nor $b$ may equal $0$ (as $a \not\leq b,
   \, b \not\leq a$).
   Thus, the only options available are either $a \leq a \wedge b$ or $b \leq a
   \wedge b$.

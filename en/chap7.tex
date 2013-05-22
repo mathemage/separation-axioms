@@ -1,6 +1,6 @@
 \chapter{Normality}
 
-\section{The $T_4$ axiom}
+\section{The $T_4$-axiom}
 
 \begin{framed}
   \begin{df}[$T_4$]
@@ -58,7 +58,7 @@ Because the definition of $(T_4)$ is virtually point-free, we get that
 \end{proof}
 
 Combined with Remark~\ref{cb-largest-interpol} on
-page~\pageref{cb-largest-interpol}\thinspace, we form
+page~\pageref{cb-largest-interpol} we form
 
 \begin{cor}
   (Norm) implies $\rb \, = \, \cb$;
@@ -71,9 +71,8 @@ page~\pageref{cb-largest-interpol}\thinspace, we form
 \end{thm}
 \begin{proof}
   Take $a\in L$ and put $b := \bigvee \{x \st x \rb a\}$.
-  For contradiction, suppose that $a\not\le b$.
-  Using the subfitness, there is $c\in L$ fulfilling $a \vee c = 1 \ne b \vee
-  c$.
+  For the sake of contradiction, suppose that $a\not\le b$.
+  Using the subfitness, there is $c\in L$ with $a \vee c = 1 \ne b \vee c$.
   Applying the normality, we find $u\in L$ with $a \vee u^* = 1 = c \vee u$.
   Particularly, $u \rb a$, which leads to~$u \le b$.
   Finally, $b \vee c \ge u \vee c = 1$; contradicting the subfitness.

@@ -1,14 +1,14 @@
 \chapter{Regularity}
 
-\section{The $T_3$ axiom}
+\section{The $T_3$-axiom}
 
 \begin{framed}
   \begin{df}[$T_3$]
-    A~topological space~$X$ is \emph{regular\/} (or satisfies the~$T_3$
-    \emph{axiom\/}) when
+    A~topological space~$X$ is \emph{regular\/} (or satisfies the
+    \emph{$T_3$-axiom\/}) if
     \begin{center} \it
-      for any $x\in X$ and any closed $A \not\owns x$ there are disjoint open
-      $V_1, V_2$ such that $V_1\owns x$ and $V_2\supseteq A$.
+      for any $x\in X$ and any closed $A$ such that $A \not\owns x$ there are
+      disjoint open $V_1, V_2$ such that $V_1\owns x$ and $V_2\supseteq A$.
     \end{center}
   \end{df}
 \end{framed}
@@ -44,18 +44,18 @@ them.
   Hence, for $V_x := V_1$ one has $\overline{V_x}\subseteq X\setminus V_2\subseteq
   U$.
   Such a~system $\{V_x \st x\in U\}$ constitutes a~subset cover of $U$, and
-  consequently, finishes the proof of~the~inclusion $\subseteq$.
+  consequently, completes the proof of~the~inclusion $\subseteq$.
 
   $\Leftarrow$:
-  With $U := X\setminus A$ take $V_x$ from above and set $V_1 := V_x$ and $V_2
-  := X\setminus \overline{V_x}$.
+  With $U := X\setminus A$ take $V_x$ from above and set $V_1 := V_x, \; V_2 :=
+  X\setminus \overline{V_x}$.
 \end{proof}
 
 Now we will deal with the~closure in the~formula:
 
 \begin{lem} \label{lem:rb-char}
-  $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X)\colon W \cap V =
-  \none \;\; \& \;\; W \cup U = X$.
+  $\overline{V}\subseteq U \quad \equiv \quad \exists W\in \Omega(X), \quad W
+  \cap V = \none \;\; \& \;\; W \cup U = X$.
 \end{lem}
 \begin{proof}
   $\Rightarrow$:
@@ -64,8 +64,9 @@ Now we will deal with the~closure in the~formula:
   $\Leftarrow$:
   Recall closure's definition.
   Suppose $z\in \overline{V}\setminus U$.
-  Since $W \cup U = X$, the $z$ must lie in the $W$.
-  Howbeit, the $W$ does not intersect the $V$---making $z\not\in \overline{V}$.
+  Since $W \cup U = X$, the $z$ must lie in the $W$;
+  yet the $W$ does not intersect the $V$.
+  Thus, $z\not\in \overline{V}$.
 \end{proof}
 
 Without loss of generality, the $W$ may be replaced by~the
@@ -102,7 +103,7 @@ $a^*$ is~the~largest $x$ such that $a \wedge x = 0$.
   $a \rb b \Rightarrow a \leq b$.
 \end{lem}
 \begin{proof}
-  Using~distributivity, we have
+  Using the distributivity we have
   \[
     a = a \wedge 1 = a \wedge (a^* \vee b) = (a \wedge a^*) \vee (a \wedge b) =
     0 \vee (a \wedge b) = a \wedge b. \qedhere
@@ -141,7 +142,7 @@ Thus, we observe that
 \end{lem}
 \begin{proof}
   (i):
-  Recall \ref{oplus-iota} on page~\pageref{oplus-iota}\thinspace.
+  Recall that $a \oplus b = \iota_1(a) \wedge \iota_2(b)$.
   We have
   \begin{align*}
     \left(\bigvee_{i\in J} a_i \right) \oplus b
@@ -151,8 +152,7 @@ Thus, we observe that
     = \bigvee_{i\in J} \left(a_i \oplus b\right)
   \end{align*}
   as frame homomorphisms $\iota_i$ preserve suprema (for the second equality)
-  and as the binary meet commutes with joins in frames (for the third
-  equality).
+  and as we have the frame distributivity (for the third equality).
 
   (ii):
   Analogously by symmetry.
@@ -162,8 +162,7 @@ Thus, we observe that
 \end{proof}
 
 \begin{lem}
-  For a general locale $L$ and any of its saturated $U\in \left\uparrow
-  d_L\right.$
+  For a general locale $L$ and any of its saturated $U \supseteq d_L$ we have
   \[
     (a \wedge b, a \wedge b) \in U \qquad \Longrightarrow \qquad \forall x \rb
     a, \, y \rb b: \; (x, y) \in U
@@ -174,9 +173,9 @@ Thus, we observe that
   \begin{align*}
     x \oplus y &= (x \wedge (y^* \vee b)) \oplus (y \wedge (x^* \vee a)) \\
                &= (\; (x \wedge y^*) \; \vee \; (x \wedge b) \; ) \oplus (\; (y
-    \wedge x^*) \; \vee \; (y \wedge a) \; )
+                  \wedge x^*) \; \vee \; (y \wedge a) \; )
   \end{align*}
-  (using ``rather-belowness'' and distributivity, respectively).
+  (using the ``rather-belowness'' and the distributivity, respectively).
 
   Proceeding with (iii) of Lemma~\ref{oplus-vee-distrib}\thinspace,
   \begin{align*}
@@ -203,7 +202,8 @@ Thus, we observe that
   We will show that regular locales satisfy \eqref{eq:meets-in-satur}\thinspace
   from~\ref{meets-in-satur} (see page~\pageref{meets-in-satur}).
   Let $(a \wedge b, a \wedge b) \in U$.
-  By the previous lemma, we have $(x, y)\in U$ with $x \rb a$ and $y \rb b$.
+  By the previous lemma, we have $(x, y)\in U$ for every $x \rb a$ and $y \rb
+  b$.
   Recall the saturatedness on~page~\pageref{df:satur}\thinspace.
   Since $U$ is saturated,
   \[
@@ -211,7 +211,7 @@ Thus, we observe that
     \Longrightarrow
     \left(\bigvee \{x \st x \rb a\}, y\right)\in U,
   \]
-  or equally, using regularity,
+  or equally, using regularity
   \[
     \left(a, y\right)\in U
   \]
@@ -230,7 +230,7 @@ It is useful to characterize (Reg) by a formula that resembles (Sfit):
 \begin{lem} \label{reg-char}
   A locale is regular iff
   \[
-    a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \quad
+    a \not\le b \qquad \Rightarrow \qquad \exists c, \quad a \vee c = 1 \quad
     \& \quad c^* \not\leq b.
   \]
 \end{lem}
@@ -248,8 +248,8 @@ It is useful to characterize (Reg) by a formula that resembles (Sfit):
   $\Leftarrow$:
   By~\ref{rb->leq} we always have the inequality $\bigvee \{x \st x \rb a\} \le
   a$.
-  Hence, for contradiction let us assume $a \not\le \bigvee \{x \st x \rb a\}$.
-  Then there exists $c$ from the~premise.
+  Hence, for the sake of~contradiction, let us assume $a \not\le \bigvee \{x
+  \st x \rb a\}$. Then there exists $c$ from the~premise.
   Specifically, $1 = a \vee c \le a \vee c^{**}$, which gives us $c^* \rb a$;
   and yet $c^* \not\le \bigvee \{x \st x \rb a\}$.
 \end{proof}
@@ -259,21 +259,21 @@ It is useful to characterize (Reg) by a formula that resembles (Sfit):
 \end{thm}
 \begin{proof}
   Let $a \not\le b$.
-  From Lemma~\ref{reg-char}\thinspace, we get an~element $c$ such that $a \vee
-  c = 1$ and $c^* \not\le b$.
+  From Lemma~\ref{reg-char} we get an~element $c$ such that $a \vee c = 1$ and
+  $c^* \not\le b$.
   What is more, it satisfies $b \vee c \ne 1$.
-  If not so then by~distributivity
+  If not so then by the distributivity
   \[
     b = b \vee 0 = b \vee (c \wedge c^*) = (b \vee c) \wedge (b \vee c^*) = 1
     \wedge (b \vee c^*) = b \vee c^*,
   \]
-  which contradicts $c^* \le b$.
+  which contradicts $c^* \not\le b$.
 \end{proof}
 
 \begin{rem}
   By Theorem~\ref{thm:what-does-sfit-do} on
-  page~\pageref{thm:what-does-sfit-do}, (Reg) implies all Hausdorff type axioms
-  mentioned in Chapter IV.
+  page~\pageref{thm:what-does-sfit-do} the regularity implies all Hausdorff
+  type axioms mentioned in Chapter IV.
 \end{rem}
 
 \begin{prop} \label{prop:sloc-of-reg}
@@ -281,11 +281,11 @@ It is useful to characterize (Reg) by a formula that resembles (Sfit):
 \end{prop}
 \begin{proof}
   Let $h\colon L \to S$ be a~frame homomorphism.
-  By~\ref{lem:rb-char}, we can formulate ``rather-belowness'' as
+  By~\ref{lem:rb-char} we can formulate ``rather-belowness'' as
   \[
     a \rb b 
     \; \equiv \;
-    \exists c, \; a \wedge c = 0 \text{ and } c \vee b = 1,
+    \exists c, \quad a \wedge c = 0 \text{ and } c \vee b = 1.
   \]
   Since $h(a) \wedge h(c) = h(a \wedge c) = 0$ and $h(c) \vee h(b) = h(c \vee
   b) = 1$, we have $a \rb b \Rightarrow h(a) \rb h(b)$.
@@ -296,7 +296,7 @@ It is useful to characterize (Reg) by a formula that resembles (Sfit):
     = \bigvee \{ h(x) \st x \rb a\}
     \le \bigvee \{ y \st y \rb h(a) \}.
   $
-  The other inequality is from~\ref{rb->leq}.
+  The other inequality is seen from~\ref{rb->leq}.
 
   Because a~sublocale homomorphism $h$ is onto, for any $b\in S$ there is $a\in
   L$ such that

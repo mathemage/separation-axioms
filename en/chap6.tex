@@ -1,13 +1,13 @@
 \chapter{Complete regularity}
 
-\section{The $T_{3\frac{1}{2}}$ axiom}
+\section{The $T_{3\frac{1}{2}}$-axiom}
 
 \begin{framed}
   \begin{df}[$T_{3\frac{1}{2}}$]
     A topological space $X$ is said to be \emph{completely regular\/} (or
     equally \emph{$T_{3\frac{1}{2}}$-space\/}) if
     \begin{center} \it
-      for any $x\in X$ and any closed $A$ such that $x\not\in A$ there is a
+      for any $x\in X$ and any closed $A$ such that $A\not\owns x$ there is a
       continuous function $\phi\colon X \to \I$ with $\phi(x) = 0$ and $\phi[A]
       = \{1\}$.
     \end{center}
@@ -22,8 +22,6 @@
 \end{rem}
 
 \section{Completely regular locales}
-
-Again, we introduce
 
 \begin{framed}
   \begin{nota}[$\cb$]
@@ -45,17 +43,16 @@ Again, we introduce
   Clearly, the relation \emph{interpolates\/}.
   On the other hand, for each interpolating subrelation $R\subseteq \, \rb \, $
   and any $a R b$ there are countably many elements lying (densily) between
-  them.\thinspace%
+  them.%
   \footnote{for instance, by~induction on~dyadic fractions}
-  Explicitly, $R\subseteq \cb$, and therefore,
+  Thus, $R\subseteq \cb$, and therefore,
   \begin{center}
-    $\cb$ is \emph{the largest interpolative subrelation of $\rb$\/}.
+    \emph{$\cb$ is the largest interpolative subrelation of $\rb$.\/}
   \end{center}
 \end{rem}
 
 \begin{rem}
-  By~\ref{rb->leq} on page~\pageref{rb->leq}\thinspace, $a \cb b$
-  implies $a \le b$.
+  By~\ref{rb->leq} on page~\pageref{rb->leq} $a \cb b$ implies $a \le b$.
 \end{rem}
 
 \begin{lem} \label{cb->continuous}
@@ -72,25 +69,26 @@ Again, we introduce
   \[
     x\in f^{-1}[\langle 0, s \langle] \; \equiv \;
     f(x) < s \; \equiv \;
-    \exists r < s, \, A_r \owns x \; \equiv \;
+    \exists r < s, \; A_r \owns x \; \equiv \;
     x\in \bigcup \{ A_r \st r < s \},
   \]
-  the second equivalence from infimum property in~linearly ordered sets.
-  Secondly,
+  the second equivalence from a~standard infimum property in~linearly ordered
+  sets. Secondly,
   \begin{align*}
     x\in f^{-1}[\rangle s, 1 \rangle] \; &\equiv \;
     f(x) > s \\
     &\equiv \; \exists r, r' \in \,\rangle s, f(x) \langle\,, \quad  r' > r
     \;\text{ and }\; x\not\in A_{r'} \;\text{ and }\; x\not\in \overline{A_r}
     \; \\
-    &\equiv \; x\not\in \bigcap \left\{ \overline{A_r} \st r > s \right\} \\
-    &\equiv \; x\in \I\setminus \bigcap \left\{ \overline{A_r} \st r > s
+    &\equiv \; x\not\in \bigcap \left\{ \overline{A_r} \st r > s \right\}
+    \equiv \; x\in \I\setminus \bigcap \left\{ \overline{A_r} \st r > s
     \right\},
   \end{align*}
-  the latter equivalence by density of~rational numbers, $A_r \rb A_{r'}$ (or
-  equivalently $\overline{A_r}\subseteq A_{r'}$) and the infimum property.
+  the latter equivalence by the density of~rational numbers, the fact that
+  infimum is an~upper-bound and $A_r \rb A_{r'}$ (or equivalently
+  $\overline{A_r}\subseteq A_{r'}$).
 
-  To sum up: preimages
+  To sum up, preimages
   \begin{align*}
     f^{-1}[\langle 0, s \langle] &= \bigcup \{ A_r \st r < s \}, \\
     f^{-1}[\rangle s, 1 \rangle] &= \I\setminus \bigcap \left\{ \overline{A_r} \st r > s \right\}
@@ -102,18 +100,19 @@ Again, we introduce
 \begin{prop} \label{T3,5-char}
   A topological space $X$ is completely regular iff
   \[
-    \forall U\in \Omega(X): \quad U = \bigcup\{V\in \Omega(X) \st V \cb U\}
+    \forall U\in \Omega(X)\colon \quad U = \bigcup\{V\in \Omega(X) \st V \cb
+    U\}
   \]
 \end{prop}
 \begin{proof}
   $\Rightarrow$:
   We will show the inclusion $\subseteq$. 
-  Choose arbitrary $x\in U$.
+  Choose an~arbitrary $x\in U$.
   Take continuous $\phi$ separating $x$ from closed $A := X\setminus U$ and set
   \[
   V_r =
   \begin{cases}
-    \phi^{-1}[\langle 0, \frac{a+1}{2} \langle] &\mbox{iff } r\in \langle 0, 1
+    \phi^{-1}[\langle 0, \frac{r+1}{2} \langle] &\mbox{iff } r\in \langle 0, 1
     \langle \, \cap \, \Q  \\
     U                                   &\mbox{iff } r = 1.
   \end{cases}
@@ -130,7 +129,7 @@ Again, we introduce
   \]
   (the second inclusion since intervals $\left\langle 0, r \right\rangle$ are
   closed in $\I$).
-
+  Further, $x\in V_0$ since $\phi(x) = 0$.
   Such sets $V_0$ (for every $x\in U$) cover all of the $U$; hence, the
   inclusion $\subseteq$ holds.
 

@@ -1,11 +1,11 @@
 \chapter{Subfitness}
 
-\section{The $T_1$ axiom}
+\section{The $T_1$-axiom}
 
 \begin{framed}
   \begin{df}[$T_1$]
     A topological space $(X, \tau)$ is said to be a \emph{$T_1$-space\/} (or to
-    satisfy the \emph{$T_1$ axiom\/}) if the following holds:
+    satisfy the \emph{$T_1$-axiom\/}) if the following holds:
     \begin{center} \it
       for any $x \ne y$ from $X$ there exists an open set $U\in \tau$ such that
       $x\in U \not\owns y$.
@@ -30,8 +30,8 @@ The following is a standard and useful characterization of this property.
 (Of course:
 if $y\not\in \left\{x\right\}$, we obtain an open $U$ such that $y\in
 U\not\owns x$ and thus $y\not\in \overline{\left\{x\right\}}$.
-Conversely, with open $U:= X\setminus \left\{y\right\}$ we can easily check the
-$T_1$.)
+Conversely, with open $U:= X\setminus \left\{y\right\}$ we can easily check
+$(T_1)$.)
 
 \begin{cor}
   A space is $T_1$ iff every of its finite subsets is closed.
@@ -49,7 +49,7 @@ subfitness\/}.
   \begin{df}[Sfit]
     A locale $L$ is said to be \emph{subfit\/} if
     \[
-      a \not\le b \qquad \Rightarrow \qquad \exists c: \quad a \vee c = 1 \ne b
+      a \not\le b \qquad \Rightarrow \qquad \exists c, \quad a \vee c = 1 \ne b
       \vee c.
     \]
   \end{df}
@@ -62,8 +62,7 @@ subfitness\/}.
 \begin{proof}
   For each $T_1$-space $X$ the corresponding locale $\Omega(X)$ is subfit.
   Indeed: for open $A\not\subseteq B$ there exists an $x\in A \setminus B$.
-  By Fact~\ref{T1Char}\thinspace, we have an open $X\setminus
-  \left\{x\right\}$.
+  By Fact~\ref{T1Char} we have an open $X\setminus \left\{x\right\}$.
   Since $x\in A$ and $x\not\in B$, we conclude with $A\cup (X\setminus
   \left\{x\right\}) = X \ne B \cup (X\setminus \left\{x\right\})$.
 \end{proof}
@@ -79,10 +78,9 @@ The subfit topological spaces are characterized by
 \end{prop}
 \begin{proof}
   $\Rightarrow$:
-  Choose $x \in U$.
-  Thus, we have $U\not\subseteq X\setminus \overline{\{x\}}$, and by
-  subfitness, an~open $V$ with both $U \cup V = X$ and $(X\setminus
-  \overline{\{x\}}) \cup V \ne X$.
+  Choose an~$x \in U$.
+  Thus, we have $U\not\subseteq X\setminus \overline{\{x\}}$ and by subfitness
+  an~open $V$ with $U \cup V = X \ne (X\setminus \overline{\{x\}}) \cup V$.
   Then there exists an~element $y\not\in V$ with $y\not\in X\setminus
   \overline{\{x\}}$, in other words, $y\in \overline{\{x\}}$.
   Furthermore, $V \cap \overline{\{y\}} = \none$ (for $z \in V \not\owns y$
@@ -91,12 +89,12 @@ The subfit topological spaces are characterized by
 
   $\Leftarrow$:
   Suppose $U\not\subseteq V$ and take $x\in U\setminus V$.
-  For similar reason as above, $V \cap \overline{\{x\}} = \none$.
+  For the similar reason as above $V \cap \overline{\{x\}} = \none$.
   Let us have $y$ from the premise:
   $y \in \overline{\{x\}}$ implies  $y\not\in V$, thus, leading to $(X\setminus
   \overline{\{y\}}) \cup V \ne X$;
-  and since $\overline{\{y\}} \subseteq U$, also $(X\setminus \overline{\{y\}})
-  \cup U = X$.
+  and since $\overline{\{y\}} \subseteq U$ then also $(X\setminus
+  \overline{\{y\}}) \cup U = X$.
 \end{proof}
 
 Here is an example of a subfit non-$T_1$-space:
@@ -116,6 +114,6 @@ Here is an example of a subfit non-$T_1$-space:
   the empty set trivially;
   since a finite $\{x\}$ for $x\in \N$ is closed itself, we are allowed to
   put $y := x$;
-  and if $x = \infty$ then $\overline{\{ \infty \}} = X$, hence we can choose,
-  for instance, $y := 42$.
+  and if $x = \infty$ then $\overline{\{ \infty \}} = X$, hence we can choose
+  any $y \ne \infty$ from $U$.
 \end{exmpl}
