@@ -1,0 +1,117 @@
+%%% Hlavní soubor. Zde se definují základní parametry a odkazuje se na ostatní části. %%%
+
+%% Verze pro jednostranný tisk:
+% Okraje: levý 40mm, pravý 25mm, horní a dolní 25mm
+% (ale pozor, LaTeX si sám přidává 1in)
+\documentclass[12pt,a4paper]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+% \openright zařídí, aby následující text začínal na pravé straně knihy
+\let\openright=\clearpage
+
+%% Pokud tiskneme oboustranně:
+% \documentclass[12pt,a4paper,twoside,openright]{report}
+% \setlength\textwidth{145mm}
+% \setlength\textheight{247mm}
+% \setlength\oddsidemargin{15mm}
+% \setlength\evensidemargin{0mm}
+% \setlength\topmargin{0mm}
+% \setlength\headsep{0mm}
+% \setlength\headheight{0mm}
+% \let\openright=\cleardoublepage
+
+%% Použité kódování znaků: obvykle latin2, cp1250 nebo utf8:
+\usepackage[utf8]{inputenc}
+
+%% Ostatní balíčky
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{framed}
+\usepackage[font=small,labelfont=bf]{caption}
+
+%% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
+%% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
+%% POZOR, nezapomeňte vyplnit jméno práce a autora.
+\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
+\hypersetup{pdftitle=Separation axioms}
+\hypersetup{pdfauthor=Karel Ha}
+
+%%% Drobné úpravy stylu
+
+% Tato makra přesvědčují mírně ošklivým trikem LaTeX, aby hlavičky kapitol
+% sázel příčetněji a nevynechával nad nimi spoustu místa. Směle ignorujte.
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\makeatother
+
+% Toto makro definuje kapitolu, která není očíslovaná, ale je uvedena v obsahu.
+\def\chapwithtoc#1{
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\st}{\mid}
+
+\hyphenation{approach}
+\hyphenation{ca-te-go-ry}
+\hyphenation{con-ti-nuous}
+\hyphenation{de-fi-ning}
+\hyphenation{equi-va-len-ce}
+\hyphenation{equi-va-len-ces}
+\hyphenation{ge-ne-ra-ted}
+\hyphenation{pro-duct}
+\hyphenation{pro-ducts}
+\hyphenation{se-cond-ly}
+\hyphenation{se-pa-ra-tion}
+\hyphenation{strong-ly}
+\hyphenation{sub-lo-ca-le}
+\hyphenation{to-po-lo-gy}
+\hyphenation{weak-ly}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Trochu volnější nastavení dělení slov, než je default.
+\lefthyphenmin=2
+\righthyphenmin=2
+
+% abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
+% zadání bakalářské práce
+The classical (point-set) topology concerns points and relationships between
+points and subsets.
+Omitting points and considering only the structure of~open sets leads to~the
+notion of~\emph{frames\/}, that is, a~complete lattice satisfying the
+distributive law $b \wedge \bigvee A = \bigvee \{ b \wedge a \st a\in A \}$,
+the crucial concept of~point-free topology.
+
+This pointless approach---while losing hardly any information---provides us
+with deeper insights on topology.
+One such example is the study of~separation axioms.
+This thesis focuses on~the $T_i$-axioms (for $i = 0, 1, 2, 3, 3\frac{1}{2},
+4$):
+properties of~topological spaces which regard the separation of~points, points
+from closed sets, and closed sets from one another.
+In~this text we discuss their point-free counterparts and how they
+relate to~each other.
+
+\openright
+\end{document}
