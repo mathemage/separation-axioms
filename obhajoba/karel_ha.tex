@@ -15,7 +15,7 @@
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
 
-\documentclass{beamer}
+\documentclass[mathserif]{beamer}
 
 %% Použité kódování znaků: obvykle latin2, cp1250 nebo utf8:
 \usepackage[utf8]{inputenc}
@@ -79,9 +79,13 @@
 %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
 
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
 \setbeamercolor{section in sidebar}{fg=yellow}
 \setbeamercolor{subsection in sidebar}{fg=yellow}
 \setbeamercolor{author in sidebar}{fg=green}
+\setbeamercolor{block body}{bg=normal text.bg!90!black}
+\setbeamercolor{block title}{bg=black,fg=white}
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -116,10 +120,10 @@ Univerzita Karlova v Praze \\ % Your institution for the title page
 \titlepage % Print the title page as the first slide
 \end{frame}
 
-\begin{frame}
-\frametitle{Přehled} % Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-\end{frame}
+%\begin{frame}
+%\frametitle{Přehled} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
@@ -132,6 +136,19 @@ Univerzita Karlova v Praze \\ % Your institution for the title page
 \subsection{Klasický případ}
 
 \begin{frame}
+\frametitle{Klasický případ v bodové topologii}
+\begin{block}{Vztahy oddělovacích axiomů v~bodové topologii}
+  \begin{align*}
+    (T_4) \& (T_1)
+    &\; \Longrightarrow \; (T_{3\frac{1}{2}}) \& (T_1)
+    \; \Longrightarrow \; (T_3) \& (T_1)
+    \; \Longrightarrow \; \\
+    &\; \Longrightarrow \; (T_2)
+    \; \Longrightarrow \; (T_1)
+    \; \Longrightarrow \; (T_0)
+  \end{align*}
+  (Přídání axiomu $(T_1)$ nezbytné.)
+\end{block}
 \end{frame}
 
 %------------------------------------------------
