@@ -85,7 +85,9 @@
 \setbeamercolor{subsection in sidebar}{fg=yellow}
 \setbeamercolor{author in sidebar}{fg=green}
 \setbeamercolor{block body}{bg=normal text.bg!90!black}
-\setbeamercolor{block title}{bg=black,fg=white}
+\setbeamercolor{block title}{bg=blue,fg=white}
+\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+\setbeamercolor{block title example}{bg=black,fg=white}
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -136,19 +138,57 @@ Univerzita Karlova v Praze \\ % Your institution for the title page
 \subsection{Klasický případ}
 
 \begin{frame}
-\frametitle{Klasický případ v bodové topologii}
-\begin{block}{Vztahy oddělovacích axiomů v~bodové topologii}
-  \begin{align*}
-    (T_4) \& (T_1)
-    &\; \Longrightarrow \; (T_{3\frac{1}{2}}) \& (T_1)
+\frametitle{Klasický případ}
+\framesubtitle{v bodové topologii}
+\pause
+
+{\color{blue}{Oddělovací axiomy} $T_i$} (pro $i = 0, 1, 2, 3, 3\frac{1}{2}, 4$)
+se týkají oddělování
+\pause
+
+\begin{itemize}[<+->]
+  \item bodů od jiných bodů
+  \item bodů od uzavřených množin
+  \item uzavřených množin od jiných uzavřených množin
+\end{itemize}
+
+\uncover<6->{
+  \begin{block}{Vztahy v~klasické topologii}
+    \begin{align*}
+      (T_4) \& (T_1)
+             &\; \Longrightarrow \; (T_{3\frac{1}{2}}) \& (T_1)
     \; \Longrightarrow \; (T_3) \& (T_1)
-    \; \Longrightarrow \; \\
-    &\; \Longrightarrow \; (T_2)
-    \; \Longrightarrow \; (T_1)
-    \; \Longrightarrow \; (T_0)
-  \end{align*}
-  (Přídání axiomu $(T_1)$ nezbytné.)
+      \; \Longrightarrow \; \\
+      &\; \Longrightarrow \; (T_2)
+      \; \Longrightarrow \; (T_1)
+      \; \Longrightarrow \; (T_0)
+    \end{align*}
+    \pause
+    \alert{Přídání axiomu $(T_1)$ u~třetí implikace je nezbytné!}
+  \end{block}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Definice ``frame''}
+
+\begin{frame}
+\frametitle{Co je to ``frame''?}
+\pause
+\begin{block}{Definice}
+  {\color{blue}Frame} je úplný svaz $L$ splňující
+  \begin{equation} \tag{Frm}
+    a \wedge \bigvee B
+    = \bigvee \left\{ a \wedge b \mid b \in B \right\}
+  \end{equation}
+  pro $a \in L$ a $B \subseteq L$.
 \end{block}
+\pause
+
+\begin{exampleblock}{Příklad}
+  Svaz otevřených množin dané topologie tvoří frame.
+\end{exampleblock}
 \end{frame}
 
 %------------------------------------------------
