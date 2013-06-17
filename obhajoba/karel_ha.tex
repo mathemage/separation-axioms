@@ -88,6 +88,8 @@
 \setbeamercolor{block title}{bg=blue,fg=white}
 \setbeamercolor{block body example}{bg=normal text.bg!90!black}
 \setbeamercolor{block title example}{bg=black,fg=white}
+\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+\setbeamercolor{block title alerted}{bg=red,fg=white}
 
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -143,7 +145,7 @@ Univerzita Karlova v Praze \\ % Your institution for the title page
 \pause
 
 {\color{blue}{Oddělovací axiomy} $T_i$} (pro $i = 0, 1, 2, 3, 3\frac{1}{2}, 4$)
-se týkají oddělování
+se týkají oddělování:
 \pause
 
 \begin{itemize}[<+->]
@@ -175,13 +177,15 @@ se týkají oddělování
 
 \begin{frame}
 \frametitle{Co je to ``frame''?}
+Bezbodový přístup nepracuje s~body, ale jen s~\alert{otevřenými množinami}.
 \pause
+
 \begin{block}{Definice}
   {\color{blue}Frame} je úplný svaz $L$ splňující
-  \begin{equation} \tag{Frm}
+  \begin{equation*}% \tag{Frm}
     a \wedge \bigvee B
     = \bigvee \left\{ a \wedge b \mid b \in B \right\}
-  \end{equation}
+  \end{equation*}
   pro $a \in L$ a $B \subseteq L$.
 \end{block}
 \pause
@@ -195,13 +199,25 @@ se týkají oddělování
 \section{Axiomy oddělování}
 %------------------------------------------------
 
-\subsection{Axiom $T_0$} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+\subsection{$T_0$} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+\frametitle{Axiom $T_0$}
 
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+\begin{block}{Definice $(T_0)$}
+  Pro každá $x \ne y$ existuje otevřená množina $U$ taková, že $x \in U
+  \not\owns y$ nebo $x \not\in U \ni y$.
+\end{block}
+
+\begin{center}
+  \includegraphics[height=3.3cm]{img/t0.pdf}
+\end{center}
+\pause
+
+Předpokládejme, že je \alert{vždy splňen}.
+
+(Ztotožnění bodů nerozlišitelných otevřenými množinami.)
+
 \end{frame}
 
 %------------------------------------------------
@@ -209,19 +225,75 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 \subsection{Subfitness}
 
 \begin{frame}
-\frametitle{Bullet Points}
-\begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-\end{itemize}
+\frametitle{Subfitness}
+
+\begin{block}{Definice $(T_1)$}
+  Pro každá $x \ne y$ existuje otevřená množina $U_x$ taková, že $x \in U_x
+  \not\owns y$.
+\end{block}
+
+\begin{center}
+  \includegraphics[width=.4\textwidth]{img/t1.pdf}
+\end{center}
+\pause
+
+\begin{block}{Definice \textit{(Sfit)}}
+  \[
+    a \not\le b \qquad \Rightarrow \qquad \exists c, \quad a \vee c = 1 \ne b
+    \vee c
+  \]
+\end{block}
+\pause
+
+Lze ukázat, že \alert{$(T_1) \Rightarrow \textit{(Sfit)}$}.
 \end{frame}
 
 %------------------------------------------------
 
 \subsection{Hausdorffova vlastnost}
+
+\begin{frame}
+\frametitle{Hausdorffův axiom}
+
+\begin{block}{Definice $(T_2)$}
+  Pro každá $x \ne y$ existují \alert{disjunktní} otevřené množiny $U, V$
+  takové, že $x \in U, y \in V$.
+\end{block}
+
+\begin{center}
+  \includegraphics[width=.4\textwidth]{img/t2.pdf}
+\end{center}
+\pause
+
+V bezbodové topologii několik alternativ...
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Axiomy Hausdorffova typu}
+
+\begin{block}{Definice \textit{(DS-Haus)}}
+  \begin{center}
+    $a \not\le b, a \not\ge b \qquad \Rightarrow \qquad \exists u\not\leq a,
+    v\not\leq b, \quad u \wedge v = 0$
+  \end{center}
+\end{block}
+\pause
+
+\newcommand{\dL}{\, \uparrow \Delta(0)}
+\begin{block}{Definice \textit{(I-Haus)}}
+  Existuje zobrazení $\alpha\colon L \to \dL$ takové, že
+  \[
+    \alpha \nabla = (U \mapsto U \vee \Delta(0))
+  \]
+\end{block}
+($\Delta, \nabla$ detailněji v bakalářské práci.)
+\pause
+
+\end{frame}
+
+%------------------------------------------------
 
 \subsection{Regularita}
 
