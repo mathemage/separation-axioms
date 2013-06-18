@@ -94,6 +94,10 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
+\newtheorem{thm}{Věta}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Tvrzení}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -177,7 +181,7 @@ se týkají oddělování:
 
 \begin{frame}
 \frametitle{Co je to ``frame''?}
-Bezbodový přístup nepracuje s~body, ale jen s~\alert{otevřenými množinami}.
+Bezbodový přístup: místo~bodů pouze \alert{otevřené množiny}
 \pause
 
 \begin{block}{Definice}
@@ -245,7 +249,7 @@ Předpokládejme, že je \alert{vždy splňen}.
 \end{block}
 \pause
 
-Lze ukázat, že \alert{$(T_1) \Rightarrow \textit{(Sfit)}$}.
+Slabší vlastnost: \alert{$(T_1) \Rightarrow \textit{(Sfit)}$.}
 \end{frame}
 
 %------------------------------------------------
@@ -265,7 +269,7 @@ Lze ukázat, že \alert{$(T_1) \Rightarrow \textit{(Sfit)}$}.
 \end{center}
 \pause
 
-V bezbodové topologii několik alternativ...
+V bezbodové topologii je několik alternativ...
 \end{frame}
 
 %------------------------------------------------
@@ -273,6 +277,8 @@ V bezbodové topologii několik alternativ...
 \begin{frame}
 \frametitle{Axiomy Hausdorffova typu}
 
+Dowker-Straussův přístup:
+\pause
 \begin{block}{Definice \textit{(DS-Haus)}}
   \begin{center}
     $a \not\le b, a \not\ge b \qquad \Rightarrow \qquad \exists u\not\leq a,
@@ -281,6 +287,8 @@ V bezbodové topologii několik alternativ...
 \end{block}
 \pause
 
+Isbellův přístup:
+\pause
 \newcommand{\dL}{\, \uparrow \Delta(0)}
 \begin{block}{Definice \textit{(I-Haus)}}
   Existuje zobrazení $\alpha\colon L \to \dL$ takové, že
@@ -288,32 +296,75 @@ V bezbodové topologii několik alternativ...
     \alpha \nabla = (U \mapsto U \vee \Delta(0))
   \]
 \end{block}
-($\Delta, \nabla$ detailněji v bakalářské práci.)
+Zobrazení $\Delta, \nabla$ blíže popsány v bakalářské práci.
 \pause
+
+\medskip
+
+Platí \alert{$\textit{(I-Haus)} \Rightarrow \textit{(DS-Haus)}$.}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Další varianty}
+\pause
+
+\begin{figure}
+  \includegraphics[height=.8\textheight]{img/Hausdorff_diagram.pdf}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{(Úplná) regularita}
+
+\begin{frame}
+\frametitle{Regularita}
+
+\begin{block}{Definice $(T_3)$}
+  Pro každé $x$ a každou uzavřenou $A \not\owns x$ existují disjunktní otevřené
+  množiny $V_1, V_2$ takové, že $x \in V_1, A \subseteq V_2$.
+\end{block}
+
+\begin{figure}
+  \includegraphics[width=.5\linewidth]{img/t3.pdf}
+\end{figure}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Úplná regularita}
+
+\newcommand{\I}{\mathbb{I}}
+\renewcommand{\phi}{\varphi}
+\begin{block}{Definice $(T_{3\frac{1}{2}})$}
+  Pro každé $x$ a každou uzavřenou $A \not\owns x$ existuje spojitá funkce 
+  $\phi\colon X \to \I$ taková, že
+  \begin{enumerate}
+    \item $\phi(x) = 0$
+    \item $\phi[A] = \{1\}$
+  \end{enumerate}
+\end{block}
 
 \end{frame}
 
 %------------------------------------------------
 
-\subsection{Regularita}
-
-\subsection{Úplná regularita}
-
 \subsection{Normalita}
 
 \begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+\frametitle{Normalita}
+\begin{block}{Definice $(T_4)$}
+  Pro každé dvě disjunktní uzavřené $A, B$ existují disjunktní otevřené množiny
+  $V_1, V_2$ takové, že $A \subseteq V_1, B \subseteq V_2$.
 \end{block}
 
-\begin{block}{Block 2}
-Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
-\end{block}
+\begin{figure}
+  \includegraphics[width=.5\linewidth]{img/t4.pdf}
+\end{figure}
 
-\begin{block}{Block 3}
-Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
-\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -415,7 +466,9 @@ This statement requires citation \cite{p1}.
 %------------------------------------------------
 
 \begin{frame}
-\Huge{\centerline{Děkuji za pozornost!}}
+\Huge{\centerline{Děkuji}}
+\Huge{\centerline{za}}
+\Huge{\centerline{pozornost!}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
