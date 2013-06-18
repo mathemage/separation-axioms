@@ -98,6 +98,13 @@
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Tvrzení}
 
+\newcommand{\dL}{\, \uparrow \Delta(0)}
+\newcommand{\rb}{\prec}
+\newcommand{\st}{\mid}
+\newcommand{\I}{\mathbb{I}}
+\renewcommand{\phi}{\varphi}
+\newcommand{\cb}{\prec\mkern-8mu\prec}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -201,7 +208,7 @@ Bezbodový přístup: místo~bodů pouze \alert{otevřené množiny}
 \pause
 
 \begin{exampleblock}{Příklad}
-  Svaz otevřených množin dané topologie tvoří frame.
+  Svaz otevřených množin $\Omega(X)$ topologického prostoru $X$ tvoří frame.
 \end{exampleblock}
 \end{frame}
 
@@ -295,7 +302,6 @@ Dowker-Straussův přístup:
 
 Isbellův přístup:
 \pause
-\newcommand{\dL}{\, \uparrow \Delta(0)}
 \begin{block}{Definice \textit{(I-Haus)}}
   Existuje zobrazení $\alpha\colon L \to \dL$ takové, že
   \[
@@ -336,6 +342,33 @@ Platí \alert{$\textit{(I-Haus)} \Rightarrow \textit{(DS-Haus)}$.}
 \begin{figure}
   \includegraphics[width=.5\linewidth]{img/t3.pdf}
 \end{figure}
+\pause
+
+Pozorování:
+\[
+  (T_3) \Longleftrightarrow \forall U\in \Omega(X)\colon U = \bigcup \{V\in
+  \Omega(X) \st \overline{V} \subseteq U\}
+\]
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Regularita}
+
+Značení \alert{$V \rb U$} pro $\overline{V} \subseteq U$
+\pause
+(lze popsat bezbodově)
+
+\pause
+
+\begin{block}{Definice \textit{(Reg)}}
+  Frame $L$ je \alert{regulární}, pokud
+  \[
+    a = \bigvee \{x \in L \st x \rb a\}
+  \]
+  pro $a\in L$.
+\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -343,17 +376,23 @@ Platí \alert{$\textit{(I-Haus)} \Rightarrow \textit{(DS-Haus)}$.}
 \begin{frame}
 \frametitle{Úplná regularita}
 
-\newcommand{\I}{\mathbb{I}}
-\renewcommand{\phi}{\varphi}
 \begin{block}{Definice $(T_{3\frac{1}{2}})$}
-  Pro každé $x$ a každou uzavřenou $A \not\owns x$ existuje spojitá funkce 
+  Pro každé $x$ a každou uzavřenou $A \not\owns x$ existuje spojitá funkce
   $\phi\colon X \to \I$ taková, že
   \begin{enumerate}
     \item $\phi(x) = 0$
     \item $\phi[A] = \{1\}$
   \end{enumerate}
 \end{block}
+\pause
 
+\begin{block}{Definice \textit{(CReg)}}
+  Frame $L$ je \alert{úplně regulární}, pokud
+  \[
+    a = \bigvee \{x \in L \st x \cb a\}
+  \]
+  pro $a\in L$.
+\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -370,7 +409,17 @@ Platí \alert{$\textit{(I-Haus)} \Rightarrow \textit{(DS-Haus)}$.}
 \begin{figure}
   \includegraphics[width=.5\linewidth]{img/t4.pdf}
 \end{figure}
+\pause
 
+Přímočarý překlad$\ldots$
+\pause
+\begin{block}{Definice \textit{(Norm)}}
+  \vspace{-1.2em}
+  \[
+    a \vee b = 1 \qquad \Rightarrow \qquad \exists u, v\colon \;\; u \wedge v
+    = 0 \quad \& \quad a \vee u = 1 = b \vee v
+  \]
+\end{block}
 \end{frame}
 
 %------------------------------------------------
@@ -491,7 +540,7 @@ Platí \alert{$\textit{(I-Haus)} \Rightarrow \textit{(DS-Haus)}$.}
   \end{align*}
 \end{block}
 
-\onslide<8->{ \alert{Subfitness v roli $(T_1)$} }
+\onslide<8->{ \alert{Subfitness v podobné roli jako $(T_1)$} }
 \end{frame}
 
 %------------------------------------------------
